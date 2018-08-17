@@ -1,0 +1,34 @@
+{
+  "name": "librarybooksapp",
+  "version": "1.0.0",
+  "description": "Parses and presents book data",
+  "main": "models.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jkathan/Bookshelf-app.git"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "book",
+    "school",
+    "class"
+  ],
+  "author": "jkathan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jkathan/Bookshelf-app/issues"
+  },
+  "homepage": "https://github.com/jkathan/Bookshelf-app#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongodb": "^2.2.16"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}
