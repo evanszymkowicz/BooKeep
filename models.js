@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-const bookLibrarySchema = mongoose.schema({
+const bookLibrarySchema = mongoose.Schema({
 	title: {type: String, required: true},
 	author: {type: String, required: true},
 	readingLevel: {type: String, required: true},
