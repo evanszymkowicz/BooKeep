@@ -188,7 +188,7 @@ app.delete('/delete/:id', (req, res) => {
 });
 
 //jwt auth and passwrod
-app.use(function (req, res, next) {
+/*app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
@@ -218,7 +218,7 @@ app.use('*', function (req, res) {
 });
 
 
-let server;
+let server;*/
 
 
 
@@ -255,6 +255,10 @@ function closeServer() {
     });
   });
 }
+
+
+app.listen(process.env.PORT || 8080, () => console.log(
+  `Your app is listening on port ${process.env.PORT || 8080}`));
 
 // if server.js is called directly (aka, with `node server.js`), this block
 // runs. but we also export the runServer command so other code (for instance, test code) can start the server as needed.

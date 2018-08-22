@@ -64,17 +64,17 @@ function booksByGenre(searchTerm) {
 
 //returns books by reading level
 function booksByReadingLevel(searchTerm) { 
-    url = 'https://blooming-tor-75571.herokuapp.com/getbooks/byreadinglevel';
+    url = 'https://blooming-tor-75571.herokuapp.com/getbooks/byreadinglevel?readingLevel=' + //search entry;
     const params = {
         'method': 'GET',
 
     };
     console.log(params),
 
-    $.getJSON(url, params, function (response) {
-         const results = //response.photos.photo.map((item, response) => buildThumbnailUrl(item));
-         //$('#flickrResults').html(results)
-         //console.log
+    $.getJSON(url, function (response) {
+         const results = response.books((item, response) => buildThumbnailUrl(item));
+         $('#flickrResults').html(results)
+         console.log
          });
 }
 
