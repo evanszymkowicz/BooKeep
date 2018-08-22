@@ -29,4 +29,3 @@ const LibraryBooks = mongoose.model('LibraryBooks', bookLibrarySchema);
 
 module.exports = {LibraryBooks};
 
-{author: Joey Kathan, }
