@@ -3,7 +3,15 @@
 //with jwt do i need to update my "/" paths
 //i guess i dont understand what to do now. like do i write the js ans call this as if it were an api?
 //do i want to call based on all checked in books
+//how do i allow for a range within api returns? For instance a book has a range of reading levels
+//what is system for adding and deleting and updating? like how do i have it ensure that?
 
+
+//things id like to get done during mentor session:
+//learn how to make an api call to this
+//get my code up and running/make an api call
+//make a list of all the things i need to test
+//discuss how best to set up the html
 
 'use strict';
 
@@ -26,7 +34,7 @@ const app = express();
 app.use(morgan('common'));
 app.use(express.json());
 
-app.get('/books', (req, res) =>{
+app.get('/getbooks', (req, res) =>{
 	LibraryBooks
 		.find()
 		.then(books => {
@@ -38,9 +46,9 @@ app.get('/books', (req, res) =>{
 			});
 		});
 
-app.get('/books/bygenre', (req, res) => {
+app.get('/getbooks/bygenre', (req, res) => {
   LibraryBooks
-    .find(req.params.genre)
+    .find({genre: req.params.genre})
     .then(bookgenres => {
       res.json(bookgenres.map(bookgenre => bookgenre.serialize()));
     })
@@ -49,10 +57,37 @@ app.get('/books/bygenre', (req, res) => {
       res.status(500).json({ error: 'something went terribly wrong' });
     });
 });
+
+app.get('/getbooks/byreadinglevel', (req, res) => {
+  LibraryBooks
+    .find({readingLevel: req.params.readingLevel})
+    .then(bookreadinglevels => {
+      res.json(bookreadinglevels.map(bookreadinglevel => bookreadinglevel.serialize()));
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'something went terribly wrong' });
+    });
+});
+
+
+//still need help with this one
+app.get('/getbooks/byreadinglevel/bygenre', (req, res) => {
+  LibraryBooks
+    .find({readingLevel: req.params.readingLevel, genre: req.params.genre}) //this might need $and
+    .then(bookreadinglevels => {
+      res.json(bookreadinglevels.map(bookreadinglevel => bookreadinglevel.serialize()));
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'something went terribly wrong' });
+    });
+});
+
 //bring back bygenre, byreadinglevel, bygenre/byreadinglevel
 //look into mongo find and see how to specify both are criteria
 //confused
-app.get('/books/byid', (req, res) => {
+/*app.get('/books/byid', (req, res) => {
 	//bytype = id
 	LibraryBooks
 	    .findById(req.params.id)
@@ -61,10 +96,8 @@ app.get('/books/byid', (req, res) => {
 	      console.error(err);
 	      res.status(500).json({ error: 'something went horribly awry' });
 	    });
-});
+});*/
 
-
-//do i need to use jsonparser?
 app.post('/add', (req, res) => {
   const requiredFields = ['author', 'readingLevel', 'title', 'description', 'genre'];
   for (let i = 0; i < requiredFields.length; i++) {
@@ -95,7 +128,12 @@ app.post('/add', (req, res) => {
 
 
 //go over this more extensively
-app.put('/library/:id', (req, res) => {
+//does this need become "byId"?
+
+//find book by id
+//update any or all information about book
+
+app.put('/update/:id', (req, res) => {
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
     res.status(400).json({
       error: 'Request path id and request body id values must match'
@@ -115,15 +153,16 @@ app.put('/library/:id', (req, res) => {
     .catch(err => res.status(500).json({ message: 'Something went wrong' }));
 });
 
-app.put('/library/:id/:checkout', (req, res) => {
+//find book by id
+//update date of book checked when clicked
+
+app.put('/checkout/:id', (req, res) => {
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
     res.status(400).json({
       error: 'Request path id and request body id values must match'
     });
   }
- //do i need to create a checked in field
- //like do i need this for them to be alble to edit
- //and then need an additional for editing checked in
+
   const updated = {};
   const updateableFields = ['checkoutDate', 'dueDate'];
   updateableFields.forEach(field => {
@@ -131,37 +170,14 @@ app.put('/library/:id/:checkout', (req, res) => {
       updated[field] = req.body[field];
     }
   });
-
-  LibraryBooks
-    .findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
+ 
+ LibraryBooks
+    .findByIdAndUpdate(req.params.id, { checkoutDate: updated.checkoutDate, dueDate: updated.dueDate })
     .then(updatedBook => res.status(204).end())
     .catch(err => res.status(500).json({ message: 'Something went wrong' }));
 });
 
-app.put('/books/:id/:renew', (req, res) => {
-  if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
-    res.status(400).json({
-      error: 'Request path id and request body id values must match'
-    });
-  }
- //do i need to create a checked in field
- //like do i need this for them to be alble to edit
- //and then need an additional for editing checked in
-  const updated = {};
-  const updateableFields = ['checkoutDate', 'dueDate'];
-  updateableFields.forEach(field => {
-    if (field in req.body) {
-      updated[field] = req.body[field];
-    }
-  });
-
-  LibraryBooks
-    .findByIdAndUpdate(req.params.id, { $set: updated }, { new: true })
-    .then(updatedBook => res.status(204).end())
-    .catch(err => res.status(500).json({ message: 'Something went wrong' }));
-});
-
-app.delete('/books/:id', (req, res) => {
+app.delete('/delete/:id', (req, res) => {
   LibraryBooks
     .findByIdAndRemove(req.params.id)
     .then(() => {
