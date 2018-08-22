@@ -8,10 +8,47 @@
 		<img src="">
 		<a href=""><p>BookKeep</p></a>
 		<a href=""><p>Login</p></a>
+		<a href="">About Us</a>
 	</nav>
-<form id="searchTerm">
-        <input id="query" type="text" name="search" class="searchLocation"  autofocus="autofocus" placeholder="Search here..." role="search" aria-label="Search">
+	<div>
+		<p>Placeholder for Login Screen</p>
+	</div>
+	<div>
+		<button>Add a book</button>
+		<form>
+			Book Title:
+			<input type="text" name="bookTitle" class="addTitle">
+			Author:
+			<input type="text" name="bookAutho" class="addAuthor">
+			Genre:
+			<input type="text" name="bookGenre" class="addGenre">
+			Reading Level:
+			<select name="readingLevel" class="readingLevelNumber">
+				<option value="gradePK">Pre-K</option>
+				<option value="gradeK">K</option>
+				<option value="grade1">1</option>
+				<option value="grade2">2</option>
+				<option value="grade3">3</option>
+				<option value="grade4">4</option>
+				<option value="grade5">5</option>
+				<option value="grade6">6</option>
+			</select>
+			Description:
+			<input type="text" name="bookDescription" class="addDescription">
+		</form>
+	</div>
+	<div>
+		<h2>Library Books</h2>
+		<p class="allLibraryData"></p>
+		<button>Next</button>
+		<button>Back</button>
+	</div>
+	<form id="searchTerm">
+        <input id="query" type="text" name="search" class="searchLocation"  placeholder="Search book title" role="search" aria-label="Search">
     <br>
       <input type="submit" value="Submit" class="submit" aria-label="Search">
+     </form>
+
+
 </body>
 </html>
