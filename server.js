@@ -34,6 +34,8 @@ const app = express();
 app.use(morgan('common'));
 app.use(express.json());
 
+app.use("/", express.static(__dirname + '/public'))
+
 app.get('/getbooks', (req, res) =>{
 	LibraryBooks
 		.find()
