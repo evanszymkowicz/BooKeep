@@ -5,7 +5,7 @@
   "main": "models.js",
   "scripts": {
     "start": "node server.js",
-    "test": "node test-library-app.js"
+    "test": "mocha --exit"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "passport": "^0.4.0"
   },
   "devDependencies": {
+    "mocha": "^5.2.0",
     "nodemon": "^1.18.3"
   }
 }
