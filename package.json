@@ -4,8 +4,8 @@
   "description": "Parses and presents book data",
   "main": "models.js",
   "scripts": {
-    "start": "node server.js",
-    },
+    "start": "node server.js"    
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/jkathan/Bookshelf-app.git"
