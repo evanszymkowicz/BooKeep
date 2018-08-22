@@ -22,15 +22,15 @@ const passport = require('passport');
 mongoose.Promise = global.Promise;
 
 //for users and auth
-const { router: usersRouter } = require('./users');
-const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');
+/*const { router: usersRouter } = require('./users');
+const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');*/
 
 const { DATABASE_URL, PORT } = require('./config');
 const { LibraryBooks } = require('./models');
 
 const app = express();
 
-app.use(morgan('common'));
+app.use(morgan('combined'));
 app.use(express.json());
 
 app.use("/", express.static(__dirname + '/public'))
