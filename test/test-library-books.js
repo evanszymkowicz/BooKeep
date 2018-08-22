@@ -116,7 +116,7 @@ describe('library books API resource', function () {
     
     it('should add a new library book', function () {
 
-      const newBook = 
+      const newBook = {
       authorName: {
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName()
