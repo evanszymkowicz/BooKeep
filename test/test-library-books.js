@@ -161,7 +161,7 @@ describe('library books API resource', function () {
     });
 });
 
-describe('PUT endpoint', function () {
+/*describe('PUT endpoint', function () {
 
     // strategy:
     //  1. Get an existing post from db
@@ -203,7 +203,7 @@ describe('PUT endpoint', function () {
           book.description.should.equal(updateData.description);
           book.genre.should.equal(updateData.genre)
         });
-    });
+    });*/
 
 describe('DELETE endpoint', function () {
     // strategy:
