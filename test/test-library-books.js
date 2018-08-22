@@ -61,6 +61,7 @@ describe('library books API resource', function () {
 
   after(function () {
     return closeServer();
+  });
 });
 
   describe('GET endpoint', function () {
@@ -107,7 +108,7 @@ describe('library books API resource', function () {
           resBook.readingLevel.should.equal(book.readingLevel);
           resBook.author.should.equal(book.authorName);
           resBook.description.should.equal(book.description);
-          resBook.genre.should.equal(book.genre)
+          resBook.genre.should.equal(book.genre);
         });
     });
 });
@@ -147,7 +148,7 @@ describe('library books API resource', function () {
             `${newBook.author.firstName} ${newBook.author.lastName}`);
           res.body.readingLevel.should.equal(newBook.readingLevel);
           res.body.description.should.equal(newBook.description);
-          res.body.genre.should.equal(newBook.genre)
+          res.body.genre.should.equal(newBook.genre);
           return BlogPost.findById(res.body.id);
         })
         .then(function (post) {
@@ -156,7 +157,7 @@ describe('library books API resource', function () {
           book.author.firstName.should.equal(newBook.author.firstName);
           book.author.lastName.should.equal(newBook.author.lastName); //might run into isses
           book.description.should.equal(newBook.description);
-          book.genre.should.equal(newBook.genre)
+          book.genre.should.equal(newBook.genre);
         });
     });
 });
@@ -229,4 +230,4 @@ describe('DELETE endpoint', function () {
           should.not.exist(_book);
         });
     });
-})
+});
