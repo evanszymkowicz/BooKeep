@@ -4,7 +4,8 @@
   "description": "Parses and presents book data",
   "main": "models.js",
   "scripts": {
-    "start": "node server.js"    
+    "start": "node server.js",
+    "test": "node test-library-app.js"
   },
   "repository": {
     "type": "git",
