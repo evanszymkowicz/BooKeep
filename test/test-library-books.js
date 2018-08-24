@@ -11,7 +11,7 @@ const should = chai.should();
 
 const { LibraryBooks } = require('../models');
 const { closeServer, runServer, app } = require('../server');
-const { TEST_DATABASE_URL } = require('../config');
+//const { TEST_DATABASE_URL } = require('../config');
 
 chai.use(chaiHttp);
 
@@ -62,7 +62,7 @@ describe('library books API resource', function () {
   after(function () {
     return closeServer();
   });
-});
+
 
   describe('GET endpoint', function () {
 
@@ -229,5 +229,6 @@ describe('DELETE endpoint', function () {
         .then(_book => {
           should.not.exist(_book);
         });
+      });
     });
-});
+  });

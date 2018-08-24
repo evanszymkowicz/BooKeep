@@ -47,6 +47,18 @@ app.get('/getbooks', (req, res) =>{
 			});
 		});
 
+app.get('/getbooks/byTitle', (req, res) => {
+  LibraryBooks
+    .find({title: req.params.title})
+    .then(bookreadinglevels => {
+      res.json(bookreadinglevels.map(bookreadinglevel => bookreadinglevel.serialize()));
+    })
+    .catch(err => {
+      console.error(err);
+      res.status(500).json({ error: 'something went terribly wrong' });
+    });
+});
+
 app.get('/getbooks/bygenre', (req, res) => {
   LibraryBooks
     .find({genre: req.params.genre})

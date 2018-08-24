@@ -5,11 +5,19 @@
 // - submit button to bring you to next page
 //Add a book section:
 // - Section with all the required spaces that add itself to API
+//      - needs have an event listener for the button to submit
+//      - button needs to take all input info and verify it's correct and submit to api
+//      - list should auto reload with new book added
 //book list section 
 // - preset to auto generate 10 books to appear if they have books entered
-// - next and back buttons
+//      - api call that generates books by most recently added
+//      - auto generate number out of number of books
+//      - next button event listener to change number
+//      - back button event listener to go back
 // - search and randomly generate suggestions before list
+        // - event listener and then api call to return random returns
 // - Sort by for each section (always alphabetical)
+        // - is this posible? 
 // - delete a book by clicking "-" that has a column
 // 		- popup that has am "are you sure box" and a "cancel" or "submit" button
 //checkout and and check in book
@@ -20,18 +28,75 @@
 // - check in book
 // 		- show by checked out books
 //		- click option for checkin in book
+// need to figure out how to return table of data for all elements based on parameter. do i use httpxml?
+
+//function submitAction() {
+//    subm
+//}
 
 
 
+function populateRandomGenre() {
+    let dropdown = $('.selectGenre');
+    dropdown.empty();
+    dropdown.append('<option selected="true" disabled>Choose Genre</option>');
+    dropdown.prop('selectedIndex', 0);
+    const url = 'https://blooming-tor-75571.herokuapp.com/getbooks/bygenre';
 
+    $.getJSON(url, function (data) {
+    $.each(data, function (key, entry) {
+    dropdown.append($('<option></option>').attr('value', entry.abbreviation).text(entry.name));
+        })
+    });
+}
 
+function submitRandomGenre() {
+    $('.randomGenre').submit(function (event) {
+        event.preventDefault();
+        booksByGenre()
+    })
+}
+
+function booksByGenre() { 
+    url = 'https://blooming-tor-75571.herokuapp.com/getbooks/bygenre';
+    
+    console.log(url),
+
+    $.getJSON(url, function (response) {
+         const results = //response.photos.photo.map((item, response) => buildThumbnailUrl(item));
+         //$('#flickrResults').html(results)
+         //console.log
+         });
+}
+
+    $('.randomReadingLevel').submit(function (event) {
+        event.preventDefault();
+        booksByReadingLevel()
+    });
+    $('.randomBoth').submit(function (event) {
+        event.preventDefault();
+        booksByBoth()
+    });
+
+function submitBooksByTitle() {
     $('#searchTerm').submit(function (event) {
         event.preventDefault();
         var queryTarget = $(event.currentTarget).find('#query');
         searchTerm = queryTarget.val();
+        booksByTitle(searchTerm);
     });
 }
 
+
+function booksByTitle(searchTerm) { 
+    url = 'https://blooming-tor-75571.herokuapp.com/getbooks/byTitle' + ${searchTerm};
+    console.log(params),
+    //$.getJSON(url, params, function (response) {
+         const results = //response.photos.photo.map((item, response) => buildThumbnailUrl(item));
+         //$('#flickrResults').html(results)
+         //console.log
+         //});
+}
 //returns all books
 function allBooks(searchTerm) { 
     url = 'https://blooming-tor-75571.herokuapp.com/getbooks';
@@ -48,19 +113,6 @@ function allBooks(searchTerm) {
 }
 
 //returns books by genre
-function booksByGenre(searchTerm) { 
-    url = 'https://blooming-tor-75571.herokuapp.com/getbooks/bygenre';
-    const params = {
-        
-    };
-    console.log(params),
-
-    $.getJSON(url, params, function (response) {
-         const results = //response.photos.photo.map((item, response) => buildThumbnailUrl(item));
-         //$('#flickrResults').html(results)
-         //console.log
-         });
-}
 
 //returns books by reading level
 function booksByReadingLevel(searchTerm) { 
@@ -94,4 +146,5 @@ function booksByReadingLevelAndGenre(searchTerm) {
 
 $(document).ready(function () {
         submitAction();
+        populateRandomGenre();
         });
