@@ -80,6 +80,7 @@ function booksByGenre() {
 
 function submitBooksByTitle() {
     $('#searchTerm').submit(function (event) {
+        console.log('hello')
         event.preventDefault();
         var queryTarget = $(event.currentTarget).find('#query');
         searchTerm = queryTarget.val();
