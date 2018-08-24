@@ -145,6 +145,6 @@ function booksByReadingLevelAndGenre(searchTerm) {
 }
 
 $(document).ready(function () {
-        submitAction();
-        populateRandomGenre();
+        submitBooksByTitle();
+        //populateRandomGenre();
         });
