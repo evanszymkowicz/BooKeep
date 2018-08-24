@@ -7,7 +7,7 @@
 // - Section with all the required spaces that add itself to API
 //      - needs have an event listener for the button to submit
 //      - button needs to take all input info and verify it's correct and submit to api
-//      - list should auto reload with new book added
+//      - list should auto reload with new book added -- not possible
 //book list section 
 // - preset to auto generate 10 books to appear if they have books entered
 //      - api call that generates books by most recently added
@@ -29,14 +29,16 @@
 // 		- show by checked out books
 //		- click option for checkin in book
 // need to figure out how to return table of data for all elements based on parameter. do i use httpxml?
+// - make json requests
+// - take those pieces and build up table
 
 //function submitAction() {
 //    subm
 //}
 
 
-
-function populateRandomGenre() {
+//need a new api route /getAllGenre and then create array of the genres in the database (.find)
+/*function populateRandomGenre() {
     let dropdown = $('.selectGenre');
     dropdown.empty();
     dropdown.append('<option selected="true" disabled>Choose Genre</option>');
@@ -76,7 +78,7 @@ function booksByGenre() {
     $('.randomBoth').submit(function (event) {
         event.preventDefault();
         booksByBoth()
-    });
+    });*/
 
 function submitBooksByTitle() {
     $('#searchTerm').submit(function (event) {
@@ -99,7 +101,7 @@ function booksByTitle(searchTerm) {
          //});
 }
 //returns all books
-function allBooks(searchTerm) { 
+/*function allBooks(searchTerm) { 
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     const params = {
         
