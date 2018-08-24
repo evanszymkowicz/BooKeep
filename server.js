@@ -47,11 +47,11 @@ app.get('/getbooks', (req, res) =>{
 			});
 		});
 
-app.get('/getbooks/byTitle', (req, res) => {
+app.get('/getbooks/byTitle/:title', (req, res) => {
   LibraryBooks
     .find({title: req.params.title})
-    .then(bookreadinglevels => {
-      res.json(bookreadinglevels.map(bookreadinglevel => bookreadinglevel.serialize()));
+    .then(booktitles => {
+      res.json(booktitles.map(booktitle => booktitle.serialize()));
     })
     .catch(err => {
       console.error(err);
@@ -228,11 +228,9 @@ app.get('/api/protected', jwtAuth, (req, res) => {
 app.use('*', function (req, res) {
   res.status(404).json({ message: 'Not Found' });
 });
+*/
 
-
-let server;*/
-
-
+let server;
 
 function runServer(databaseUrl, port = PORT) {
   return new Promise((resolve, reject) => {

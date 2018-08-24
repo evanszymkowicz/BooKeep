@@ -14,7 +14,7 @@
 		<p>Placeholder for Login Screen</p>
 	</div>
 	<div>
-		<button>Add a book</button>
+		<button class="addBook">Add a book</button>
 		<form>
 			Book Title:
 			<input type="text" name="bookTitle" class="addTitle">
@@ -35,19 +35,31 @@
 			</select>
 			Description:
 			<input type="text" name="bookDescription" class="addDescription">
+			<button class="submitNewBook">Submit</button>
 		</form>
-	</div>
-	<div>
-		<h2>Library Books</h2>
-		<p class="allLibraryData"></p>
-		<button>Next</button>
-		<button>Back</button>
 	</div>
 	<form id="searchTerm">
         <input id="query" type="text" name="search" class="searchLocation"  placeholder="Search book title" role="search" aria-label="Search">
     <br>
       <input type="submit" value="Submit" class="submit" aria-label="Search">
      </form>
+     <div>
+     	<button class="randomGenre">Random Book by Genre</button>
+     	<select class="selectGenre"></select>
+     	<button class="randomReadingLevel">Random Book by Reading Level</button>
+     	<button class="randomBoth">Random Book by Genre and Reading Level</button>
+     </div>
+     <div>
+		<h2>Library Books</h2>
+		<p class="allLibraryData"></p>
+		<button class="nextAllData">Next</button>
+		<button class="backAllData">Back</button>
+	</div>
+	<div>
+		<h2>Current Checked out books</h2>
+		<p class="checkoutBooks"></p>
+	</div>
+	
 
 
 </body>

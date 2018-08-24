@@ -11,7 +11,7 @@ const should = chai.should();
 
 const { LibraryBooks } = require('../models');
 const { closeServer, runServer, app } = require('../server');
-//const { TEST_DATABASE_URL } = require('../config');
+const { TEST_DATABASE_URL } = require('../config');
 
 chai.use(chaiHttp);
 
@@ -48,6 +48,7 @@ function seedLibraryBooksData() {
 describe('library books API resource', function () {
 
   before(function () {
+    console.info('hello');
     return runServer(TEST_DATABASE_URL);
   });
 
