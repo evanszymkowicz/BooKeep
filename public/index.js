@@ -41,7 +41,7 @@ function populateRandomGenre() {
     dropdown.empty();
     dropdown.append('<option selected="true" disabled>Choose Genre</option>');
     dropdown.prop('selectedIndex', 0);
-    const url = 'https://blooming-tor-75571.herokuapp.com/getbooks/bygenre';
+    const url = 'https://infinite-river-85875.herokuapp.com/getbooks/bygenre';
 
     $.getJSON(url, function (data) {
     $.each(data, function (key, entry) {
@@ -58,7 +58,7 @@ function submitRandomGenre() {
 }
 
 function booksByGenre() { 
-    url = 'https://blooming-tor-75571.herokuapp.com/getbooks/bygenre';
+    url = 'https://infinite-river-85875.herokuapp.com/getbooks/bygenre';
     
     console.log(url),
 
@@ -89,7 +89,7 @@ function submitBooksByTitle() {
 
 
 function booksByTitle(searchTerm) { 
-    url = 'https://blooming-tor-75571.herokuapp.com/getbooks/byTitle' + ${searchTerm};
+    url = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle' + ${searchTerm};
     console.log(params),
     //$.getJSON(url, params, function (response) {
          const results = //response.photos.photo.map((item, response) => buildThumbnailUrl(item));
@@ -99,7 +99,7 @@ function booksByTitle(searchTerm) {
 }
 //returns all books
 function allBooks(searchTerm) { 
-    url = 'https://blooming-tor-75571.herokuapp.com/getbooks';
+    url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     const params = {
         
     };
@@ -116,7 +116,7 @@ function allBooks(searchTerm) {
 
 //returns books by reading level
 function booksByReadingLevel(searchTerm) { 
-    url = 'https://blooming-tor-75571.herokuapp.com/getbooks/byreadinglevel?readingLevel=' + //search entry;
+    url = 'https://infinite-river-85875.herokuapp.com/getbooks/byreadinglevel?readingLevel=' + //search entry;
     const params = {
         'method': 'GET',
 
@@ -131,7 +131,7 @@ function booksByReadingLevel(searchTerm) {
 }
 
 function booksByReadingLevelAndGenre(searchTerm) { 
-    url = 'https://blooming-tor-75571.herokuapp.com/getbooks/byreadinglevel/bygenre';
+    url = 'https://infinite-river-85875.herokuapp.com/getbooks/byreadinglevel/bygenre';
     const params = {
         
     };
