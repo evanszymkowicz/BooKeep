@@ -108,7 +108,7 @@ function submitBooksByTitle() {
 
 
 function booksByTitle(searchTerm) { 
-    let url = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/:title' + searchTerm;
+    let url = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/' + searchTerm;
     console.log(url)
 }
     
