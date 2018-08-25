@@ -109,8 +109,9 @@ function submitBooksByTitle() {
 
 function booksByTitle(searchTerm) { 
     url = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/:title' + searchTerm;
-    console.log(url),
 }
+    
+
     /*$.getJSON(url, function (response) {
          const results = //response.photos.photo.map((item, response) => buildThumbnailUrl(item));
          //$('#flickrResults').html(results)
@@ -167,5 +168,6 @@ function booksByReadingLevelAndGenre(searchTerm) {
 $(document).ready(function () {
         //populateRandomGenre();
         submitBooksByTitle();
+        console.log(url);
         //populateRandomGenre();
         });
