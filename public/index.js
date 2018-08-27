@@ -108,22 +108,24 @@ function submitBooksByTitle() {
 
 
 function booksByTitle(searchTerm) { 
-    let url = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/title=' + searchTerm;
+    let url = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/' + searchTerm;
     const params = {
         type: 'GET',
         dataType: 'json',
     }
 
-    console.log(params)
+    console.log(url)
 }
     
 
-    /*$.getJSON(url, function (response) {
-         const results = //response.photos.photo.map((item, response) => buildThumbnailUrl(item));
+    $.getJSON(url, function (response) {
+         //const results = response.photos.photo.map((item, response) => buildThumbnailUrl(item));
          //$('#flickrResults').html(results)
-         //console.log
+         console.log(response)
          //});
 }
+
+/*
 //returns all books
 function allBooks(searchTerm) { 
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
