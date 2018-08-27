@@ -114,15 +114,14 @@ function booksByTitle(searchTerm) {
         dataType: 'json',
     }
 
-    console.log(url)
-}
-    
+    console.log(url);    
 
     $.getJSON(url, function (response) {
          //const results = response.photos.photo.map((item, response) => buildThumbnailUrl(item));
          //$('#flickrResults').html(results)
          console.log(response)
          //});
+})
 }
 
 /*
