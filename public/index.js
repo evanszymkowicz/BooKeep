@@ -114,7 +114,7 @@ function booksByTitle(searchTerm) {
         dataType: 'json',
     }
 
-    console.log(url)
+    console.log(params)
 }
     
 
