@@ -85,7 +85,7 @@ function postNewBook() {
         const readingLevelSelected = $('.readingLevelNumber').val();
         const newDescription = $('.addDescription').val();
         //const author = req.user.id;
-
+        console.log(newAuthor)
         const newPost = {
             title: newTitle,
             author: newAuthor,
