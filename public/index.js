@@ -44,6 +44,27 @@
 var tableNumber = 1;
 var resultsShown = 2;
 
+//returns all books
+function allBooks(searchTerm) { 
+    url = 'https://infinite-river-85875.herokuapp.com/getbooks';
+    
+
+    $.getJSON(url,  function (response) {
+        booksInLibrary = response.map((item, response) => drawRow(item))
+        //const results = LibraryBookTableMaker();
+        //drawRow(results);
+         });
+}
+
+/*function LibraryBookTableMaker () {
+    var results = '';
+    for(var i = (tableNumber * resultsShown - resultsShown) ; i < (tableNumber * resultsShown); i++) {
+    results += drawRow(results[i]);
+  }
+  return results
+}*/
+
+
 function drawRow(rowData) {
     var row = $("<tr />")
     $(".libraryBooksDisplayed").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
@@ -55,7 +76,38 @@ function drawRow(rowData) {
     row.append($("<td>" + '<button class="deleteBook">Delete Book</button>' + "</td>"));
 }
 
+function postNewBook() {
+    $('.addBook').on('click', '.addABook', function (event) {
+        event.preventDefault();
+        const newTitle = $('.addTitle').val();
+        const newAuthor = $('.addAuthor').val();
+        const genreSelected = $('.addGenre').val();
+        const readingLevelSelected = $('.readingLevelNumber').val();
+        const newDescription = $('.addDescription').val();
+        //const author = req.user.id;
 
+        const newPost = {
+            title: newTitle,
+            author: newAuthor,
+            genre: genreSelected,
+            readingLevel: readingLevelSelected,
+            description: newDescription
+        };
+
+        $.ajax({
+                type: "POST",
+                url: "/add",
+                data: JSON.stringify(newPost),
+                dataType: "json",
+                contentType: 'application/json',
+                
+            })
+            .done(function (result) {
+                postNewBook(result);
+            })
+            
+    });
+}
 /*
 function populateRandomGenre() {
     let dropdown = $('.selectGenre');
@@ -128,25 +180,6 @@ function booksByTitle(searchTerm) {
 }*/
 
 
-//returns all books
-function allBooks(searchTerm) { 
-    url = 'https://infinite-river-85875.herokuapp.com/getbooks';
-    
-
-    $.getJSON(url,  function (response) {
-        booksInLibrary = response.map((item, response); //=> drawRow(item))
-         const results = LibraryBookTableMaker();
-         drawRow(results);
-         });
-}
-
-function LibraryBookTableMaker () {
-    var results = '';
-    for(var i = (tableNumber * resultsShown - resultsShown) ; i < (tableNumber * resultsShown); i++) {
-    results += drawRow(results[i]);
-  }
-  return results
-}
 
 //returns books by genre
 /*

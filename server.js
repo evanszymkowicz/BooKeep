@@ -19,6 +19,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const passport = require('passport');
+const uuid = require("uuid");
 mongoose.Promise = global.Promise;
 
 //for users and auth
@@ -124,12 +125,12 @@ app.post('/add', (req, res) => {
 
   LibraryBooks
     .create({
+      id: uuid.v4(),
 	    author: req.body.authorName,
 	    readingLevel: re.body.readingLevel,
 	    title: req.body.title,
 	    description: req.body.description,
 	    genre: req.body.genre,
-	    deweyDecimalNumber: req.body.deweyDecimalNumber
     })
     .then(libraryBook => res.status(201).json(libraryBook.serialize()))
     .catch(err => {
@@ -153,7 +154,7 @@ app.put('/update/:id', (req, res) => {
     });
   }
   const updated = {};
-  const updateableFields = ['author', 'readingLevel', 'title', 'description', 'genre', 'deweyDecimalNumber', 'checkoutDate', 'dueDate'];
+  const updateableFields = ['author', 'readingLevel', 'title', 'description', 'genre', 'checkoutDate', 'dueDate'];
   updateableFields.forEach(field => {
     if (field in req.body) {
       updated[field] = req.body[field];
