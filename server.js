@@ -125,12 +125,13 @@ app.post('/add', (req, res) => {
 
   LibraryBooks
     .create({
-      id: uuid.v4(),
-	    author: req.body.authorName,
-	    readingLevel: re.body.readingLevel,
+      //id: uuid.v4(),
 	    title: req.body.title,
-	    description: req.body.description,
+      author: req.body.authorName,
 	    genre: req.body.genre,
+	    readingLevel: re.body.readingLevel,
+	    description: req.body.description
+	    
     })
     .then(libraryBook => res.status(201).json(libraryBook.serialize()))
     .catch(err => {
