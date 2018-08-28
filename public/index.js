@@ -96,7 +96,7 @@ function postNewBook() {
 
         $.ajax({
                 method: "POST",
-                url: "https://infinite-river-85875.herokuapp.com/add/",
+                url: "https://infinite-river-85875.herokuapp.com/add",
                 data: JSON.stringify(newPost),
                 dataType: "json",
                 contentType: 'application/json',
