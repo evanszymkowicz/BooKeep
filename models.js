@@ -18,7 +18,7 @@ const bookLibrarySchema = mongoose.Schema({
 bookLibrarySchema.methods.serialize = function() {
   return {
     id: this._id,
-    author: this.authorName,
+    author: this.author,
     readingLevel: this.readingLevel,
     title: this.title,
     created: this.created,

@@ -49,7 +49,7 @@ app.get('/getbooks', (req, res) =>{
 
 app.get('/getbooks/byTitle/:title', (req, res) => {
   LibraryBooks
-    .find({title: req.params.title})
+    .find({title: req.title})
     .then(booktitles => {
       res.json(booktitles.map(booktitle => booktitle.serialize()));
     })
