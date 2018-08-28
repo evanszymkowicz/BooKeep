@@ -94,7 +94,10 @@ function postNewBook() {
             description: newDescription
         };
         console.log(newAuthor);
-        $.post("https://infinite-river-85875.herokuapp.com/add", newPost)
+        $.post("https://infinite-river-85875.herokuapp.com/add", newPost, function (newbook) {
+            newBookInLibrary = newBook.map((item, response) //=> drawRow(item));
+            console.log(newBookInLibrary);
+        }, 'json');
 
 
         /*$.ajax({
