@@ -154,7 +154,7 @@ app.put('/update/:id', (req, res) => {
     });
   }
   const updated = {};
-  const updateableFields = ['author', 'readingLevel', 'title', 'description', 'genre', 'checkoutDate', 'dueDate'];
+  const updateableFields = ['author', 'readingLevel', 'title', 'description', 'genre', 'deweyDecimalNumber', 'checkoutDate', 'dueDate'];
   updateableFields.forEach(field => {
     if (field in req.body) {
       updated[field] = req.body[field];

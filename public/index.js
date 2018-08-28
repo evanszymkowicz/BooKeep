@@ -96,14 +96,14 @@ function postNewBook() {
         console.log(newAuthor);
         $.ajax({
                 method: "POST",
-                url: "https://infinite-river-85875.herokuapp.com/add",
+                url: "https://infinite-river-85875.herokuapp.com/getbooks",
                 data: JSON.stringify(newPost),
                 dataType: "json",
                 contentType: 'application/json',
                 
             })
             .done(function (result) {
-                postNewBook(result);
+                
                 console.log(result);
             })
             
