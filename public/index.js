@@ -158,7 +158,7 @@ function booksByGenre() {
         booksByBoth()
     });
 */
-/*function submitBooksByTitle() {
+function submitBooksByTitle() {
     $('#searchTerm').submit(function (event) {
         event.preventDefault();
         var queryTarget = $(event.currentTarget).find('#query');
@@ -169,24 +169,31 @@ function booksByGenre() {
 
 
 function booksByTitle(searchTerm) { 
-    let url = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/' + searchTerm;
+    let url = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/:title';
     const params = {
-        type: 'GET',
-        title: searchTerm,
-        dataType: 'json',
+       title: searchTerm,
     };
 
     console.log(url);    
 
     $.getJSON(url, params, function (response) {
-         const results = response.title.map((item, response));
+         searchedBooksInLibrary = response.map((item, response) => drawRow(item))
          //$('#flickrResults').html(results)
          console.log(results)
          //});
 })
-}*/
+}
 
-
+function drawRow(rowData) {
+    var row = $("<tr />")
+    $(".libraryBooksSearch").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
+    row.append($("<td>" + rowData.title + "</td>"));
+    row.append($("<td>" + rowData.author + "</td>"));
+    row.append($("<td>" + rowData.readingLevel + "</td>"));
+    row.append($("<td>" + rowData.genre + "</td>"));
+    row.append($("<td>" + rowData.description + "</td>"));
+    row.append($("<td>" + '<button class="deleteBook">Delete Book</button>' + "</td>"));
+}
 
 //returns books by genre
 /*
