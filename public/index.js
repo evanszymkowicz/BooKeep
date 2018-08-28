@@ -112,7 +112,7 @@ function postNewBook() {
             
     });
 }
-/*
+
 function populateRandomGenre() {
     let dropdown = $('.selectGenre');
     dropdown.empty();
@@ -126,7 +126,7 @@ function populateRandomGenre() {
         })
     });
 }
-
+/*
 function submitRandomGenre() {
     $('.randomGenre').submit(function (event) {
         event.preventDefault();

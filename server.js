@@ -19,6 +19,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 const passport = require('passport');
+const bodyParser = require('body-parser');
 const uuid = require("uuid");
 mongoose.Promise = global.Promise;
 
@@ -28,7 +29,7 @@ const { router: authRouter, localStrategy, jwtStrategy } = require('./auth');*/
 
 const { DATABASE_URL, PORT } = require('./config');
 const { LibraryBooks } = require('./models');
-
+const jsonParser = bodyParser.json();
 const app = express();
 
 app.use(morgan('combined'));
@@ -112,7 +113,7 @@ app.get('/getbooks/byreadinglevel/bygenre', (req, res) => {
 	    });
 });*/
 
-app.post('/add', (req, res) => {
+app.post('/add', jsonParser, (req, res) => {
   const requiredFields = ['author', 'readingLevel', 'title', 'description', 'genre'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
