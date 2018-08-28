@@ -131,7 +131,7 @@ function allBooks(searchTerm) {
     
 
     $.getJSON(url,  function (response) {
-         const results = response.map((item, response) => drawRow(item));
+         const results = response.map((item, response) => drawTable(item));
          drawTable(results);
          });
 }
@@ -170,8 +170,8 @@ function booksByReadingLevelAndGenre(searchTerm) {
 */
 $(document).ready(function () {
         //populateRandomGenre();
-        submitBooksByTitle();
-        drawTable();
+        //submitBooksByTitle();
+        //drawTable();
         allBooks();
         //populateRandomGenre();
         });
