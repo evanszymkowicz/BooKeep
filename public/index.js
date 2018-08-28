@@ -77,7 +77,7 @@ function drawRow(rowData) {
 }
 
 function postNewBook() {
-    $('.addBook').on('click', '.addABook', function (event) {
+    $('.submitNewBook').on('click', '.addABook', function (event) {
         event.preventDefault();
         const newTitle = $('.addTitle').val();
         const newAuthor = $('.addAuthor').val();
