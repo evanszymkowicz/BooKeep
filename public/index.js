@@ -35,11 +35,11 @@
 //}
 //data is the api call. will need to rename
 
-function drawTable(data) {
+/*function drawTable(data) {
     for (var i = 0; i < data.length; i++) {
         drawRow(data[i]);
     }
-}
+}*/
 
 function drawRow(rowData) {
     var row = $("<tr />")
@@ -131,8 +131,8 @@ function allBooks(searchTerm) {
     
 
     $.getJSON(url,  function (response) {
-         const results = response.map((item, response) => drawTable(item));
-         drawTable(results);
+         const results = response.map((item, response) => drawRow(item));
+         drawRow(results);
          });
 }
 
