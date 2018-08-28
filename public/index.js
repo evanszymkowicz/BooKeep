@@ -134,9 +134,9 @@ function allBooks(searchTerm) {
     
 
     $.getJSON(url,  function (response) {
-        booksInLibrary = response.map((item, response) //=> drawRow(item))
+        booksInLibrary = response.map((item, response); //=> drawRow(item))
          const results = LibraryBookTableMaker();
-         //drawRow(results);
+         drawRow(results);
          });
 }
 
