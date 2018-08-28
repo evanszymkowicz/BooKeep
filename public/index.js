@@ -41,6 +41,9 @@
     }
 }*/
 
+var tableNumber = 1;
+var resultsShown = 2;
+
 function drawRow(rowData) {
     var row = $("<tr />")
     $(".libraryBooksDisplayed").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
@@ -131,9 +134,18 @@ function allBooks(searchTerm) {
     
 
     $.getJSON(url,  function (response) {
-         const results = response.map((item, response) => drawRow(item));
+        booksInLibrary = response.map((item, response) => drawRow(item))
+         const results = LibraryBookTableMaker();
          drawRow(results);
          });
+}
+
+function LibraryBookTableMaker () {
+    var results = '';
+    for(var i = (tableNumber * resultsShown - resultsShown) ; i < (tableNumber * resultsShown); i++) {
+    results += drawRow(results[i]);
+  }
+  return results
 }
 
 //returns books by genre
