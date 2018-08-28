@@ -34,7 +34,7 @@
 //    subm
 //}
 //data is the api call. will need to rename
-/*
+
 function drawTable(data) {
     for (var i = 0; i < data.length; i++) {
         drawRow(data[i]);
@@ -54,7 +54,7 @@ function drawRow(rowData) {
 }
 
 
-
+/*
 function populateRandomGenre() {
     let dropdown = $('.selectGenre');
     dropdown.empty();
@@ -118,31 +118,27 @@ function booksByTitle(searchTerm) {
     console.log(url);    
 
     $.getJSON(url, params, function (response) {
-         const results = response.title.map((item, response);
+         const results = response.title.map((item, response));
          //$('#flickrResults').html(results)
          console.log(results)
          //});
 })
 }
 
-/*
+
 //returns all books
 function allBooks(searchTerm) { 
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
-    const params = {
-        
-    };
-    console.log(params),
+    
 
-    $.getJSON(url, params, function (response) {
-         const results = //response.photos.photo.map((item, response) => buildThumbnailUrl(item));
-         //$('#flickrResults').html(results)
-         drawTable(//whatever the apicall log   ooks like)
+    $.getJSON(url,  function (response) {
+         const results = response.map((item, response) => drawRow(item));
+         drawTable(results);
          });
 }
 
 //returns books by genre
-
+/*
 //returns books by reading level
 function booksByReadingLevel(searchTerm) { 
     url = 'https://infinite-river-85875.herokuapp.com/getbooks/byreadinglevel?readingLevel=' + //search entry;
@@ -176,6 +172,6 @@ function booksByReadingLevelAndGenre(searchTerm) {
 $(document).ready(function () {
         //populateRandomGenre();
         submitBooksByTitle();
-        
+        drawTable()
         //populateRandomGenre();
         });
