@@ -118,9 +118,9 @@ function booksByTitle(searchTerm) {
     console.log(url);    
 
     $.getJSON(url, params, function (response) {
-         //const results = response.photos.photo.map((item, response) => buildThumbnailUrl(item));
+         const results = response.title.map((item, response);
          //$('#flickrResults').html(results)
-         console.log(response)
+         console.log(results)
          //});
 })
 }
