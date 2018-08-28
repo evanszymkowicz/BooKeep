@@ -108,14 +108,14 @@ function submitBooksByTitle() {
 
 
 function booksByTitle(searchTerm) { 
-    let url = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/';
+    let url = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/' + searchTerm;
     const params = {
         type: 'GET',
         title: searchTerm,
         dataType: 'json',
-    }
+    };
 
-    console.log(url);    
+    console.log(params);    
 
     $.getJSON(url, params, function (response) {
          //const results = response.photos.photo.map((item, response) => buildThumbnailUrl(item));
