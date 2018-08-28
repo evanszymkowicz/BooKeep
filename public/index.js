@@ -177,14 +177,14 @@ function booksByTitle(searchTerm) {
     console.log(url);    
 
     $.getJSON(url, params, function (response) {
-         searchedBooksInLibrary = response.map((item, response) => drawRow(item))
+         searchedBooksInLibrary = response.map((item, response) => drawSearchRow(item))
          //$('#flickrResults').html(results)
          console.log(results)
          //});
 })
 }
 
-function drawRow(rowData) {
+function drawSearchRow(rowData) {
     var row = $("<tr />")
     $(".libraryBooksSearch").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
     row.append($("<td>" + rowData.title + "</td>"));
