@@ -85,7 +85,7 @@ function postNewBook() {
         const readingLevelSelected = $('.readingLevelNumber').val();
         const newDescription = $('.addDescription').val();
         //const author = req.user.id;
-        console.log(newAuthor)
+        
         const newPost = {
             title: newTitle,
             author: newAuthor,
@@ -93,7 +93,7 @@ function postNewBook() {
             readingLevel: readingLevelSelected,
             description: newDescription
         };
-
+        console.log(newAuthor);
         $.ajax({
                 method: "POST",
                 url: "https://infinite-river-85875.herokuapp.com/add",
