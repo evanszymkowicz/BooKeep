@@ -50,8 +50,8 @@ app.get('/getbooks', (req, res) =>{
 app.get('/getbooks/byTitle/:title', (req, res) => {
   LibraryBooks
     .find({title: req.params.title})
-    .then(books => {
-      res.json(books.map(book => book.serialize()));
+    .then(booktitles => {
+      res.json(booktitles.map(booktitle => booktitle.serialize()));
     })
     .catch(err => {
       console.error(err);
