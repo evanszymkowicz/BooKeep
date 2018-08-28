@@ -267,9 +267,6 @@ function closeServer() {
 }
 
 
-app.listen(process.env.PORT || 27017, () => console.log(
-  `Your app is listening on port ${process.env.PORT || 27017}`));
-
 // if server.js is called directly (aka, with `node server.js`), this block
 // runs. but we also export the runServer command so other code (for instance, test code) can start the server as needed.
 if (require.main === module) {
