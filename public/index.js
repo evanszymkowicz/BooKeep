@@ -115,7 +115,7 @@ function booksByTitle(searchTerm) {
         dataType: 'json',
     };
 
-    console.log(params);    
+    console.log(url);    
 
     $.getJSON(url, params, function (response) {
          //const results = response.photos.photo.map((item, response) => buildThumbnailUrl(item));
