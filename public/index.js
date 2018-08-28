@@ -49,8 +49,7 @@ function drawRow(rowData) {
     row.append($("<td>" + rowData.readingLevel + "</td>"));
     row.append($("<td>" + rowData.genre + "</td>"));
     row.append($("<td>" + rowData.description + "</td>"));
-    row.append($("<td>" + '<button class="deleteBook">Delete Book</button>' "</td>"));
-
+    row.append($("<td>" + '<button class="deleteBook">Delete Book</button>' + "</td>"));
 }
 
 
@@ -97,7 +96,7 @@ function booksByGenre() {
         booksByBoth()
     });
 */
-function submitBooksByTitle() {
+/*function submitBooksByTitle() {
     $('#searchTerm').submit(function (event) {
         event.preventDefault();
         var queryTarget = $(event.currentTarget).find('#query');
@@ -123,7 +122,7 @@ function booksByTitle(searchTerm) {
          console.log(results)
          //});
 })
-}
+}*/
 
 
 //returns all books
@@ -172,6 +171,7 @@ function booksByReadingLevelAndGenre(searchTerm) {
 $(document).ready(function () {
         //populateRandomGenre();
         submitBooksByTitle();
-        drawTable()
+        drawTable();
+        allBooks();
         //populateRandomGenre();
         });
