@@ -93,8 +93,8 @@ function postNewBook() {
         };
         console.log(url);
         $.post("https://infinite-river-85875.herokuapp.com/add", newPost, function (newbook) {
-            let newBookInLibrary = newBook.map(item, response) //=> drawRow(item));
-            console.log(newBookInLibrary);
+            //let newBookInLibrary = newBook.map(item, response) //=> drawRow(item));
+            console.log(newbook);
         }, 'json');
     
 
