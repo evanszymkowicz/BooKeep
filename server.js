@@ -130,7 +130,7 @@ app.post('/add', jsonParser, (req, res) => {
 	    title: req.body.title,
       author: req.body.author,
 	    genre: req.body.genre,
-	    readingLevel: re.body.readingLevel,
+	    readingLevel: req.body.readingLevel,
 	    description: req.body.description
 	    
     })
