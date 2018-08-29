@@ -114,7 +114,8 @@ app.get('/getbooks/byreadinglevel/bygenre', (req, res) => {
 });*/
 
 app.post('/add', jsonParser, (req, res) => {
-  console.log('')
+  res.status(201).send('hi');
+  return;
   const requiredFields = ['author', 'readingLevel', 'title', 'description', 'genre'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -129,7 +130,7 @@ app.post('/add', jsonParser, (req, res) => {
     .create({
       //id: uuid.v4(),
 	    title: req.body.title,
-      author: req.body.authorName,
+      author: req.body.author,
 	    genre: req.body.genre,
 	    readingLevel: re.body.readingLevel,
 	    description: req.body.description
