@@ -91,7 +91,7 @@ function postNewBook() {
             readingLevel: readingLevelSelected,
             description: newDescription
         };
-        console.log(url);
+        //console.log(url);
         $.post("https://infinite-river-85875.herokuapp.com/add", newPost, function (newbook) {
             //let newBookInLibrary = newBook.map(item, response) //=> drawRow(item));
             console.log(newbook);
