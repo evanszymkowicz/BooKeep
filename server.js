@@ -114,6 +114,7 @@ app.get('/getbooks/byreadinglevel/bygenre', (req, res) => {
 });*/
 
 app.post('/add', jsonParser, (req, res) => {
+  console.log('')
   const requiredFields = ['author', 'readingLevel', 'title', 'description', 'genre'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
