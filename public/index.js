@@ -96,8 +96,7 @@ function postNewBook() {
             let newBookInLibrary = newBook.map(item, response) //=> drawRow(item));
             console.log(newBookInLibrary);
         }, 'json');
-    });
-}
+    
 
         /*$.ajax({
                 method: "POST",
