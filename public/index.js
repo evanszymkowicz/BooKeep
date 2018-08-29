@@ -66,12 +66,13 @@ function allBooks(searchTerm) {
 function drawRow(rowData) {
     var row = $("<tr />")
     $(".libraryBooksDisplayed").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
-    row.append($("<td class=" rowData.id ">" + rowData.title + "</td>"));
-    row.append($("<td class=" rowData.id ">" + rowData.author + "</td>"));
-    row.append($("<td class=" rowData.id ">" + rowData.readingLevel + "</td>"));
-    row.append($("<td class=" rowData.id ">" + rowData.genre + "</td>"));
-    row.append($("<td class=" rowData.id ">" + rowData.description + "</td>"));
-    row.append($("<td class=" rowData.id ">" + '<button class="deleteBook">Delete Book</button>' + "</td>"));
+    row.append($("<td>" + rowData.id + "</td>"));
+    row.append($("<td>" + rowData.title + "</td>"));
+    row.append($("<td>" + rowData.author + "</td>"));
+    row.append($("<td>" + rowData.readingLevel + "</td>"));
+    row.append($("<td>" + rowData.genre + "</td>"));
+    row.append($("<td>" + rowData.description + "</td>"));
+    row.append($("<td>" + '<button class="deleteBook">Delete Book</button>' + "</td>"));
 }
 
 function postNewBook() {
