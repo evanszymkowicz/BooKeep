@@ -114,8 +114,6 @@ app.get('/getbooks/byreadinglevel/bygenre', (req, res) => {
 });*/
 
 app.post('/add', jsonParser, (req, res) => {
-  res.status(201).send('hi');
-  return;
   const requiredFields = ['author', 'readingLevel', 'title', 'description', 'genre'];
   for (let i = 0; i < requiredFields.length; i++) {
     const field = requiredFields[i];
@@ -136,7 +134,7 @@ app.post('/add', jsonParser, (req, res) => {
 	    description: req.body.description
 	    
     })
-    .then(libraryBook => res.status(201).json(libraryBook.serialize()))
+    .then(libraryBook => res.status(200).json(libraryBook.serialize()))
     .catch(err => {
       console.error(err);
       res.status(500).json({ error: 'Something went wrong' });
