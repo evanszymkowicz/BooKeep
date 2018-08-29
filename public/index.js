@@ -92,14 +92,14 @@ function postNewBook() {
             description: newDescription
         };
         //console.log(url);
-        $.post("https://infinite-river-85875.herokuapp.com/add", newPost) 
+        /*$.post("https://infinite-river-85875.herokuapp.com/add", newPost) 
             .done(function (newbook) {
             //let newBookInLibrary = newBook.map(item, response) //=> drawRow(item));
             console.log(newbook);
-        });
+        });*/
     
 
-        /*$.ajax({
+        $.ajax({
                 method: "POST",
                 url: "https://infinite-river-85875.herokuapp.com/add",
                 data: JSON.stringify(newPost),
@@ -110,7 +110,7 @@ function postNewBook() {
             .done(function (result) {
                 
                 console.log(result);
-            })*/
+            })
             
     });
 }
