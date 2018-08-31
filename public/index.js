@@ -81,7 +81,7 @@ function drawRow(rowData) {
         </td>
     </tr>
     `;
-    console.log(row);
+    //console.log(row);
     $(".libraryBooksDisplayed").append(row);
     watchDeleteBook();
 }
@@ -134,7 +134,8 @@ function watchDeleteBook() {
         event.preventDefault();
         closestbookID = currentTarget.closest("BookID");
         currentTarget.closest("BookRow").html('');
-        deleteBook(closestbookID)
+        console.log(closestbookID)
+        //deleteBook(closestbookID)
     })  
 }
 function deleteBook(item) {
