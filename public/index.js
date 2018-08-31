@@ -190,9 +190,9 @@ function booksByTitle(searchTerm) {
     let url = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/' + searchTerm;  
 
     $.getJSON(url, function (response) {
-         searchedBooksInLibrary = response.map((item, response) => drawSearchRow(item))
+         //searchedBooksInLibrary = response.map((item, response) => drawSearchRow(item))
          //$('#flickrResults').html(results)
-         console.log(searchedBooksInLibrary);
+         console.log(response);
          //});
 });
 }
