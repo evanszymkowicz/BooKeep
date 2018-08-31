@@ -303,7 +303,7 @@ function booksByReadingLevelAndGenre(searchTerm) {
 $(document).ready(function () {
         //populateRandomGenre();
         submitBooksByTitle();
-        submitRandomGenre()
+        submitRandomGenre();
         //drawTable();
         allBooks();
         postNewBook();
