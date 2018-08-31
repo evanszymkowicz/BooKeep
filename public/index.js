@@ -166,7 +166,7 @@ function compileRandomGenres () {
         //booksInLibrary = response.map(response);
         //allTheBooks.push(booksInLibrary);       
     });
-    console.log(allBooks);
+    console.log(allTheBooks);
 }
 /*
 function populateRandomGenre() {
