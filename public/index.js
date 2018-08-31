@@ -164,15 +164,16 @@ function compileRandomGenres () {
         //booksInLibrary = response.map(response);
         //allTheBooks.push(booksInLibrary);       
         console.log(allTheBooks);
-    });
-    populateRandomGenre(allTheBooks);
+        populateRandomGenre(allTheBooks); 
+});
+    
 }
 
 function populateRandomGenre(entry) {
     let dropdown = $('.selectGenre');
     dropdown.empty();
     dropdown.append('<option selected="true" disabled>Choose Genre</option>');
-    dropdown.prop('selectedIndex', 0);
+    //dropdown.prop('selectedIndex', 0);
     dropdown.append($('<option></option>').attr('value').text(entry.name));
 }
 /*
