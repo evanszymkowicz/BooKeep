@@ -193,8 +193,7 @@ function submitRandomGenre() {
         var genreQuery = $(event.currentTarget).find('#selectGenre');
             genreType = genreQuery.val();
         console.log(genreType);
-        randomGenreBooks(libraryOfBooks, genreType, libraryOfGenres;
-        
+        randomGenreBooks(libraryOfBooks, genreType, libraryOfGenres);
     });
 }
 
