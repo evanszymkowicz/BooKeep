@@ -70,7 +70,7 @@ function allBooks() {
 
 function drawRow(rowData) {
     let row = 
-    `<tr class="bookRow" />
+    `
         <td class="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
         <td class="bookAuthor">${rowData.author}</td>
@@ -80,7 +80,7 @@ function drawRow(rowData) {
         <td class="bookDelete"> 
             <button class="deleteBook">Delete Book</button>
         </td>
-    </tr>
+    
     `;
     //console.log(row);
     $(".libraryBooksDisplayed").append(row);
