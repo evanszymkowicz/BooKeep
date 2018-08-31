@@ -163,8 +163,8 @@ function compileRandomGenres () {
         });
         //booksInLibrary = response.map(response);
         //allTheBooks.push(booksInLibrary);       
-        console.log(allTheBooks);
-        populateRandomGenre(allTheBooks);
+        //console.log(allTheBooks);
+        populateRandomGenre(allTheGenres);
     });
 }
 
