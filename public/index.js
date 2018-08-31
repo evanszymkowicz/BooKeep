@@ -160,12 +160,13 @@ function compileRandomGenres () {
     $.getJSON(url,  function (response) {
         $.each(response.allTheBooks), function (k, v) {
             allTheBooks.push(v.genre);
+            console.log(allTheBooks);
         }
 
         //booksInLibrary = response.map(response);
         //allTheBooks.push(booksInLibrary);       
     });
-    console.log(allTheBooks);
+    
 }
 /*
 function populateRandomGenre() {
