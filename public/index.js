@@ -317,4 +317,5 @@ $(document).ready(function () {
         postNewBook();
         //populateRandomGenre();
         //watchDeleteBook();
+        compileRandomGenres();
         });
