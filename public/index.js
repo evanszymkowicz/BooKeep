@@ -158,57 +158,46 @@ function deleteBook(item) {
 function compileRandomGenres () {
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(url,  function (response) {
-        var allTheBooks = $.map(response, function (k) {
+        var allTheGenres = $.map(response, function (k) {
             return k.genre;
         });
         //booksInLibrary = response.map(response);
         //allTheBooks.push(booksInLibrary);       
         console.log(allTheBooks);
-        populateRandomGenre(allTheBooks); 
-});
-    
+        populateRandomGenre(allTheBooks);
+    });
 }
 
 function populateRandomGenre(entry) {
-    //let dropdown = $('.selectGenre');
-    //dropdown.empty();
-    //dropdown.append('<option selected="true" disabled>Choose Genre</option>');
-    //dropdown.prop('selectedIndex', 0);
-    //dropdown.append($('<option></option>').attr('value').text(entry));
     $('#selectGenre').empty();
     $.each(entry, function(i, p) {
         $('#selectGenre').append($('<option></option>').val(p).html(p));
     });
+    submitRandomGenre(); 
 }
-/*
+
 function submitRandomGenre() {
     $('.randomGenre').submit(function (event) {
         event.preventDefault();
-        booksByGenre()
-    })
-}
-function booksByGenre() { 
-    url = 'https://infinite-river-85875.herokuapp.com/getbooks/bygenre';
-    
-    console.log(url),
-
-    $.getJSON(url, function (response) {
-         const results = //response.photos.photo.map((item, response) => buildThumbnailUrl(item));
-         //$('#flickrResults').html(results)
-         //console.log
-         });
+        var genreQuery = $(event.currentTarget).find('#selectGenre');
+        genreType = genreQuery.val();
+        returnRandomGenreBooks(genreType);
+    });
 }
 
+function returnRandomGenreBooks() {
+    url = 'https://infinite-river-85875.herokuapp.com/getbooks';
+    $.getJSON(url,  function (response) {
+        var allTheBooks = $.map(response, function (k) {
+            return k;
+        });
+    var randomProperty = function (allTheBooks) {
+    var keys = Object.keys(allTheBooks)
+    return allTheBooks[keys[ keys.length * Math.random() << 0]];
+    console.log(randomProperty);
+    };
+}
 
-    $('.randomReadingLevel').submit(function (event) {
-        event.preventDefault();
-        booksByReadingLevel()
-    });
-    $('.randomBoth').submit(function (event) {
-        event.preventDefault();
-        booksByBoth()
-    });
-*/
 function submitBooksByTitle() {
     $('#searchTerm').submit(function (event) {
         event.preventDefault();
