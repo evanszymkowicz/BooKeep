@@ -188,7 +188,7 @@ function populateRandomGenre(entry) {
 }
 
 function submitRandomGenre() {
-    $('.randomGenre').submit(function (event) {
+    $('.randomGenre').click(function (event) {
         event.preventDefault();
         var genreQuery = $(event.currentTarget).find('#selectGenre');
             genreType = genreQuery.val();
