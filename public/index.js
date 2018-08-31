@@ -155,18 +155,27 @@ function deleteBook(item) {
         });
 }
 //only creates dropdown menu genres
-function compileRandomGenres () {
-    url = 'https://infinite-river-85875.herokuapp.com/getbooks';
-    $.getJSON(url,  function (response) {
+var libraryOfBooks = [];
+var libraryOfGenres = [];
+
+function compileGenreArrays () {
+    genreUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
+    booksUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
+    $.getJSON(genreUrl,  function (response) {
         var allTheGenres = $.map(response, function (k) {
             return k.genre;
         });
-        //booksInLibrary = response.map(response);
-        //allTheBooks.push(booksInLibrary);
-        libraryOfGenres.push(allTheGenres[0]);       
-        console.log(libraryOfGenres);
+        libraryOfGenres.push(allTheGenres);       
         populateRandomGenre(allTheGenres);
     });
+    $.getJSON(booksUrl,  function (response) {
+        var allTheBooks = $.map(response, function (k) {
+            return k;
+        });
+        libraryOfBooks.push(allTheBooks);
+        //console.log(libraryOfBooks);
+     });
+    submitRandomGenre();
 }
 
 function populateRandomGenre(entry) {
@@ -174,47 +183,36 @@ function populateRandomGenre(entry) {
     var referenceForGenres = $.each(entry, function(i, p) {
         $('#selectGenre').append($('<option></option>').val(p).html(p));
                 return p;
-            });
-    //console.log(referenceForGenres);
+        });
+
 }
-//
 
-var libraryOfBooks = [];
-var libraryOfGenres = [];
-
-function submitRandomGenre(value) {
+function submitRandomGenre() {
     $('.randomGenre').submit(function (event) {
         event.preventDefault();
         var genreQuery = $(event.currentTarget).find('#selectGenre');
             genreType = genreQuery.val();
-        randomGenreBooks(genreType);
         console.log(genreType);
+        randomGenreBooks(libraryOfBooks, genreType, libraryOfGenres;
+        
     });
 }
 
-function randomGenreBooks(genreType) {
-    url = 'https://infinite-river-85875.herokuapp.com/getbooks';
-    $.getJSON(url,  function (response) {
-        var allTheBooks = $.map(response, function (k) {
-            return k;
-        });
-        libraryOfBooks.push(allTheBooks[0]);
-        //libraryofBookGenres = libraryOfBooks[0];
-        console.log(libraryOfBooks);
-        //nsole.log(libraryofBookGenres);
-        //let searchedGenre = allTheBooks.genreType
-        //returnGenreBooks(libraryofBookGenres);
-     });
-        
+function returnGenreBooks(libraryOfBooks, genreType, libraryOfGenres) {
+    filtered = libraryOfBooks.filter(function(element) {
+        var genreSort = element.genre.split('');
+        return genreSort.filter(function(genreSort){
+            return genreType.indexOf(genreSort) > 1;
+        }).length === genreType.length;
+    })
+
+    //libraryOfBooks.filter
+    //return libraryOfBooks.genre === genreType;
+    //console.log(k.find())
+    //random = libraryOfBooks[Math.floor(Math.random()*entry.length)];
+    console.log(filtered);
 }
-/*
-function returnGenreBooks(k, entry, selectedGenre) {
-    return entry.genre === selectedGenre
-    console.log(k.find())
-    //random = entry[Math.floor(Math.random()*entry.length)];
-    console.log(random);
-}
-*/
+
 function submitBooksByTitle() {
     $('#searchTerm').submit(function (event) {
         event.preventDefault();
@@ -326,6 +324,6 @@ $(document).ready(function () {
         postNewBook();
         //populateRandomGenre();
         //watchDeleteBook();
-        compileRandomGenres();
-        randomGenreBooks();
+        compileGenreArrays();
+        //randomGenreBooks();
         });
