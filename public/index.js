@@ -199,18 +199,18 @@ function randomGenreBooks(genreType) {
         libraryofBookGenres = libraryOfBooks[0]
         console.log(libraryOfBooks[0]);
         //let searchedGenre = allTheBooks.genreType
-        returnGenreBooks(libraryofBookGenres);
+        //returnGenreBooks(libraryofBookGenres);
      });
         
 }
-
+/*
 function returnGenreBooks(k, entry, selectedGenre) {
     return entry.genre === selectedGenre
     console.log(k.find())
     //random = entry[Math.floor(Math.random()*entry.length)];
     console.log(random);
 }
-
+*/
 function submitBooksByTitle() {
     $('#searchTerm').submit(function (event) {
         event.preventDefault();
