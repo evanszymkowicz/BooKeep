@@ -66,7 +66,7 @@ function allBooks() {
 
 function drawRow(rowData) {
     let row = 
-    `<tr class="BookRow" />
+    `<tr class="bookRow" />
         <td class="bookID">  ${rowData.id} </td>
         <td class="bookTitle"> ${rowData.title} </td>
         <td class="bookAuthor"> ${rowData.author} </td>
@@ -78,7 +78,8 @@ function drawRow(rowData) {
         </td>
     </tr>
     `;
-    $(".libraryBooksDisplayed").closest("tbody").append(row);
+    console.log(row);
+    //$(".libraryBooksDisplayed").closest("tbody").append(row);
 }
 
 function postNewBook() {
