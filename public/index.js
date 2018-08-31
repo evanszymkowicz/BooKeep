@@ -154,7 +154,7 @@ function deleteBook(item) {
             contentType: 'application/json'
         });
 }
-
+//only creates dropdown menu genres
 function compileRandomGenres () {
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(url,  function (response) {
@@ -173,13 +173,16 @@ function populateRandomGenre(entry) {
     $.each(entry, function(i, p) {
         $('#selectGenre').append($('<option></option>').val(p).html(p));
     });
-    function findEventValue(event){
+    findEventValue(p);
+}
+//
+
+function findEventValue(event){
     var genreQuery = $(event.currentTarget).find('#selectGenre');
         genreType = genreQuery.val();
         console.log(genreType)
         //submitRandomGenre(genreType);
         } 
-}
 /*
 function submitRandomGenre(value) {
     $('.randomGenre').submit(function (event) {
@@ -197,7 +200,7 @@ function randomGenreBooks(genreType) {
         });
         var libraryOfBooks = [];
         libraryOfBooks.push(allTheBooks);
-        console.log(libraryOfBooks);
+        console.log(libraryOfBooks[0]);
         //let searchedGenre = allTheBooks.genreType
         //returnGenreBooks(k, allTheBooks, genreType);
      });
