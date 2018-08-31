@@ -83,7 +83,7 @@ function drawRow(rowData) {
     `;
     //console.log(row);
     $(".libraryBooksDisplayed").append(row);
-    
+    watchDeleteBook();
 }
 
 function postNewBook() {
@@ -133,9 +133,10 @@ function watchDeleteBook() {
     $('.deleteBook').click(function (event) {
         event.preventDefault();
         closestBookID = $(this).closest("tr").find(".BookID").text();
+        deleteBook(closestBookID)
         $(this).closest("tr").html('');
         //console.log(closestBookID)
-        deleteBook(closestBookID)
+        
     })  
 }
 function deleteBook(item) {
@@ -302,5 +303,5 @@ $(document).ready(function () {
         allBooks();
         postNewBook();
         //populateRandomGenre();
-        watchDeleteBook();
+        //watchDeleteBook();
         });
