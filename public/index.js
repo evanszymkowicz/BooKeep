@@ -163,7 +163,8 @@ function compileRandomGenres () {
         });
         //booksInLibrary = response.map(response);
         //allTheBooks.push(booksInLibrary);       
-        //console.log(allTheBooks);
+        console.log(allTheGenres);
+        console.log(k.genre);
         populateRandomGenre(allTheGenres);
     });
 }
@@ -191,12 +192,12 @@ function randomGenreBooks(genreType) {
         var allTheBooks = $.map(response, function (k) {
             return k;
         });
-        
-        libraryOfBooks.push(k);
-        console.log(libraryOfBooks);
         //let searchedGenre = allTheBooks.genreType
         //returnGenreBooks(k, allTheBooks, genreType);
      });
+        libraryOfBooks.push(allTheBooks);
+        libraryOfBooks.push(k);
+        console.log(libraryOfBooks);
 }
 /*
 function returnGenreBooks(k, entry, selectedGenre) {
