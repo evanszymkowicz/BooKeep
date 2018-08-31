@@ -132,7 +132,7 @@ function postNewBook() {
 function watchDeleteBook() {
     $('.deleteBook').submit(function (event) {
         event.preventDefault();
-        closestBookID = currentTarget.('td').find('.BookID');
+        closestBookID = currentTarget.closest('td').find('.BookID');
         currentTarget.closest("BookRow").html('');
         console.log(closestBookID)
         //deleteBook(closestbookID)
