@@ -134,8 +134,8 @@ function watchDeleteBook() {
         event.preventDefault();
         closestBookID = $(this).closest("tr").find(".BookID").text();
         $(this).closest("tr").html('');
-        console.log(closestBookID)
-        //deleteBook(closestbookID)
+        //console.log(closestBookID)
+        deleteBook(closestbookID)
     })  
 }
 function deleteBook(item) {
