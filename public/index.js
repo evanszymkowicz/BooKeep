@@ -64,6 +64,8 @@ function allBooks() {
 }*/
 
 
+
+
 function drawRow(rowData) {
     let row = 
     `<tr class="bookRow" />
@@ -125,7 +127,7 @@ function postNewBook() {
 }
 
 function watchDeleteBook() {
-    $('.deleteButton').submit(function (event) {
+    $('.deleteBook').submit(function (event) {
         event.preventDefault();
         closestbookID = currentTarget.closest("BookID");
         currentTarget.closest("BookRow").html('');
