@@ -158,15 +158,14 @@ function deleteBook(item) {
 function compileRandomGenres () {
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(url,  function (response) {
-        var allTheBooks = []
-        $.each(response, function (k, v) {
-            allTheBooks.push(v);
-            
-        })
+        var allTheBooks = $.map(response, function (k) {
+            return k;
+        });
         //booksInLibrary = response.map(response);
         //allTheBooks.push(booksInLibrary);       
+        console.log(allTheBooks);
     });
-    console.log(allTheBooks);
+    
 }
 /*
 function populateRandomGenre() {
