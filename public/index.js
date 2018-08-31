@@ -170,11 +170,15 @@ function compileRandomGenres () {
 }
 
 function populateRandomGenre(entry) {
-    let dropdown = $('.selectGenre');
-    dropdown.empty();
-    dropdown.append('<option selected="true" disabled>Choose Genre</option>');
+    //let dropdown = $('.selectGenre');
+    //dropdown.empty();
+    //dropdown.append('<option selected="true" disabled>Choose Genre</option>');
     //dropdown.prop('selectedIndex', 0);
-    dropdown.append($('<option></option>').attr('value').text(entry));
+    //dropdown.append($('<option></option>').attr('value').text(entry));
+    $('.selectGenre').empty();
+    $.each(entry, function(i, p) {
+        $('.selectGenre').append($('<option></option>').val(p).html(p));
+    });
 }
 /*
 function submitRandomGenre() {
