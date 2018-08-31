@@ -197,7 +197,7 @@ function randomGenreBooks(genreType) {
         var libraryOfBooks = [];
         libraryOfBooks.push(allTheBooks);
         libraryofBookGenres = libraryOfBooks[0]
-        console.log(libraryOfBooks[0]);
+        console.log(libraryofBookGenres);
         //let searchedGenre = allTheBooks.genreType
         //returnGenreBooks(libraryofBookGenres);
      });
