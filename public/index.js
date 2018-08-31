@@ -51,7 +51,7 @@ function allBooks(searchTerm) {
         booksInLibrary = response.map((item, response) => drawRow(item))
         //const results = LibraryBookTableMaker();
         //drawRow(results);
-        deleteThisBook(item);
+        //deleteThisBook(item);
          });
 }
 
@@ -192,19 +192,19 @@ function booksByTitle(searchTerm) {
     $.getJSON(url, function (response) {
          searchedBooksInLibrary = response.map((item, response) => drawSearchRow(item))
          //$('#flickrResults').html(results)
-         console.log(results)
+         console.log(searchedBooksInLibrary);
          //});
 });
 }
 
-function drawSearchRow(rowData) {
+function drawSearchRow(searchRowData) {
     var row = $("<tr />")
     $(".libraryBooksSearch").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
-    row.append($("<td>" + rowData.title + "</td>"));
-    row.append($("<td>" + rowData.author + "</td>"));
-    row.append($("<td>" + rowData.readingLevel + "</td>"));
-    row.append($("<td>" + rowData.genre + "</td>"));
-    row.append($("<td>" + rowData.description + "</td>"));
+    row.append($("<td>" + searchRowData.title + "</td>"));
+    row.append($("<td>" + searchRowData.author + "</td>"));
+    row.append($("<td>" + searchRowData.readingLevel + "</td>"));
+    row.append($("<td>" + searchRowData.genre + "</td>"));
+    row.append($("<td>" + searchRowData.description + "</td>"));
     row.append($("<td>" + '<button class="deleteBook">Delete Book</button>' + "</td>"));
 }
 
