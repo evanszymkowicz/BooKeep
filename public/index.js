@@ -65,15 +65,15 @@ function allBooks() {
 
 
 function drawRow(rowData) {
-    var row = $("<tr />")
+    var row = $("<tr class"BookRow" />")
     $(".libraryBooksDisplayed").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
-    row.append($("<td>" + rowData.id + "</td>"));
-    row.append($("<td>" + rowData.title + "</td>"));
-    row.append($("<td>" + rowData.author + "</td>"));
-    row.append($("<td>" + rowData.readingLevel + "</td>"));
-    row.append($("<td>" + rowData.genre + "</td>"));
-    row.append($("<td>" + rowData.description + "</td>"));
-    row.append($("<td>" + '<button class="deleteBook">Delete Book</button>' + "</td>"));
+    row.append($("<td class="bookID">" + rowData.id + "</td>"));
+    row.append($("<td class="bookTitle">" + rowData.title + "</td>"));
+    row.append($("<td class="bookAuthor">" + rowData.author + "</td>"));
+    row.append($("<td class="bookRL">" + rowData.readingLevel + "</td>"));
+    row.append($("<td class="bookGenre">" + rowData.genre + "</td>"));
+    row.append($("<td class="bookDesc">" + rowData.description + "</td>"));
+    row.append($("<td class="bookDelete">" + '<button class="deleteBook">Delete Book</button>' + "</td>"));
 }
 
 function postNewBook() {
@@ -111,29 +111,33 @@ function postNewBook() {
             })
             .done(function (result) {
                 //maybe not necessary
-                newBookinLibrary = response.map((item, results) => drawRow(item))
+                newBookinLibrary = result.map((item, results) => drawRow(item))
                 console.log(result);
             })
             
     });
 }
 
-//function watchdeletebook()
-//delete book
-/*function deleteBook(item) {
-    url = 'https://infinite-river-85875.herokuapp.com/delete/' + item.id;
-    $('.deleteThisBook').submit(function() {
+function watchDeleteBook() {
+    $('.deleteButton').submit(function (event) {
+        event.preventDefault();
+        closestbookID = currentTarget.closest("BookID");
+        currentTarget.closest("BookRow").html('');
+        deleteBook(closestbookID)
+    })  
+}
+function deleteBook(item) {
+    url = 'https://infinite-river-85875.herokuapp.com/delete/' + item;
         $.ajax({
             url: url,
             type: 'DELETE'
             dataType: 'json',
             contentType: 'application/json',
-        })
-    })
-}*/
+        });
+}
 
 
-
+/*
 function populateRandomGenre() {
     let dropdown = $('.selectGenre');
     dropdown.empty();
@@ -147,7 +151,7 @@ function populateRandomGenre() {
         })
     });
 }
-/*
+
 function submitRandomGenre() {
     $('.randomGenre').submit(function (event) {
         event.preventDefault();
@@ -198,16 +202,54 @@ function booksByTitle(searchTerm) {
 }
 
 function drawSearchRow(searchRowData) {
-    var row = $("<tr />")
+    var row = $("<tr class"BookRow" />")
     $(".libraryBooksSearch").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
-    row.append($("<td>" + searchRowData.title + "</td>"));
-    row.append($("<td>" + searchRowData.author + "</td>"));
-    row.append($("<td>" + searchRowData.readingLevel + "</td>"));
-    row.append($("<td>" + searchRowData.genre + "</td>"));
-    row.append($("<td>" + searchRowData.description + "</td>"));
-    row.append($("<td>" + '<button class="deleteBook">Delete Book</button>' + "</td>"));
+    row.append($("<td class="bookID">" + searchRowData.id + "</td>"));
+    row.append($("<td class="bookTitle">" + searchRowData.title + "</td>"));
+    row.append($("<td class="bookAuthor">" + searchRowData.author + "</td>"));
+    row.append($("<td class="bookRL">" + searchRowData.readingLevel + "</td>"));
+    row.append($("<td class="bookGenre">" + searchRowData.genre + "</td>"));
+    row.append($("<td class="bookDesc">" + searchRowData.description + "</td>"));
+    row.append($("<td>" + '<button class="checkoutBook">Checkout</button>' + "</td>"));
+    row.append($("<td  class="bookDelete">" + '<button class="deleteBook">Delete Book</button>' + "</td>"));
 }
 
+/*function checkoutPopUp() {
+    return
+        `
+        <div>
+                <div class="popUpHeader">
+        <div class="clossButton">
+            <button type="button" class="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <div>
+        <form>
+            Student First Name:
+            <input type="text" name="bookTitle" class="addTitle">
+            Student Last Name:
+            <input type="text" name="bookAuthor" class="addAuthor">
+        </form>
+    </div>
+</div>
+        `
+
+}
+
+function checkoutPopUpListener() {
+    $('#checkoutBook').submit(function (event) {
+        event.preventDefault();
+
+        $("#datepicker").datepicker({
+            dateFormat: 'yy-mm-dd',
+            minDate: 0,
+            maxDate: "+1Y"
+        });
+    });
+
+}*/
 //returns books by genre
 /*
 //returns books by reading level
@@ -247,4 +289,5 @@ $(document).ready(function () {
         allBooks();
         postNewBook();
         //populateRandomGenre();
+        watchDeleteBook();
         });
