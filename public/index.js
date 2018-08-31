@@ -202,9 +202,9 @@ function returnGenreBooks(libraryOfBooks, genreType, libraryOfGenres) {
     filtered = libraryOfBooks.filter(function(element) {
         var genreSort = element.genre.split('');
         return genreSort.filter(function(genreSort){
-            return genreType.indexOf(genreSort) > 1;
+            return genreType.indexOf(genreSort) > -1;
         }).length === genreType.length;
-    })
+    });
 
     //libraryOfBooks.filter
     //return libraryOfBooks.genre === genreType;
