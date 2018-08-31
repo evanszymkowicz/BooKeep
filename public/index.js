@@ -49,7 +49,7 @@ function allBooks() {
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(url,  function (response) {
         booksInLibrary = response.map((item, response) => drawRow(item));
-        watchDeleteBook();
+        
         //const results = LibraryBookTableMaker();
         //drawRow(results);
         //deleteThisBook(item);
@@ -84,7 +84,7 @@ function drawRow(rowData) {
     `;
     //console.log(row);
     $(".libraryBooksDisplayed").append(row);
-    
+    watchDeleteBook();
 }
 
 function postNewBook() {
