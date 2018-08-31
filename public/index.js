@@ -65,7 +65,7 @@ function allBooks() {
 
 
 function drawRow(rowData) {
-    var row = $("<tr class"BookRow" />")
+    var row = $("<tr class"BookRow" />");
     $(".libraryBooksDisplayed").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
     row.append($("<td class="bookID">" + rowData.id + "</td>"));
     row.append($("<td class="bookTitle">" + rowData.title + "</td>"));
