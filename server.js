@@ -49,7 +49,9 @@ app.get('/getbooks', (req, res) =>{
 			});
 		});
 
-/*app.get('/getbooks/byTitle/:title', (req, res) => {
+app.get('/getbooks/byTitle/:title', (req, res) => {
+	res.send('hi');
+	return;
   LibraryBooks
     .find({title: req.params.title})
     .then(booktitles => {
@@ -60,7 +62,7 @@ app.get('/getbooks', (req, res) =>{
       res.status(500).json({ error: 'something went terribly wrong' });
     });
 });
-
+/*
 app.get('/getbooks/bygenre', (req, res) => {
   LibraryBooks
     .find({genre: req.params.genre})
@@ -193,6 +195,7 @@ app.put('/checkout/:id', (req, res) => {
     .catch(err => res.status(500).json({ message: 'Something went wrong' }));
 });
 */
+//this works in theory
 app.delete('/delete/:id', (req, res) => {
    LibraryBooks
     .findByIdAndRemove(req.params.id)
