@@ -174,7 +174,7 @@ function populateRandomGenre(entry) {
     dropdown.empty();
     dropdown.append('<option selected="true" disabled>Choose Genre</option>');
     //dropdown.prop('selectedIndex', 0);
-    dropdown.append($('<option></option>').attr('value').text(entry.name));
+    dropdown.append($('<option></option>').attr('value').text(entry));
 }
 /*
 function submitRandomGenre() {
