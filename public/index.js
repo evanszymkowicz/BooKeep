@@ -159,7 +159,7 @@ function compileRandomGenres () {
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(url,  function (response) {
         var allTheBooks = $.map(response, function (k) {
-            return k;
+            return k.genre;
         });
         //booksInLibrary = response.map(response);
         //allTheBooks.push(booksInLibrary);       
