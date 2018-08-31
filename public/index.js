@@ -54,6 +54,7 @@ function allBooks() {
         //drawRow(results);
         //deleteThisBook(item);
          });
+    watchDeleteBook();
 }
 
 /*function LibraryBookTableMaker () {
@@ -83,7 +84,7 @@ function drawRow(rowData) {
     `;
     //console.log(row);
     $(".libraryBooksDisplayed").append(row);
-    //watchDeleteBook();
+    
 }
 
 function postNewBook() {
@@ -304,5 +305,5 @@ $(document).ready(function () {
         allBooks();
         postNewBook();
         //populateRandomGenre();
-        watchDeleteBook();
+        //watchDeleteBook();
         });
