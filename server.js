@@ -50,8 +50,6 @@ app.get('/getbooks', (req, res) =>{
 		});
 
 app.get('/getbooks/byTitle/:title', (req, res) => {
-	res.send('hi');
-	return;
   LibraryBooks
     .find({title: req.params.title})
     .then(booktitles => {
@@ -62,8 +60,10 @@ app.get('/getbooks/byTitle/:title', (req, res) => {
       res.status(500).json({ error: 'something went terribly wrong' });
     });
 });
-/*
+
 app.get('/getbooks/bygenre', (req, res) => {
+	res.send('hi');
+	return;
   LibraryBooks
     .find({genre: req.params.genre})
     .then(bookgenres => {
@@ -76,6 +76,8 @@ app.get('/getbooks/bygenre', (req, res) => {
 });
 
 app.get('/getbooks/byreadinglevel', (req, res) => {
+	res.send('hi');
+	return;
   LibraryBooks
     .find({readingLevel: req.params.readingLevel})
     .then(bookreadinglevels => {
@@ -87,7 +89,7 @@ app.get('/getbooks/byreadinglevel', (req, res) => {
     });
 });
 
-
+/*
 //still need help with this one
 app.get('/getbooks/byreadinglevel/bygenre', (req, res) => {
   LibraryBooks
@@ -151,7 +153,9 @@ app.post('/add', jsonParser, (req, res) => {
 //find book by id
 //update any or all information about book
 
-/*app.put('/update/:id', (req, res) => {
+app.put('/update/:id', (req, res) => {
+	res.send('hi');
+	return;
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
     res.status(400).json({
       error: 'Request path id and request body id values must match'
@@ -175,6 +179,8 @@ app.post('/add', jsonParser, (req, res) => {
 //update date of book checked when clicked
 
 app.put('/checkout/:id', (req, res) => {
+	res.send('hi');
+	return;
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
     res.status(400).json({
       error: 'Request path id and request body id values must match'
@@ -194,7 +200,7 @@ app.put('/checkout/:id', (req, res) => {
     .then(updatedBook => res.status(204).end())
     .catch(err => res.status(500).json({ message: 'Something went wrong' }));
 });
-*/
+
 //this works in theory
 app.delete('/delete/:id', (req, res) => {
    LibraryBooks
