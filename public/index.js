@@ -164,7 +164,7 @@ function compileRandomGenres () {
     });
     console.log(allBooks);
 }
-
+/*
 function populateRandomGenre() {
     let dropdown = $('.selectGenre');
     dropdown.empty();
@@ -196,7 +196,7 @@ function booksByGenre() {
          //console.log
          });
 }
-/*
+
 
     $('.randomReadingLevel').submit(function (event) {
         event.preventDefault();
