@@ -133,7 +133,7 @@ function postNewBook() {
 function watchDeleteBook() {
     $('.deleteBook').click(function (event) {
         event.preventDefault();
-        var bookIdTarget = $(event.currentTarget).find(".BookID");
+        var bookIdTarget = $(this).siblings(".BookID");
         searchId = bookIdTarget.text();
 
         //var closestBookID = $(this).first().text();
