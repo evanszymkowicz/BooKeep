@@ -172,8 +172,8 @@ function populateRandomGenre(entry) {
     $('#selectGenre').empty();
     var referenceForGenres = $.each(entry, function(i, p) {
         $('#selectGenre').append($('<option></option>').val(p).html(p));
-    });
-    return referenceForGenres;
+                return p;
+            });
     console.log(referenceForGenres);
 }
 //
@@ -185,7 +185,8 @@ function submitRandomGenre(value) {
         var genreQuery = $(event.currentTarget).find('#selectGenre');
             genreType = genreQuery.val();
         randomGenreBooks(genreType);
-        console.log(genreType);});
+        console.log(genreType);
+    });
 }
 
 function randomGenreBooks(genreType) {
