@@ -133,11 +133,11 @@ function watchDeleteBook() {
 }
 function deleteBook(item) {
     url = 'https://infinite-river-85875.herokuapp.com/delete/' + item;
-        $.ajax({
+    $.ajax({
             url: url,
-            type: 'DELETE'
+            type: 'DELETE',
             dataType: 'json',
-            contentType: 'application/json',
+            contentType: 'application/json'
         });
 }
 
