@@ -70,21 +70,17 @@ function allBooks() {
 
 function drawRow(rowData) {
     let row = 
-    `<tr class="bookRow" />
-        <div class="siblings">
-            <td class="bookID">  ${rowData.id} </td>
-        </div>
-        <td class="bookTitle"> ${rowData.title} </td>
-        <td class="bookAuthor"> ${rowData.author} </td>
-        <td class="bookRL"> ${rowData.readingLevel} </td>
-        <td class="bookGenre"> ${rowData.genre} </td>
+    `
+        <td class="bookID">${rowData.id}</td>
+        <td class="bookTitle">${rowData.title}</td>
+        <td class="bookAuthor">${rowData.author}</td>
+        <td class="bookRL">${rowData.readingLevel}</td>
+        <td class="bookGenre">${rowData.genre}</td>
         <td class="bookDesc"> ${rowData.description} </td>
-        <div class="siblings">
-            <td class="bookDelete"> 
-                <button class="deleteBook">Delete Book</button>
-            </td>
-        </div>
-    </tr>
+        <td class="bookDelete"> 
+            <button class="deleteBook">Delete Book</button>
+        </td>
+    
     `;
     //console.log(row);
     $(".libraryBooksDisplayed").append(row);
@@ -137,7 +133,7 @@ function postNewBook() {
 function watchDeleteBook() {
     $('.deleteBook').click(function (event) {
         event.preventDefault();
-        var bookIdTarget = $(event.target).closest('.siblings').find(".BookID");
+        var bookIdTarget = $(this).closest('tr').find(".BookID");
         searchId = bookIdTarget.text();
         console.log(bookIdTarget);
         //var closestBookID = $(this).first().text();
