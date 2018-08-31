@@ -194,9 +194,7 @@ app.put('/checkout/:id', (req, res) => {
 });
 */
 app.delete('/delete/:id', (req, res) => {
-  res.send('hi');
-  return;
-  LibraryBooks
+   LibraryBooks
     .findByIdAndRemove(req.params.id)
     .then(() => {
       console.log(`Deleted blog post with id \`${req.params.id}\``);
