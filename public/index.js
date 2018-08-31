@@ -181,23 +181,31 @@ function submitRandomGenre() {
         event.preventDefault();
         var genreQuery = $(event.currentTarget).find('#selectGenre');
         genreType = genreQuery.val();
-        returnRandomGenreBooks(genreType);
+        randomGenreBooks(genreType);
     });
 }
 
-function returnRandomGenreBooks() {
+function randomGenreBooks(genreType) {
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(url,  function (response) {
         var allTheBooks = $.map(response, function (k) {
             return k;
         });
-    var randomProperty = function (allTheBooks) {
-    var keys = Object.keys(allTheBooks)
-    return allTheBooks[keys[ keys.length * Math.random() << 0]];
-    console.log(randomProperty);
-    };
+        libraryOfBooks = [];
+        libraryOfBooks.push(k);
+        console.log(libraryOfBooks);
+        //let searchedGenre = allTheBooks.genreType
+        //returnGenreBooks(k, allTheBooks, genreType);
+     });
 }
-
+/*
+function returnGenreBooks(k, entry, selectedGenre) {
+    return entry.genre === selectedGenre
+    console.log(k.find())
+    //random = entry[Math.floor(Math.random()*entry.length)];
+    console.log(random);
+}
+*/
 function submitBooksByTitle() {
     $('#searchTerm').submit(function (event) {
         event.preventDefault();
