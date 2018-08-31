@@ -49,12 +49,12 @@ function allBooks() {
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(url,  function (response) {
         booksInLibrary = response.map((item, response) => drawRow(item));
-        
+        watchDeleteBook();
         //const results = LibraryBookTableMaker();
         //drawRow(results);
         //deleteThisBook(item);
          });
-    watchDeleteBook();
+    
 }
 
 /*function LibraryBookTableMaker () {
@@ -133,8 +133,11 @@ function postNewBook() {
 function watchDeleteBook() {
     $('.deleteBook').click(function (event) {
         event.preventDefault();
-        closestBookID = $(this).closest("tr").find(".BookID").text;
-        console.log(closestBookID)
+        var bookIdTarget = $(event.currentTarget).closest("tr").find(".BookID");
+        searchId = queryTarget.text();
+
+        //var closestBookID = $(this).first().text();
+        console.log(searchId);
         //deleteBook(closestBookID)
         //$(this).closest("tr").html('');
         
