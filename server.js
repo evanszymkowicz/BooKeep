@@ -61,7 +61,7 @@ app.get('/getbooks/byTitle/:title', (req, res) => {
     });
 });
 
-app.get('/getbooks/bygenre', (req, res) => {
+app.get('/getbooks/bygenre/:genre', (req, res) => {
 	res.send('hi');
 	return;
   LibraryBooks
@@ -75,7 +75,7 @@ app.get('/getbooks/bygenre', (req, res) => {
     });
 });
 
-app.get('/getbooks/byreadinglevel', (req, res) => {
+app.get('/getbooks/byreadinglevel/:readingLevel', (req, res) => {
 	res.send('hi');
 	return;
   LibraryBooks
@@ -154,8 +154,6 @@ app.post('/add', jsonParser, (req, res) => {
 //update any or all information about book
 
 app.put('/update/:id', (req, res) => {
-	res.send('hi');
-	return;
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
     res.status(400).json({
       error: 'Request path id and request body id values must match'
@@ -179,8 +177,6 @@ app.put('/update/:id', (req, res) => {
 //update date of book checked when clicked
 
 app.put('/checkout/:id', (req, res) => {
-	res.send('hi');
-	return;
   if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
     res.status(400).json({
       error: 'Request path id and request body id values must match'
