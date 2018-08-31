@@ -134,7 +134,7 @@ function watchDeleteBook() {
     $('.deleteBook').click(function (event) {
         event.preventDefault();
         var bookIdTarget = $(this).closest('tr').find(".BookID");
-        searchId = JSON.parse(bookIdTarget).
+        searchId = bookIdTarget.children().
         console.log(bookIdTarget);
         //var closestBookID = $(this).first().text();
         console.log(searchId);
@@ -155,8 +155,16 @@ function deleteBook(item) {
         });
 }
 
+function compileRandomGenres () {
+    allTheBooks =[]
+    url = 'https://infinite-river-85875.herokuapp.com/getbooks';
+    $.getJSON(url,  function (response) {
+        booksInLibrary = response.map(item, response);
+        allTheBooks.push(booksInLibrary);       
+    });
+    console.log(allBooks);
+}
 
-/*
 function populateRandomGenre() {
     let dropdown = $('.selectGenre');
     dropdown.empty();
@@ -177,7 +185,6 @@ function submitRandomGenre() {
         booksByGenre()
     })
 }
-
 function booksByGenre() { 
     url = 'https://infinite-river-85875.herokuapp.com/getbooks/bygenre';
     
@@ -189,6 +196,7 @@ function booksByGenre() {
          //console.log
          });
 }
+/*
 
     $('.randomReadingLevel').submit(function (event) {
         event.preventDefault();
