@@ -173,7 +173,7 @@ function populateRandomGenre(entry) {
     $.each(entry, function(i, p) {
         $('#selectGenre').append($('<option></option>').val(p).html(p));
     });
-    submitRandomGenre(); 
+    //submitRandomGenre(); 
 }
 
 function submitRandomGenre() {
@@ -303,6 +303,7 @@ function booksByReadingLevelAndGenre(searchTerm) {
 $(document).ready(function () {
         //populateRandomGenre();
         submitBooksByTitle();
+        submitRandomGenre()
         //drawTable();
         allBooks();
         postNewBook();
