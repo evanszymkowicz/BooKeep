@@ -163,7 +163,7 @@ function compileRandomGenres () {
         });
         //booksInLibrary = response.map(response);
         //allTheBooks.push(booksInLibrary);
-        libraryOfGenres.push(allTheGenres[0]);       
+        libraryOfGenres.push(allTheGenres);       
         console.log(libraryOfGenres);
         populateRandomGenre(allTheGenres);
     });
@@ -198,9 +198,9 @@ function randomGenreBooks(genreType) {
         var allTheBooks = $.map(response, function (k) {
             return k;
         });
-        libraryOfBooks.push(allTheBooks[0]);
+        libraryOfBooks.push(allTheBooks);
         //libraryofBookGenres = libraryOfBooks[0];
-        console.log(libraryOfGenres);
+        console.log(libraryOfBooks);
         //nsole.log(libraryofBookGenres);
         //let searchedGenre = allTheBooks.genreType
         //returnGenreBooks(libraryofBookGenres);
