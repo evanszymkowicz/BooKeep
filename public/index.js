@@ -79,7 +79,7 @@ function drawRow(rowData) {
     </tr>
     `;
     console.log(row);
-    //$(".libraryBooksDisplayed").closest("tbody").append(row);
+    $(".libraryBooksDisplayed").append(row);
 }
 
 function postNewBook() {
