@@ -45,7 +45,7 @@ var tableNumber = 1;
 var resultsShown = 2;
 
 //returns all books
-function allBooks(searchTerm) { 
+function allBooks() { 
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(url,  function (response) {
         booksInLibrary = response.map((item, response) => drawRow(item))
@@ -188,7 +188,7 @@ function submitBooksByTitle() {
 
 function booksByTitle(searchTerm) { 
     let url = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/' + searchTerm;  
-
+    console.log(url);
     $.getJSON(url, function (response) {
          //searchedBooksInLibrary = response.map((item, response) => drawSearchRow(item))
          //$('#flickrResults').html(results)
