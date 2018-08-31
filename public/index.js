@@ -83,7 +83,7 @@ function drawRow(rowData) {
     `;
     //console.log(row);
     $(".libraryBooksDisplayed").append(row);
-    watchDeleteBook();
+    
 }
 
 function postNewBook() {
@@ -302,5 +302,5 @@ $(document).ready(function () {
         allBooks();
         postNewBook();
         //populateRandomGenre();
-        //watchDeleteBook();
+        watchDeleteBook();
         });
