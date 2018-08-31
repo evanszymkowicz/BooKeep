@@ -118,9 +118,9 @@ function postNewBook() {
     });
 }
 
-function watchdeletebook()
+//function watchdeletebook()
 //delete book
-function deleteBook(item) {
+/*function deleteBook(item) {
     url = 'https://infinite-river-85875.herokuapp.com/delete/' + item.id;
     $('.deleteThisBook').submit(function() {
         $.ajax({
@@ -130,7 +130,7 @@ function deleteBook(item) {
             contentType: 'application/json',
         })
     })
-}
+}*/
 
 
 
@@ -187,14 +187,9 @@ function submitBooksByTitle() {
 
 
 function booksByTitle(searchTerm) { 
-    let url = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/:title';
-    const params = {
-       title: searchTerm,
-    };
+    let url = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/' + searchTerm;  
 
-    console.log(url);    
-
-    $.getJSON(url, params, function (response) {
+    $.getJSON(url, function (response) {
          searchedBooksInLibrary = response.map((item, response) => drawSearchRow(item))
          //$('#flickrResults').html(results)
          console.log(results)
@@ -247,7 +242,7 @@ function booksByReadingLevelAndGenre(searchTerm) {
 */
 $(document).ready(function () {
         //populateRandomGenre();
-        //submitBooksByTitle();
+        submitBooksByTitle();
         //drawTable();
         allBooks();
         postNewBook();
