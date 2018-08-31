@@ -51,6 +51,7 @@ function allBooks(searchTerm) {
         booksInLibrary = response.map((item, response) => drawRow(item))
         //const results = LibraryBookTableMaker();
         //drawRow(results);
+        deleteThisBook(item);
          });
 }
 
@@ -109,12 +110,29 @@ function postNewBook() {
                 
             })
             .done(function (result) {
+                //maybe not necessary
                 newBookinLibrary = response.map((item, results) => drawRow(item))
                 console.log(result);
             })
             
     });
 }
+
+function watchdeletebook()
+//delete book
+function deleteBook(item) {
+    url = 'https://infinite-river-85875.herokuapp.com/delete/' + item.id;
+    $('.deleteThisBook').submit(function() {
+        $.ajax({
+            url: url,
+            type: 'DELETE'
+            dataType: 'json',
+            contentType: 'application/json',
+        })
+    })
+}
+
+
 
 function populateRandomGenre() {
     let dropdown = $('.selectGenre');

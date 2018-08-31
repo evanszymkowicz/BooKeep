@@ -192,8 +192,10 @@ app.put('/checkout/:id', (req, res) => {
     .then(updatedBook => res.status(204).end())
     .catch(err => res.status(500).json({ message: 'Something went wrong' }));
 });
-
+*/
 app.delete('/delete/:id', (req, res) => {
+  res.send('hi');
+  return;
   LibraryBooks
     .findByIdAndRemove(req.params.id)
     .then(() => {
