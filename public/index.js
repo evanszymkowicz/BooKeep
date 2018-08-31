@@ -156,7 +156,7 @@ function deleteBook(item) {
 }
 
 function compileRandomGenres () {
-    allTheBooks =[]
+    var allTheBooks =[]
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(url,  function (response) {
         $.each(response.allTheBooks), function (k, v) {
