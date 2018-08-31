@@ -134,12 +134,12 @@ function watchDeleteBook() {
     $('.deleteBook').click(function (event) {
         event.preventDefault();
         var bookIdTarget = $(this).closest('tr').find(".BookID");
-        searchId = bookIdTarget.text();
+        searchId = bookIdTarget.closest("tr").html('');
         console.log(bookIdTarget);
         //var closestBookID = $(this).first().text();
         console.log(searchId);
         //deleteBook(closestBookID)
-        //$(this).closest("tr").html('');
+        //$(this)
         
         
     })  
