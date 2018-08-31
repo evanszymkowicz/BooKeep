@@ -49,7 +49,7 @@ function allBooks() {
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(url,  function (response) {
         booksInLibrary = response.map((item, response) => drawRow(item));
-        
+        watchDeleteBook();
         //const results = LibraryBookTableMaker();
         //drawRow(results);
         //deleteThisBook(item);
@@ -71,20 +71,24 @@ function allBooks() {
 function drawRow(rowData) {
     let row = 
     `<tr class="bookRow" />
-        <td class="bookID">  ${rowData.id} </td>
+        <div class="siblings">
+            <td class="bookID">  ${rowData.id} </td>
+        </div>
         <td class="bookTitle"> ${rowData.title} </td>
         <td class="bookAuthor"> ${rowData.author} </td>
         <td class="bookRL"> ${rowData.readingLevel} </td>
         <td class="bookGenre"> ${rowData.genre} </td>
         <td class="bookDesc"> ${rowData.description} </td>
-        <td class="bookDelete"> 
-            <button class="deleteBook">Delete Book</button>
-        </td>
+        <div class="siblings">
+            <td class="bookDelete"> 
+                <button class="deleteBook">Delete Book</button>
+            </td>
+        </div>
     </tr>
     `;
     //console.log(row);
     $(".libraryBooksDisplayed").append(row);
-    watchDeleteBook();
+    
 }
 
 function postNewBook() {
@@ -133,9 +137,9 @@ function postNewBook() {
 function watchDeleteBook() {
     $('.deleteBook').click(function (event) {
         event.preventDefault();
-        var bookIdTarget = $(this).siblings(".BookID");
+        var bookIdTarget = $(event.target).closest('.sibling').find(".BookID");
         searchId = bookIdTarget.text();
-
+        console.log(bookIdTarget);
         //var closestBookID = $(this).first().text();
         console.log(searchId);
         //deleteBook(closestBookID)
