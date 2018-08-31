@@ -175,7 +175,7 @@ function populateRandomGenre(entry) {
     dropdown.prop('selectedIndex', 0);
     dropdown.append($('<option></option>').attr('value').text(entry.name));
 }
-
+/*
 function submitRandomGenre() {
     $('.randomGenre').submit(function (event) {
         event.preventDefault();
