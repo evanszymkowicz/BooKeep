@@ -70,7 +70,9 @@ function allBooks() {
 function drawRow(rowData) {
     let row = 
     `<tr class="bookRow" />
+        <div>
         <td class="bookID">  ${rowData.id} </td>
+        </div>
         <td class="bookTitle"> ${rowData.title} </td>
         <td class="bookAuthor"> ${rowData.author} </td>
         <td class="bookRL"> ${rowData.readingLevel} </td>
@@ -132,9 +134,9 @@ function postNewBook() {
 function watchDeleteBook() {
     $('.deleteBook').submit(function (event) {
         event.preventDefault();
-        closestbookID = currentTarget.closest("BookID");
+        closestBookID = currentTarget.closest("div");
         currentTarget.closest("BookRow").html('');
-        console.log(closestbookID)
+        console.log(closestBookID)
         //deleteBook(closestbookID)
     })  
 }
