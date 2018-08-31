@@ -206,7 +206,7 @@ function booksByTitle(searchTerm) {
 });
 }
 
-function drawSearchRow(searchRowData) {
+/*function drawSearchRow(searchRowData) {
     var row = $("<tr class"BookRow" />")
     $(".libraryBooksSearch").append(row); //this will append tr element to table... keep its reference for a while since we will add cels into it
     row.append($("<td class="bookID">" + searchRowData.id + "</td>"));
@@ -217,7 +217,7 @@ function drawSearchRow(searchRowData) {
     row.append($("<td class="bookDesc">" + searchRowData.description + "</td>"));
     row.append($("<td>" + '<button class="checkoutBook">Checkout</button>' + "</td>"));
     row.append($("<td  class="bookDelete">" + '<button class="deleteBook">Delete Book</button>' + "</td>"));
-}
+}*/
 
 /*function checkoutPopUp() {
     return
