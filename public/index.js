@@ -262,6 +262,6 @@ $(document).ready(function () {
         postNewBook();
         //populateRandomGenre();
         //watchDeleteBook();
-        compileRandomArray();
+        //compileRandomArray();
         //randomGenreBooks();
         });
