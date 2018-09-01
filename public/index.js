@@ -161,16 +161,12 @@ var unique_array = [];
 var genreType = '';
 
 function compileRandomArray () {
+    genreUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
     booksUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
-    $.getJSON(booksUrl,  function (response) {
-        var allTheRL = $.map(response, function (k) {
-            return k.readingLevel;
-        });
-        var allTheGenres = $.map(response, function (j) {
-            return j.genre;
-        });
-        var allTheBooks = $.map(response, function (l) {
-            return l;
+    rLUrl
+    $.getJSON(genreUrl,  function (response) {
+        var allTheGenres = $.map(response, function (k) {
+            return k.genre;
         });
         //function removeDuplicateUsingSet(arr){
             //let unique_array = Array.from(new Set(arr))
@@ -181,10 +177,21 @@ function compileRandomArray () {
         //console.log(unique_array);
         //let unique_array = [...new Set(libraryOfGenres)];
         //console.log(unique_array);
-        console.log(allTheRL);
         populateRandomGenre(allTheGenres);
+    });
+    $.getJSON(rLUrl,  function (response) {
+        var allTheRL = $.map(response, function (j) {
+            return j.readingLevel;
+        });
+        
         populateRandomRL(allTheRL);
+    });
+    $.getJSON(booksUrl,  function (response) {
+        var allTheBooks = $.map(response, function (l) {
+            return l;
+        });
         libraryOfBooks.push(allTheBooks);
+        
      });
     console.log(libraryOfBooks);
 }
@@ -282,15 +289,15 @@ function returnRLBooks(libraryOfBooks, rLType) {
     console.log(response);
 }
 
-function drawRandomRLRow(rowData) {
+function drawRandomRLRow(rowRLData) {
     let row = 
     `<tr class="bookRow" />
-        <td class="bookID">${rowData.id}</td>
-        <td class="bookTitle">${rowData.title}</td>
-        <td class="bookAuthor">${rowData.author}</td>
-        <td class="bookRL">${rowData.readingLevel}</td>
-        <td class="bookGenre">${rowData.genre}</td>
-        <td class="bookDesc"> ${rowData.description} </td>
+        <td class="bookID">${rowRLData.id}</td>
+        <td class="bookTitle">${rowRLData.title}</td>
+        <td class="bookAuthor">${rowRLData.author}</td>
+        <td class="bookRL">${rowRLData.readingLevel}</td>
+        <td class="bookGenre">${rowRLData.genre}</td>
+        <td class="bookDesc"> ${rowRLData.description} </td>
     </tr>
     `;
     //console.log(row);
