@@ -222,7 +222,7 @@ function returnGenreBooks(libraryOfBooks, genreType) {
              item[k].toString().toLowerCase()
              .includes(genreType.toLowerCase()))
              );
-    let filtered2 = libraryOfBooks.find(x => x.genre === genreType);
+    let filtered2 = libraryOfBooks[0].find(x => x.genre === genreType);
     //libraryOfBooks.filter
     //return libraryOfBooks.genre === genreType;
     //console.log(k.find())
