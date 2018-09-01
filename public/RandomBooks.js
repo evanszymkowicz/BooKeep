@@ -122,7 +122,7 @@ function returnRLBooks(libraryOfBooks, rLType) {
     shuffle(filtered3);
     var randomizedLibraryBooksByRL = filtered3.slice(0,3);
     randomizedLibraryBooksByRL.map((item, response) => drawRandomRLRow(item));
-    
+    console.log(response);
 }
 
 function drawRandomRLRow(rowData) {
