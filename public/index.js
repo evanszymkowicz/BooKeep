@@ -167,12 +167,13 @@ function submitBooksByTitle() {
 
 
 function booksByTitle(searchTerm) { 
-    let url = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/' + searchTerm;  
-    console.log(url);
-    $.getJSON(url, function (response) {
+    let searchUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/' + searchTerm;  
+    console.log(searchUrl);
+    $.getJSON(searchUrl, function (response) {
          searchedBooksInLibrary = response.map((item, response) => drawSearchRow(item))
          //$('#flickrResults').html(results)
          console.log(response);
+         console.log(searchedBooksInLibrary);
          //});
 });
 }
