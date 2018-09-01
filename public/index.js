@@ -236,7 +236,7 @@ function shuffle(array) {
 
 function returnGenreBooks(libraryOfBooks, genreType) {
     console.log(libraryOfBooks);
-    var filtered2 = libraryOfBooks[0].filter(z => z.genre.toLowerCase().includes(genreType)); 
+    var filtered2 = libraryOfBooks[0].filter(z => z.genre.toLowerCase().includes(genreType.toLowerCase())); 
     console.log(filtered2);
     shuffle(filtered2);
     var randomizedLibraryBooksByGenre = filtered2.slice(0,3);
