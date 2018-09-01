@@ -228,7 +228,7 @@ function returnGenreBooks(libraryOfBooks, genreType) {
     var filtered2 = libraryOfBooks[0].filter(x => x.genre.toLowerCase().includes(genreType)); 
     //console.log(filtered2);
     shuffle(filtered2);
-    console.log(filtered2);
+    console.log(filtered2[0]);
 }
 
 function submitBooksByTitle() {
