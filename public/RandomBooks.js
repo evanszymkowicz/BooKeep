@@ -132,7 +132,7 @@ function shuffle(array) {
               return array;
             };
 
-function returnGenreBooks(libraryOfBooks, rLType) {
+function returnRLBooks(libraryOfBooks, rLType) {
     var filtered3 = libraryOfBooks[0].filter(x => x.genre.toLowerCase().includes(rLType)); 
     //console.log(filtered2);
     shuffle(filtered3);
