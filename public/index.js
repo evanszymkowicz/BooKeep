@@ -207,29 +207,27 @@ function submitRandomGenre() {
     });
     
 }
+function shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
 
+          // While there remain elements to shuffle...
+          while (0 !== currentIndex) {
+
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+            }
+              return array;
+            };
 function returnGenreBooks(libraryOfBooks, genreType) {
-    /*filtered = libraryOfBooks.filter(function(element) {
-        var genreSort = element.genre.split('');
-        return genreSort.filter(function(genreSort){
-            return genreType.indexOf(genreSort) > -1;
-        }).length === libraryOfBooks.length;
-    });*/
-    console.log(libraryOfBooks);
-    console.log(genreType);
-    let filtered = libraryOfBooks.filter(item => 
-             Object.keys(item).some(k => item[k] != null && 
-             item[k].toString()
-             .includes(genreType))
-             );
-    //let filtered2 = libraryOfBooks[0].find(x => x.genre.toLowerCase() === genreType.toLowerCase());
     var filtered2 = libraryOfBooks[0].filter(x => x.genre.toLowerCase().includes(genreType)); 
- 
-    //libraryOfBooks.filter
-    //return libraryOfBooks.genre === genreType;
-    //console.log(k.find())
-    //random = libraryOfBooks[Math.floor(Math.random()*entry.length)];
-    console.log(filtered);
+    //console.log(filtered2);
+    shuffle(filtered2);
     console.log(filtered2);
 }
 
