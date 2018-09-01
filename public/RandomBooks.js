@@ -1,4 +1,5 @@
-var libraryOfBooks = [];
+var libraryOfGenreBooks = [];
+var libraryOfRLBooks = [];
 var libraryOfGenres = [];
 
 function compileRandomArray () {
@@ -31,10 +32,11 @@ function compileRandomArray () {
         var allTheBooks = $.map(response, function (k) {
             return k;
         });
-        libraryOfBooks.push(allTheBooks);
-        
+        libraryOfGenreBooks.push(allTheBooks);
+        libraryOfRLBooks.push(allTheBooks);
      });
-    console.log(libraryOfBooks);
+    console.log(libraryOfGenreBooks);
+    console.log(libraryOfRLBooks);
 }
 
 function populateRandomGenre(entry) {
@@ -52,7 +54,7 @@ function submitRandomGenre() {
         event.preventDefault();
         var genreType = $('#selectGenre').find(':selected').text();
         console.log(genreType);
-        returnGenreBooks(libraryOfBooks, genreType);
+        returnGenreBooks(libraryOfGenreBooks, genreType);
     });
     
 }
@@ -75,9 +77,9 @@ function shuffle(array) {
               return array;
             };
 
-function returnGenreBooks(libraryOfBooks, genreType) {
-    console.log(libraryOfBooks);
-    var filtered2 = libraryOfBooks[0].filter(z => z.genre.toLowerCase().includes(genreType.toLowerCase())); 
+function returnGenreBooks(libraryOfGenreBooks, genreType) {
+    console.log(libraryOfGenreBooks);
+    var filtered2 = libraryOfGenreBooks[0].filter(z => z.genre.toLowerCase().includes(genreType.toLowerCase())); 
     console.log(filtered2);
     shuffle(filtered2);
     var randomizedLibraryBooksByGenre = filtered2.slice(0,3);
@@ -118,13 +120,13 @@ function submitRandomRL() {
         event.preventDefault();
         var rLType = $('#selectRL').find(':selected').text();
         console.log(rLType);
-        returnRLBooks(libraryOfBooks, rLType);
+        returnRLBooks(libraryOfRLBooks, rLType);
     });
     
 }
 
 function returnRLBooks(libraryOfBooks, rLType) {
-    var filtered3 = libraryOfBooks[0].filter(x => x.readingLevel.toLowerCase().includes(rLType.toLowerCase())); 
+    var filtered3 = libraryOfRLBooks[0].filter(x => x.readingLevel.toLowerCase().includes(rLType.toLowerCase())); 
     console.log(filtered3);
     shuffle(filtered3);
     var randomizedLibraryBooksByRL = filtered3.slice(0,3);
