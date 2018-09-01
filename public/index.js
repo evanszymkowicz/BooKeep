@@ -173,9 +173,9 @@ function compileGenreArrays () {
             return k;
         });
         libraryOfBooks.push(allTheBooks);
-        //console.log(libraryOfBooks);
+        console.log(libraryOfBooks);
      });
-    submitRandomGenre();
+    
 }
 
 function populateRandomGenre(entry) {
@@ -184,7 +184,7 @@ function populateRandomGenre(entry) {
         $('#selectGenre').append($('<option></option>').val(p).html(p));
                 return p;
         });
-
+    submitRandomGenre();
 }
 
 function submitRandomGenre() {
