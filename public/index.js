@@ -158,10 +158,10 @@ function deleteBook(item) {
 function submitBooksByTitle() {
     $('#searchTerm').submit(function (event) {
         event.preventDefault();
-        searchTerm = $('#query').text();
+        var queryTarget = $(event.currentTarget).find('#query');
+        searchTerm = queryTarget.val();
         drawSearchHeaders();
         booksByTitle(searchTerm);
-        console.log(searchTerm);
     });
 }
 
