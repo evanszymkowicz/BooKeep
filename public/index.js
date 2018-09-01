@@ -171,9 +171,9 @@ function compileGenreArrays () {
             let unique_array = Array.from(new Set(arr))
             return unique_array
             }
-        removeDuplicateUsingSet(allTheGenres);
-        console.log(unique_array);
         libraryOfGenres.push(allTheGenres);       
+        removeDuplicateUsingSet(libraryOfGenres);
+        console.log(unique_array);
         populateRandomGenre(allTheGenres);
     });
     $.getJSON(booksUrl,  function (response) {
