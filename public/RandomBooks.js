@@ -1,5 +1,4 @@
-var libraryOfGenreBooks = [];
-var libraryOfRLBooks = [];
+var libraryOfBooks = [];
 var libraryOfGenres = [];
 
 function compileRandomArray () {
@@ -32,11 +31,10 @@ function compileRandomArray () {
         var allTheBooks = $.map(response, function (k) {
             return k;
         });
-        libraryOfGenreBooks.push(allTheBooks);
-        libraryOfRLBooks.push(allTheBooks);
+        libraryOfBooks.push(allTheBooks);
+        
      });
-    console.log(libraryOfGenreBooks);
-    console.log(libraryOfRLBooks);
+    console.log(libraryOfBooks);
 }
 
 function populateRandomGenre(entry) {
@@ -54,7 +52,7 @@ function submitRandomGenre() {
         event.preventDefault();
         var genreType = $('#selectGenre').find(':selected').text();
         console.log(genreType);
-        returnGenreBooks(libraryOfGenreBooks, genreType);
+        returnGenreBooks(libraryOfBooks, genreType);
     });
     
 }
@@ -77,9 +75,9 @@ function shuffle(array) {
               return array;
             };
 
-function returnGenreBooks(libraryOfGenreBooks, genreType) {
-    console.log(libraryOfGenreBooks);
-    var filtered2 = libraryOfGenreBooks[0].filter(z => z.genre.toLowerCase().includes(genreType.toLowerCase())); 
+function returnGenreBooks(libraryOfBooks, genreType) {
+    console.log(libraryOfBooks);
+    var filtered2 = libraryOfBooks[0].filter(z => z.genre.toLowerCase().includes(genreType.toLowerCase())); 
     console.log(filtered2);
     shuffle(filtered2);
     var randomizedLibraryBooksByGenre = filtered2.slice(0,3);
@@ -120,13 +118,13 @@ function submitRandomRL() {
         event.preventDefault();
         var rLType = $('#selectRL').find(':selected').text();
         console.log(rLType);
-        returnRLBooks(libraryOfRLBooks, rLType);
+        returnRLBooks(libraryOfBooks, rLType);
     });
     
 }
 
 function returnRLBooks(libraryOfBooks, rLType) {
-    var filtered3 = libraryOfRLBooks[0].filter(x => x.readingLevel.toLowerCase().includes(rLType.toLowerCase())); 
+    var filtered3 = libraryOfBooks[0].filter(x => x.readingLevel.toLowerCase().includes(rLType.toLowerCase())); 
     console.log(filtered3);
     shuffle(filtered3);
     var randomizedLibraryBooksByRL = filtered3.slice(0,3);
@@ -150,17 +148,55 @@ function drawRandomRLRow(rowRLData) {
     
 }
 
+function populateRandomBoth(entry) {
+    $('#selectRLBoth').empty();
+    $('#selectGenreBoth').empty();
+    var referenceForGenresBoth = $.each(entry, function(i, p) {
+        $('#selectGenreBOth').append($('<option></option>').val(p).html(p));
+                return p;
+        });
+    var referenceForRLBoth = $.each(entry, function(i, k) {
+        $('#selectRLBoth').append($('<option></option>').val(k).html(k));
+                return k;
+        });
+    console.log(referenceForGenres);
+    submitRandomBoth(referenceForGenresBoth, referenceForRLBoth);
+}
 
-function submitBooksByTitle() {
-    $('#searchTerm').submit(function (event) {
+function submitRandomBoth() {
+    $('.randomGenre').click(function (event) {
         event.preventDefault();
-        var queryTarget = $(event.currentTarget).find('#query');
-        searchTerm = queryTarget.val();
-        booksByTitle(searchTerm);
+        var genreBothType = $('#selectGenreBoth').find(':selected').text();
+        var RLBothType = $('#selectRLBoth').find(':selected').text();
+        console.log(genreType);
+        returnBothBooks(libraryOfBooks, genreBothType, RLBothType);
     });
 }
 
+function returnBothBooks(libraryOfBooks, genreBothType, RLBothType) {
+    console.log(libraryOfBooks);
+    var filtered4 = libraryOfBooks[0].filter(z => z.genre.toLowerCase().includes(genreBothType.toLowerCase()) && z.readingLevel.toLowerCase().includes(RLBothType.toLowerCase())); 
+    console.log(filtered4);
+    shuffle(filtered4);
+    var randomizedLibraryBooksByBoth = filtered4.slice(0,3);
 
+    randomizedLibraryBooksByBoth.map((item, response) => drawRandomBothRow(item));
+}
+function drawRandomRLRow(rowRLData) {
+    let row = 
+    `<tr class="bookRow" />
+        <td class="bookID">${rowRLData.id}</td>
+        <td class="bookTitle">${rowRLData.title}</td>
+        <td class="bookAuthor">${rowRLData.author}</td>
+        <td class="bookRL">${rowRLData.readingLevel}</td>
+        <td class="bookGenre">${rowRLData.genre}</td>
+        <td class="bookDesc"> ${rowRLData.description} </td>
+    </tr>
+    `;
+    //console.log(row);
+    $(".libraryBooksByBothDisplayed").append(row);
+    
+}
 $(document).ready(function () {
         compileRandomArray();
         });

@@ -154,13 +154,21 @@ function deleteBook(item) {
             contentType: 'application/json'
         });
 }
-//only creates dropdown menu genres
+
+function submitBooksByTitle() {
+    $('#searchTerm').submit(function (event) {
+        event.preventDefault();
+        var queryTarget = $(event.currentTarget).find('#query');
+        searchTerm = queryTarget.val();
+        booksByTitle(searchTerm);
+    });
+}
 
 
 function booksByTitle(searchTerm) { 
-    let url = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/' + searchTerm;  
-    console.log(url);
-    $.getJSON(url, function (response) {
+    let searchUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/' + searchTerm;  
+    console.log(searchUrl);
+    $.getJSON(searchUrl, function (response) {
          searchedBooksInLibrary = response.map((item, response) => drawSearchRow(item))
          //$('#flickrResults').html(results)
          console.log(searchedBooksInLibrary);
