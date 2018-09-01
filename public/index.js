@@ -174,8 +174,8 @@ function compileGenreArrays () {
         libraryOfGenres.push(allTheGenres);       
         //removeDuplicateUsingSet(libraryOfGenres);
         //console.log(unique_array);
-        let unique_array = [...new Set(libraryOfGenres)];
-        console.log(unique_array);
+        //let unique_array = [...new Set(libraryOfGenres)];
+        //console.log(unique_array);
         populateRandomGenre(allTheGenres);
     });
     $.getJSON(booksUrl,  function (response) {
@@ -203,19 +203,19 @@ function submitRandomGenre() {
         event.preventDefault();
         var genreType = $('#selectGenre').find(':selected').text();
         console.log(genreType);
-        returnGenreBooks(libraryOfBooks, genreType, libraryOfGenres);
+        returnGenreBooks(libraryOfBooks, genreType);
     });
     
 }
 
-function returnGenreBooks(libraryOfBooks, genreType, libraryOfGenres) {
-    filtered = libraryOfBooks.filter(function(element) {
+function returnGenreBooks(libraryOfBooks, genreType) {
+    /*filtered = libraryOfBooks.filter(function(element) {
         var genreSort = element.genre.split('');
         return genreSort.filter(function(genreSort){
             return genreType.indexOf(genreSort) > -1;
-        }).length === genreType.length;
-    });
-
+        }).length === libraryOfBooks.length;
+    });*/
+    let filtered = libraryOfBooks.find(i => i.genre === genreType)
     //libraryOfBooks.filter
     //return libraryOfBooks.genre === genreType;
     //console.log(k.find())
