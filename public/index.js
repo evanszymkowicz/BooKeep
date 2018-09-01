@@ -223,9 +223,8 @@ function returnGenreBooks(libraryOfBooks, genreType) {
              .includes(genreType))
              );
     //let filtered2 = libraryOfBooks[0].find(x => x.genre.toLowerCase() === genreType.toLowerCase());
-    var filtered2 = libraryOfBooks[0].filter(function(element) {
-        return element.genre.indexOf(genretype) > -1
-    });
+    var filtered2 = libraryOfBooks[0].filter(x => x.genre.toLowerCase().includes(genreType)); 
+ 
     //libraryOfBooks.filter
     //return libraryOfBooks.genre === genreType;
     //console.log(k.find())
