@@ -230,8 +230,8 @@ function returnGenreBooks(libraryOfBooks, genreType) {
     //console.log(filtered2);
     shuffle(filtered2);
     var randomizedLibraryBooksByGenre = filtered2.slice(0,3);
-    console.log(randomizedLibraryBooksByGenre);
-    drawRandomGenreRow(randomizedLibraryBooksByGenre);
+    randomizedLibraryBooksByGenre.map((item, response) => drawRandomGenreRow(item);
+    
 }
 
 function drawRandomGenreRow(rowData) {
