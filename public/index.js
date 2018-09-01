@@ -219,10 +219,13 @@ function returnGenreBooks(libraryOfBooks, genreType) {
     console.log(genreType);
     let filtered = libraryOfBooks.filter(item => 
              Object.keys(item).some(k => item[k] != null && 
-             item[k].toString().toLowerCase()
-             .includes(genreType.toLowerCase()))
+             item[k].toString()
+             .includes(genreType))
              );
-    let filtered2 = libraryOfBooks[0].find(x => x.genre === genreType);
+    //let filtered2 = libraryOfBooks[0].find(x => x.genre.toLowerCase() === genreType.toLowerCase());
+    var filtered2 = libraryOfBooks[0].filter(function(element) {
+        return element.genre.indexOf(genretype) > -1
+    });
     //libraryOfBooks.filter
     //return libraryOfBooks.genre === genreType;
     //console.log(k.find())
