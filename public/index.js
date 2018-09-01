@@ -215,16 +215,20 @@ function returnGenreBooks(libraryOfBooks, genreType) {
             return genreType.indexOf(genreSort) > -1;
         }).length === libraryOfBooks.length;
     });*/
+    console.log(libraryOfBooks);
+    console.log(genreType);
     let filtered = libraryOfBooks.filter(item => 
              Object.keys(item).some(k => item[k] != null && 
              item[k].toString().toLowerCase()
              .includes(genreType.toLowerCase()))
              );
+    let filtered2 = libraryOfBooks.find(x => x.genre === genreType);
     //libraryOfBooks.filter
     //return libraryOfBooks.genre === genreType;
     //console.log(k.find())
     //random = libraryOfBooks[Math.floor(Math.random()*entry.length)];
     console.log(filtered);
+    console.log(filtered2);
 }
 
 function submitBooksByTitle() {
