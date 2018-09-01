@@ -157,6 +157,7 @@ function deleteBook(item) {
 //only creates dropdown menu genres
 var libraryOfBooks = [];
 var libraryOfGenres = [];
+var unique_array = [];
 var genreType = '';
 
 function compileGenreArrays () {
@@ -171,7 +172,7 @@ function compileGenreArrays () {
             return unique_array
             }
         removeDuplicateUsingSet(allTheGenres);
-        console.log(allTheGenres);
+        console.log(unique_array);
         libraryOfGenres.push(allTheGenres);       
         populateRandomGenre(allTheGenres);
     });
