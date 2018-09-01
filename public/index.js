@@ -235,10 +235,12 @@ function shuffle(array) {
             };
 
 function returnGenreBooks(libraryOfBooks, genreType) {
+    console.log(libraryOfBooks);
     var filtered2 = libraryOfBooks[0].filter(z => z.genre.toLowerCase().includes(genreType)); 
     console.log(filtered2);
     shuffle(filtered2);
     var randomizedLibraryBooksByGenre = filtered2.slice(0,3);
+
     randomizedLibraryBooksByGenre.map((item, response) => drawRandomGenreRow(item));
     
 }
