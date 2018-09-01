@@ -215,7 +215,11 @@ function returnGenreBooks(libraryOfBooks, genreType) {
             return genreType.indexOf(genreSort) > -1;
         }).length === libraryOfBooks.length;
     });*/
-    let filtered = libraryOfBooks.find(i => i.genre === genreType)
+    let filtered = libraryOfBooks.filter(item => 
+             Object.keys(item).some(k => item[k] != null && 
+             item[k].toString().toLowerCase()
+             .includes(genreType.toLowerCase()))
+             );
     //libraryOfBooks.filter
     //return libraryOfBooks.genre === genreType;
     //console.log(k.find())
