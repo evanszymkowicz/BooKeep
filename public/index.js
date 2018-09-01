@@ -230,7 +230,7 @@ function returnGenreBooks(libraryOfBooks, genreType) {
     //console.log(filtered2);
     shuffle(filtered2);
     var randomizedLibraryBooksByGenre = filtered2.slice(0,3);
-    randomizedLibraryBooksByGenre.map((item, response) => drawRandomGenreRow(item);
+    randomizedLibraryBooksByGenre.map((item, response) => drawRandomGenreRow(item));
     
 }
 
@@ -243,9 +243,6 @@ function drawRandomGenreRow(rowData) {
         <td class="bookRL">${rowData.readingLevel}</td>
         <td class="bookGenre">${rowData.genre}</td>
         <td class="bookDesc"> ${rowData.description} </td>
-        <td class="bookDelete"> 
-            <button class="deleteBook">Delete Book</button>
-        </td>
     </tr>
     `;
     //console.log(row);
