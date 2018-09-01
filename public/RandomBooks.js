@@ -5,6 +5,7 @@ function compileRandomArray () {
     genreUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
     booksUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
     rLUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
+    bothURL = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(genreUrl,  function (response) {
         var allTheGenres = $.map(response, function (k) {
             return k.genre;
@@ -34,7 +35,17 @@ function compileRandomArray () {
         libraryOfBooks.push(allTheBooks);
         
      });
-    console.log(libraryOfBooks);
+    $.getJSON(bothURL,  function (response) {
+        var allTheRLBoth = $.map(response, function (k) {
+            return k.readingLevel;
+
+        });
+        var allTheGenreBoth = $.map(response, function (k) {
+            return k.genre;
+        });
+        populateRandomBoth(allTheGenreBoth, allTheRLBoth);
+    });
+    //console.log(libraryOfBooks);
 }
 
 function populateRandomGenre(entry) {
@@ -148,14 +159,14 @@ function drawRandomRLRow(rowRLData) {
     
 }
 
-function populateRandomBoth(entry) {
+function populateRandomBoth(entry, entry2) {
     $('#selectRLBoth').empty();
     $('#selectGenreBoth').empty();
     var referenceForGenresBoth = $.each(entry, function(i, p) {
         $('#selectGenreBOth').append($('<option></option>').val(p).html(p));
                 return p;
         });
-    var referenceForRLBoth = $.each(entry, function(i, k) {
+    var referenceForRLBoth = $.each(entry2, function(i, k) {
         $('#selectRLBoth').append($('<option></option>').val(k).html(k));
                 return k;
         });
