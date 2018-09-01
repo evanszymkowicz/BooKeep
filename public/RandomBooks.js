@@ -175,7 +175,7 @@ function populateRandomBoth(entry, entry2) {
 }
 
 function submitRandomBoth() {
-    $('.randomGenre').click(function (event) {
+    $('.randomBoth').click(function (event) {
         event.preventDefault();
         var genreBothType = $('#selectGenreBoth').find(':selected').text();
         var RLBothType = $('#selectRLBoth').find(':selected').text();
