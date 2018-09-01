@@ -163,7 +163,7 @@ var genreType = '';
 function compileRandomArray () {
     genreUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
     booksUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
-    rLUrl
+    rLUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(genreUrl,  function (response) {
         var allTheGenres = $.map(response, function (k) {
             return k.genre;
