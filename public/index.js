@@ -173,10 +173,10 @@ function compileGenreArrays () {
         var allTheBooks = $.map(response, function (k) {
             return k;
         });
-        libraryOfBooks.push(allTheBooks);
+        libraryOfBooks.push(allTheBooks[0]);
         
      });
-    console.log(libraryOfBooks[0]);
+    console.log(libraryOfBooks);
 }
 
 function populateRandomGenre(entry) {
