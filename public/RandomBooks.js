@@ -163,14 +163,14 @@ function populateRandomBoth(entry, entry2) {
     $('#selectRLBoth').empty();
     $('#selectGenreBoth').empty();
     var referenceForGenresBoth = $.each(entry, function(i, p) {
-        $('#selectGenreBOth').append($('<option></option>').val(p).html(p));
+        $('#selectGenreBoth').append($('<option></option>').val(p).html(p));
                 return p;
         });
     var referenceForRLBoth = $.each(entry2, function(i, k) {
         $('#selectRLBoth').append($('<option></option>').val(k).html(k));
                 return k;
         });
-    console.log(referenceForGenres);
+    //console.log(referenceForGenres);
     submitRandomBoth(referenceForGenresBoth, referenceForRLBoth);
 }
 
