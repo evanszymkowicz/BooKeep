@@ -185,17 +185,16 @@ function populateRandomGenre(entry) {
         $('#selectGenre').append($('<option></option>').val(p).html(p));
                 return p;
         });
-
-    submitRandomGenre();
+    console.log(referenceForGenres);
+    submitRandomGenre(referenceForGenres);
 }
 
 function submitRandomGenre() {
     $('.randomGenre').click(function (event) {
         event.preventDefault();
-        var genreQuery = $(event.currentTarget).find('#selectGenre');
-            genreType = genreQuery.val();
+        var genreType = $('#selectGenre').find(':selected').text();
         console.log(genreType);
-        returnGenreBooks(libraryOfBooks, genreType, libraryOfGenres);
+        //returnGenreBooks(libraryOfBooks, genreType, libraryOfGenres);
     });
     
 }
