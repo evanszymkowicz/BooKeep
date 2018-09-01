@@ -95,7 +95,7 @@ function drawRandomGenreRow(rowData) {
 }
 
 //byReadingLevel
-function populateRandomGenre(entry) {
+function populateRandomRL(entry) {
     $('#selectRL').empty();
     var referenceForRL = $.each(entry, function(i, p) {
         $('#selectRL').append($('<option></option>').val(p).html(p));
@@ -108,9 +108,9 @@ function populateRandomGenre(entry) {
 function submitRandomRL() {
     $('.randomReadingLevel').click(function (event) {
         event.preventDefault();
-        var RLType = $('#selectRL').find(':selected').text();
-        console.log(genreType);
-        returnRLBooks(libraryOfBooks, RLType);
+        var rLType = $('#selectRL').find(':selected').text();
+        console.log(rLType);
+        returnRLBooks(libraryOfBooks, rLType);
     });
     
 }
@@ -132,8 +132,8 @@ function shuffle(array) {
               return array;
             };
 
-function returnGenreBooks(libraryOfBooks, genreRL) {
-    var filtered3 = libraryOfBooks[0].filter(x => x.genre.toLowerCase().includes(genreRL)); 
+function returnGenreBooks(libraryOfBooks, rLType) {
+    var filtered3 = libraryOfBooks[0].filter(x => x.genre.toLowerCase().includes(rLType)); 
     //console.log(filtered2);
     shuffle(filtered3);
     var randomizedLibraryBooksByRL = filtered3.slice(0,3);
