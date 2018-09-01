@@ -180,15 +180,15 @@ function compileRandomArray () {
         populateRandomGenre(allTheGenres);
     });
     $.getJSON(rLUrl,  function (response) {
-        var allTheRL = $.map(response, function (j) {
-            return j.readingLevel;
+        var allTheRL = $.map(response, function (k) {
+            return k.readingLevel;
         });
         
         populateRandomRL(allTheRL);
     });
     $.getJSON(booksUrl,  function (response) {
-        var allTheBooks = $.map(response, function (l) {
-            return l;
+        var allTheBooks = $.map(response, function (k) {
+            return k;
         });
         libraryOfBooks.push(allTheBooks);
         
@@ -235,7 +235,7 @@ function shuffle(array) {
             };
 
 function returnGenreBooks(libraryOfBooks, genreType) {
-    var filtered2 = libraryOfBooks[0].filter(x => x.genre.toLowerCase().includes(genreType)); 
+    var filtered2 = libraryOfBooks[0].filter(z => z.genre.toLowerCase().includes(genreType)); 
     console.log(filtered2);
     shuffle(filtered2);
     var randomizedLibraryBooksByGenre = filtered2.slice(0,3);
@@ -258,7 +258,7 @@ function drawRandomGenreRow(rowData) {
     $(".libraryBooksByGenreDisplayed").append(row);
     
 }
-
+/*
 //byReadingLevel
 function populateRandomRL(entry) {
     $('#selectRL').empty();
@@ -286,7 +286,7 @@ function returnRLBooks(libraryOfBooks, rLType) {
     shuffle(filtered3);
     var randomizedLibraryBooksByRL = filtered3.slice(0,3);
     randomizedLibraryBooksByRL.map((item, response) => drawRandomRLRow(item));
-    console.log(response);
+    //console.log(response);
 }
 
 function drawRandomRLRow(rowRLData) {
@@ -303,7 +303,7 @@ function drawRandomRLRow(rowRLData) {
     //console.log(row);
     $(".libraryBooksByRLDisplayed").append(row);
     
-}
+}*/
 
 
 function submitBooksByTitle() {
