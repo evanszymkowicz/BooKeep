@@ -224,12 +224,35 @@ function shuffle(array) {
             }
               return array;
             };
+
 function returnGenreBooks(libraryOfBooks, genreType) {
     var filtered2 = libraryOfBooks[0].filter(x => x.genre.toLowerCase().includes(genreType)); 
     //console.log(filtered2);
     shuffle(filtered2);
-    console.log(filtered2[0]);
+    var randomizedLibraryBooksByGenre = filtered2.slice(0,3);
+    console.log(randomizedLibraryBooksByGenre);
+    drawRandomGenreRow(randomizedLibraryBooksByGenre);
 }
+
+function drawRandomGenreRow(rowData) {
+    let row = 
+    `<tr class="bookRow" />
+        <td class="bookID">${rowData.id}</td>
+        <td class="bookTitle">${rowData.title}</td>
+        <td class="bookAuthor">${rowData.author}</td>
+        <td class="bookRL">${rowData.readingLevel}</td>
+        <td class="bookGenre">${rowData.genre}</td>
+        <td class="bookDesc"> ${rowData.description} </td>
+        <td class="bookDelete"> 
+            <button class="deleteBook">Delete Book</button>
+        </td>
+    </tr>
+    `;
+    //console.log(row);
+    $(".libraryBooksByGenreDisplayed").append(row);
+    
+}
+
 
 function submitBooksByTitle() {
     $('#searchTerm').submit(function (event) {
