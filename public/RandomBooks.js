@@ -194,7 +194,7 @@ function returnBothBooks(libraryOfBooks, genreBothType, rLBothType) {
 
     randomizedLibraryBooksByBoth.map((item, response) => drawRandomBothRow(item));
 }
-function drawRandomRLRow(rowRLData) {
+function drawRandomBothRow(rowRLData) {
     let row = 
     `<tr class="bookRow" />
         <td class="bookID">${rowRLData.id}</td>

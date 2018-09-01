@@ -158,9 +158,10 @@ function deleteBook(item) {
 function submitBooksByTitle() {
     $('#searchTerm').submit(function (event) {
         event.preventDefault();
-        var queryTarget = $(event.currentTarget).find('#query');
-        searchTerm = queryTarget.val();
+        searchTerm = $('#query').text();
+        drawSearchHeaders();
         booksByTitle(searchTerm);
+        console.log(searchTerm);
     });
 }
 
@@ -175,6 +176,23 @@ function booksByTitle(searchTerm) {
          //});
 });
 }
+
+function drawSearchHeaders () {
+    let header = 
+    `<table class="libraryBooksSearch">
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Genre</th>
+            <th>Reading Level</th>
+            <th>Description</th>
+            <th>Checkout</th>
+            <th>Delete Book</th>
+        </table>
+    `
+    $('.searchRowTable').html(header);
+}
+
 
 function drawSearchRow(rowData) {
  let row = 
