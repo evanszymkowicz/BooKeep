@@ -236,7 +236,7 @@ function shuffle(array) {
 
 function returnGenreBooks(libraryOfBooks, genreType) {
     var filtered2 = libraryOfBooks[0].filter(x => x.genre.toLowerCase().includes(genreType)); 
-    //console.log(filtered2);
+    console.log(filtered2);
     shuffle(filtered2);
     var randomizedLibraryBooksByGenre = filtered2.slice(0,3);
     randomizedLibraryBooksByGenre.map((item, response) => drawRandomGenreRow(item));
@@ -282,7 +282,7 @@ function submitRandomRL() {
 
 function returnRLBooks(libraryOfBooks, rLType) {
     var filtered3 = libraryOfBooks[0].filter(x => x.readingLevel.toLowerCase().includes(rLType)); 
-    //console.log(filtered2);
+    console.log(filtered3);
     shuffle(filtered3);
     var randomizedLibraryBooksByRL = filtered3.slice(0,3);
     randomizedLibraryBooksByRL.map((item, response) => drawRandomRLRow(item));
