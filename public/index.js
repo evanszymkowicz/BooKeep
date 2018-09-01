@@ -166,6 +166,12 @@ function compileGenreArrays () {
         var allTheGenres = $.map(response, function (k) {
             return k.genre;
         });
+        function removeDuplicateUsingSet(arr){
+            let unique_array = Array.from(new Set(arr))
+            return unique_array
+            }
+        removeDuplicateUsingSet(allTheGenres);
+        console.log(allTheGenres);
         libraryOfGenres.push(allTheGenres);       
         populateRandomGenre(allTheGenres);
     });
@@ -173,7 +179,7 @@ function compileGenreArrays () {
         var allTheBooks = $.map(response, function (k) {
             return k;
         });
-        libraryOfBooks.push(allTheBooks[0]);
+        libraryOfBooks.push(allTheBooks);
         
      });
     console.log(libraryOfBooks);
