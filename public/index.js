@@ -167,12 +167,14 @@ function compileGenreArrays () {
         var allTheGenres = $.map(response, function (k) {
             return k.genre;
         });
-        function removeDuplicateUsingSet(arr){
-            let unique_array = Array.from(new Set(arr))
-            return unique_array
-            }
+        //function removeDuplicateUsingSet(arr){
+            //let unique_array = Array.from(new Set(arr))
+            //return unique_array
+            //}
         libraryOfGenres.push(allTheGenres);       
-        removeDuplicateUsingSet(libraryOfGenres);
+        //removeDuplicateUsingSet(libraryOfGenres);
+        //console.log(unique_array);
+        let unique_array = [...new Set(libraryOfGenres)];
         console.log(unique_array);
         populateRandomGenre(allTheGenres);
     });
