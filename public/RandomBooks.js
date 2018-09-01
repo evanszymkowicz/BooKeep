@@ -178,15 +178,16 @@ function submitRandomBoth() {
     $('.randomBoth').click(function (event) {
         event.preventDefault();
         var genreBothType = $('#selectGenreBoth').find(':selected').text();
-        var RLBothType = $('#selectRLBoth').find(':selected').text();
-        console.log(genreType);
-        returnBothBooks(libraryOfBooks, genreBothType, RLBothType);
+        var rLBothType = $('#selectRLBoth').find(':selected').text();
+        console.log(genreBothType);
+        console.log(rLBothType);
+        returnBothBooks(libraryOfBooks, genreBothType, rLBothType);
     });
 }
 
-function returnBothBooks(libraryOfBooks, genreBothType, RLBothType) {
+function returnBothBooks(libraryOfBooks, genreBothType, rLBothType) {
     console.log(libraryOfBooks);
-    var filtered4 = libraryOfBooks[0].filter(z => z.genre.toLowerCase().includes(genreBothType.toLowerCase()) && z.readingLevel.toLowerCase().includes(RLBothType.toLowerCase())); 
+    var filtered4 = libraryOfBooks[0].filter(z => z.genre.toLowerCase().includes(genreBothType.toLowerCase()) && z.readingLevel.toLowerCase().includes(rLBothType.toLowerCase())); 
     console.log(filtered4);
     shuffle(filtered4);
     var randomizedLibraryBooksByBoth = filtered4.slice(0,3);
