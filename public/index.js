@@ -359,7 +359,7 @@ function renderLibraryBookSearchForm () {
         <form id="searchTerm">
             <input id="query" type="text" name="search" class="searchLocation"  placeholder="Search book title" role="search" aria-label="Search">
         <br>
-          <input type="submit" value="Submit" class="submit" aria-label="Search">
+          <input type="submit" value="Submit" class="submitBookSearch" aria-label="Search">
          </form>
      </div>
     `;
@@ -396,6 +396,7 @@ function submitBooksByTitle() {
         event.preventDefault();
         var queryTarget = $(event.currentTarget).find('#query');
         searchTerm = queryTarget.val();
+        console.log(searchTerm)
         drawSearchHeaders();
         booksByTitle(searchTerm);
     });
