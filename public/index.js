@@ -84,7 +84,6 @@ function listenerNewBook() {
         
         renderLibraryBookNew()
     });
-    submitNewBook()
 }
 
 function submitNewBook() {
@@ -121,11 +120,7 @@ function submitNewBook() {
                 dataType: "json",
                 contentType: 'application/json',
                 
-            })
-            .done(function (result) {
-               
-                
-            })
+            });
             
     });
 }
@@ -158,6 +153,7 @@ function renderLibraryBookNew () {
     </div>
     `
     $('.bookBody').html(libraryBooksNew);
+    submitNewBook()
 }
 /*
 function watchDeleteBook() {
