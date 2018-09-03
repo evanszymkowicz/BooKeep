@@ -3,8 +3,8 @@
 <head>
 	<title>Book Keep</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="index.js"></script>
-	<script src="RandomBooks.js"></script>
+	<script src="indexRouters.js"></script>
+	<script src="routers.js"></script>
 </head>
 <body>
 	<nav>
@@ -13,113 +13,9 @@
 		<a href=""><p>Login</p></a>
 		<a href="">About Us</a>
 	</nav>
-	<div>
-		<p>Placeholder for Login Screen</p>
-	</div>
-	<div>
-		<button class="addBook">Add a book</button>
-		<form class="addABook">
-			Book Title:
-			<input type="text" name="bookTitle" class="addTitle">
-			Author:
-			<input type="text" name="bookAuthor" class="addAuthor">
-			Genre:
-			<input type="text" name="bookGenre" class="addGenre">
-			Reading Level:
-			<select name="readingLevel" class="readingLevelNumber">
-				<option value="gradePK">Pre-K</option>
-				<option value="gradeK">K</option>
-				<option value="grade1">1</option>
-				<option value="grade2">2</option>
-				<option value="grade3">3</option>
-				<option value="grade4">4</option>
-				<option value="grade5">5</option>
-				<option value="grade6">6</option>
-			</select>
-			Description:
-			<input type="text" name="bookDescription" class="addDescription">
-			<button class="submitNewBook">Submit</button>
-		</form>
-	</div>
-	<form id="searchTerm">
-        <input id="query" type="text" name="search" class="searchLocation"  placeholder="Search book title" role="search" aria-label="Search">
-    <br>
-      <input type="submit" value="Submit" class="submit" aria-label="Search">
-     </form>
-     <div class="searchRowTable">
-     </div>
-     <div>
-     	<button class="randomGenre">Random Book by Genre</button>
-     	<select id="selectGenre"></select>
-     	<div>
-     		<table class="libraryBooksByGenreDisplayed">
-				<tr>
-					<th>ID</th>
-					<th>Title</th>
-					<th>Author</th>
-					<th>Genre</th>
-					<th>Reading Level</th>
-					<th>Description</th>
-					
-				</tr>
-			</table>
-     	</div>
-     	<button class="randomReadingLevel">Random Book by Reading Level</button>
-     	<select id="selectRL"></select>
-     	<div>
-     		<table class="libraryBooksByRLDisplayed">
-				<tr>
-					<th>ID</th>
-					<th>Title</th>
-					<th>Author</th>
-					<th>Genre</th>
-					<th>Reading Level</th>
-					<th>Description</th>
-					
-				</tr>
-			</table>
-     	</div>
-     	<button class="randomBoth">Random Book by Genre and Reading Level</button>
-     	<form>
-     		<select id="selectGenreBoth"></select>
-     		<select id="selectRLBoth"></select>
-		</form>
-		<div>
-     		<table class="libraryBooksByBothDisplayed">
-				<tr>
-					<th>ID</th>
-					<th>Title</th>
-					<th>Author</th>
-					<th>Genre</th>
-					<th>Reading Level</th>
-					<th>Description</th>
-				</tr>
-			</table>
-     	</div>
-     </div>
-     <div>
-		<h2>Library Books</h2>
-		<table class="libraryBooksDisplayed">
-			<tr>
-				<th>ID</th>
-				<th>Title</th>
-				<th>Author</th>
-				<th>Genre</th>
-				<th>Reading Level</th>
-				<th>Description</th>
-				
-			</tr>
-		</table>
-		<button class="nextAllData">Next</button>
-		<button class="backAllData">Back</button>
-	</div>
-	<div>
-		<h2>Current Checked out books</h2>
-		<p class="checkoutBooks"></p>
-	</div>
-	
-
-
+	<main>
+		<div class="libraryBooksBody"></div>
+	</main>
 </body>
 </html>
 
