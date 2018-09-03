@@ -81,7 +81,7 @@ function drawRow(rowData) {
 function listenerNewBook() {
     $('.addABook').on('click', function (event) {
         event.preventDefault();
-        $('.mainPage').toggle();
+        
         renderLibraryBookNew()
     });
     submitNewBook()
