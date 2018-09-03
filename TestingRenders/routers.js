@@ -29,9 +29,6 @@ function renderLibraryBooksList () {
         <td class="bookRL">${rowData.readingLevel}</td>
         <td class="bookGenre">${rowData.genre}</td>
         <td class="bookDesc"> ${rowData.description} </td>
-        <td class="bookDelete"> 
-            <button class="deleteBook">Delete Book</button>
-        </td>
     </tr>
     `);
     $('.libraryOfBooks').append(libraryList);
@@ -47,7 +44,7 @@ function renderLibraryBooksList () {
 
 
 
-
+/*
 	`
         <div class="editCouponModal">
             <div class="popUpHeader">
@@ -67,4 +64,4 @@ function renderLibraryBooksList () {
                 <button type="button" class="submitCheckoutBook" name="Submit"> 
             </div>
         </div>
-        `
+        `*/
