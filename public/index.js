@@ -133,8 +133,7 @@ function submitNewBook() {
 function renderLibraryBookNew () {
     const libraryBooksNew = `
     <div class="addNewBookForm">
-        <button class="addBook">Add a book</button>
-        <form class="addABook">
+        <form class="addANewBook">
             Book Title:
             <input type="text" name="bookTitle" class="addTitle">
             Author:
