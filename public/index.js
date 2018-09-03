@@ -353,7 +353,7 @@ function allBooks() {
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.ajax({
         url:url,
-        method: 'GET'
+        method: 'GET',
         dataType: "json",
         contentType: 'application/json',
         })
