@@ -392,7 +392,7 @@ function deleteBook(item) {
 
 */
 function submitBooksByTitle() {
-    $('#searchTerm').submit(function (event) {
+    $('.submitBookSearch').on('click', function (event) {
         event.preventDefault();
         var queryTarget = $(event.currentTarget).find('#query');
         searchTerm = queryTarget.val();
