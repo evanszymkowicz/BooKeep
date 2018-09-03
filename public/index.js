@@ -51,7 +51,7 @@ function allBooks() {
     $.getJSON(url,  function (response) {
         libraryOfBooks = response;
         booksInLibrary = response.map((item, response) => drawRow(item));
-        watchDeleteBook();
+        //watchDeleteBook();
         //const results = LibraryBookTableMaker();
         //drawRow(results);
         //deleteThisBook(item);
@@ -87,7 +87,7 @@ function listenerNewBook() {
     submitNewBook()
 }
 
-function submitNewBook {
+function submitNewBook() {
     $('.submitNewBook').on('click', function(event) {
         event.preventDefault();
         const newTitle = $('.addTitle').val();
