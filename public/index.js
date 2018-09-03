@@ -356,6 +356,7 @@ function allBooks() {
             return k;
         });
         libraryOfBooks.push(allTheBooks);
+        console.log(libraryOfBooks);
         renderLibraryBooksHeaders();
         renderLibraryBooksList()
          });
