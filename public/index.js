@@ -382,10 +382,6 @@ function renderLibraryBooksHeaders () {
             <th>Description</th>
         </table>
     `
-    $('.libraryBooksBody').html(libraryBooksHeader);
-}
-
-function renderLibraryBooksList () {
     const libraryList = libraryOfBooks.map(rowData =>
         `<tr class="bookRow" />
         <td class="bookID">${rowData.id}</td>
@@ -396,8 +392,11 @@ function renderLibraryBooksList () {
         <td class="bookDesc"> ${rowData.description} </td>
     </tr>
     `);
+    $('.libraryBooksBody').html(libraryBooksHeader);
     $('.libraryOfBooks').append(libraryList);
 }
+
+
 
 
 $(document).ready(function () {
