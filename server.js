@@ -62,8 +62,6 @@ app.get('/getbooks/byTitle/:title', (req, res) => {
 });
 
 app.get('/getbooks/bygenre/:genre', (req, res) => {
-	res.send('hi');
-	return;
   LibraryBooks
     .find({genre: req.params.genre})
     .then(bookgenres => {
@@ -75,19 +73,18 @@ app.get('/getbooks/bygenre/:genre', (req, res) => {
     });
 });
 
-app.get('/getbooks/byreadinglevel/:readingLevel', (req, res) => {
-	res.send('hi');
-	return;
+app.get('/getbooks/byID/:id', (req, res) => {
   LibraryBooks
-    .find({readingLevel: req.params.readingLevel})
-    .then(bookreadinglevels => {
-      res.json(bookreadinglevels.map(bookreadinglevel => bookreadinglevel.serialize()));
+    .find({id: req.params.id})
+    .then(bookIDs => {
+      res.json(bookIDs.map(bookID => bookID.serialize()));
     })
     .catch(err => {
       console.error(err);
       res.status(500).json({ error: 'something went terribly wrong' });
     });
 });
+
 
 /*
 //still need help with this one

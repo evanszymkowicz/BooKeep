@@ -24,6 +24,7 @@ bookLibrarySchema.methods.serialize = function() {
     created: this.created,
     description: this.description,
     genre: this.genre,
+    checkoutDate: this.checkoutDate,
      };
 };
 

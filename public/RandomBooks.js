@@ -48,6 +48,7 @@ function compileRandomArray () {
     //console.log(libraryOfBooks);
 }
 
+//need to remove duplicates
 function populateRandomGenre(entry) {
     $('#selectGenre').empty();
     var referenceForGenres = $.each(entry, function(i, p) {
@@ -99,17 +100,19 @@ function returnGenreBooks(libraryOfBooks, genreType) {
 
 function drawRandomGenreRow(rowData) {
     let row = 
-    `<tr class="bookRow" />
-        <td class="bookID">${rowData.id}</td>
-        <td class="bookTitle">${rowData.title}</td>
-        <td class="bookAuthor">${rowData.author}</td>
-        <td class="bookRL">${rowData.readingLevel}</td>
-        <td class="bookGenre">${rowData.genre}</td>
-        <td class="bookDesc"> ${rowData.description} </td>
-    </tr>
+    `<div class="randomBookPage"
+        <img src=''>
+        <ul class="inidividualBookList">
+            <li> Title: ${rowData.title}</li>
+            <li> Author: ${rowData.author}</li>
+            <li> Genre: ${rowData.genre}</li>
+            <li> Reading Level: ${rowData.readingLevel}</li>
+            <li> Description: ${rowData.description}</li>
+    </div>
+    
     `;
     //console.log(row);
-    $(".libraryBooksByGenreDisplayed").append(row);
+    $(".randomArrayCompiler").html(row);
     
 }
 
@@ -145,17 +148,19 @@ function returnRLBooks(libraryOfBooks, rLType) {
 
 function drawRandomRLRow(rowRLData) {
     let row = 
-    `<tr class="bookRow" />
-        <td class="bookID">${rowRLData.id}</td>
-        <td class="bookTitle">${rowRLData.title}</td>
-        <td class="bookAuthor">${rowRLData.author}</td>
-        <td class="bookRL">${rowRLData.readingLevel}</td>
-        <td class="bookGenre">${rowRLData.genre}</td>
-        <td class="bookDesc"> ${rowRLData.description} </td>
-    </tr>
+    `<div class="randomBookPage"
+        <img src=''>
+        <ul class="inidividualBookList">
+            <li> Title: ${rowRLData.title}</li>
+            <li> Author: ${rowRLData.author}</li>
+            <li> Genre: ${rowRLData.genre}</li>
+            <li> Reading Level: ${rowRLData.readingLevel}</li>
+            <li> Description: ${rowRLData.description}</li>
+    </div>
+    
     `;
     //console.log(row);
-    $(".libraryBooksByRLDisplayed").append(row);
+    $(".randomArrayCompiler").html(row);
     
 }
 
@@ -196,17 +201,19 @@ function returnBothBooks(libraryOfBooks, genreBothType, rLBothType) {
 }
 function drawRandomBothRow(rowRLData) {
     let row = 
-    `<tr class="bookRow" />
-        <td class="bookID">${rowRLData.id}</td>
-        <td class="bookTitle">${rowRLData.title}</td>
-        <td class="bookAuthor">${rowRLData.author}</td>
-        <td class="bookRL">${rowRLData.readingLevel}</td>
-        <td class="bookGenre">${rowRLData.genre}</td>
-        <td class="bookDesc"> ${rowRLData.description} </td>
-    </tr>
+    `<div class="randomBookPage"
+        <img src=''>
+        <ul class="inidividualBookList">
+            <li> Title: ${rowRLData.title}</li>
+            <li> Author: ${rowRLData.author}</li>
+            <li> Genre: ${rowRLData.genre}</li>
+            <li> Reading Level: ${rowRLData.readingLevel}</li>
+            <li> Description: ${rowRLData.description}</li>
+    </div>
+    
     `;
     //console.log(row);
-    $(".libraryBooksByBothDisplayed").append(row);
+    $(".randomArrayCompiler").html(row);
     
 }
 $(document).ready(function () {

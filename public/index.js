@@ -40,7 +40,7 @@
         drawRow(data[i]);
     }
 }*/
-
+checkedOutbooks = []
 libraryOfBooks = []
 var tableNumber = 1;
 var resultsShown = 2;
@@ -62,22 +62,23 @@ function allBooks() {
 function drawRow(rowData) {
     let row = 
     `<tr class="bookRow" />
+        <td class="bookView"> 
+            <button class="bookViewButton">View</button>
+        </td>
         <td class="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
         <td class="bookAuthor">${rowData.author}</td>
         <td class="bookRL">${rowData.readingLevel}</td>
         <td class="bookGenre">${rowData.genre}</td>
         <td class="bookDesc"> ${rowData.description} </td>
-        <td class="bookDelete"> 
-            <button class="deleteBook">Delete Book</button>
-        </td>
     </tr>
     `;
     //console.log(row);
     $(".libraryBooksDisplayed").append(row);
     
 }
-
+//need to either always render new book, or have someway of auto refreshing json data
+//maybe create timer that makes call often
 function listenerNewBook() {
     $('.addABook').on('click', function (event) {
         event.preventDefault();
@@ -114,8 +115,7 @@ function submitNewBook() {
                 contentType: 'application/json',
                 
             })
-        $('.mainPage').toggle();
-        allBooks();         
+        $('.mainPage').toggle();      
     });
 }
 
@@ -145,16 +145,231 @@ function renderLibraryBookNew () {
             <button class="submitNewBook">Submit</button>
         </form>
     </div>
-    `
+    `;
     $('.bookBody').html(libraryBooksNew);
     submitNewBook()
 }
 /*
-function watchDeleteBook() {
-    $('.deleteBook').click(function (event) {
+function renderIndividualBookListener () {
+    $('.bookViewButton').click(function (event) {
         event.preventDefault();
         var bookIdTarget = $(this).closest('tr').find(".BookID");
-        searchId = bookIdTarget.children().
+        searchId = bookIdTarget.text();
+        url = 'https://infinite-river-85875.herokuapp.com/getbooks/getID/' + searchId;
+        $.getJSON(url,  function (response) {
+            individualBookInLibrary = response.map((item, response) => renderIndividualBook(item));
+            });
+        $('.mainPage').toggle();
+    });
+}
+
+function renderIndividualBook (book) {
+    const individualBook = `
+    <div class="individualBookPage"
+        <img src=''>
+        <ul class="inidividualBookList">
+            <li class="bookIDTwo"> Title: ${book.id}</li>
+            <li> Title: ${book.title}</li>
+            <li> Author: ${book.author}</li>
+            <li> Genre: ${book.genre}</li>
+            <li> Reading Level: ${book.readingLevel}</li>
+            <li> Description: ${book.description}</li>
+        <button class="deleteBook">Delete</button>
+        <button class="editBook">Edit</button>
+        <button class="checkoutBook">Checkout</button>
+    </div>
+    `;
+    $('.bookBody').html(individualBook);
+    var bookIdTargetTwo = $(this).closest('li').find(".BookIDTwo");
+        searchIdTwo = bookIdTargetTwo.text();
+    //does searchIDTwo need to be a param in function(event)?
+    $('.deleteBook').click(function (event) {
+        event.preventDefault();
+        handleDeleteBook(searchIdTwo);
+    });
+    $('.editBook').click(function (event) {
+        event.preventDefault();
+        renderIndividualBookEditCall(searchIdTwo);
+    });
+    $('.checkoutBook').click(function (event) {
+        event.preventDefault();
+        renderIndividualBookCheckout(searchIdTwo);
+    });
+}
+
+
+function handleDeleteBook (id) {
+    urlBook = 'https://infinite-river-85875.herokuapp.com/delete/' + id;
+    console.log(urlBook);
+    $.ajax({
+            url: urlBook,
+            type: 'DELETE',
+            dataType: 'json',
+            contentType: 'application/json'
+        });
+    $('.individualBookPage').toggle();
+}
+
+function renderIndividualBookEditCall(id) {
+    urlBook = 'https://infinite-river-85875.herokuapp.com/getBooks/byID/' + id;
+    $.getJSON(urlBook,  function (response) {
+        individualBookInLibraryEdit = response.map((item, response) => renderIndividualBookEdit(item));
+        });
+}
+
+//not sure if this will work because jquery is within html element. we shall see
+//otherwise use call back in ajax success but for that have to know 
+function renderIndividualBookEdit (book) {
+    const individualBookEdit = 
+    `
+    <img src=''>
+    <legend>Update Book Info</legend>
+    <form class="inidividualBookForm">
+        <p class="BookIDThree">${book.id}</p>
+        <label> Title:</label></br> 
+        <input type="text" class = "individualBookTitle" value= '${book.title}'></br>
+        <label> Author:</label></br>
+        <input type="text" class = "individualBookAuthor" value= '${book.author}'></br>
+        <label> Genre:</label></br>
+        <input type="text" class = "individualBookGenre"value= '${book.genre}'></br>
+        <label> Reading Level:</label></br>
+        <input type="text" class = "individualBookRL"value= '${book.readingLevel}'></br>
+        <label> Description:</label></br>
+        <input type="text" class = "individualBookDescription"value= '${book.description}'></br>
+    <button class="submitBookEdit">Submit</button>
+    `;
+    $('.bookBody').html(individualBookEdit);
+    var bookIdTargetThree = $(this).closest('p').find(".BookIDThree");
+        searchIdThree = bookIdTargetThree.text();
+    submitIndividualBookEditForm(searchIdThree);
+}
+
+function submitInidividualBookEditForm (id) {
+    urlBook = 'https://infinite-river-85875.herokuapp.com/update/' + id;
+    $('.submitBookEdit').click(function (event) {
+        event.preventDefault();
+        const form = new FormData();
+        form.append('title', $('.individualBookTitle').val());
+        form.append('author', $('.individualBookAuthor').val());
+        form.append('genre', $('.individualBookGenre').val());
+        form.append('readingLevel', $('.individualBookRL').val());
+        form.append('description', $('.individualBookDescription').val());
+    $.ajax({
+        url: urlBook,
+        method: 'PUT',
+        data: form,
+        enctype: 'multipart/form-data',
+        });
+    $('.individualBookForm').toggle()
+    });
+}
+
+function renderIndividualBookCheckout (id) {
+    const bookCheckoutForm = `
+    <form class="inidividualBookCheckoutForm">
+        <h2 class="checkoutFormTitle">Checkout Book</h2>
+        <p class="BookIDFour bookID">${book.id}</p>
+        <label> Student Name:</label></br> 
+        <input type="text" class = "studentName"></br>
+        <label> Checkout Date:</label></br>
+        <input type="date" class = "checkoutDate"></br>
+        <button class="submitCheckout">Submit</checkout>
+    `
+    $('.bookBody').html(bookCheckoutForm);
+    var bookIdTargetFour = $(this).closest('p').find(".BookIDFour");
+        searchIdFour = bookIdTargetFour.text();
+    handleBookCheckout(bookIdTargetFour);
+}
+
+function handleBookCheckout (id) {
+    urlBook = 'https://infinite-river-85875.herokuapp.com/checkout/' + id;
+    $('.submitCheckout').click(function (event) {
+        event.preventDefault();
+    const checkoutBookDate = {
+        checkoutDate: $('.checkoutDate').val(),
+    }
+    $.ajax({
+        url: urlBook,
+        method: 'PUT',
+        data: JSON.stringify(checkoutBookDate),
+        dataType: "json",
+        contentType: 'application/json',
+        });
+    });
+    $('.individualBookCheckoutForm').toggle();
+}
+
+function renderBookCheckoutPageHandler () {
+    checkoutUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
+    $.getJSON(checkoutUrl,  function (response) {
+        var checkedBooks = $.map(response, function (k) {
+            return k;
+        });
+        checkedOutBooks.push(checkedBooks);
+        var totalCheckedOutBooks = _.reject(users, ['checkedOutDate', null]);
+        console.log(totalCheckedOutBooks);
+
+}
+*/
+function retrieveRandomBook() {
+    $('.libraryRandom').on('click', function(event) {
+        event.preventDefault();
+        renderLibraryBookRandom();
+        compileRandomArray();
+        $('.mainPage').toggle();      
+    });
+}
+
+function renderLibraryBookRandom () {
+    const libraryBooksRandom = `
+    <div class ="randomBookPage"
+    <button class="randomGenre">Random Book by Genre</button>
+    <select id="selectGenre"></select>
+    <button class="randomReadingLevel">Random Book by Reading Level</button>
+    <select id="selectRL"></select>
+    <button class="randomBoth">Random Book by Genre and Reading Level</button>
+        <form>
+            <select id="selectGenreBoth"></select>
+            <select id="selectRLBoth"></select>
+        </form>
+    <div class="randomArrayCompiler"
+    <div>
+    <button class="exitRandom">Exit</button>
+    </div>
+    `;
+    $('.bookBody').html(libraryBooksRandom);
+    $('.exitRandom').click(function (event) {
+        event.preventDefault();
+        $('.randomBookPage').toggle();
+    });
+}
+
+function retrieveSearchBook() {
+    $('.searchLibrary').on('click', function(event) {
+        event.preventDefault();
+        renderLibraryBookSearchForm();
+        submitBooksByTitle();
+        renderIndividualBookListener()
+        $('.mainPage').toggle();      
+    });
+}
+
+function renderLibraryBookSearchForm () {
+    const libraryBookSearch = `
+    <div class ="searchLibraryPage"
+        <form id="searchTerm">
+            <input id="query" type="text" name="search" class="searchLocation"  placeholder="Search book title" role="search" aria-label="Search">
+        <br>
+          <input type="submit" value="Submit" class="submit" aria-label="Search">
+         </form>
+     </div>
+    `;
+    $('.searchLibraryPage').html(libraryBookSearch);
+}
+
+/*
+function watchDeleteBook() {
+    
         console.log(bookIdTarget);
         //var closestBookID = $(this).first().text();
         console.log(searchId);
@@ -163,7 +378,8 @@ function watchDeleteBook() {
         
         
     })  
-}
+}*
+
 function deleteBook(item) {
     urlBook = 'https://infinite-river-85875.herokuapp.com/delete/' + item;
     console.log(urlBook);
@@ -175,6 +391,7 @@ function deleteBook(item) {
         });
 }
 
+*/
 function submitBooksByTitle() {
     $('#searchTerm').submit(function (event) {
         event.preventDefault();
@@ -200,14 +417,13 @@ function booksByTitle(searchTerm) {
 function drawSearchHeaders () {
     let header = 
     `<table class="libraryBooksSearch">
+            <th>Click to view</th>
             <th>ID</th>
             <th>Title</th>
             <th>Author</th>
             <th>Genre</th>
             <th>Reading Level</th>
             <th>Description</th>
-            <th>Checkout</th>
-            <th>Delete Book</th>
         </table>
     `
     $('.searchRowTable').html(header);
@@ -217,24 +433,22 @@ function drawSearchHeaders () {
 function drawSearchRow(rowData) {
  let row = 
     `<tr class="bookRow" />
+        <td class="bookView"> 
+            <button class="bookViewButton">View</button>
+        </td>
         <td class="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
         <td class="bookAuthor">${rowData.author}</td>
         <td class="bookRL">${rowData.readingLevel}</td>
         <td class="bookGenre">${rowData.genre}</td>
         <td class="bookDesc"> ${rowData.description} </td>
-        <td class="bookCheckout"> 
-            <button class="checkoutBook">Checkout Book</button>
-        </td>
-        <td class="bookDelete"> 
-            <button class="deleteBook">Delete Book</button>
-        </td>
     </tr>
     `;
     //console.log(row);
     $(".libraryBooksDisplayed").append(row);
 }
 
+/*
 var checkoutArray = []
 
 function compileCheckoutArray() {
@@ -374,7 +588,10 @@ $(document).ready(function () {
         //submitRandomGenre();
         //drawTable();
         allBooks();
+        retrieveRandomBook();
         listenerNewBook();
+        retrieveSearchBook();
+        //renderIndividualBookListener();
         //postNewBook();
         //watchCheckoutBook();
         //populateRandomGenre();
