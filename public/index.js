@@ -41,7 +41,6 @@
     }
 }*/
 checkedOutbooks = []
-libraryOfBooks = []
 var tableNumber = 1;
 var resultsShown = 2;
 
@@ -322,7 +321,7 @@ function retrieveRandomBook() {
 
 function renderLibraryBookRandom () {
     const libraryBooksRandom = `
-    <div class ="randomBookPage"
+    <div class ="randomBookPage">
     <button class="randomGenre">Random Book by Genre</button>
     <select id="selectGenre"></select>
     <button class="randomReadingLevel">Random Book by Reading Level</button>
@@ -349,7 +348,7 @@ function retrieveSearchBook() {
         event.preventDefault();
         renderLibraryBookSearchForm();
         submitBooksByTitle();
-        renderIndividualBookListener()
+        //renderIndividualBookListener()
         $('.mainPage').toggle();      
     });
 }
