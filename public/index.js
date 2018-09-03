@@ -96,7 +96,7 @@ function submitNewBook() {
         const readingLevelSelected = $('.readingLevelNumber').val();
         const newDescription = $('.addDescription').val();
         $('.addNewBookForm').toggle();
-        $('.mainPage').toggle();
+        
          //const author = req.user.id;
         
         const newPost = {
@@ -106,14 +106,6 @@ function submitNewBook() {
             readingLevel: readingLevelSelected,
             description: newDescription
         };
-        //console.log(url);
-        /*$.post("https://infinite-river-85875.herokuapp.com/add", newPost) 
-            .done(function (newbook) {
-            //let newBookInLibrary = newBook.map(item, response) //=> drawRow(item));
-            console.log(newbook);
-        });*/
-    
-
         $.ajax({
                 method: "POST",
                 url: "https://infinite-river-85875.herokuapp.com/add",
@@ -122,8 +114,7 @@ function submitNewBook() {
                 contentType: 'application/json',
                 
             })
-
-            
+        allBooks();         
     });
 }
 
