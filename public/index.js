@@ -81,9 +81,10 @@ function drawRow(rowData) {
 function listenerNewBook() {
     $('.addABook').on('click', function (event) {
         event.preventDefault();
-        
-        renderLibraryBookNew()
+        $('.mainPage').toggle();
+        renderLibraryBookNew();
     });
+
 }
 
 function submitNewBook() {
@@ -94,8 +95,8 @@ function submitNewBook() {
         const genreSelected = $('.addGenre').val();
         const readingLevelSelected = $('.readingLevelNumber').val();
         const newDescription = $('.addDescription').val();
-        //$('.addNewBookForm').toggle();
-         //$('.mainPage').toggle();
+        $('.addNewBookForm').toggle();
+        $('.mainPage').toggle();
          //const author = req.user.id;
         
         const newPost = {
@@ -120,7 +121,8 @@ function submitNewBook() {
                 dataType: "json",
                 contentType: 'application/json',
                 
-            });
+            })
+
             
     });
 }
