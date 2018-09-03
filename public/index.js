@@ -158,7 +158,7 @@ function renderLibraryBookNew () {
         </form>
     </div>
     `
-    $('.BookBody').html(libraryBooksNew);
+    $('.bookBody').html(libraryBooksNew);
 }
 /*
 function watchDeleteBook() {
