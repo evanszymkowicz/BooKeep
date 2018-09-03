@@ -363,7 +363,7 @@ function renderLibraryBookSearchForm () {
          </form>
      </div>
     `;
-    $('.searchLibraryPage').html(libraryBookSearch);
+    $('.bookBody').html(libraryBookSearch);
 }
 
 /*
