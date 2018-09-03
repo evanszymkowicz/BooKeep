@@ -3,7 +3,8 @@
 <head>
 	<title>Book Keep</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	
+	<script src="index.js"></script>
+	<script src="RandomBooks.js"></script>
 </head>
 <body>
 	<nav>
@@ -12,12 +13,38 @@
 		<a href=""><p>Login</p></a>
 		<a href="">About Us</a>
 	</nav>
-	<main>
-		<div class="libraryBooksBody"></div>
-	</main>
+	
+  <div class="mainPage">
+  		<div class="main-page">
+		      <p>Welcome to your Library Page! Click on the book in the table below to find out more information and edit, delete, or checkout book. Click the "Search" button to search books by title or author. Click the "Random" button to find books randomly. Finally, Click "Checked out books" to see books that are checked out and check them in!</p>
+		      <button class="addABook" type="submit">Add Book</button>
+		      <button class="searchLibrary" type="submit">Search</button>
+		      <button class="libraryRandom" type="submit">Random</button>
+		      <button class="checkedoutList" type="submit">Checkedout Books</button>
+    	</div>
+		<h2>Library Books</h2>
+		<div class="displayedLibrary">		
+			<table class="libraryBooksDisplayed">
+				<tr>
+					<th>ID</th>
+					<th>Title</th>
+					<th>Author</th>
+					<th>Genre</th>
+					<th>Reading Level</th>
+					<th>Description</th>
+				</tr>
+			</table>
+			<button class="nextAllData">Next</button>
+			<button class="backAllData">Back</button>
+	</div>
+</div>
+<div>
+	<div class="bookBody">
+		
+	</div>
+</div>
+	
+	
 </body>
-
-<script src="index.js"></script>
-<script src="routers.js"></script>
 </html>
 

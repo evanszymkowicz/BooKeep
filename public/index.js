@@ -40,7 +40,8 @@
         drawRow(data[i]);
     }
 }*/
-/*
+
+libraryOfBooks = []
 var tableNumber = 1;
 var resultsShown = 2;
 
@@ -48,6 +49,7 @@ var resultsShown = 2;
 function allBooks() { 
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(url,  function (response) {
+        libraryOfBooks = response;
         booksInLibrary = response.map((item, response) => drawRow(item));
         watchDeleteBook();
         //const results = LibraryBookTableMaker();
@@ -56,18 +58,7 @@ function allBooks() {
          });
     
 }
-*/
-/*function LibraryBookTableMaker () {
-    var results = '';
-    for(var i = (tableNumber * resultsShown - resultsShown) ; i < (tableNumber * resultsShown); i++) {
-    results += drawRow(results[i]);
-  }
-  return results
-}*/
 
-
-
-/*
 function drawRow(rowData) {
     let row = 
     `<tr class="bookRow" />
@@ -87,15 +78,26 @@ function drawRow(rowData) {
     
 }
 
-function postNewBook() {
-    $('.addABook').on('click', '.submitNewBook', function (event) {
+function listenerNewBook() {
+    $('.addABook').on('click', function (event) {
+        event.preventDefault();
+        $('.mainPage').toggle();
+        renderLibraryBookNew()
+    });
+    submitNewBook()
+}
+
+function submitNewBook {
+    $('.submitNewBook').on('click', function(event) {
         event.preventDefault();
         const newTitle = $('.addTitle').val();
         const newAuthor = $('.addAuthor').val();
         const genreSelected = $('.addGenre').val();
         const readingLevelSelected = $('.readingLevelNumber').val();
         const newDescription = $('.addDescription').val();
-        //const author = req.user.id;
+        $('.addNewBookForm').toggle();
+         $('.mainPage').toggle();
+         //const author = req.user.id;
         
         const newPost = {
             title: newTitle,
@@ -104,14 +106,14 @@ function postNewBook() {
             readingLevel: readingLevelSelected,
             description: newDescription
         };
-        //console.log(url);*/
+        //console.log(url);
         /*$.post("https://infinite-river-85875.herokuapp.com/add", newPost) 
             .done(function (newbook) {
             //let newBookInLibrary = newBook.map(item, response) //=> drawRow(item));
             console.log(newbook);
         });*/
     
-/*
+
         $.ajax({
                 method: "POST",
                 url: "https://infinite-river-85875.herokuapp.com/add",
@@ -121,15 +123,44 @@ function postNewBook() {
                 
             })
             .done(function (result) {
-                //maybe not necessary
-                newBookinLibrary = result.map((item, results) => drawRow(item))
+               
                 
-                console.log(result);
             })
             
     });
 }
 
+function renderLibraryBookNew () {
+    const libraryBooksNew = `
+    <div class="addNewBookForm">
+        <button class="addBook">Add a book</button>
+        <form class="addABook">
+            Book Title:
+            <input type="text" name="bookTitle" class="addTitle">
+            Author:
+            <input type="text" name="bookAuthor" class="addAuthor">
+            Genre:
+            <input type="text" name="bookGenre" class="addGenre">
+            Reading Level:
+            <select name="readingLevel" class="readingLevelNumber">
+                <option value="gradePK">Pre-K</option>
+                <option value="gradeK">K</option>
+                <option value="grade1">1</option>
+                <option value="grade2">2</option>
+                <option value="grade3">3</option>
+                <option value="grade4">4</option>
+                <option value="grade5">5</option>
+                <option value="grade6">6</option>
+            </select>
+            Description:
+            <input type="text" name="bookDescription" class="addDescription">
+            <button class="submitNewBook">Submit</button>
+        </form>
+    </div>
+    `
+    $('.BookBody').html(renderLibraryBookNew);
+}
+/*
 function watchDeleteBook() {
     $('.deleteBook').click(function (event) {
         event.preventDefault();
@@ -347,58 +378,6 @@ function booksByReadingLevelAndGenre(searchTerm) {
          });
 }
 */
-libraryOfBooks = [];
-
-function allBooks() { 
-    url = 'https://infinite-river-85875.herokuapp.com/getbooks';
-    $.ajax({
-        url:url,
-        method: 'GET',
-        dataType: "json",
-        contentType: 'application/json',
-        })
-    .done(function(response) => {
-        libraryOfBooks = response
-        renderLibraryBooksHeaders();
-         });
-    
-}
-
-function renderLibraryBooksHeaders () {
-    const libraryBooksHeader = `
-    <div class="main-page">
-      <p>Welcome to your Library Page! Click on the book in the table below to find out more information and edit, delete, or checkout book. Click the "Search" button to search books by title or author. Click the "Random" button to find books randomly. Finally, Click "Checked out books" to see books that are checked out and check them in!</p>
-      <button class="addABook" type="submit">Add Book</button>
-      <button class="searchLibrary" type="submit">Search</button>
-      <button class="libraryRandom" type="submit">Random</button>
-      <button class="checkedoutList" type="submit">Checkedout Books</button>
-    </div>
-
-    <table class="libraryBooksSearch">
-            <th>ID</th>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Genre</th>
-            <th>Reading Level</th>
-            <th>Description</th>
-        </table>
-    `
-    const libraryList = libraryOfBooks.map(rowData =>
-        `<tr class="bookRow" />
-        <td class="bookID">${rowData.id}</td>
-        <td class="bookTitle">${rowData.title}</td>
-        <td class="bookAuthor">${rowData.author}</td>
-        <td class="bookRL">${rowData.readingLevel}</td>
-        <td class="bookGenre">${rowData.genre}</td>
-        <td class="bookDesc"> ${rowData.description} </td>
-    </tr>
-    `);
-    $('.libraryBooksBody').html(libraryBooksHeader);
-    $('.libraryOfBooks').append(libraryList);
-}
-
-
-
 
 $(document).ready(function () {
         //populateRandomGenre();
@@ -406,6 +385,7 @@ $(document).ready(function () {
         //submitRandomGenre();
         //drawTable();
         allBooks();
+        listenerNewBook();
         //postNewBook();
         //watchCheckoutBook();
         //populateRandomGenre();
