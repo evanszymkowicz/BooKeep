@@ -114,6 +114,7 @@ function submitNewBook() {
                 contentType: 'application/json',
                 
             })
+        $('.mainPage').toggle();
         allBooks();         
     });
 }
