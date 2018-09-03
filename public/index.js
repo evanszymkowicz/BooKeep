@@ -368,7 +368,7 @@ $(document).ready(function () {
         //submitBooksByTitle();
         //submitRandomGenre();
         //drawTable();
-        //allBooks();
+        allBooks();
         //postNewBook();
         //watchCheckoutBook();
         //populateRandomGenre();
