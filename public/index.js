@@ -40,7 +40,7 @@
         drawRow(data[i]);
     }
 }*/
-
+/*
 var tableNumber = 1;
 var resultsShown = 2;
 
@@ -56,7 +56,7 @@ function allBooks() {
          });
     
 }
-
+*/
 /*function LibraryBookTableMaker () {
     var results = '';
     for(var i = (tableNumber * resultsShown - resultsShown) ; i < (tableNumber * resultsShown); i++) {
@@ -67,7 +67,7 @@ function allBooks() {
 
 
 
-
+/*
 function drawRow(rowData) {
     let row = 
     `<tr class="bookRow" />
@@ -104,14 +104,14 @@ function postNewBook() {
             readingLevel: readingLevelSelected,
             description: newDescription
         };
-        //console.log(url);
+        //console.log(url);*/
         /*$.post("https://infinite-river-85875.herokuapp.com/add", newPost) 
             .done(function (newbook) {
             //let newBookInLibrary = newBook.map(item, response) //=> drawRow(item));
             console.log(newbook);
         });*/
     
-
+/*
         $.ajax({
                 method: "POST",
                 url: "https://infinite-river-85875.herokuapp.com/add",
@@ -203,6 +203,9 @@ function drawSearchRow(rowData) {
         <td class="bookRL">${rowData.readingLevel}</td>
         <td class="bookGenre">${rowData.genre}</td>
         <td class="bookDesc"> ${rowData.description} </td>
+        <td class="bookCheckout"> 
+            <button class="checkoutBook">Checkout Book</button>
+        </td>
         <td class="bookDelete"> 
             <button class="deleteBook">Delete Book</button>
         </td>
@@ -211,42 +214,107 @@ function drawSearchRow(rowData) {
     //console.log(row);
     $(".libraryBooksDisplayed").append(row);
 }
-/*function checkoutPopUp() {
-    return
-        `
-        <div>
-                <div class="popUpHeader">
-        <div class="clossButton">
-            <button type="button" class="close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    </div>
-    <div>
-        <form>
-            Student First Name:
-            <input type="text" name="bookTitle" class="addTitle">
-            Student Last Name:
-            <input type="text" name="bookAuthor" class="addAuthor">
-        </form>
-    </div>
-</div>
-        `
 
+var checkoutArray = []
+
+function compileCheckoutArray() {
+    checkoutUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
+    $.getJSON(checkoutUrl,  function (response) {
+        var allTheCO = $.map(response, function (k) {
+            return k.checkoutDate;
+        });
+        //function removeDuplicateUsingSet(arr){
+            //let unique_array = Array.from(new Set(arr))
+            //return unique_array
+            //}
+        checkoutArray.push(allTheCO);       
+        //removeDuplicateUsingSet(libraryOfGenres);
+        //console.log(unique_array);
+        //let unique_array = [...new Set(libraryOfGenres)];
+        //console.log(unique_array);
+        //populateRandomGenre(allTheGenres);
+    });
 }
 
-function checkoutPopUpListener() {
-    $('#checkoutBook').submit(function (event) {
+
+function watchCheckoutBook () {
+    $('.checkoutBook').click(function (event) {
         event.preventDefault();
-
-        $("#datepicker").datepicker({
-            dateFormat: 'yy-mm-dd',
-            minDate: 0,
-            maxDate: "+1Y"
-        });
+        var bookIdTargetCheckout = $(this).closest('tr').find(".BookID");
+        searchId = bookIdTarget.children();
+        console.log(bookIdTarget);
+        //var closestBookID = $(this).first().text();
+        console.log(searchId);
+        //deleteBook(closestBookID)
+        //$(this).closest("tr").html('');
+        checkoutPopUp()
+        updateBookCheckout(bookIdTargetCheckout, bookCheckedout);
     });
+    
+    
+}
 
-}*/
+function watchSubmitCheckoutBook() {
+    $('.submitCheckoutBook').click(function (event) {
+        event.preventDefault();
+        var bookCheckedout = $('.dateCheckedOut').val();
+        compileCheckoutArray();
+    });
+}
+
+function updateBookCheckout(item, date) {
+    urlCheckout = 'https://infinite-river-85875.herokuapp.com/checkout/' + item;
+    console.log(urlBook);
+        //const author = req.user.id;
+    const checkingOutBook = {
+            checkoutDate: bookCheckedout,
+        };
+    $.ajax({
+                method: "PUT",
+                url: urlCheckout,
+                data: JSON.stringify(checkingOutBook),
+                dataType: "json",
+                contentType: 'application/json',
+            })
+            .done(function (result) {
+                var checkoutBookList = result.map((item, results) => drawCheckoutbook(item));
+            });
+            
+}
+
+function checkoutPopUp() {
+    return
+        `
+            <div>
+                <form class="checkoutStudentName">
+                    Student Full Name:
+                    <input type="text" name="studentName" class="studentName">
+                    Date Checked Out:
+                    <input type="date" name="dateCheckedOut" class="dateCheckedOut">
+                </form>
+                <button type="button" class="submitCheckoutBook" name="Submit"> 
+            </div>
+        </div>
+        `
+}
+
+
+function drawCheckoutbook(rowData) {
+ let row = 
+    `<tr class="bookRow" />
+        <td class="bookID">${rowData.id}</td>
+        <td class="bookTitle">${rowData.title}</td>
+        <td class="bookCheckoutDate">${rowData.checkoutDate}</td>
+        <td class="bookCheckout">$</td>
+        <td class="bookCheckin"> 
+            <button class="studentNameCheckin"></button>
+        </td>
+    </tr>
+    `;
+    //console.log(row);
+    $(".CheckedoutBooksDisplayed").append(row);
+}
+
 //returns books by genre
 /*
 //returns books by reading level
@@ -279,13 +347,29 @@ function booksByReadingLevelAndGenre(searchTerm) {
          });
 }
 */
+libraryOfBooks = [];
+
+function allBooks() { 
+    url = 'https://infinite-river-85875.herokuapp.com/getbooks';
+    $.getJSON(url,  function (response) {
+        booksInLibrary = $.map(response, function (k) {
+            return k;
+        });
+        libraryOfBooks.push(allTheBooks);
+        renderLibraryBooksHeaders();
+        renderLibraryBooksList()
+         });
+    
+}
+
 $(document).ready(function () {
         //populateRandomGenre();
-        submitBooksByTitle();
+        //submitBooksByTitle();
         //submitRandomGenre();
         //drawTable();
-        allBooks();
-        postNewBook();
+        //allBooks();
+        //postNewBook();
+        //watchCheckoutBook();
         //populateRandomGenre();
         //watchDeleteBook();
         //compileRandomArray();
