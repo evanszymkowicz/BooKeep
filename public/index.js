@@ -351,14 +351,15 @@ libraryOfBooks = [];
 
 function allBooks() { 
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
-    $.getJSON(url,  function (response) {
-        booksInLibrary = $.map(response, function (k) {
-            return k;
-        });
-        libraryOfBooks.push(booksInLibrary);
-        console.log(libraryOfBooks);
+    $.ajax({
+        url:url,
+        method: 'GET'
+        dataType: "json",
+        contentType: 'application/json',
+        })
+    .done(function(response) => {
+        libraryOfBooks = response
         renderLibraryBooksHeaders();
-        renderLibraryBooksList();
          });
     
 }
