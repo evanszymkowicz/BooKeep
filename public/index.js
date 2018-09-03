@@ -355,7 +355,7 @@ function allBooks() {
         booksInLibrary = $.map(response, function (k) {
             return k;
         });
-        libraryOfBooks.push(allTheBooks);
+        libraryOfBooks.push(booksInLibrary);
         console.log(libraryOfBooks);
         renderLibraryBooksHeaders();
         renderLibraryBooksList()
