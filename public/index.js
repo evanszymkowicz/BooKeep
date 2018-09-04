@@ -154,8 +154,8 @@ function renderIndividualBookListener () {
         event.preventDefault();
         var bookIdTarget = $(this).parent().next().text();
         searchId = bookIdTarget;
-        url = 'https://infinite-river-85875.herokuapp.com/getbooks/getID/' + searchId;
-        $.getJSON(url,  function (response) {
+        individualUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/getID/' + searchId;
+        $.getJSON(individualUrl,  function (response) {
             individualBookInLibrary = response.map((item, response) => renderIndividualBook(item));
             console.log(individualBookInLibrary);
             console.log(response);
