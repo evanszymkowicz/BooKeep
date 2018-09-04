@@ -258,6 +258,8 @@ function renderIndividualBookEdit (book) {
         var bookIdTargetThree = $("h4:nth-of-type(1)").text();
         console.log(bookIdTargetThree);
         submitIndividualBookEditForm(bookIdTargetThree);
+        $('.individualBookEdit').toggle();
+        $('.mainPage').toggle();  
     });
 }
 
@@ -278,9 +280,9 @@ function submitIndividualBookEditForm (id) {
         enctype: 'multipart/form-data',
         contentType: 'application/json'
         });
-    $('.individualBookForm').toggle();
+    
 }
-/*
+
 function renderIndividualBookCheckout (id) {
     const bookCheckoutForm = `
     <form class="inidividualBookCheckoutForm">
@@ -291,17 +293,17 @@ function renderIndividualBookCheckout (id) {
         <label> Checkout Date:</label></br>
         <input type="date" class = "checkoutDate"></br>
         <button class="submitCheckout">Submit</checkout>
+    </form>
     `
     $('.bookBody').html(bookCheckoutForm);
-    var bookIdTargetFour = $(this).closest('p').find(".BookIDFour");
-        searchIdFour = bookIdTargetFour.text();
-    handleBookCheckout(bookIdTargetFour);
+    $('.submitCheckout').click(function (event) {
+        event.preventDefault();
+        var bookIdTargetFour = $(this).closest('p').find(".BookIDFour");
+        handleBookCheckout(bookIdTargetFour);
 }
 
 function handleBookCheckout (id) {
     urlBook = 'https://infinite-river-85875.herokuapp.com/checkout/' + id;
-    $('.submitCheckout').click(function (event) {
-        event.preventDefault();
     const checkoutBookDate = {
         checkoutDate: $('.checkoutDate').val(),
     }
@@ -315,7 +317,7 @@ function handleBookCheckout (id) {
     });
     $('.individualBookCheckoutForm').toggle();
 }
-
+/*
 function renderBookCheckoutPageHandler () {
     checkoutUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(checkoutUrl,  function (response) {
