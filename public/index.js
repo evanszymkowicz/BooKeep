@@ -40,7 +40,8 @@
         drawRow(data[i]);
     }
 }*/
-const _ = require("lodash");
+'use strict';
+
 var checkedOutBooks = []
 var tableNumber = 1;
 var resultsShown = 2;
@@ -333,14 +334,10 @@ function handleBookCheckout (id) {
 }
 
 function renderBookCheckoutPageHandler () {
-    checkoutUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
+    checkoutUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/checkedout';
     $.getJSON(checkoutUrl,  function (response) {
-        var checkedBooks = $.map(response, function (k) {
-            return k;
-        });
-        checkedOutBooks.push(checkedBooks);
-        var totalCheckedOutBooks = _.reject(users, ['checkedOutDate', null]);
-        console.log(totalCheckedOutBooks);
+        checkedBooks = response.map((item, response) => drawRow(item))
+        console.log(checkedBooks);
     });
 }
 /*

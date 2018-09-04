@@ -86,7 +86,17 @@ app.get('/getbooks/byID/:id', (req, res) => {
     });
 });
 
-
+app.get('/getbooks/checkedout', (req, res) =>{
+  LibraryBooks
+    .find({checkoutDate: {$ne:null}})
+    .then(checkedBooks => {
+      res.json(checkedBooks.map(checkedBook => checkedBook.serialize()));
+      })
+      .catch(err => {
+            console.error(err);
+            res.status(500).json({ error: 'something went terribly wrong' });
+      });
+    });
 /*
 //still need help with this one
 app.get('/getbooks/byreadinglevel/bygenre', (req, res) => {
