@@ -171,7 +171,7 @@ function renderIndividualBook (book) {
     <div class="individualBookPage"
         <img src=''>
         <ul class="inidividualBookList">
-            <li id="bookIDTwo"> ID: ${book.id}</li>
+            <li id="bookIDTwo">${book.id}</li>
             <li> Title: ${book.title}</li>
             <li> Author: ${book.author}</li>
             <li> Genre: ${book.genre}</li>
@@ -188,7 +188,7 @@ function renderIndividualBook (book) {
     //console.log(bookIdTargetTwo);
     //does searchIDTwo need to be a param in function(event)?
     $('.deleteBook').click(function (event) {
-        var bookIdTargetTwo = $(this).parent().first('li').text();
+        var bookIdTargetTwo = $("li:nth-of-type(1)").text();
         event.preventDefault();
         console.log(bookIdTargetTwo);
         //handleDeleteBook(bookIdTargetTwo);
