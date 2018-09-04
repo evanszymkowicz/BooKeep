@@ -203,7 +203,7 @@ function renderIndividualBook (book) {
         let bookIdTargetTwo = $("li:nth-of-type(1)").text();
         event.preventDefault();
         console.log(bookIdTargetTwo);
-        renderIndividualBookCheckout(bookIdTargetTwo);
+        renderIndividualBookCheckoutCall(bookIdTargetTwo);
     });
 }
 
@@ -282,6 +282,14 @@ function submitIndividualBookEditForm (id) {
         });
     
 }
+function renderIndividualBookCheckoutCall(id) {
+    urlBook = 'https://infinite-river-85875.herokuapp.com/getBooks/byID/' + id;
+    $.getJSON(urlBook,  function (response) {
+        individualBookCheckout = response.map((response) => renderIndividualBookCheckout(response));
+        //console.log(individualBookInLibraryEdit);
+        console.log(response);
+        });
+}
 
 function renderIndividualBookCheckout(book) {
     const bookCheckoutForm = `
@@ -298,7 +306,7 @@ function renderIndividualBookCheckout(book) {
     $('.bookBody').html(bookCheckoutForm);
     $('.submitCheckout').click(function (event) {
         event.preventDefault();
-        var bookIdTargetFour = $(this).closest('p').find(".BookIDFour");
+        var bookIdTargetFour = $(this).closest('p').find(".BookIDFour").text();
         console.log(bookIdTargetFour);
         //handleBookCheckout(bookIdTargetFour);
     });
