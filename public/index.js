@@ -40,7 +40,7 @@
         drawRow(data[i]);
     }
 }*/
-checkedOutbooks = []
+var checkedOutbooks = []
 var tableNumber = 1;
 var resultsShown = 2;
 
@@ -314,7 +314,7 @@ function renderIndividualBookCheckout(book) {
         renderBookCheckoutPageHandler()
     });
 }
-
+//worry that wont note that book is already checkedout
 function handleBookCheckout (id) {
     urlBook = 'https://infinite-river-85875.herokuapp.com/checkout/' + id;
     const checkoutBookDate = {
@@ -322,7 +322,7 @@ function handleBookCheckout (id) {
     }
     console.log(checkoutBookDate);
     $.ajax({
-        url: urlBook,
+        url: urlBook,\
         method: 'PUT',
         data: JSON.stringify(checkoutBookDate),
         dataType: "json",
