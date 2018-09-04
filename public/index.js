@@ -191,7 +191,7 @@ function renderIndividualBook (book) {
         var bookIdTargetTwo = $("li:nth-of-type(1)").text();
         event.preventDefault();
         console.log(bookIdTargetTwo);
-        //handleDeleteBook(bookIdTargetTwo);
+        handleDeleteBook(bookIdTargetTwo);
     });
     $('.editBook').click(function (event) {
         event.preventDefault();
