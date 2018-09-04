@@ -434,7 +434,7 @@ function drawSearchHeaders () {
 
 function drawSearchRow(rowData) {
  let row = 
-    `<tr class="bookRow" />
+    `<tr class="bookRow">
         <td class="bookView"> 
             <button class="bookViewButton">View</button>
         </td>
@@ -447,7 +447,7 @@ function drawSearchRow(rowData) {
     </tr>
     `;
     //console.log(row);
-    $(".libraryBooksDisplayed").append(row);
+    $(".libraryBooksSearch").append(row);
 }
 
 /*
