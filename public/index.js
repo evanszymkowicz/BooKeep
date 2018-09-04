@@ -554,7 +554,7 @@ function drawCheckoutbook(rowData) {
     //console.log(row);
     $(".CheckedoutBooksDisplayed").append(row);
 }
-
+*/
 
 $(document).ready(function () {
         //populateRandomGenre();
