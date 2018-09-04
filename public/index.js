@@ -255,9 +255,9 @@ function renderIndividualBookEdit (book) {
     $('.bookBody').html(individualBookEdit);
     $('.submitBookEdit').click(function (event) {
         event.preventDefault();
-        var bookIdTargetThree = $(this).find('p').text();
+        var bookIdTargetThree = $("p:nth-of-type(1)").text();
         console.log(bookIdTargetThree);
-        submitIndividualBookEditForm(searchIdThree);
+        //submitIndividualBookEditForm(searchIdThree);
     });
 }
 
