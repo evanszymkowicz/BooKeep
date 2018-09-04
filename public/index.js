@@ -160,7 +160,7 @@ function renderIndividualBookListener () {
             individualBookInLibrary = response.map((response) => renderIndividualBook(response));
             console.log(individualBookInLibrary);
             console.log(response);
-            console.log(item);
+            //console.log(item);
             });
         $('.mainPage').toggle();
     });
@@ -171,19 +171,21 @@ function renderIndividualBook (book) {
     <div class="individualBookPage"
         <img src=''>
         <ul class="inidividualBookList">
-            <li class="bookIDTwo"> Title: ${book.id}</li>
+            <li id="bookIDTwo"> ID: ${book.id}</li>
             <li> Title: ${book.title}</li>
             <li> Author: ${book.author}</li>
             <li> Genre: ${book.genre}</li>
             <li> Reading Level: ${book.readingLevel}</li>
             <li> Description: ${book.description}</li>
-        <button class="deleteBook">Delete</button>
-        <button class="editBook">Edit</button>
-        <button class="checkoutBook">Checkout</button>
+            <li><button class="deleteBook">Delete</button></li>
+            <li><button class="editBook">Edit</button></li>
+            <li><button class="checkoutBook">Checkout</button></li>
+        </ul>
     </div>
     `;
     $('.bookBody').html(individualBook);
-    var bookIdTargetTwo = $(this).parent().next().text();
+    var bookIdTargetTwo = $(this).getElementByID('#bookIDTWo').text();
+    console.log(bookIdTargetTwo);
     //does searchIDTwo need to be a param in function(event)?
     $('.deleteBook').click(function (event) {
         event.preventDefault();
@@ -211,6 +213,7 @@ function handleDeleteBook (id) {
             contentType: 'application/json'
         });
     $('.individualBookPage').toggle();
+    $('.mainPage').toggle();
 }
 /*
 function renderIndividualBookEditCall(id) {
