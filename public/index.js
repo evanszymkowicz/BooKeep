@@ -188,17 +188,21 @@ function renderIndividualBook (book) {
     //console.log(bookIdTargetTwo);
     //does searchIDTwo need to be a param in function(event)?
     $('.deleteBook').click(function (event) {
-        var bookIdTargetTwo = $("li:nth-of-type(1)").text();
+        let bookIdTargetTwo = $("li:nth-of-type(1)").text();
         event.preventDefault();
         console.log(bookIdTargetTwo);
         handleDeleteBook(bookIdTargetTwo);
     });
     $('.editBook').click(function (event) {
+        let bookIdTargetTwo = $("li:nth-of-type(1)").text();
         event.preventDefault();
+        console.log(bookIdTargetTwo);
         renderIndividualBookEditCall(bookIdTargetTwo);
     });
     $('.checkoutBook').click(function (event) {
+        let bookIdTargetTwo = $("li:nth-of-type(1)").text();
         event.preventDefault();
+        console.log(bookIdTargetTwo);
         renderIndividualBookCheckout(bookIdTargetTwo);
     });
 }
@@ -216,11 +220,13 @@ function handleDeleteBook (id) {
     $('.individualBookPage').toggle();
     $('.mainPage').toggle();
 }
-/*
+
 function renderIndividualBookEditCall(id) {
     urlBook = 'https://infinite-river-85875.herokuapp.com/getBooks/byID/' + id;
     $.getJSON(urlBook,  function (response) {
-        individualBookInLibraryEdit = response.map((item, response) => renderIndividualBookEdit(item));
+        individualBookInLibraryEdit = response.map((response) => renderIndividualBookEdit(response));
+        console.log(individualBookInLibraryEdit);
+        console.log(response);
         });
 }
 
@@ -243,18 +249,21 @@ function renderIndividualBookEdit (book) {
         <input type="text" class = "individualBookRL"value= '${book.readingLevel}'></br>
         <label> Description:</label></br>
         <input type="text" class = "individualBookDescription"value= '${book.description}'></br>
-    <button class="submitBookEdit">Submit</button>
+        <button class="submitBookEdit">Submit</button>
+    </form>
     `;
     $('.bookBody').html(individualBookEdit);
-    var bookIdTargetThree = $(this).closest('p').find(".BookIDThree");
-        searchIdThree = bookIdTargetThree.text();
-    submitIndividualBookEditForm(searchIdThree);
-}
-
-function submitInidividualBookEditForm (id) {
-    urlBook = 'https://infinite-river-85875.herokuapp.com/update/' + id;
     $('.submitBookEdit').click(function (event) {
         event.preventDefault();
+        var bookIdTargetThree = $(this).find('p').text();
+        console.log(bookIdTargetThree);
+        //searchIdThree = bookIdTargetThree.text();
+    //submitIndividualBookEditForm(searchIdThree);
+}
+/*
+function submitInidividualBookEditForm (id) {
+    urlBook = 'https://infinite-river-85875.herokuapp.com/update/' + id;
+    
         const form = new FormData();
         form.append('title', $('.individualBookTitle').val());
         form.append('author', $('.individualBookAuthor').val());
