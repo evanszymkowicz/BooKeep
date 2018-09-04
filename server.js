@@ -170,12 +170,6 @@ app.put('/update/:id', (req, res) => {
 //update date of book checked when clicked
 
 app.put('/checkout/:id', (req, res) => {
-  if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
-    res.status(400).json({
-      error: 'Request path id and request body id values must match'
-    });
-  }
-
   const updated = {};
   const updateableFields = ['checkoutDate', 'dueDate'];
   updateableFields.forEach(field => {
