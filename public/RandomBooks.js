@@ -156,6 +156,7 @@ function returnRLBooks(libraryOfBooks, rLType) {
     //console.log(response);
 }
 
+//Needs Work
 function drawRandomRLRow(rowRLData) {
     let row = 
     `<div class="randomBookPage"
