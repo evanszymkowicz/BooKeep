@@ -360,6 +360,8 @@ function renderLibraryBookSearchForm () {
         <br>
           <button type="button" class="submitBookSearch" aria-label="Search">
      </div>
+     <div class="searchRowTable">
+     </div>
     `;
     $('.bookBody').html(libraryBookSearch);
 }
