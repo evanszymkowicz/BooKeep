@@ -322,7 +322,7 @@ function handleBookCheckout (id) {
     }
     console.log(checkoutBookDate);
     $.ajax({
-        url: urlBook,\
+        url: urlBook,
         method: 'PUT',
         data: JSON.stringify(checkoutBookDate),
         dataType: "json",
