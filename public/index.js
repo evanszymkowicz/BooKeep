@@ -313,7 +313,7 @@ function renderIndividualBookCheckout(book) {
         console.log(studentCheckOut);
     });
 }
-
+/*
 function handleBookCheckout (id) {
     urlBook = 'https://infinite-river-85875.herokuapp.com/checkout/' + id;
     const checkoutBookDate = {
@@ -370,7 +370,7 @@ function drawCheckoutRow(rowData, studentNameInput) {
     $(". h").append(row);
 }
 
-
+*/
 function retrieveRandomBook() {
     $('.libraryRandom').on('click', function(event) {
         event.preventDefault();
