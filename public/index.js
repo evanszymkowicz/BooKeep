@@ -356,11 +356,9 @@ function retrieveSearchBook() {
 function renderLibraryBookSearchForm () {
     const libraryBookSearch = `
     <div class ="searchLibraryPage"
-        <form id="searchTerm">
             <input id="query" type="text" name="search" class="searchLocation"  placeholder="Search book title" role="search" aria-label="Search">
         <br>
-          <input type="submit" value="Submit" class="submitBookSearch" aria-label="Search">
-         </form>
+          <button type="button" class="submitBookSearch" aria-label="Search">
      </div>
     `;
     $('.bookBody').html(libraryBookSearch);
@@ -394,9 +392,9 @@ function deleteBook(item) {
 function submitBooksByTitle() {
     $('.submitBookSearch').on('click', function (event) {
         event.preventDefault();
-        var queryTarget = $(event.currentTarget).find('#query');
-        console.log(queryTarget)
-        searchTerm = queryTarget.val();
+        //var queryTarget = $(event.currentTarget).find('#query');
+        //console.log(queryTarget)
+        var searchTerm = $('#query').val();
         console.log(searchTerm)
         drawSearchHeaders();
         booksByTitle(searchTerm);
