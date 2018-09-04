@@ -355,7 +355,7 @@ function retrieveSearchBook() {
 
 function renderLibraryBookSearchForm () {
     const libraryBookSearch = `
-    <div class ="searchLibraryPage"
+    <div class ="searchLibraryPage">
             <input id="query" type="text" name="search" class="searchLocation"  placeholder="Search book title" role="search" aria-label="Search">
         <br>
           <button type="button" class="submitBookSearch" aria-label="Search">
