@@ -61,13 +61,10 @@ function allBooks() {
 function drawRow(rowData) {
     let row = 
     `<tr class="bookRow" />
-        <form>
-        
         <td class="bookView"> 
-            <button id="bookViewButton">View</button>
+            <button type"submit" class="bookViewButton">View</button>
         </td>
-        </form>
-        <td class="bookID">${rowData.id}</td>
+        <td id="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
         <td class="bookAuthor">${rowData.author}</td>
         <td class="bookRL">${rowData.readingLevel}</td>
@@ -155,6 +152,7 @@ function renderLibraryBookNew () {
 function renderIndividualBookListener () {
     $('.bookViewButton').on('click', function (event) {
         event.preventDefault();
+        console.log('hello');
         var bookIdTarget = $(this).closest('tr').findElementByID('#bookID').text();
         console.log(bookIdTarget);
         //searchId = bookIdTarget;
