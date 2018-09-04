@@ -152,7 +152,7 @@ function renderLibraryBookNew () {
 function renderIndividualBookListener () {
     $('.bookViewButton').on('click', function (event) {
         event.preventDefault();
-        var bookIdTarget = $(this).sibling().findElementByID('#bookID').text();
+        var bookIdTarget = $(this).parent().next().text();
         console.log('hello');
         console.log(bookIdTarget);
         //searchId = bookIdTarget;
