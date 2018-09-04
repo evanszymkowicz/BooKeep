@@ -395,6 +395,7 @@ function submitBooksByTitle() {
     $('.submitBookSearch').on('click', function (event) {
         event.preventDefault();
         var queryTarget = $(event.currentTarget).find('#query');
+        console.log(queryTarget)
         searchTerm = queryTarget.val();
         console.log(searchTerm)
         drawSearchHeaders();
