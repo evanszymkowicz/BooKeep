@@ -359,19 +359,38 @@ function drawCheckoutHeaders () {
 function drawCheckoutRow(rowData, studentNameInput) {
  let row = 
     `<tr class="bookRow">
-        <td class="bookID">${rowData.ID}</td>
+        <td class="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
         <td class="bookAuthor">${studentNameInput}</td>
         <td class="bookRL">${rowData.checkoutDate}</td>
         <td class="bookView"> 
-            <button class="bookViewButton">View</button>
+            <button class="bookCheckInButton">Check In</button>
         </td>
     </tr>
     `;
     //console.log(row);
     $(".libraryBooksSearch").append(row);
+    $('.bookCheckInButton').click(function (event) {
+        event.preventDefault();
+        var bookIdTargetFive = $("td:nth-of-type(1)").text();
+        handleBookCheckin(bookIdTargetFive);
 }
 
+function handleBookCheckin (id) {
+    urlBookin = 'https://infinite-river-85875.herokuapp.com/checkout/' + id;
+    const checkinBookDate = {
+        checkoutDate: null,
+    }
+    console.log(checkoutBookDate);
+    $.ajax({
+        url: urlBookin,
+        method: 'PUT',
+        data: JSON.stringify(checkinBookDate),
+        dataType: "json",
+        contentType: 'application/json',
+        });
+    
+}
 
 function retrieveRandomBook() {
     $('.libraryRandom').on('click', function(event) {
