@@ -267,7 +267,7 @@ function submitIndividualBookEditForm (id) {
         author: $('.individualBookAuthor').val(),
         title: $('.individualBookTitle').val(),
         readingLevel: $('.individualBookRL').val(),
-        description: $('.individualBookDescription').val()
+        description: $('.individualBookDescription').val(),
         genre: $('.individualBookGenre').val()
         };
         console.log(form);
