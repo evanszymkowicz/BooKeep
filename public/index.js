@@ -54,6 +54,7 @@ function allBooks() {
         //const results = LibraryBookTableMaker();
         //drawRow(results);
         //deleteThisBook(item);
+        renderIndividualBookListener();
          });
     
 }
@@ -74,7 +75,7 @@ function drawRow(rowData) {
     `;
     //console.log(row);
     $(".libraryBooksDisplayed").append(row);
-    renderIndividualBookListener();
+    //renderIndividualBookListener();
 }
 //need to either always render new book, or have someway of auto refreshing json data
 //maybe create timer that makes call often
@@ -156,7 +157,7 @@ function renderIndividualBookListener () {
         searchId = bookIdTarget;
         individualUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/byID/' + searchId;
         $.getJSON(individualUrl,  function (response) {
-            individualBookInLibrary = response.map((item, response) => renderIndividualBook(item));
+            individualBookInLibrary = response.map((response) => renderIndividualBook(response));
             console.log(individualBookInLibrary);
             console.log(response);
             console.log(item);
