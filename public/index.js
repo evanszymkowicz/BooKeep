@@ -343,7 +343,7 @@ function renderBookCheckoutPageHandler () {
 }
 
 function drawCheckoutHeaders () {
-    let header = 
+    let searchHeader = 
     `<table class="libraryBooksSearch">
             <th>ID</th>
             <th>Student</th>
@@ -351,16 +351,16 @@ function drawCheckoutHeaders () {
             <th>Checkout Date</th>
         </table>
     `
-    $('.bookBody').html(header);
+    $('.bookBody').html(searchHeader);
 }
 
 
-function drawCheckoutRow(rowData, studentNameInput) {
+function drawCheckoutRow(rowData) {
  let row = 
     `<tr class="bookRow">
         <td class="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
-        <td class="bookAuthor">${studentNameInput}</td>
+        <td class="bookAuthor">${rowData.studentName}</td>
         <td class="bookRL">${rowData.checkoutDate}</td>
         <td class="bookView"> 
             <button class="bookCheckInButton">Check In</button>
@@ -407,7 +407,8 @@ function retrieveRandomBook() {
         event.preventDefault();
         renderLibraryBookRandom();
         compileRandomArray();
-        $('.mainPage').toggle();      
+        $('.mainPage').toggle();
+        $('.bookBody').toggle();      
     });
 }
 
