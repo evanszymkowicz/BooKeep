@@ -316,7 +316,7 @@ function renderIndividualBookCheckout(book) {
         var bookIdTargetFour = $("h6:nth-of-type(1)").text();
         console.log(bookIdTargetFour);
         handleBookCheckout(bookIdTargetFour);
-        renderBookCheckoutPageHandler();
+        
         drawCheckoutHeaders ();
     });
 }
@@ -337,6 +337,7 @@ function handleBookCheckout (id) {
         contentType: 'application/json',
         });
     $('.individualBookCheckoutForm').toggle();
+    renderBookCheckoutPageHandler();
 }
 
 function renderBookCheckoutPageHandler () {
