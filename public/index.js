@@ -274,9 +274,8 @@ function submitIndividualBookEditForm (id) {
     $.ajax({
         url: urlBook,
         method: 'PUT',
-        data: form,
+        data: JSON.stringify(form),
         enctype: 'multipart/form-data',
-        dataType: 'json',
         contentType: 'application/json'
         });
     $('.individualBookForm').toggle();
