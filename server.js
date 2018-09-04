@@ -21,6 +21,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const uuid = require("uuid");
+const _ = require("lodash");
 mongoose.Promise = global.Promise;
 
 //for users and auth
