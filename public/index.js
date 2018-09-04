@@ -283,7 +283,7 @@ function submitIndividualBookEditForm (id) {
     
 }
 
-function renderIndividualBookCheckout (id) {
+function renderIndividualBookCheckout(id) {
     const bookCheckoutForm = `
     <form class="inidividualBookCheckoutForm">
         <h2 class="checkoutFormTitle">Checkout Book</h2>
@@ -299,7 +299,9 @@ function renderIndividualBookCheckout (id) {
     $('.submitCheckout').click(function (event) {
         event.preventDefault();
         var bookIdTargetFour = $(this).closest('p').find(".BookIDFour");
-        handleBookCheckout(bookIdTargetFour);
+        console.log(bookIdTargetFour);
+        //handleBookCheckout(bookIdTargetFour);
+    });
 }
 
 function handleBookCheckout (id) {
@@ -314,7 +316,6 @@ function handleBookCheckout (id) {
         dataType: "json",
         contentType: 'application/json',
         });
-    });
     $('.individualBookCheckoutForm').toggle();
 }
 /*
