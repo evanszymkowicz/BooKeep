@@ -505,6 +505,7 @@ function booksByTitle(searchTerm) {
          console.log(searchedBooksInLibrary);
          console.log(response)
          //});
+         renderIndividualBookListener();
 });
 }
 
@@ -540,7 +541,7 @@ function drawSearchRow(rowData) {
     `;
     //console.log(row);
     $(".libraryBooksSearch").append(row);
-    renderIndividualBookListener();
+    
 }
 
 /*
@@ -655,6 +656,7 @@ $(document).ready(function () {
         listenerNewBook();
         retrieveSearchBook();
         renderIndividualBookListener();
+        renderBookCheckinPage();
         //postNewBook();
         //watchCheckoutBook();
         //populateRandomGenre();
