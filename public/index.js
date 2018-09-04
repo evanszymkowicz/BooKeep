@@ -313,7 +313,8 @@ function renderIndividualBookCheckout(book) {
         var studentCheckOut = $('input:nth-of-type(1)').val();
         handleBookCheckout(bookIdTargetFour);
         console.log(studentCheckOut);
-        renderBookCheckoutPageHandler()
+        renderBookCheckoutPageHandler(studentCheckOut);
+        drawCheckoutHeaders ();
     });
 }
 //worry that wont note that book is already checkedout
@@ -333,14 +334,15 @@ function handleBookCheckout (id) {
     $('.individualBookCheckoutForm').toggle();
 }
 
-function renderBookCheckoutPageHandler () {
+function renderBookCheckoutPageHandler (studentName) {
     checkoutUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/checkedout';
     $.getJSON(checkoutUrl,  function (response) {
-        checkedBooks = response.map((item, response) => drawRow(item))
+        checkedBooks = response.map((item, response) => drawCheckoutRow(item, studentName));
         console.log(response);
+        
     });
 }
-/*
+
 function drawCheckoutHeaders () {
     let header = 
     `<table class="libraryBooksSearch">
@@ -367,10 +369,10 @@ function drawCheckoutRow(rowData, studentNameInput) {
     </tr>
     `;
     //console.log(row);
-    $(". h").append(row);
+    $(".libraryBooksSearch").append(row);
 }
 
-*/
+
 function retrieveRandomBook() {
     $('.libraryRandom').on('click', function(event) {
         event.preventDefault();
