@@ -92,7 +92,7 @@ function returnGenreBooks(libraryOfBooks, genreType) {
     let genreSearchFilter = genreType;
     //var filtered2 = libraryOfBooks.filter(z => z.genre.toLowerCase().includes(genreType.toLowerCase())); 
     var filtered2 = libraryOfBooks.filter(function(genre) {
-        return genre.val ==== genreSearchFilter
+        return genre.val === genreSearchFilter
         });
 
     console.log(filtered2);
