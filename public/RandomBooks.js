@@ -96,7 +96,7 @@ function returnGenreBooks(libraryOfBooks, genreType) {
         //});
     var filtered2 = libraryOfBooks.filter(function (el) {
         return genreSearchFilter.indexOf(el.genre) >= 0; 
-});
+        });
     console.log(filtered2);
     shuffle(filtered2);
     var randomizedLibraryBooksByGenre = filtered2.slice(0,3);
@@ -145,7 +145,10 @@ function submitRandomRL() {
 }
 
 function returnRLBooks(libraryOfBooks, rLType) {
-    var filtered3 = libraryOfBooks[0].filter(x => x.readingLevel.toLowerCase().includes(rLType.toLowerCase())); 
+    let rLSearchFilter = rLType;
+    var filtered3 = libraryOfBooks.filter(function (el) {
+        return rLSearchFilter.indexOf(el.genre) >= 0; 
+        });
     console.log(filtered3);
     shuffle(filtered3);
     var randomizedLibraryBooksByRL = filtered3.slice(0,3);
@@ -199,7 +202,12 @@ function submitRandomBoth() {
 
 function returnBothBooks(libraryOfBooks, genreBothType, rLBothType) {
     console.log(libraryOfBooks);
-    var filtered4 = libraryOfBooks[0].filter(z => z.genre.toLowerCase().includes(genreBothType.toLowerCase()) && z.readingLevel.toLowerCase().includes(rLBothType.toLowerCase())); 
+    let genreSearchFilter = genreType;
+    let rLSearchFilter = rLBothType;
+    var filtered4 = libraryOfBooks.filter(function (el) {
+        return genreSearchFilter.indexOf(el.genre) && rLSearchFilter.indexOf(el.readingLevel)  >= 0; 
+        });
+    //var filtered4 = libraryOfBooks[0].filter(z => z.genre.toLowerCase().includes(genreBothType.toLowerCase()) && z.readingLevel.toLowerCase().includes(rLBothType.toLowerCase())); 
     console.log(filtered4);
     shuffle(filtered4);
     var randomizedLibraryBooksByBoth = filtered4.slice(0,3);
