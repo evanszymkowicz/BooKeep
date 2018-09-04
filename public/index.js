@@ -61,9 +61,12 @@ function allBooks() {
 function drawRow(rowData) {
     let row = 
     `<tr class="bookRow" />
+        <form>
+        
         <td class="bookView"> 
             <button class="bookViewButton">View</button>
         </td>
+        </form>
         <td class="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
         <td class="bookAuthor">${rowData.author}</td>
@@ -150,10 +153,11 @@ function renderLibraryBookNew () {
 }
 
 function renderIndividualBookListener () {
-    $('.bookViewButton').click(function (event) {
+    $('.bookViewButton').on('click', function (event) {
         event.preventDefault();
-        var bookIdTarget = $(this).closest('tr').find(".BookID");
-        searchId = bookIdTarget.text();
+        var bookIdTarget = event.currentTarget.closest('tr').find(".BookID").text();
+        console.log(bookIdTarget);
+        //searchId = bookIdTarget;
         //url = 'https://infinite-river-85875.herokuapp.com/getbooks/getID/' + searchId;
         //$.getJSON(url,  function (response) {
             //individualBookInLibrary = response.map((item, response) => renderIndividualBook(item));
