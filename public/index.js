@@ -374,6 +374,7 @@ function drawCheckoutRow(rowData, studentNameInput) {
         event.preventDefault();
         var bookIdTargetFive = $("td:nth-of-type(1)").text();
         handleBookCheckin(bookIdTargetFive);
+    });
 }
 
 function handleBookCheckin (id) {
