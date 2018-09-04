@@ -163,7 +163,7 @@ app.post('/add', jsonParser, (req, res) => {
 app.put('/update/:id', (req, res) => {
   
   const updated = {};
-  const updateableFields = ['author', 'readingLevel', 'title', 'description', 'genre', 'checkoutDate'];
+  const updateableFields = ['author', 'readingLevel', 'title', 'description', 'genre', 'checkoutDate', 'studentName'];
   updateableFields.forEach(field => {
     if (field in req.body) {
       updated[field] = req.body[field];
