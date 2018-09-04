@@ -411,6 +411,7 @@ function booksByTitle(searchTerm) {
          searchedBooksInLibrary = response.map((item, response) => drawSearchRow(item))
          //$('#flickrResults').html(results)
          console.log(searchedBooksInLibrary);
+         console.log(response)
          //});
 });
 }
