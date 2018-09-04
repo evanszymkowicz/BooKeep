@@ -237,7 +237,7 @@ function renderIndividualBookEdit (book) {
     `
     <img src=''>
     <legend>Update Book Info</legend>
-    <h4 class="BookIDThree">${book.id}</h4>
+    <h4 class="bookIDThree">${book.id}</h4>
     <form class="inidividualBookForm">
         <label> Title:</label></br> 
         <input type="text" class = "individualBookTitle" value= '${book.title}'></br>
@@ -264,6 +264,7 @@ function renderIndividualBookEdit (book) {
 function submitIndividualBookEditForm (id) {
     urlBook = 'https://infinite-river-85875.herokuapp.com/update/' + id;
         let form = {
+        id: $('bookIDThree').val(),
         title: $('.individualBookTitle').val(),
         author: $('.individualBookAuthor').val(),
         genre: $('.individualBookGenre').val(),
