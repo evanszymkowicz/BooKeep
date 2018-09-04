@@ -309,7 +309,7 @@ function renderIndividualBookCheckout(book) {
         var bookIdTargetFour = $("h6:nth-of-type(1)").text();
         console.log(bookIdTargetFour);
         //handleBookCheckout(bookIdTargetFour);
-        var studentCheckOut = $('input:nth-of-type(2)').text();
+        var studentCheckOut = $('input:nth-of-type(1)').val();
         console.log(studentCheckOut);
     });
 }
