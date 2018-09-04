@@ -295,7 +295,7 @@ function renderIndividualBookCheckout(book) {
     const bookCheckoutForm = `
     <form class="inidividualBookCheckoutForm">
         <h2 class="checkoutFormTitle">Checkout Book</h2>
-        <p class="BookIDFour bookID">${book.id}</p>
+        <h6 class="BookIDFour bookID">${book.id}</h6>
         <label> Student Name:</label></br> 
         <input type="text" class = "studentName"></br>
         <label> Checkout Date:</label></br>
@@ -306,7 +306,7 @@ function renderIndividualBookCheckout(book) {
     $('.bookBody').html(bookCheckoutForm);
     $('.submitCheckout').click(function (event) {
         event.preventDefault();
-        var bookIdTargetFour = $(this).closest('p').find(".BookIDFour").text();
+        var bookIdTargetFour = $("h6:nth-of-type(1)").text();
         console.log(bookIdTargetFour);
         //handleBookCheckout(bookIdTargetFour);
     });
