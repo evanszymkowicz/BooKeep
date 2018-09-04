@@ -188,7 +188,7 @@ function renderIndividualBook (book) {
     //console.log(bookIdTargetTwo);
     //does searchIDTwo need to be a param in function(event)?
     $('.deleteBook').click(function (event) {
-        var bookIdTargetTwo = $(this).parent().first('id').text();
+        var bookIdTargetTwo = $(this).parent().first('li').text();
         event.preventDefault();
         console.log(bookIdTargetTwo);
         //handleDeleteBook(bookIdTargetTwo);
