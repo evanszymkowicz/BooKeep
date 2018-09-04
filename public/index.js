@@ -398,6 +398,7 @@ function renderBookCheckinPage () {
         event.preventDefault();
         renderBookCheckoutPageHandler();
         drawCheckoutHeaders();
+    });
 }
 
 
@@ -539,6 +540,7 @@ function drawSearchRow(rowData) {
     `;
     //console.log(row);
     $(".libraryBooksSearch").append(row);
+    renderIndividualBookListener();
 }
 
 /*
