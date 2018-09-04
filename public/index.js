@@ -408,7 +408,7 @@ function booksByTitle(searchTerm) {
     let searchUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/' + searchTerm;  
     console.log(searchUrl);
     $.getJSON(searchUrl, function (response) {
-         searchedBooksInLibrary = response.map((item, response) => drawSearchRow(item))
+         searchedBooksInLibrary = response.map((item, response) => drawSearchRow(item));
          //$('#flickrResults').html(results)
          console.log(searchedBooksInLibrary);
          console.log(response)
