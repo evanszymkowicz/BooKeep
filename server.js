@@ -181,7 +181,7 @@ app.put('/update/:id', (req, res) => {
 
 app.put('/checkout/:id', (req, res) => {
   const updated = {};
-  const updateableFields = ['checkoutDate', 'dueDate'];
+  const updateableFields = ['checkoutDate', 'studentName'];
   updateableFields.forEach(field => {
     if (field in req.body) {
       updated[field] = req.body[field];
