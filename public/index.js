@@ -64,7 +64,7 @@ function drawRow(rowData) {
         <form>
         
         <td class="bookView"> 
-            <button class="bookViewButton">View</button>
+            <button id="bookViewButton">View</button>
         </td>
         </form>
         <td class="bookID">${rowData.id}</td>
@@ -155,7 +155,7 @@ function renderLibraryBookNew () {
 function renderIndividualBookListener () {
     $('.bookViewButton').on('click', function (event) {
         event.preventDefault();
-        var bookIdTarget = event.currentTarget.closest('tr').find(".BookID").text();
+        var bookIdTarget = ${this}.closest('tr').findElementByID('#bookID').text();
         console.log(bookIdTarget);
         //searchId = bookIdTarget;
         //url = 'https://infinite-river-85875.herokuapp.com/getbooks/getID/' + searchId;
@@ -555,38 +555,6 @@ function drawCheckoutbook(rowData) {
     $(".CheckedoutBooksDisplayed").append(row);
 }
 
-//returns books by genre
-/*
-//returns books by reading level
-function booksByReadingLevel(searchTerm) { 
-    url = 'https://infinite-river-85875.herokuapp.com/getbooks/byreadinglevel?readingLevel=' + //search entry;
-    const params = {
-        'method': 'GET',
-
-    };
-    console.log(params),
-
-    $.getJSON(url, function (response) {
-         const results = response.books((item, response) => buildThumbnailUrl(item));
-         $('#flickrResults').html(results)
-         console.log
-         });
-}
-
-function booksByReadingLevelAndGenre(searchTerm) { 
-    url = 'https://infinite-river-85875.herokuapp.com/getbooks/byreadinglevel/bygenre';
-    const params = {
-        
-    };
-    console.log(params),
-
-    $.getJSON(url, params, function (response) {
-         const results = //response.photos.photo.map((item, response) => buildThumbnailUrl(item));
-         //$('#flickrResults').html(results)
-         //console.log
-         });
-}
-*/
 
 $(document).ready(function () {
         //populateRandomGenre();
