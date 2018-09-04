@@ -237,7 +237,7 @@ function renderIndividualBookEdit (book) {
     `
     <img src=''>
     <legend>Update Book Info</legend>
-    <p class="BookIDThree">${book.id}</p>
+    <h4 class="BookIDThree">${book.id}</h4>
     <form class="inidividualBookForm">
         <label> Title:</label></br> 
         <input type="text" class = "individualBookTitle" value= '${book.title}'></br>
@@ -255,7 +255,7 @@ function renderIndividualBookEdit (book) {
     $('.bookBody').html(individualBookEdit);
     $('.submitBookEdit').click(function (event) {
         event.preventDefault();
-        var bookIdTargetThree = $(this).closest('p').text();
+        var bookIdTargetThree = $(this).closest('h4').text();
         console.log(bookIdTargetThree);
         //submitIndividualBookEditForm(searchIdThree);
     });
