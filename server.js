@@ -74,8 +74,6 @@ app.get('/getbooks/bygenre/:genre', (req, res) => {
 });
 
 app.get('/getbooks/byID/:id', (req, res) => {
-  res.send('hi');
-  return;
   LibraryBooks
     .find({id: req.params._id})
     .then(bookIDs => {
