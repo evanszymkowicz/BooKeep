@@ -257,7 +257,7 @@ function renderIndividualBookEdit (book) {
         event.preventDefault();
         var bookIdTargetThree = $("h4:nth-of-type(1)").text();
         console.log(bookIdTargetThree);
-        submitIndividualBookEditForm(searchIdThree);
+        submitIndividualBookEditForm(bookIdTargetThree);
     });
 }
 
