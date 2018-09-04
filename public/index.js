@@ -309,6 +309,8 @@ function renderIndividualBookCheckout(book) {
         var bookIdTargetFour = $("h6:nth-of-type(1)").text();
         console.log(bookIdTargetFour);
         //handleBookCheckout(bookIdTargetFour);
+        var studentCheckOut = $('input:nth-of-type(2)').text();
+        console.log(studentCheckOut);
     });
 }
 
@@ -326,7 +328,7 @@ function handleBookCheckout (id) {
         });
     $('.individualBookCheckoutForm').toggle();
 }
-/*
+
 function renderBookCheckoutPageHandler () {
     checkoutUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(checkoutUrl,  function (response) {
@@ -338,7 +340,37 @@ function renderBookCheckoutPageHandler () {
         console.log(totalCheckedOutBooks);
 
 }
-*/
+
+function drawCheckoutHeaders () {
+    let header = 
+    `<table class="libraryBooksSearch">
+            <th>ID</th>
+            <th>Student</th>
+            <th>Title</th>
+            <th>Checkout Date</th>
+        </table>
+    `
+    $('.bookBody').html(header);
+}
+
+
+function drawCheckoutRow(rowData, studentNameInput) {
+ let row = 
+    `<tr class="bookRow">
+        <td class="bookID">${rowData.ID}</td>
+        <td class="bookTitle">${rowData.title}</td>
+        <td class="bookAuthor">${studentNameInput}</td>
+        <td class="bookRL">${rowData.checkoutDate}</td>
+        <td class="bookView"> 
+            <button class="bookViewButton">View</button>
+        </td>
+    </tr>
+    `;
+    //console.log(row);
+    $(". h").append(row);
+}
+
+
 function retrieveRandomBook() {
     $('.libraryRandom').on('click', function(event) {
         event.preventDefault();
