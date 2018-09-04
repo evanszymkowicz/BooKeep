@@ -77,7 +77,7 @@ function drawRow(rowData) {
     `;
     //console.log(row);
     $(".libraryBooksDisplayed").append(row);
-    
+    renderIndividualBookListener();
 }
 //need to either always render new book, or have someway of auto refreshing json data
 //maybe create timer that makes call often
