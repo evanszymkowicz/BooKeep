@@ -152,8 +152,8 @@ function renderLibraryBookNew () {
 function renderIndividualBookListener () {
     $('.bookViewButton').on('click', function (event) {
         event.preventDefault();
+        var bookIdTarget = $(this).sibling().findElementByID('#bookID').text();
         console.log('hello');
-        var bookIdTarget = $(this).closest('tr').findElementByID('#bookID').text();
         console.log(bookIdTarget);
         //searchId = bookIdTarget;
         //url = 'https://infinite-river-85875.herokuapp.com/getbooks/getID/' + searchId;
