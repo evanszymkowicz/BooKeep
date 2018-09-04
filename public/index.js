@@ -327,6 +327,7 @@ function handleBookCheckout (id) {
         checkoutDate: $('.checkoutDate').val(),
         studentName: $('.studentName').val(),
     }
+    console.log()
     console.log(checkoutBookDate);
     $.ajax({
         url: urlBook,
@@ -351,8 +352,8 @@ function drawCheckoutHeaders () {
     let searchHeader = 
     `<table class="libraryBooksSearch">
             <th>ID</th>
-            <th>Student</th>
             <th>Title</th>
+            <th>Student</th>
             <th>Checkout Date</th>
         </table>
     `
@@ -365,8 +366,8 @@ function drawCheckoutRow(rowData) {
     `<tr class="bookRow">
         <td class="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
-        <td class="bookAuthor">${rowData.studentName}</td>
-        <td class="bookRL">${rowData.checkoutDate}</td>
+        <td class="studentNAmer">${rowData.studentName}</td>
+        <td class="bookcheckoutDate">${rowData.checkoutDate}</td>
         <td class="bookView"> 
             <button class="bookCheckInButton">Check In</button>
         </td>
@@ -378,7 +379,7 @@ function drawCheckoutRow(rowData) {
         event.preventDefault();
         var bookIdTargetFive = $("td:nth-of-type(1)").text();
         console.log(bookIdTargetFive);
-        handleBookCheckin(bookIdTargetFive);
+        //handleBookCheckin(bookIdTargetFive);
     });
 }
 
