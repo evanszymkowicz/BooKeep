@@ -42,7 +42,7 @@
 }*/
 'use strict';
 
-var checkedOutBooks = []
+
 var tableNumber = 1;
 var resultsShown = 2;
 
