@@ -264,7 +264,7 @@ function renderIndividualBookEdit (book) {
 function submitIndividualBookEditForm (id) {
     urlBook = 'https://infinite-river-85875.herokuapp.com/update/' + id;
         let form = {
-        id: $('bookIDThree').val(),
+        id: id,
         title: $('.individualBookTitle').val(),
         author: $('.individualBookAuthor').val(),
         genre: $('.individualBookGenre').val(),
@@ -277,6 +277,8 @@ function submitIndividualBookEditForm (id) {
         method: 'PUT',
         data: form,
         enctype: 'multipart/form-data',
+        dataType: 'json',
+        contentType: 'application/json'
         });
     $('.individualBookForm').toggle();
 }

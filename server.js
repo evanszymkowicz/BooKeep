@@ -151,13 +151,9 @@ app.post('/add', jsonParser, (req, res) => {
 //update any or all information about book
 
 app.put('/update/:id', (req, res) => {
-  if (!(req.params.id && req.body.id && req.params.id === req.body.id)) {
-    res.status(400).json({
-      error: 'Request path id and request body id values must match'
-    });
-  }
+  
   const updated = {};
-  const updateableFields = ['author', 'readingLevel', 'title', 'description', 'genre', 'deweyDecimalNumber', 'checkoutDate', 'dueDate'];
+  const updateableFields = ['author', 'readingLevel', 'title', 'description', 'genre', 'checkoutDate'];
   updateableFields.forEach(field => {
     if (field in req.body) {
       updated[field] = req.body[field];
