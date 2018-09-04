@@ -40,7 +40,7 @@
         drawRow(data[i]);
     }
 }*/
-'use strict';
+
 
 
 var tableNumber = 1;
@@ -224,7 +224,7 @@ function handleDeleteBook (id) {
 }
 
 function renderIndividualBookEditCall(id) {
-    urlBook = 'https://infinite-river-85875.herokuapp.com/getBooks/byID/' + id;
+    urlBook = 'https://infinite-river-85875.herokuapp.com/getbooks/byID/' + id;
     $.getJSON(urlBook,  function (response) {
         individualBookInLibraryEdit = response.map((response) => renderIndividualBookEdit(response));
         console.log(individualBookInLibraryEdit);
