@@ -40,6 +40,7 @@
         drawRow(data[i]);
     }
 }*/
+const _ = require("lodash");
 var checkedOutBooks = []
 var tableNumber = 1;
 var resultsShown = 2;
