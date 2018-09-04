@@ -310,10 +310,8 @@ function renderIndividualBookCheckout(book) {
         event.preventDefault();
         var bookIdTargetFour = $("h6:nth-of-type(1)").text();
         console.log(bookIdTargetFour);
-        var studentCheckOut = $('input:nth-of-type(1)').val();
         handleBookCheckout(bookIdTargetFour);
-        console.log(studentCheckOut);
-        renderBookCheckoutPageHandler(studentCheckOut);
+        renderBookCheckoutPageHandler();
         drawCheckoutHeaders ();
     });
 }
@@ -322,6 +320,7 @@ function handleBookCheckout (id) {
     urlBook = 'https://infinite-river-85875.herokuapp.com/checkout/' + id;
     const checkoutBookDate = {
         checkoutDate: $('.checkoutDate').val(),
+        studentName: $('studentName').val(),
     }
     console.log(checkoutBookDate);
     $.ajax({
@@ -334,10 +333,10 @@ function handleBookCheckout (id) {
     $('.individualBookCheckoutForm').toggle();
 }
 
-function renderBookCheckoutPageHandler (studentName) {
+function renderBookCheckoutPageHandler () {
     checkoutUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/checkedout';
     $.getJSON(checkoutUrl,  function (response) {
-        checkedBooks = response.map((item, response) => drawCheckoutRow(item, studentName));
+        checkedBooks = response.map((item, response) => drawCheckoutRow(item));
         console.log(response);
         
     });
@@ -381,8 +380,9 @@ function handleBookCheckin (id) {
     urlBookin = 'https://infinite-river-85875.herokuapp.com/checkout/' + id;
     const checkinBookDate = {
         checkoutDate: null,
+        studentName: '',
     }
-    console.log(checkoutBookDate);
+    //console.log(checkoutBookDate);
     $.ajax({
         url: urlBookin,
         method: 'PUT',
@@ -392,6 +392,14 @@ function handleBookCheckin (id) {
         });
     
 }
+
+function renderBookCheckinPage () {
+    $('.checkedoutList').on('click', function(event) {
+        event.preventDefault();
+        renderBookCheckoutPageHandler();
+        drawCheckoutHeaders();
+}
+
 
 function retrieveRandomBook() {
     $('.libraryRandom').on('click', function(event) {
