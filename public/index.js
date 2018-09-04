@@ -283,7 +283,7 @@ function submitIndividualBookEditForm (id) {
     
 }
 
-function renderIndividualBookCheckout(id) {
+function renderIndividualBookCheckout(book) {
     const bookCheckoutForm = `
     <form class="inidividualBookCheckoutForm">
         <h2 class="checkoutFormTitle">Checkout Book</h2>
