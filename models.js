@@ -13,6 +13,7 @@ const bookLibrarySchema = mongoose.Schema({
 	dueDate: {type: Date},
 	genre: {type: String, required: true},
 	description: {type: String, required: true},
+  studentName: {type: String, required: true}
 });
 
 bookLibrarySchema.methods.serialize = function() {
@@ -25,6 +26,7 @@ bookLibrarySchema.methods.serialize = function() {
     description: this.description,
     genre: this.genre,
     checkoutDate: this.checkoutDate,
+    studentName: this.studentName,
      };
 };
 
