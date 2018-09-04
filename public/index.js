@@ -40,7 +40,7 @@
         drawRow(data[i]);
     }
 }*/
-var checkedOutbooks = [];
+var checkedOutBooks = []
 var tableNumber = 1;
 var resultsShown = 2;
 
