@@ -189,7 +189,7 @@ app.put('/checkout/:id', (req, res) => {
   });
  
  LibraryBooks
-    .findByIdAndUpdate(req.params.id, { checkoutDate: updated.checkoutDate, dueDate: updated.dueDate })
+    .findByIdAndUpdate(req.params.id, { checkoutDate: updated.checkoutDate, studentName: updated.studentName })
     .then(updatedBook => res.status(204).end())
     .catch(err => res.status(500).json({ message: 'Something went wrong' }));
 });
