@@ -237,8 +237,8 @@ function renderIndividualBookEdit (book) {
     `
     <img src=''>
     <legend>Update Book Info</legend>
+    <p class="BookIDThree">${book.id}</p>
     <form class="inidividualBookForm">
-        <p class="BookIDThree">${book.id}</p>
         <label> Title:</label></br> 
         <input type="text" class = "individualBookTitle" value= '${book.title}'></br>
         <label> Author:</label></br>
