@@ -263,12 +263,13 @@ function renderIndividualBookEdit (book) {
 
 function submitIndividualBookEditForm (id) {
     urlBook = 'https://infinite-river-85875.herokuapp.com/update/' + id;
-        const form = new FormData();
-        form.append('title', $('.individualBookTitle').val());
-        form.append('author', $('.individualBookAuthor').val());
-        form.append('genre', $('.individualBookGenre').val());
-        form.append('readingLevel', $('.individualBookRL').val());
-        form.append('description', $('.individualBookDescription').val());
+        let form = {
+        title: $('.individualBookTitle').val()),
+        author: $('.individualBookAuthor').val()),
+        genre: $('.individualBookGenre').val()),
+        readingLevel: $('.individualBookRL').val()),
+        description: $('.individualBookDescription').val()),
+        };
         console.log(form);
     /*$.ajax({
         url: urlBook,
