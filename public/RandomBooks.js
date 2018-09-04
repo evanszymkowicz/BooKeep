@@ -202,7 +202,7 @@ function submitRandomBoth() {
 
 function returnBothBooks(libraryOfBooks, genreBothType, rLBothType) {
     console.log(libraryOfBooks);
-    let genreSearchFilter = genreType;
+    let genreSearchFilter = genreBothType;
     let rLSearchFilter = rLBothType;
     var filtered4 = libraryOfBooks.filter(function (el) {
         return genreSearchFilter.indexOf(el.genre) && rLSearchFilter.indexOf(el.readingLevel)  >= 0; 
