@@ -44,7 +44,7 @@
 //random functionality
 //not allow to checkout book alert
 //date appearance
-
+//not showing name in json return
 
 
 
@@ -383,7 +383,7 @@ function drawCheckoutRow(rowData) {
 
 function handleBookCheckin (id) {
     urlBookin = 'https://infinite-river-85875.herokuapp.com/checkout/' + id;
-    console.log()
+    console.log(urlBookin);
     const checkinBookDate = {
         checkoutDate: null,
         studentName: null,
