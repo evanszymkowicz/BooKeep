@@ -75,7 +75,7 @@ app.get('/getbooks/bygenre/:genre', (req, res) => {
 
 app.get('/getbooks/byID/:id', (req, res) => {
   LibraryBooks
-    .find({id: req.params._id})
+    .find({_id: req.params.id})
     .then(bookIDs => {
       res.json(bookIDs.map(bookID => bookID.serialize()));
     })
