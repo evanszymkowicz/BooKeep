@@ -271,13 +271,13 @@ function submitIndividualBookEditForm (id) {
         description: $('.individualBookDescription').val(),
         };
         console.log(form);
-    /*$.ajax({
+    $.ajax({
         url: urlBook,
         method: 'PUT',
         data: form,
         enctype: 'multipart/form-data',
         });
-    $('.individualBookForm').toggle();*/
+    $('.individualBookForm').toggle();
 }
 /*
 function renderIndividualBookCheckout (id) {
