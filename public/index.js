@@ -257,6 +257,7 @@ function renderIndividualBookEdit (book) {
         event.preventDefault();
         var bookIdTargetThree = $(this).find('p').text();
         console.log(bookIdTargetThree);
+    });
         //searchIdThree = bookIdTargetThree.text();
     //submitIndividualBookEditForm(searchIdThree);
 }
