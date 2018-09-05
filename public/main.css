@@ -100,3 +100,14 @@ tr {
 .mainPageHeader button:hover {
 	background: #20B2AA;
 }
+
+.addNewBookForm {
+	background-color: #ffffff
+	border: solid black	1px;
+	border-radius: 5px
+}
+
+.exitNewBookForm {
+	float: right;
+	margin-bottom: 25px;
+}

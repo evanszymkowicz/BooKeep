@@ -568,9 +568,6 @@ function renderLibraryBookSearchForm () {
      </div>
      <div class="searchRowTable">
      </div>
-     <div class="exitButton">
-        <button class="exitSearch">-</button>
-    </div>
     `;
     $('.searchBody').html(libraryBookSearch);
 }
@@ -638,6 +635,9 @@ function drawSearchHeaders () {
             <th>Genre</th>
             <th>Reading Level</th>
         </table>
+        <div>
+            <button class="exitSearch"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+        </div>
     `
     $('.searchRowTable').html(header);
     $('.exitSearch').click(function (event) {
