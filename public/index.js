@@ -507,7 +507,7 @@ function renderBookCheckinPage () {
         $('.mainPage').toggle();
         renderBookCheckoutPageHandler();
         drawCheckoutHeaders();
-        $('.bookBody').toggle(); 
+        //$('.bookBody').toggle(); 
     });
 }
 
