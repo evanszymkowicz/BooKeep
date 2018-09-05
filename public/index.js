@@ -60,6 +60,7 @@ function allBooks() {
     $.getJSON(url,  function (response) {
         libraryofMainPageBooks = response;
         libraryIndex = 0;
+        clearLibraryBooksDisplayed();
         drawBooks();
         nextButton();
         //booksInLibrary = response.map((item, response) => drawRow(item));
@@ -70,6 +71,20 @@ function allBooks() {
         renderIndividualBookListener();
          });
     
+}
+
+function clearLibraryBooksDisplayed(){
+    $('.libraryBooksDisplayed').html('');
+    $('.libraryBooksDisplayed').append(`
+        <tr>
+                    <th>Click to view</th>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Genre</th>
+                    <th>Reading Level</th>
+                    <th>Description</th>
+                </tr>`);
 }
 
 function nextButton() {

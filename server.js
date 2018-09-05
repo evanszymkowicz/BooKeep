@@ -50,7 +50,8 @@ app.get('/getbooks', (req, res) =>{
 		});
 
 app.get('/getbooks/byTitle/:title', (req, res) => {
-  LibraryBooks
+  res.json({title: req.params.title})
+  /*LibraryBooks
     .find({title: req.params.title})
     .then(booktitles => {
       res.json(booktitles.map(booktitle => booktitle.serialize()));
@@ -58,7 +59,7 @@ app.get('/getbooks/byTitle/:title', (req, res) => {
     .catch(err => {
       console.error(err);
       res.status(500).json({ error: 'something went terribly wrong' });
-    });
+    });*/
 });
 
 app.get('/getbooks/bygenre/:genre', (req, res) => {
