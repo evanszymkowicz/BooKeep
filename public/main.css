@@ -94,4 +94,6 @@ tr {
 
 .libraryImage {
 	border-radius: 15px;
+	width: 33%;
+	height: auto;
 }
