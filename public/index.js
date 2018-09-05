@@ -596,7 +596,8 @@ function submitBooksByTitle() {
 
 
 function booksByTitle(searchTerm) { 
-    let searchUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/' + encodeURI(searchTerm);  
+    encodedSearchTerm = encodeURIComponent(searchTerm);
+    let searchUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/' + encodedSearchTerm;  
     console.log(searchUrl);
     $.getJSON(searchUrl, function (response) {
          searchedBooksInLibrary = response.map((item, response) => drawSearchRow(item));
