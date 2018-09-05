@@ -57,9 +57,10 @@ function populateRandomGenre(entry) {
             uniqueGenres.push(el);
         }
     });
+
     $('#selectGenre').empty();
     var referenceForGenres = $.each(uniqueGenres, function(i, p) {
-        $('#selectGenre').append($('<option></option>').val(p).html(p));
+        $('#selectRL').append($('<option></option>').val(p).html(p));
                 return p;
         });
     console.log(referenceForGenres);
