@@ -451,8 +451,8 @@ function drawCheckoutHeaders () {
     $('.bookBody').html(searchHeader);
     $('.exitRandom').click(function (event) {
         event.preventDefault();
-        //$('.bookBody').toggle();
-        //$('.mainPage').toggle();
+        $('.bookBody').toggle();
+        $('.mainPage').toggle();
     });
 }
 
@@ -503,7 +503,8 @@ function renderBookCheckinPage () {
         event.preventDefault();
         $('.mainPage').toggle();
         renderBookCheckoutPageHandler();
-        drawCheckoutHeaders();//$('.bookBody').toggle(); 
+        drawCheckoutHeaders();
+        $('.bookBody').toggle(); 
     });
 }
 
@@ -513,7 +514,7 @@ function retrieveRandomBook() {
         event.preventDefault();
         renderLibraryBookRandom();
         compileRandomArray();
-        //$('.mainPage').toggle();
+        $('.mainPage').toggle();
     });
 }
 
@@ -538,8 +539,8 @@ function renderLibraryBookRandom () {
     $('.bookBody').html(libraryBooksRandom);
     $('.exitRandom').click(function (event) {
         event.preventDefault();
-        //$('.bookBody').toggle();
-        //$('.mainPage').toggle();
+        $('.bookBody').toggle();
+        $('.mainPage').toggle();
     });
 }
 
@@ -549,7 +550,7 @@ function retrieveSearchBook() {
         renderLibraryBookSearchForm();
         submitBooksByTitle();
         //renderIndividualBookListener()
-        $('.mainPage').toggle();      
+        //$('.mainPage').toggle();      
     });
 }
 
@@ -563,7 +564,7 @@ function renderLibraryBookSearchForm () {
      <div class="searchRowTable">
      </div>
     `;
-    $('.bookBody').html(libraryBookSearch);
+    $('.searchBody').html(libraryBookSearch);
 }
 
 /*
@@ -621,7 +622,7 @@ function booksByTitle(searchTerm) {
 function drawSearchHeaders () {
     let header = 
     `<div>
-        <button class="exitRandom">Return Home</button>
+        <button class="exitSearch">-</button>
     </div>
     <table class="libraryBooksSearch">
             <th>Click to view</th>
@@ -667,11 +668,11 @@ function drawSearchRow(rowData) {
             //console.log(item);
             });
     });
-    $('.exitRandom').click(function (event) {
+    $('.exitSearch').click(function (event) {
         event.preventDefault();
-        $('.bookBody').toggle();
-        $('.mainPage').toggle();
-    });
+        $('.bookRow').toggle();
+        //$('.mainPage').toggle();
+    //});
     renderIndividualBookListener();
 }
 
