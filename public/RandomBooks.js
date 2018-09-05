@@ -14,9 +14,9 @@ function compileRandomArray () {
             //let unique_array = Array.from(new Set(arr))
             //return unique_array
             //}
-        genreArrayCapitalized = allTheGenres.toUpperCase();
-        console.log(genreArrayCapitalized);
         libraryOfGenres.push(genreArrayCapitalized);       
+        var genreArrayCapitalized = libraryOfGenres.toUpperCase();
+        console.log(libraryOfGenres);
         //removeDuplicateUsingSet(libraryOfGenres);
         //console.log(unique_array);
         //let unique_array = [...new Set(libraryOfGenres)];
