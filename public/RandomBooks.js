@@ -94,20 +94,20 @@ function shuffle(array) {
             };
 
 function returnGenreBooks(libraryOfBooks, genreType) {
-    console.log(libraryOfBooks[0]);
+    console.log(libraryOfBooks);
     let genreSearchFilter = genreType;
     //var filtered2 = libraryOfBooks.filter(z => z.genre.toLowerCase().includes(genreType.toLowerCase())); 
     //var filtered2 = libraryOfBooks.filter(function(genre) {
         //return genre.val === genreSearchFilter
         //});
-    var filtered2 = libraryOfBook[0].filter(function (el) {
-        return genreSearchFilter.indexOf(el.genre) >= 0; 
+    var filtered2 = libraryOfBooks.filter(function (el) {
+        return genreSearchFilter.indexOf(el.genre) > -1; 
         });
     console.log(filtered2);
     shuffle(filtered2);
-    var randomizedLibraryBooksByGenre = filtered2.slice(0,3);
+    //var randomizedLibraryBooksByGenre = filtered2.slice(0,3);
 
-    randomizedLibraryBooksByGenre.map((item, response) => drawRandomGenreRow(item));
+    filtered2.map((item, response) => drawRandomGenreRow(item));
     
 }
 
