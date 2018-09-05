@@ -81,7 +81,7 @@ function clearLibraryBooksDisplayed(){
     $('.libraryBooksDisplayed').append(`
             <tr>
                     <th>Click to view</th>
-                    <th>ID</th>
+                    <th class= "bookID">ID</th>
                     <th>Title</th>
                     <th>Author</th>
                     <th>Genre</th>
@@ -244,7 +244,7 @@ function renderIndividualBook (book) {
     <div class="individualBookPage"
         <img src=''>
         <ul class="inidividualBookList">
-            <li id="bookIDTwo">${book.id}</li>
+            <li id="bookIDTwo bookID">${book.id}</li>
             <li> Title: ${book.title}</li>
             <li> Author: ${book.author}</li>
             <li> Genre: ${book.genre}</li>
@@ -319,7 +319,7 @@ function renderIndividualBookEdit (book) {
     `
     <img src=''>
     <legend>Update Book Info</legend>
-    <h4 class="bookIDThree">${book.id}</h4>
+    <h4 class="bookIDThree bookID">${book.id}</h4>
     <form class="inidividualBookForm">
         <label> Title:</label></br> 
         <input type="text" class = "individualBookTitle" value= '${book.title}'></br>
@@ -444,7 +444,7 @@ function drawCheckoutHeaders () {
         <a href=""><button class="exitRandom">Return Home</button><a>
     </div>
     <table class="libraryBooksSearch">
-            <th>ID</th>
+            <th class= "bookID">ID</th>
             <th>Title</th>
             <th>Student</th>
             <th>Checkout Date</th>
@@ -538,11 +538,6 @@ function renderLibraryBookRandom () {
             <select id="selectGenre"></select>
         <button class="randomReadingLevel">Random Book by Reading Level</button>
             <select id="selectRL"></select>
-        <button class="randomBoth">Random Book by Genre and Reading Level</button>
-        <form>
-            <select id="selectGenreBoth"></select>
-            <select id="selectRLBoth"></select>
-        </form>
     <div class="randomArrayCompiler">
     </div>
     `;
@@ -636,7 +631,7 @@ function drawSearchHeaders () {
     </div>
     <table class="libraryBooksSearch">
             <th>Click to view</th>
-            <th>ID</th>
+            <th class="bookID">ID</th>
             <th>Title</th>
             <th>Author</th>
             <th>Genre</th>
