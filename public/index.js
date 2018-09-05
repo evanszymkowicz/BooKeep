@@ -421,7 +421,7 @@ function drawCheckoutRow(rowData) {
     $(".libraryBooksSearch").append(row);
     $('.bookCheckInButton').click(function (event) {
         event.preventDefault();
-        let bookIdTargetFive = $("td:nth-of-type(1)").text();
+        let bookIdTargetFive = $(this).parent().siblings(":first").text();
         console.log(bookIdTargetFive);
         //handleBookCheckin(bookIdTargetFive);
     });
