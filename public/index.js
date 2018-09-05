@@ -63,6 +63,7 @@ function allBooks() {
         clearLibraryBooksDisplayed();
         drawBooks();
         nextButton();
+        backButton();
         //booksInLibrary = response.map((item, response) => drawRow(item));
         //watchDeleteBook();
         //const results = LibraryBookTableMaker();
@@ -92,7 +93,7 @@ function nextButton() {
     libraryIndex = libraryIndex + resultsShown; 
     libraryIndex = libraryIndex > libraryofMainPageBooks.length ? libraryofMainPageBooks.length - resultsShown : libraryIndex;
     libraryIndex = libraryIndex < 0 ? 0 : libraryIndex;
-    clearLibraryBooksDisplayed();
+    //clearLibraryBooksDisplayed();
     drawBooks();
     });
 }
@@ -105,7 +106,7 @@ function drawBooks() {
     };
 }
 
-function nextButton() {
+function backButton() {
     $('.nextAllData').on('click', function (event) {
     libraryIndex = libraryIndex - resultsShown; 
     libraryIndex = libraryIndex < 0 ? 0 : libraryIndex; 
@@ -276,8 +277,8 @@ function renderIndividualBook (book) {
     });
     $('.exitRandom').click(function (event) {
         event.preventDefault();
-        //$('.bookBody').toggle();
-        //$('.mainPage').toggle();
+        $('.bookBody').toggle();
+        $('.mainPage').toggle();
     });
 }
 
@@ -291,8 +292,8 @@ function handleDeleteBook (id) {
             dataType: 'json',
             contentType: 'application/json'
         });
-    //$('.individualBookPage').toggle();
-    //$('.mainPage').toggle();
+    $('.individualBookPage').toggle();
+    $('.mainPage').toggle();
 }
 
 function renderIndividualBookEditCall(id) {
@@ -548,7 +549,7 @@ function retrieveSearchBook() {
         renderLibraryBookSearchForm();
         submitBooksByTitle();
         //renderIndividualBookListener()
-        //$('.mainPage').toggle();      
+        $('.mainPage').toggle();      
     });
 }
 
