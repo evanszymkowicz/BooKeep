@@ -178,7 +178,9 @@ function submitNewBook() {
                 contentType: 'application/json',
                 
             });
-        allBooks()
+        $('.addNewBookForm').toggle();
+        $('.mainPage').html(``);  
+        allBooks();
     });
 }
 

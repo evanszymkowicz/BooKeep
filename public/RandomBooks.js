@@ -14,12 +14,14 @@ function compileRandomArray () {
             //let unique_array = Array.from(new Set(arr))
             //return unique_array
             //}
-        libraryOfGenres.push(allTheGenres);       
+        genreArrayCapitalized = allTheGenres.toUpperCase();
+        console.log(genreArrayCapitalized);
+        libraryOfGenres.push(genreArrayCapitalized);       
         //removeDuplicateUsingSet(libraryOfGenres);
         //console.log(unique_array);
         //let unique_array = [...new Set(libraryOfGenres)];
         //console.log(unique_array);
-        populateRandomGenre(allTheGenres);
+        populateRandomGenre(genreArrayCapitalized);
     });
     $.getJSON(rLUrl,  function (response) {
         var allTheRL = $.map(response, function (k) {
