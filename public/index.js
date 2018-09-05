@@ -400,7 +400,7 @@ function renderIndividualBookCheckout(book) {
         handleBookCheckout(bookIdTargetFour);
         drawCheckoutHeaders ();
         renderBookCheckoutPageHandler();
-        $('.bookBody').toggle();
+        //$('.bookBody').toggle();
     });
     //$('.exitRandom').click(function (event) {
         //event.preventDefault();
@@ -485,8 +485,7 @@ function drawCheckoutRow(rowData) {
         let bookIdTargetFive = $(this).parent().siblings(":first").text();
         console.log(bookIdTargetFive);
         handleBookCheckin(bookIdTargetFive);
-        renderBookCheckoutPageHandler();
-        drawCheckoutHeaders();
+        //drawCheckoutHeaders();
     });
 }
 
@@ -505,7 +504,8 @@ function handleBookCheckin (id) {
         dataType: "json",
         contentType: 'application/json',
         });
-    
+    renderBookCheckoutPageHandler();
+    drawCheckoutHeaders();
 }
 
 function renderBookCheckinPage () {
