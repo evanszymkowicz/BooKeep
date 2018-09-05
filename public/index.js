@@ -231,7 +231,7 @@ function renderIndividualBookListener () {
             console.log(response);
             //console.log(item);
             });
-        $('.mainPage').toggle();
+        
     });
 }
 
@@ -256,6 +256,7 @@ function renderIndividualBook (book) {
     </div>
     `;
     $('.bookBody').html(individualBook);
+    $('.mainPage').toggle();
     //var bookIdTargetTwo = $(this).getElementByID('#bookIDTWo').text();
     //console.log(bookIdTargetTwo);
     //does searchIDTwo need to be a param in function(event)?
