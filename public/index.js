@@ -45,9 +45,8 @@
 //random functionality
 //not allow to checkout book alert
 //date appearance
-//not showing name in json return
 //duplicates of genres
-
+//search only returning one letter queries
 
 
 var tableNumber = 1;
@@ -378,7 +377,11 @@ function renderBookCheckoutPageHandler () {
     checkoutUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/checkedout';
     $.getJSON(checkoutUrl,  function (response) {
         checkedBooks = response.map((item, response) => drawCheckoutRow(item));
-        console.log(response);
+        //if (!checkedBooks) {
+            //return `
+            //<h1 class="noResults">No BooksChecked
+            
+        //}
         
     });
 }
@@ -466,19 +469,20 @@ function retrieveRandomBook() {
 
 function renderLibraryBookRandom () {
     const libraryBooksRandom = `
+    <div>
+        <button class="exitRandom">Exit</button>
+    </div>
     <div class ="randomBookPage">
-    <button class="randomGenre">Random Book by Genre</button>
-    <select id="selectGenre"></select>
-    <button class="randomReadingLevel">Random Book by Reading Level</button>
-    <select id="selectRL"></select>
-    <button class="randomBoth">Random Book by Genre and Reading Level</button>
+        <button class="randomGenre">Random Book by Genre</button>
+            <select id="selectGenre"></select>
+        <button class="randomReadingLevel">Random Book by Reading Level</button>
+            <select id="selectRL"></select>
+        <button class="randomBoth">Random Book by Genre and Reading Level</button>
         <form>
             <select id="selectGenreBoth"></select>
             <select id="selectRLBoth"></select>
         </form>
-    <div class="randomArrayCompiler"
-    <div>
-    <button class="exitRandom">Exit</button>
+    <div class="randomArrayCompiler">
     </div>
     `;
     $('.bookBody').html(libraryBooksRandom);
@@ -581,7 +585,11 @@ function drawSearchHeaders () {
 
 function drawSearchRow(rowData) {
  let row = 
-    `<tr class="bookRow">
+    `
+    <div>
+        <button class="exitRandom">Return Home</button>
+    </div>
+    <tr class="bookRow">
         <td class="bookView"> 
             <button class="bookViewButton">View</button>
         </td>
@@ -595,6 +603,23 @@ function drawSearchRow(rowData) {
     `;
     //console.log(row);
     $(".libraryBooksSearch").append(row);
+    $('.bookViewButton').on('click', function (event) {
+        event.preventDefault();
+        var bookIdTarget = $(this).parent().next().text();
+        searchId = bookIdTarget;
+        individualUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/byID/' + searchId;
+        $.getJSON(individualUrl,  function (response) {
+            individualBookInLibrary = response.map((response) => renderIndividualBook(response));
+            console.log(individualBookInLibrary);
+            console.log(response);
+            //console.log(item);
+            });
+        $('.mainPage').toggle();
+    $('.exitRandom').click(function (event) {
+        event.preventDefault();
+        $('.bookBody').toggle();
+        $('.mainPage').toggle();
+    });
     renderIndividualBookListener();
 }
 
