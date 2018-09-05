@@ -115,7 +115,6 @@ tr {
 .exitNewBookForm {
 	float: right;
 	padding-bottom: 25px;
-
 	border: none;
 	background: none;
 }
@@ -135,7 +134,7 @@ tr {
 	margin-bottom: 15px;
 }
 
-.addANewBookImage {
+.addANewBookImage img {
 	width: 40%;
 	height: auto;
 }
