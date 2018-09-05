@@ -95,7 +95,7 @@ function shuffle(array) {
             };
 
 function returnGenreBooks(libraryOfBooks, genreType) {
-    console.log(libraryOfBooks);
+    console.log(libraryOfBooks[0]);
     let genreSearchFilter = genreType;
     //var filtered2 = libraryOfBooks.filter(z => z.genre.toLowerCase().includes(genreType.toLowerCase())); 
     //var filtered2 = libraryOfBooks.filter(function(genre) {
