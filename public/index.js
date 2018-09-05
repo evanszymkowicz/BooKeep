@@ -398,8 +398,8 @@ function renderIndividualBookCheckout(book) {
         var bookIdTargetFour = $("h6:nth-of-type(1)").text();
         console.log(bookIdTargetFour);
         handleBookCheckout(bookIdTargetFour);
-        drawCheckoutHeaders ();
         renderBookCheckoutPageHandler();
+        drawCheckoutHeaders ();
         //$('.bookBody').toggle();
     });
     //$('.exitRandom').click(function (event) {
@@ -462,14 +462,7 @@ function drawCheckoutRow(rowData) {
  let prettyDate = readableCheckout[1] +'/'+ checkoutSplicing +'/'+ readableCheckout[0]; 
  console.log(prettyDate);
  console.log(readableCheckout);
- if (!rowData) {
-            let noBooks =`
-            <h1 class="noResults">No Checkedout Books!<h1>
-            
-            `;
-        $(".libraryBooksSearch").html(noBooks);
-        }
-else {
+
  let row = 
     `<tr class="bookRow">
         <td class="bookID">${rowData.id}</td>
@@ -490,7 +483,6 @@ else {
         handleBookCheckin(bookIdTargetFive);
         //drawCheckoutHeaders();
         });
-    }
 }
 
 function handleBookCheckin (id) {
