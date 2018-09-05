@@ -336,13 +336,12 @@ function renderIndividualBookEdit (book) {
         var bookIdTargetThree = $("h4:nth-of-type(1)").text();
         console.log(bookIdTargetThree);
         submitIndividualBookEditForm(bookIdTargetThree);
-        $('.individualBookEdit').toggle();
-       //$('.mainPage').toggle();  
+          
     });
     $('.exitRandom').click(function (event) {
         event.preventDefault();
-        //$('.bookBody').toggle();
-        //$('.mainPage').toggle();
+        $('.bookBody').toggle();
+        $('.mainPage').toggle();
     });
 }
 
@@ -363,7 +362,8 @@ function submitIndividualBookEditForm (id) {
         enctype: 'multipart/form-data',
         contentType: 'application/json'
         });
-    
+    $('.individualBookEdit').toggle();
+    $('.mainPage').toggle();
 }
 function renderIndividualBookCheckoutCall(id) {
     urlBook = 'https://infinite-river-85875.herokuapp.com/getBooks/byID/' + id;
@@ -398,8 +398,8 @@ function renderIndividualBookCheckout(book) {
     });
     $('.exitRandom').click(function (event) {
         event.preventDefault();
-        //$('.bookBody').toggle();
-        //$('.mainPage').toggle();
+        $('.bookBody').toggle();
+        $('.mainPage').toggle();
     });
 }
 //worry that wont note that book is already checkedout
