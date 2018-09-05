@@ -133,9 +133,15 @@ function drawRandomGenreRow(rowData) {
 
 //byReadingLevel
 function populateRandomRL(entry) {
-    $('#selectRL').empty();
-    var referenceForRL = $.each(entry, function(i, p) {
-        $('#selectRL').append($('<option></option>').val(p).html(p));
+    var uniqueRL = [];
+    var uniqueRLParser = $.each(entry, function(i, el){
+        if($.inArray(el, uniqueRL) === -1) {
+            uniqueRL.push(el);
+        }
+    });
+    $('#selectGenre').empty();
+    var referenceForRL = $.each(uniqueRL, function(i, p) {
+        $('#selectGenre').append($('<option></option>').val(p).html(p));
                 return p;
         });
     console.log(referenceForRL);
@@ -153,8 +159,10 @@ function submitRandomRL() {
 }
 
 function returnRLBooks(libraryOfBooks, rLType) {
+    console.log(libraryOfBooks[0]);
+    randomBooksArray = libraryOfBooks[0]
     let rLSearchFilter = rLType;
-    var filtered3 = libraryOfBooks.filter(function (el) {
+    var filtered3 = randomBooksArray.filter(function (el) {
         return rLSearchFilter.indexOf(el.readingLevel) >= 0; 
         });
     console.log(filtered3);
