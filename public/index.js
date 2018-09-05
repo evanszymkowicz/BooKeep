@@ -614,9 +614,7 @@ function drawSearchRow(rowData) {
             console.log(response);
             //console.log(item);
             });
-        $('.mainPage').toggle();
     });
-        
     $('.exitRandom').click(function (event) {
         event.preventDefault();
         $('.bookBody').toggle();
