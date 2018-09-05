@@ -103,11 +103,22 @@ tr {
 
 .addNewBookForm {
 	background-color: #ffffff;
-	border: solid black	1px;
+	border: 1px;
+	border-color: #D3D3D3;
 	border-radius: 5px
+	width: 50%;
 }
 
 .exitNewBookForm {
 	float: right;
-	margin-bottom: 25px;
+	padding-bottom: 25px;
+}
+
+.addANewBook {
+	padding-bottom: 10px;
+}
+
+.addANewBook input {
+	border-radius: 5px;
+
 }
