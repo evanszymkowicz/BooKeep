@@ -231,7 +231,7 @@ function renderIndividualBookListener () {
             console.log(response);
             //console.log(item);
             });
-        //$('.mainPage').toggle();
+        $('.mainPage').toggle();
     });
 }
 
