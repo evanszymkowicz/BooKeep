@@ -465,7 +465,7 @@ function drawCheckoutRow(rowData) {
  let readableCheckout = rowData.checkoutDate.split('-');
  let checkoutSplicing = readableCheckout[2].split('T')[0];
  let prettyDate = readableCheckout[1] +'/'+ checkoutSplicing +'/'+ readableCheckout[0]; 
- console.log(checkoutSplicing);
+ console.log(prettyDate);
  console.log(readableCheckout);
  let row = 
     `<tr class="bookRow">
