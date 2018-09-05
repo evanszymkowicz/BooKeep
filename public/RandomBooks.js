@@ -8,20 +8,19 @@ function compileRandomArray () {
     bothURL = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(genreUrl,  function (response) {
         var allTheGenres = $.map(response, function (k) {
-            return k.genre;
+            return k.genre.toUpperCase();
         });
         //function removeDuplicateUsingSet(arr){
             //let unique_array = Array.from(new Set(arr))
             //return unique_array
             //}
-        libraryOfGenres.push(genreArrayCapitalized);       
-        var genreArrayCapitalized = libraryOfGenres.toUpperCase();
-        console.log(libraryOfGenres);
+        console.log(allTheGenres);
+        libraryOfGenres.push(allTheGenres);       
         //removeDuplicateUsingSet(libraryOfGenres);
         //console.log(unique_array);
         //let unique_array = [...new Set(libraryOfGenres)];
         //console.log(unique_array);
-        populateRandomGenre(genreArrayCapitalized);
+        populateRandomGenre(allTheGenres);
     });
     $.getJSON(rLUrl,  function (response) {
         var allTheRL = $.map(response, function (k) {
