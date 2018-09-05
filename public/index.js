@@ -76,7 +76,7 @@ function allBooks() {
 function clearLibraryBooksDisplayed(){
     $('.libraryBooksDisplayed').html('');
     $('.libraryBooksDisplayed').append(`
-        <tr>
+            <tr>
                     <th>Click to view</th>
                     <th>ID</th>
                     <th>Title</th>
@@ -612,7 +612,10 @@ function booksByTitle(searchTerm) {
 
 function drawSearchHeaders () {
     let header = 
-    `<table class="libraryBooksSearch">
+    `<div>
+        <button class="exitRandom">Return Home</button>
+    </div>
+    <table class="libraryBooksSearch">
             <th>Click to view</th>
             <th>ID</th>
             <th>Title</th>
@@ -629,9 +632,6 @@ function drawSearchHeaders () {
 function drawSearchRow(rowData) {
  let row = 
     `
-    <div>
-        <button class="exitRandom">Return Home</button>
-    </div>
     <tr class="bookRow">
         <td class="bookView"> 
             <button class="bookViewButton">View</button>
