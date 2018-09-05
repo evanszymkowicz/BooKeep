@@ -24,7 +24,7 @@ bookLibrarySchema.methods.serialize = function() {
     title: this.title,
     created: this.created,
     description: this.description,
-    genre: this.genre,
+    genre: this.genre.toUpperCase(),
     checkoutDate: this.checkoutDate,
     studentName: this.studentName,
      };
