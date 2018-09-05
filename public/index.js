@@ -75,7 +75,7 @@ function allBooks() {
 function nextButton() {
     $('.nextAllData').on('click', function (event) {
     libraryIndex = libraryIndex + resultsShown; 
-    libraryIndex = libraryIndex > libraryofMainPAgeBooks.length ? libraryofMainPageBooks.length - resultsShown : libraryIndex;
+    libraryIndex = libraryIndex > libraryofMainPageBooks.length ? libraryofMainPageBooks.length - resultsShown : libraryIndex;
     libraryIndex = libraryIndex < 0 ? 0 : libraryIndex;
     drawBooks();
     });

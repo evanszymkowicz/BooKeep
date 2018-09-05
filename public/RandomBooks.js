@@ -52,8 +52,10 @@ function compileRandomArray () {
 function populateRandomGenre(entry) {
     var uniqueGenres = [];
     var uniqueGenresParser = $.each(entry, function(i, el){
-        if($.inArray(el, uniqueGenres) === -1).uniqueGenres.push(el);
-    }
+        if($.inArray(el, uniqueGenres) === -1) {
+            uniqueGenres.push(el)
+        };
+    });
     $('#selectGenre').empty();
     var referenceForGenres = $.each(uniqueGenres, function(i, p) {
         $('#selectGenre').append($('<option></option>').val(p).html(p));
