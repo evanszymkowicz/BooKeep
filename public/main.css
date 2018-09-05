@@ -2,6 +2,9 @@
 	box-sizing: border-box;
 }
 
+body {
+	background-color: #FFD1A3;
+}
 
 .bookID {
 	display: none;
@@ -11,10 +14,11 @@ nav {
   display: inline-block;
   display: flex;
   align-items: center;
+  background-color: #6CCCCA;
 }
 
 nav img {
-  width: 31px;
+  width: 60px;
   margin-right: 10px;
 }
 
