@@ -232,6 +232,7 @@ function drawRandomBothRow(rowRLData) {
     $(".randomArrayCompiler").html(row);
     
 }
+/*
 $(document).ready(function () {
-        compileRandomArray();
-        });
+        //compileRandomArray();
+        });*/

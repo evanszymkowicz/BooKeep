@@ -40,11 +40,13 @@
         drawRow(data[i]);
     }
 }*/
+
 //next buttons
 //random functionality
 //not allow to checkout book alert
 //date appearance
 //not showing name in json return
+//duplicates of genres
 
 
 
@@ -317,7 +319,6 @@ function renderIndividualBookCheckout(book) {
         console.log(bookIdTargetFour);
         handleBookCheckout(bookIdTargetFour);
         
-        drawCheckoutHeaders ();
     });
 }
 //worry that wont note that book is already checkedout
@@ -336,8 +337,9 @@ function handleBookCheckout (id) {
         dataType: "json",
         contentType: 'application/json',
         });
-    $('.individualBookCheckoutForm').toggle();
+    $('.bookBody').toggle();
     renderBookCheckoutPageHandler();
+    drawCheckoutHeaders ();
 }
 
 function renderBookCheckoutPageHandler () {
@@ -405,10 +407,9 @@ function handleBookCheckin (id) {
 function renderBookCheckinPage () {
     $('.checkedoutList').on('click', function(event) {
         event.preventDefault();
-        renderBookCheckoutPageHandler();
-        drawCheckoutHeaders();
         $('.mainPage').toggle();
-        //$('.bookBody').toggle(); 
+        renderBookCheckoutPageHandler();
+        drawCheckoutHeaders();//$('.bookBody').toggle(); 
     });
 }
 
@@ -418,7 +419,7 @@ function retrieveRandomBook() {
         event.preventDefault();
         renderLibraryBookRandom();
         compileRandomArray();
-             
+        $('.mainPage').toggle();
     });
 }
 
@@ -442,7 +443,7 @@ function renderLibraryBookRandom () {
     $('.bookBody').html(libraryBooksRandom);
     $('.exitRandom').click(function (event) {
         event.preventDefault();
-        $('.randomBookPage').toggle();
+        $('.bookBody').toggle();
     });
 }
 
