@@ -94,13 +94,13 @@ function shuffle(array) {
             };
 
 function returnGenreBooks(libraryOfBooks, genreType) {
-    console.log(libraryOfBooks);
+    console.log(libraryOfBooks[0]);
     let genreSearchFilter = genreType;
     //var filtered2 = libraryOfBooks.filter(z => z.genre.toLowerCase().includes(genreType.toLowerCase())); 
     //var filtered2 = libraryOfBooks.filter(function(genre) {
         //return genre.val === genreSearchFilter
         //});
-    var filtered2 = libraryOfBooks.filter(function (el) {
+    var filtered2 = libraryOfBook[0].filter(function (el) {
         return genreSearchFilter.indexOf(el.genre) >= 0; 
         });
     console.log(filtered2);
