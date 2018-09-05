@@ -85,26 +85,18 @@ tr {
 	margin-top: 100px;
 }
 
-.pageHeader {
-	background-image: url('https://i.imgur.com/ruAKTAN.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.mainPage {
+	margin-top: 100px;
 }
 
-.toTheRight {
-	position: absolute;
-	left: 0;
-	top: 50%;
-	width: 100%;
-	text-align: center;
-	color: #000;
+.mainPageHeader button {
+	background: rgba(255, 255, 255);
+	transition: color 0.25s linear;
+	border: none;
+	padding: 17px 10px;
+	border-radius: 5px
 }
 
-.headerWords {
-	background-color: #111;
-color: #fff;
-padding: 18px;
-font-size: 25px;
-letter-spacing: 10px;
+.mainPageHeader button:hover {
+	background: #20B2AA;
 }

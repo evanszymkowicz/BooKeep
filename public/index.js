@@ -53,19 +53,7 @@ var libraryIndex = 0;
 //var tableNumber = 1;
 var resultsShown = 5;
 
-function animatePage () {
-    $(".viewLibrary").click(function() {
-        $('html, body').animate({
-        scrollTop: $(".bookLibrary").offset().top
-    }, 2000);
-    });    
-    $(".toTop").click(function() {
-        $('html, body').animate({
-        scrollTop: $(".pageHeader").offset().top
-            }, 2000);
-        });
-    
-}
+
 //returns all books
 function allBooks() { 
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
@@ -805,7 +793,6 @@ $(document).ready(function () {
         //retrieveSearchBook();
         renderIndividualBookListener();
         renderBookCheckinPage();
-        animatePage();
         //postNewBook();
         //watchCheckoutBook();
         //populateRandomGenre();
