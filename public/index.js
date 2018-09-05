@@ -58,12 +58,13 @@ function animatePage () {
         $('html, body').animate({
         scrollTop: $(".bookLibrary").offset().top
     }, 2000);
-
+    });    
     $(".toTop").click(function() {
         $('html, body').animate({
         scrollTop: $(".pageHeader").offset().top
-    }, 2000);
+            }, 2000);
         });
+    
 }
 //returns all books
 function allBooks() { 
