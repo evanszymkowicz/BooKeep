@@ -80,13 +80,12 @@ function clearLibraryBooksDisplayed(){
     $('.libraryBooksDisplayed').html('');
     $('.libraryBooksDisplayed').append(`
             <tr>
-                    <th>Click to view</th>
+                    
                     <th class= "bookID">ID</th>
                     <th>Title</th>
                     <th>Author</th>
                     <th>Genre</th>
                     <th>Reading Level</th>
-                    <th>Description</th>
                 </tr>`);
 }
 
@@ -123,17 +122,19 @@ function backButton() {
 
 function drawRow(rowData) {
     let row = 
-    `<tr class="bookRow" />
-        <td class="bookView"> 
-            <button type"submit" class="bookViewButton">View</button>
-        </td>
-        <td id="bookID">${rowData.id}</td>
-        <td class="bookTitle">${rowData.title}</td>
-        <td class="bookAuthor">${rowData.author}</td>
-        <td class="bookRL">${rowData.readingLevel}</td>
-        <td class="bookGenre">${rowData.genre}</td>
-        <td class="bookDesc"> ${rowData.description} </td>
-    </tr>
+    `
+    <div class=clickToView>
+        <a href="#">
+            <tr class="bookRow" />
+                
+                <td id="bookID">${rowData.id}</td>
+                <td class="bookTitle">${rowData.title}</td>
+                <td class="bookAuthor">${rowData.author}</td>
+                <td class="bookRL">${rowData.readingLevel}</td>
+                <td class="bookGenre">${rowData.genre}</td>
+            </tr>
+        </a>
+    </div>
     `;
     //console.log(row);
     $(".libraryBooksDisplayed").append(row);
@@ -224,7 +225,7 @@ function renderLibraryBookNew () {
 }
 
 function renderIndividualBookListener () {
-    $('.bookViewButton').on('click', function (event) {
+    $('.clickToView a').on('click', function (event) {
         event.preventDefault();
         var bookIdTarget = $(this).parent().next().text();
         searchId = bookIdTarget;
@@ -244,7 +245,7 @@ function renderIndividualBook (book) {
     <div class="individualBookPage"
         <img src=''>
         <ul class="inidividualBookList">
-            <li id="bookIDTwo bookID">${book.id}</li>
+            <li id="bookID">${book.id}</li>
             <li> Title: ${book.title}</li>
             <li> Author: ${book.author}</li>
             <li> Genre: ${book.genre}</li>
@@ -319,7 +320,7 @@ function renderIndividualBookEdit (book) {
     `
     <img src=''>
     <legend>Update Book Info</legend>
-    <h4 class="bookIDThree bookID">${book.id}</h4>
+    <h4 class="bookID">${book.id}</h4>
     <form class="inidividualBookForm">
         <label> Title:</label></br> 
         <input type="text" class = "individualBookTitle" value= '${book.title}'></br>
@@ -636,7 +637,6 @@ function drawSearchHeaders () {
             <th>Author</th>
             <th>Genre</th>
             <th>Reading Level</th>
-            <th>Description</th>
         </table>
     `
     $('.searchRowTable').html(header);
@@ -661,7 +661,6 @@ function drawSearchRow(rowData) {
         <td class="bookAuthor">${rowData.author}</td>
         <td class="bookRL">${rowData.readingLevel}</td>
         <td class="bookGenre">${rowData.genre}</td>
-        <td class="bookDesc"> ${rowData.description} </td>
     </tr>
     `;
     //console.log(row);
