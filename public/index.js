@@ -62,8 +62,8 @@ function allBooks() {
         libraryIndex = 0;
         clearLibraryBooksDisplayed();
         drawBooks();
-        nextButton();
         backButton();
+        nextButton();
         renderLibraryBookSearchForm();
         submitBooksByTitle();
         //booksInLibrary = response.map((item, response) => drawRow(item));
@@ -430,12 +430,7 @@ function renderBookCheckoutPageHandler () {
     checkoutUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/checkedout';
     $.getJSON(checkoutUrl,  function (response) {
         checkedBooks = response.map((item, response) => drawCheckoutRow(item));
-        //if (!checkedBooks) {
-            //return `
-            //<h1 class="noResults">No BooksChecked
-            
-        //}
-        
+
     });
 }
 
@@ -467,6 +462,14 @@ function drawCheckoutRow(rowData) {
  let prettyDate = readableCheckout[1] +'/'+ checkoutSplicing +'/'+ readableCheckout[0]; 
  console.log(prettyDate);
  console.log(readableCheckout);
+ if (!rowData) {
+            
+            return `
+            <h1 class="noResults">No Checkedout Books!<h1>
+            
+            `;
+        }
+else {
  let row = 
     `<tr class="bookRow">
         <td class="bookID">${rowData.id}</td>
@@ -477,7 +480,7 @@ function drawCheckoutRow(rowData) {
             <button class="bookCheckInButton">Check In</button>
         </td> 
     </tr>
-    `
+    `;
     //console.log(row);
     $(".libraryBooksSearch").append(row);
     $('.bookCheckInButton').click(function (event) {
@@ -486,7 +489,8 @@ function drawCheckoutRow(rowData) {
         console.log(bookIdTargetFive);
         handleBookCheckin(bookIdTargetFive);
         //drawCheckoutHeaders();
-    });
+        });
+    }
 }
 
 function handleBookCheckin (id) {
