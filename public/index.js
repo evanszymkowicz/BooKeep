@@ -95,7 +95,8 @@ function nextButton() {
     libraryIndex = libraryIndex + resultsShown; 
     libraryIndex = libraryIndex > libraryofMainPageBooks.length ? libraryofMainPageBooks.length - resultsShown : libraryIndex;
     libraryIndex = libraryIndex < 0 ? 0 : libraryIndex;
-    //clearLibraryBooksDisplayed();
+    console.log(libraryIndex);
+    clearLibraryBooksDisplayed();
     drawBooks();
     });
 }
@@ -112,6 +113,7 @@ function backButton() {
     $('.nextAllData').on('click', function (event) {
     libraryIndex = libraryIndex - resultsShown; 
     libraryIndex = libraryIndex < 0 ? 0 : libraryIndex; 
+    clearLibraryBooksDisplayed();
     drawBooks();
     });
 }
