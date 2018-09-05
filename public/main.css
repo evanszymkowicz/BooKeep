@@ -110,15 +110,15 @@ tr {
 }
 
 .exitNewBookForm {
-	float: right;
 	padding-bottom: 25px;
 }
 
 .addANewBook {
 	padding-bottom: 10px;
+	padding-top: 10px;
 }
 
 .addANewBook input {
 	border-radius: 5px;
-
+	padding-bottom: 10px;
 }
