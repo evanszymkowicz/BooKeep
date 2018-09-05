@@ -188,7 +188,7 @@ function renderLibraryBookNew () {
     const libraryBooksNew = `
     <div class="addNewBookForm">
         <div class="exitNewBookForm">
-            <a href=""><button class="exitRandom">&#10006;</button><a>
+            <a href=""><button class="exitRandom">&#10006;</button></a>
         </div>
         <form class="addANewBook">
             Book Title:
@@ -211,8 +211,7 @@ function renderLibraryBookNew () {
             Description:
             <input type="text" name="bookDescription" class="addDescription"></br>
             <button class="submitNewBook">Submit</button>
-        </form>
-        
+        </form>   
     </div>
     `;
     $('.bookBody').html(libraryBooksNew);
