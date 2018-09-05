@@ -187,8 +187,8 @@ function submitNewBook() {
 function renderLibraryBookNew () {
     const libraryBooksNew = `
     <div class="addNewBookForm">
-        <div>
-            <a href=""><button class="exitRandom">Return Home</button><a>
+        <div class="exitNewBookForm">
+            <a href=""><button class="exitRandom">&#10006;</button><a>
         </div>
         <form class="addANewBook">
             Book Title:
@@ -207,7 +207,7 @@ function renderLibraryBookNew () {
                 <option value="grade4">Grade 4</option>
                 <option value="grade5">Grade 5</option>
                 <option value="grade6">Grade 6</option>
-            </select>
+            </select></br>
             Description:
             <input type="text" name="bookDescription" class="addDescription"></br>
             <button class="submitNewBook">Submit</button>
