@@ -205,16 +205,15 @@ function renderLibraryBookNew () {
             <button class="submitNewBook">Submit</button>
         </form>
         <div>
-            <button class="exitRandom">Return Home</button>
+            <a href=""><button class="exitRandom">Return Home</button><a>
         </div>
     </div>
     `;
     $('.bookBody').html(libraryBooksNew);
-    $('.exitRandom').click(function (event) {
-        event.preventDefault();
-        //$('.bookBody').toggle();
-        //$('.mainPage').toggle();
-    });
+    //$('.exitRandom').click(function (event) {
+        //event.preventDefault();
+        
+    //});
     submitNewBook()
 
 }
@@ -251,12 +250,12 @@ function renderIndividualBook (book) {
             <li><button class="checkoutBook">Checkout</button></li>
         </ul>
         <div>
-            <button class="exitRandom">Cancel</button>
+            <a href=""><button class="exitRandom">Cancel</button><a>
         </div>
     </div>
     `;
-    $('.bookBody').html(individualBook);
     $('.mainPage').toggle();
+    $('.bookBody').html(individualBook);
     //var bookIdTargetTwo = $(this).getElementByID('#bookIDTWo').text();
     //console.log(bookIdTargetTwo);
     //does searchIDTwo need to be a param in function(event)?
@@ -278,11 +277,11 @@ function renderIndividualBook (book) {
         console.log(bookIdTargetTwo);
         renderIndividualBookCheckoutCall(bookIdTargetTwo);
     });
-    $('.exitRandom').click(function (event) {
-        event.preventDefault();
-        $('.bookBody').toggle();
-        $('.mainPage').toggle();
-    });
+    //$('.exitRandom').click(function (event) {
+        //event.preventDefault();
+        //$('.bookBody').toggle();
+        //$('.mainPage').toggle();
+    //});
 }
 
 
@@ -330,7 +329,7 @@ function renderIndividualBookEdit (book) {
         <button class="submitBookEdit">Submit</button>
     </form>
     <div>
-        <button class="exitRandom">Exit</button>
+        <a href=""><button class="exitRandom">Exit</button><a>
     </div>
     `;
     $('.bookBody').html(individualBookEdit);
@@ -341,11 +340,11 @@ function renderIndividualBookEdit (book) {
         submitIndividualBookEditForm(bookIdTargetThree);
           
     });
-    $('.exitRandom').click(function (event) {
-        event.preventDefault();
-        $('.bookBody').toggle();
-        $('.mainPage').toggle();
-    });
+    //$('.exitRandom').click(function (event) {
+        //event.preventDefault();
+        //$('.bookBody').toggle();
+        //$('.mainPage').toggle();
+    //});
 }
 
 function submitIndividualBookEditForm (id) {
@@ -673,7 +672,7 @@ function drawSearchRow(rowData) {
     });
     $('.exitSearch').click(function (event) {
         event.preventDefault();
-        $('.libraryBooksSearch').html(``);
+        $('.libraryBooksSearch').toggle();
         //$('.mainPage').toggle();
     });
     renderIndividualBookListener();
