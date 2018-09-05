@@ -463,11 +463,11 @@ function drawCheckoutRow(rowData) {
  console.log(prettyDate);
  console.log(readableCheckout);
  if (!rowData) {
-            
-            return `
+            let noBooks =`
             <h1 class="noResults">No Checkedout Books!<h1>
             
             `;
+        $(".libraryBooksSearch").html(noBooks);
         }
 else {
  let row = 
