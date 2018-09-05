@@ -462,6 +462,19 @@ function drawCheckoutHeaders () {
 
 
 function drawCheckoutRow(rowData) {
+
+dateTimeReviver = function (key, value) {
+    var a;
+    if (typeof value === 'string') {
+        a = /\/Date\((\d*)\)\//.exec(value);
+        if (a) {
+            return new Date(+a[1]);
+        }
+    }
+    return value;
+};
+ let readableCheckout = JSON.parse(rowData.studentName,dateTimeReviver);
+ consle.log(readableCheckout);
  let row = 
     `<tr class="bookRow">
         <td class="bookID">${rowData.id}</td>
