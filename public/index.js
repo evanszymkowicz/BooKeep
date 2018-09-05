@@ -568,6 +568,9 @@ function renderLibraryBookSearchForm () {
      </div>
      <div class="searchRowTable">
      </div>
+     <div class="exitButton">
+        <button class="exitSearch">-</button>
+    </div>
     `;
     $('.searchBody').html(libraryBookSearch);
 }
@@ -626,9 +629,7 @@ function booksByTitle(searchTerm) {
 
 function drawSearchHeaders () {
     let header = 
-    `<div>
-        <button class="exitSearch">-</button>
-    </div>
+    `
     <table class="libraryBooksSearch">
             <th>Click to view</th>
             <th class="bookID">ID</th>
