@@ -105,6 +105,14 @@ function drawBooks() {
     };
 }
 
+function nextButton() {
+    $('.nextAllData').on('click', function (event) {
+    libraryIndex = libraryIndex - resultsShown; 
+    libraryIndex = libraryIndex < 0 ? 0 : libraryIndex; 
+    clearLibraryBooksDisplayed();
+    drawBooks();
+    });
+}
 //Next() => { libraryIndex = libraryIndex + resultsShown; libraryIndex = libraryIndex > libraryofMainPAgeBooks.length ? libraryofMainPageBooks.length - resultsShown : libraryIndex; libraryIndex = libraryIndex < 0 ? 0 : libraryIndex; } 
 //back() => { libraryIndex = libraryIndex - resultsShown; libraryIndex = libraryIndex < 0 ? 0 : libraryIndex; }
 //drawBooks() => {for(var i = libraryIndex; i < libraryIndex + resultsShown; i++) { ... draw the book at index i ... }}
