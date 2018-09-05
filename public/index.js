@@ -231,7 +231,7 @@ function renderIndividualBookListener () {
             console.log(response);
             //console.log(item);
             });
-        
+        $('.mainPage').toggle();
     });
 }
 
@@ -256,7 +256,7 @@ function renderIndividualBook (book) {
     </div>
     `;
     $('.bookBody').html(individualBook);
-    $('.mainPage').toggle();
+    
     //var bookIdTargetTwo = $(this).getElementByID('#bookIDTWo').text();
     //console.log(bookIdTargetTwo);
     //does searchIDTwo need to be a param in function(event)?
@@ -398,6 +398,9 @@ function renderIndividualBookCheckout(book) {
         var bookIdTargetFour = $("h6:nth-of-type(1)").text();
         console.log(bookIdTargetFour);
         handleBookCheckout(bookIdTargetFour);
+        drawCheckoutHeaders ();
+        renderBookCheckoutPageHandler();
+        $('.bookBody').toggle();
     });
     //$('.exitRandom').click(function (event) {
         //event.preventDefault();
@@ -421,9 +424,6 @@ function handleBookCheckout (id) {
         dataType: "json",
         contentType: 'application/json',
         });
-    $('.bookBody').toggle();
-    renderBookCheckoutPageHandler();
-    drawCheckoutHeaders ();
 }
 
 function renderBookCheckoutPageHandler () {
