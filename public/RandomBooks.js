@@ -147,7 +147,7 @@ function submitRandomRL() {
 function returnRLBooks(libraryOfBooks, rLType) {
     let rLSearchFilter = rLType;
     var filtered3 = libraryOfBooks.filter(function (el) {
-        return rLSearchFilter.indexOf(el.genre) >= 0; 
+        return rLSearchFilter.indexOf(el.readingLevel) >= 0; 
         });
     console.log(filtered3);
     shuffle(filtered3);

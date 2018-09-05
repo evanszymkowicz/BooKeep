@@ -153,10 +153,19 @@ function renderLibraryBookNew () {
             <input type="text" name="bookDescription" class="addDescription">
             <button class="submitNewBook">Submit</button>
         </form>
+        <div>
+            <button class="exitRandom">Return Home</button>
+        </div>
     </div>
     `;
     $('.bookBody').html(libraryBooksNew);
+    $('.exitRandom').click(function (event) {
+        event.preventDefault();
+        $('.bookBody').toggle();
+        $('.mainPage').toggle();
+    });
     submitNewBook()
+
 }
 
 function renderIndividualBookListener () {
@@ -190,6 +199,9 @@ function renderIndividualBook (book) {
             <li><button class="editBook">Edit</button></li>
             <li><button class="checkoutBook">Checkout</button></li>
         </ul>
+        <div>
+            <button class="exitRandom">Cancel</button>
+        </div>
     </div>
     `;
     $('.bookBody').html(individualBook);
@@ -213,6 +225,11 @@ function renderIndividualBook (book) {
         event.preventDefault();
         console.log(bookIdTargetTwo);
         renderIndividualBookCheckoutCall(bookIdTargetTwo);
+    });
+    $('.exitRandom').click(function (event) {
+        event.preventDefault();
+        $('.bookBody').toggle();
+        $('.mainPage').toggle();
     });
 }
 
@@ -260,6 +277,9 @@ function renderIndividualBookEdit (book) {
         <input type="text" class = "individualBookDescription"value= '${book.description}'></br>
         <button class="submitBookEdit">Submit</button>
     </form>
+    <div>
+        <button class="exitRandom">Exit</button>
+    </div>
     `;
     $('.bookBody').html(individualBookEdit);
     $('.submitBookEdit').click(function (event) {
@@ -269,6 +289,11 @@ function renderIndividualBookEdit (book) {
         submitIndividualBookEditForm(bookIdTargetThree);
         $('.individualBookEdit').toggle();
         $('.mainPage').toggle();  
+    });
+    $('.exitRandom').click(function (event) {
+        event.preventDefault();
+        $('.bookBody').toggle();
+        $('.mainPage').toggle();
     });
 }
 
@@ -311,6 +336,9 @@ function renderIndividualBookCheckout(book) {
         <input type="date" class = "checkoutDate"></br>
         <button class="submitCheckout">Submit</checkout>
     </form>
+    <div>
+        <button class="exitRandom">Cancel</button>
+    </div>
     `
     $('.bookBody').html(bookCheckoutForm);
     $('.submitCheckout').click(function (event) {
@@ -318,7 +346,11 @@ function renderIndividualBookCheckout(book) {
         var bookIdTargetFour = $("h6:nth-of-type(1)").text();
         console.log(bookIdTargetFour);
         handleBookCheckout(bookIdTargetFour);
-        
+    });
+    $('.exitRandom').click(function (event) {
+        event.preventDefault();
+        $('.bookBody').toggle();
+        $('.mainPage').toggle();
     });
 }
 //worry that wont note that book is already checkedout
@@ -353,7 +385,10 @@ function renderBookCheckoutPageHandler () {
 
 function drawCheckoutHeaders () {
     let searchHeader = 
-    `<table class="libraryBooksSearch">
+    `<div>
+        <button class="exitRandom">Return Home</button>
+    </div>
+    <table class="libraryBooksSearch">
             <th>ID</th>
             <th>Title</th>
             <th>Student</th>
@@ -361,7 +396,13 @@ function drawCheckoutHeaders () {
         </table>
     `
     $('.bookBody').html(searchHeader);
+    $('.exitRandom').click(function (event) {
+        event.preventDefault();
+        $('.bookBody').toggle();
+        $('.mainPage').toggle();
+    });
 }
+
 
 
 function drawCheckoutRow(rowData) {
@@ -373,14 +414,14 @@ function drawCheckoutRow(rowData) {
         <td class="bookcheckoutDate">${rowData.checkoutDate}</td>
         <td class="bookView"> 
             <button class="bookCheckInButton">Check In</button>
-        </td>
+        </td> 
     </tr>
-    `;
+    `
     //console.log(row);
     $(".libraryBooksSearch").append(row);
     $('.bookCheckInButton').click(function (event) {
         event.preventDefault();
-        var bookIdTargetFive = $("td:nth-of-type(1)").text();
+        let bookIdTargetFive = $("td:nth-of-type(1)").text();
         console.log(bookIdTargetFive);
         //handleBookCheckin(bookIdTargetFive);
     });
@@ -444,6 +485,7 @@ function renderLibraryBookRandom () {
     $('.exitRandom').click(function (event) {
         event.preventDefault();
         $('.bookBody').toggle();
+        $('.mainPage').toggle();
     });
 }
 
