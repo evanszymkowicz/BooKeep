@@ -14,10 +14,10 @@ nav {
   display: inline-block;
   display: flex;
   align-items: center;
-  background-color: #9CECFF;
-  height: 50px;
-  padding: 24px 35px;
+  background-color: #D3D3D3;
+  padding-left: 24px;
   box-shadow: 0 5px 8px 0 rgba(0,0,0,.04);
+  margin-top: 0;
 }
 
 nav img {
@@ -38,4 +38,26 @@ nav p {
 nav a {
   text-decoration: none;
   color: #4A4A4A;
+}
+
+.libraryBooksDisplayed {
+    font-family: 'Roboto', sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.main-page {
+	display: inline-block;
+  	display: flex;
+ 	align-items: center;
 }
