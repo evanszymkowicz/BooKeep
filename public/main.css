@@ -84,3 +84,14 @@ tr {
 .bookBody {
 	margin-top: 100px;
 }
+
+.mainPage {
+	margin-top: 100px;
+}
+.pageHeader {
+	display: flex;
+}
+
+.libraryImage {
+	border-radius: 15px;
+}

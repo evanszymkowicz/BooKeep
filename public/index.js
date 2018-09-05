@@ -53,7 +53,18 @@ var libraryIndex = 0;
 //var tableNumber = 1;
 var resultsShown = 5;
 
+function animatePage () {
+    $(".viewLibrary").click(function() {
+        $('html, body').animate({
+        scrollTop: $(".bookLibrary").offset().top
+    }, 2000);
 
+    $(".toTop").click(function() {
+        $('html, body').animate({
+        scrollTop: $(".pageHeader").offset().top
+    }, 2000);
+        });
+}
 //returns all books
 function allBooks() { 
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
@@ -187,15 +198,18 @@ function submitNewBook() {
 function renderLibraryBookNew () {
     const libraryBooksNew = `
     <div class="addNewBookForm">
+        <div>
+            <a href=""><button class="exitRandom">Return Home</button><a>
+        </div>
         <form class="addANewBook">
             Book Title:
-            <input type="text" name="bookTitle" class="addTitle">
+            <input type="text" name="bookTitle" class="addTitle"></br>
             Author:
-            <input type="text" name="bookAuthor" class="addAuthor">
+            <input type="text" name="bookAuthor" class="addAuthor"></br>
             Genre:
-            <input type="text" name="bookGenre" class="addGenre">
+            <input type="text" name="bookGenre" class="addGenre"></br>
             Reading Level:
-            <select name="readingLevel" class="readingLevelNumber">
+            <select name="readingLevel" class="readingLevelNumber"></br>
                 <option value="gradePK">Pre-K</option>
                 <option value="gradeK">Kindergarten</option>
                 <option value="grade1">Grade 1</option>
@@ -206,12 +220,10 @@ function renderLibraryBookNew () {
                 <option value="grade6">Grade 6</option>
             </select>
             Description:
-            <input type="text" name="bookDescription" class="addDescription">
+            <input type="text" name="bookDescription" class="addDescription"></br>
             <button class="submitNewBook">Submit</button>
         </form>
-        <div>
-            <a href=""><button class="exitRandom">Return Home</button><a>
-        </div>
+        
     </div>
     `;
     $('.bookBody').html(libraryBooksNew);
@@ -792,6 +804,7 @@ $(document).ready(function () {
         //retrieveSearchBook();
         renderIndividualBookListener();
         renderBookCheckinPage();
+        animatePage();
         //postNewBook();
         //watchCheckoutBook();
         //populateRandomGenre();
