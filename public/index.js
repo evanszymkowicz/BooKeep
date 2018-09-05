@@ -48,16 +48,21 @@
 //duplicates of genres
 //search only returning one letter queries
 
+var libraryofMainPageBooks = [];
+var libraryIndex = 0;
+//var tableNumber = 1;
+var resultsShown = 5;
 
-var tableNumber = 1;
-var resultsShown = 2;
 
 //returns all books
 function allBooks() { 
     url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(url,  function (response) {
-        libraryOfBooks = response;
-        booksInLibrary = response.map((item, response) => drawRow(item));
+        libraryofMainPageBooks = response;
+        libraryIndex = 0;
+        drawBooks();
+        nextButton();
+        //booksInLibrary = response.map((item, response) => drawRow(item));
         //watchDeleteBook();
         //const results = LibraryBookTableMaker();
         //drawRow(results);
@@ -66,6 +71,27 @@ function allBooks() {
          });
     
 }
+
+function nextButton() {
+    $('.nextAllData').on('click', function (event) {
+    libraryIndex = libraryIndex + resultsShown; 
+    libraryIndex = libraryIndex > libraryofMainPAgeBooks.length ? libraryofMainPageBooks.length - resultsShown : libraryIndex;
+    libraryIndex = libraryIndex < 0 ? 0 : libraryIndex;
+    drawBooks();
+    });
+}
+
+function drawBooks() {
+    for (var i = libraryIndex; i < libraryIndex + resultsShown; i++) {
+        if (i < libraryofMainPageBooks.length) {
+        drawRow(libraryofMainPageBooks[i]);
+        };
+    };
+}
+
+//Next() => { libraryIndex = libraryIndex + resultsShown; libraryIndex = libraryIndex > libraryofMainPAgeBooks.length ? libraryofMainPageBooks.length - resultsShown : libraryIndex; libraryIndex = libraryIndex < 0 ? 0 : libraryIndex; } 
+//back() => { libraryIndex = libraryIndex - resultsShown; libraryIndex = libraryIndex < 0 ? 0 : libraryIndex; }
+//drawBooks() => {for(var i = libraryIndex; i < libraryIndex + resultsShown; i++) { ... draw the book at index i ... }}
 
 function drawRow(rowData) {
     let row = 
