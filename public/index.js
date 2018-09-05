@@ -131,8 +131,8 @@ function drawRow(rowData) {
         <td class="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
         <td class="bookAuthor">${rowData.author}</td>
-        <td class="bookRL">${rowData.readingLevel}</td>
         <td class="bookGenre">${rowData.genre}</td>
+        <td class="bookRL">${rowData.readingLevel}</td>
     </tr>
     `;
     //console.log(row);
@@ -197,13 +197,13 @@ function renderLibraryBookNew () {
             Reading Level:
             <select name="readingLevel" class="readingLevelNumber">
                 <option value="gradePK">Pre-K</option>
-                <option value="gradeK">K</option>
-                <option value="grade1">1</option>
-                <option value="grade2">2</option>
-                <option value="grade3">3</option>
-                <option value="grade4">4</option>
-                <option value="grade5">5</option>
-                <option value="grade6">6</option>
+                <option value="gradeK">Kindergarten</option>
+                <option value="grade1">Grade 1</option>
+                <option value="grade2">Grade 2</option>
+                <option value="grade3">Grade 3</option>
+                <option value="grade4">Grade 4</option>
+                <option value="grade5">Grade 5</option>
+                <option value="grade6">Grade 6</option>
             </select>
             Description:
             <input type="text" name="bookDescription" class="addDescription">
@@ -224,7 +224,7 @@ function renderLibraryBookNew () {
 }
 
 function renderIndividualBookListener () {
-    $('.libraryBooksDisplayed tr').on('click', 'tr', function (event) {
+    $('.bookViewButton').on('click', function (event) {
         event.preventDefault();
         var bookIdTarget = $(this).parent().next().text();
         searchId = bookIdTarget;
@@ -563,8 +563,7 @@ function renderLibraryBookSearchForm () {
     const libraryBookSearch = `
     <div class ="searchLibraryPage">
             <input id="query" type="text" name="search" class="searchLocation"  placeholder="Search book title" role="search" aria-label="Search">
-        <br>
-          <button type="button" class="submitBookSearch" aria-label="Search">Submit</button>
+          <button type="button" class="submitBookSearch" aria-label="Search">&#x1F50D</button>
      </div>
      <div class="searchRowTable">
      </div>
