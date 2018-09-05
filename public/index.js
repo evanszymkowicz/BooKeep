@@ -92,6 +92,7 @@ function nextButton() {
     libraryIndex = libraryIndex + resultsShown; 
     libraryIndex = libraryIndex > libraryofMainPageBooks.length ? libraryofMainPageBooks.length - resultsShown : libraryIndex;
     libraryIndex = libraryIndex < 0 ? 0 : libraryIndex;
+    clearLibraryBooksDisplayed();
     drawBooks();
     });
 }
