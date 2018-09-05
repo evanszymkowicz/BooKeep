@@ -96,7 +96,7 @@ function nextButton() {
     libraryIndex = libraryIndex > libraryofMainPageBooks.length ? libraryofMainPageBooks.length - resultsShown : libraryIndex;
     libraryIndex = libraryIndex < 0 ? 0 : libraryIndex;
     console.log(libraryIndex);
-    //clearLibraryBooksDisplayed();
+    clearLibraryBooksDisplayed();
     drawBooks();
     });
 }
@@ -113,7 +113,7 @@ function backButton() {
     $('.backAllData').on('click', function (event) {
     libraryIndex = libraryIndex - resultsShown; 
     libraryIndex = libraryIndex < 0 ? 0 : libraryIndex; 
-    //clearLibraryBooksDisplayed();
+    clearLibraryBooksDisplayed();
     drawBooks();
     });
 }
@@ -179,7 +179,7 @@ function submitNewBook() {
                 
             });
         $('.addNewBookForm').toggle();
-        $('.mainPage').html(``);  
+         
         allBooks();
     });
 }
