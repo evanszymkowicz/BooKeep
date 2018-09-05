@@ -43,7 +43,7 @@ nav a {
 .libraryBooksDisplayed {
     font-family: 'Roboto', sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 60%;
 }
 
 td, th {
@@ -52,12 +52,11 @@ td, th {
     padding: 8px;
 }
 
-tr:nth-child(even) {
-    background-color: #dddddd;
+
+tr {
+    background-color: #ffffff;
 }
 
 .main-page {
-	display: inline-block;
-  	display: flex;
- 	align-items: center;
+
 }
