@@ -389,7 +389,7 @@ function renderIndividualBookCheckout(book) {
         <button class="submitCheckout">Submit</checkout>
     </form>
     <div>
-        <a href=""><button class="exitRandom">Cancel</button><a>
+        <button class="exitRandom">Cancel</button>
     </div>
     `
     $('.bookBody').html(bookCheckoutForm);
@@ -471,8 +471,8 @@ function drawCheckoutRow(rowData) {
     `<tr class="bookRow">
         <td class="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
-        <td class="studentNAmer">${prettyDate}</td>
-        <td class="bookcheckoutDate">${rowData.checkoutDate}</td>
+        <td class="studentNAmer">${rowData.studentName}</td>
+        <td class="bookcheckoutDate">${prettyDate}</td>
         <td class="bookView"> 
             <button class="bookCheckInButton">Check In</button>
         </td> 
@@ -485,6 +485,8 @@ function drawCheckoutRow(rowData) {
         let bookIdTargetFive = $(this).parent().siblings(":first").text();
         console.log(bookIdTargetFive);
         handleBookCheckin(bookIdTargetFive);
+        renderBookCheckoutPageHandler();
+        drawCheckoutHeaders();
     });
 }
 
