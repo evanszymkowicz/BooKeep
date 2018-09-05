@@ -46,6 +46,9 @@ nav a {
     font-family: 'Open Sans', sans-serif;
     border-collapse: collapse;
     width: 60%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 td, th {
@@ -63,4 +66,13 @@ tr {
 	display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+.mainBodyLogo {
+	width: 20%;
+	height: auto;
+}
+
+.searchBody {
+
 }
