@@ -82,6 +82,7 @@ function allBooks() {
         libraryofMainPageBooks = response;
         libraryIndex = 0;
         renderMainPage()
+        drawRow();
         drawBooks();
         nextButton();
         backButton();
@@ -139,7 +140,7 @@ function backButton() {
 //drawBooks() => {for(var i = libraryIndex; i < libraryIndex + resultsShown; i++) { ... draw the book at index i ... }}
 
 function drawRow(rowData) {
-    const bookList = libraryofMainPageBooks.books.map(rowData =>
+    const bookList = libraryofMainPageBooks.map(rowData =>
     `<tr class="bookRow" />
         <td class="bookView"> 
             <button type"submit" class="bookViewButton">View</button>
@@ -161,7 +162,7 @@ function drawRow(rowData) {
 function listenerNewBook() {
     $('.addABook').on('click', function (event) {
         event.preventDefault();
-        $('.mainPage').toggle();
+        //$('.mainPage').toggle();
         renderLibraryBookNew();
     });
 
@@ -175,7 +176,7 @@ function submitNewBook() {
         const genreSelected = $('.addGenre').val();
         const readingLevelSelected = $('.readingLevelNumber').val();
         const newDescription = $('.addDescription').val();
-        $('.addNewBookForm').toggle();
+        //$('.addNewBookForm').toggle();
         
          //const author = req.user.id;
         
@@ -194,7 +195,10 @@ function submitNewBook() {
                 contentType: 'application/json',
                 
             })
-        $('.mainPage').toggle();      
+        renderMainPage();
+        drawRow();
+        //$('.mainPage').toggle();
+
     });
 }
 
@@ -231,8 +235,10 @@ function renderLibraryBookNew () {
     $('.bookBody').html(libraryBooksNew);
     $('.exitRandom').click(function (event) {
         event.preventDefault();
-        $('.bookBody').toggle();
-        $('.mainPage').toggle();
+        //$('.bookBody').toggle();
+        //$('.mainPage').toggle();
+        renderMainPage();
+        drawRow();
     });
     submitNewBook()
 
@@ -250,7 +256,7 @@ function renderIndividualBookListener () {
             console.log(response);
             //console.log(item);
             });
-        $('.mainPage').toggle();
+        //$('.mainPage').toggle();
     });
 }
 
@@ -298,8 +304,10 @@ function renderIndividualBook (book) {
     });
     $('.exitRandom').click(function (event) {
         event.preventDefault();
-        $('.bookBody').toggle();
-        $('.mainPage').toggle();
+        //$('.bookBody').toggle();
+        //$('.mainPage').toggle();
+        renderMainPage();
+        drawRow()
     });
 }
 
@@ -621,7 +629,8 @@ function submitBooksByTitle() {
                 console.log(searchTerm)
                 drawSearchHeaders();
                 booksByTitle(searchTerm);
-
+            });
+        }
 
 function booksByTitle(searchTerm) { 
     encodedSearchTerm = encodeURIComponent(searchTerm);
