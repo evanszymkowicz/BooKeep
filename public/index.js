@@ -153,9 +153,9 @@ function submitNewBook() {
         const genreSelected = $('.addGenre').val();
         const readingLevelSelected = $('.readingLevelNumber').val();
         const newDescription = $('.addDescription').val();
-        /$('.addNewBookForm').toggle();
+        //$('.addNewBookForm').toggle();
         
-         //const author = req.user.id;
+         const author = req.user.id;
         
         const newPost = {
             title: newTitle,
