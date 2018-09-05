@@ -110,7 +110,7 @@ function drawBooks() {
 }
 
 function backButton() {
-    $('.nextAllData').on('click', function (event) {
+    $('.backAllData').on('click', function (event) {
     libraryIndex = libraryIndex - resultsShown; 
     libraryIndex = libraryIndex < 0 ? 0 : libraryIndex; 
     clearLibraryBooksDisplayed();
