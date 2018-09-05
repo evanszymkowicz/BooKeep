@@ -83,7 +83,6 @@ function allBooks() {
         libraryIndex = 0;
         renderMainPage()
         drawRow();
-        drawBooks();
         nextButton();
         backButton();
         //booksInLibrary = response.map((item, response) => drawRow(item));
@@ -112,11 +111,11 @@ function clearLibraryBooksDisplayed(){
 
 function nextButton() {
     $('.nextAllData').on('click', function (event) {
-    libraryIndex = libraryIndex + resultsShown; 
-    libraryIndex = libraryIndex > libraryofMainPageBooks.length ? libraryofMainPageBooks.length - resultsShown : libraryIndex;
-    libraryIndex = libraryIndex < 0 ? 0 : libraryIndex;
-    clearLibraryBooksDisplayed();
-    drawBooks();
+        libraryIndex = libraryIndex + resultsShown; 
+        libraryIndex = libraryIndex > libraryofMainPageBooks.length ? libraryofMainPageBooks.length - resultsShown : libraryIndex;
+        libraryIndex = libraryIndex < 0 ? 0 : libraryIndex;
+        clearLibraryBooksDisplayed();
+        drawBooks();
     });
 }
 
@@ -154,7 +153,7 @@ function drawRow(rowData) {
     </tr>
     `);
     //console.log(row);
-    $(".libraryBooksDisplayed").append(row);
+    $(".libraryBooksDisplayed").append(bookList);
     //renderIndividualBookListener();
 }
 //need to either always render new book, or have someway of auto refreshing json data
