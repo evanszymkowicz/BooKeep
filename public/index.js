@@ -80,7 +80,7 @@ function clearLibraryBooksDisplayed(){
     $('.libraryBooksDisplayed').html('');
     $('.libraryBooksDisplayed').append(`
             <tr>
-                    
+                    <th>&nbsp;</th>
                     <th class= "bookID">ID</th>
                     <th>Title</th>
                     <th>Author</th>
@@ -123,18 +123,17 @@ function backButton() {
 function drawRow(rowData) {
     let row = 
     `
-    <div class=clickToView>
-        <a href="#">
-            <tr class="bookRow" />
-                
-                <td id="bookID">${rowData.id}</td>
-                <td class="bookTitle">${rowData.title}</td>
-                <td class="bookAuthor">${rowData.author}</td>
-                <td class="bookRL">${rowData.readingLevel}</td>
-                <td class="bookGenre">${rowData.genre}</td>
-            </tr>
-        </a>
-    </div>
+
+    <tr class="bookRow" />
+        <td class="bookView"> 
+            <button type"submit" class="bookViewButton">View</button>
+        </td>
+        <td class="bookID">${rowData.id}</td>
+        <td class="bookTitle">${rowData.title}</td>
+        <td class="bookAuthor">${rowData.author}</td>
+        <td class="bookRL">${rowData.readingLevel}</td>
+        <td class="bookGenre">${rowData.genre}</td>
+    </tr>
     `;
     //console.log(row);
     $(".libraryBooksDisplayed").append(row);
@@ -225,7 +224,7 @@ function renderLibraryBookNew () {
 }
 
 function renderIndividualBookListener () {
-    $('.clickToView a').on('click', function (event) {
+    $('.bookViewButton').on('click', 'tr', function (event) {
         event.preventDefault();
         var bookIdTarget = $(this).parent().next().text();
         searchId = bookIdTarget;
@@ -245,7 +244,7 @@ function renderIndividualBook (book) {
     <div class="individualBookPage"
         <img src=''>
         <ul class="inidividualBookList">
-            <li id="bookID">${book.id}</li>
+            <li class="bookID">${book.id}</li>
             <li> Title: ${book.title}</li>
             <li> Author: ${book.author}</li>
             <li> Genre: ${book.genre}</li>
