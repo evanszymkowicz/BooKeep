@@ -672,7 +672,7 @@ function drawSearchRow(rowData) {
     });
     $('.exitSearch').click(function (event) {
         event.preventDefault();
-        $('.libraryBooksSearch').toggle();
+        $('.libraryBooksSearch').html(``);
         //$('.mainPage').toggle();
     });
     renderIndividualBookListener();
