@@ -155,7 +155,7 @@ function submitNewBook() {
         event.preventDefault();
         const newTitle = $('.addTitle').val();
         const newAuthor = $('.addAuthor').val();
-        const genreSelected = $('.addGenre').val();
+        const genreSelected = $('.addGenre').val().toUpperCase();
         const readingLevelSelected = $('.readingLevelNumber').val();
         const newDescription = $('.addDescription').val();
         //$('.addNewBookForm').toggle();
@@ -179,8 +179,8 @@ function submitNewBook() {
                 
             });
         $('.addNewBookForm').toggle();
-         
-        allBooks();
+        $('.mainPage').toggle(); 
+        //allBooks();
     });
 }
 
