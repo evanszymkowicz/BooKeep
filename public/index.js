@@ -190,7 +190,7 @@ function renderLibraryBookNew () {
         <div class="exitNewBookForm">
             <a href=""><button class="exitRandom">&#10006;</button></a>
         </div>
-        <div>
+        <div class="addANewBookImage">
             <img src="https://i.imgur.com/dnSHiuH.jpg">
         </div>
         <form class="addANewBook">
