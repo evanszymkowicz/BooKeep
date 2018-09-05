@@ -471,7 +471,7 @@ function drawCheckoutRow(rowData) {
     `<tr class="bookRow">
         <td class="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
-        <td class="studentNAmer">${rowData.studentName}</td>
+        <td class="studentNAmer">${prettyDate}</td>
         <td class="bookcheckoutDate">${rowData.checkoutDate}</td>
         <td class="bookView"> 
             <button class="bookCheckInButton">Check In</button>
