@@ -463,6 +463,8 @@ function drawCheckoutHeaders () {
 
 function drawCheckoutRow(rowData) {
  let readableCheckout = rowData.checkoutDate.split('-');
+ let checkoutSplicing = readableCheckout[2].split('T')[0];
+ console.log(checkoutSplicing);
  console.log(readableCheckout);
  let row = 
     `<tr class="bookRow">
