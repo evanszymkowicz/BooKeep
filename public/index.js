@@ -156,8 +156,8 @@ function submitNewBook() {
         const genreSelected = $('.addGenre').val();
         const readingLevelSelected = $('.readingLevelNumber').val();
         const newDescription = $('.addDescription').val();
-        $('.addNewBookForm').toggle();
-        $('.mainPage').toggle();  
+        //$('.addNewBookForm').toggle();
+        //$('.mainPage').toggle();  
         
          const author = req.user.id;
         
@@ -175,7 +175,8 @@ function submitNewBook() {
                 dataType: "json",
                 contentType: 'application/json',
                 
-            })
+            });
+        allBooks()
     });
 }
 
@@ -254,8 +255,8 @@ function renderIndividualBook (book) {
         </div>
     </div>
     `;
-    $('.mainPage').toggle();
     $('.bookBody').html(individualBook);
+    $('.mainPage').toggle();
     //var bookIdTargetTwo = $(this).getElementByID('#bookIDTWo').text();
     //console.log(bookIdTargetTwo);
     //does searchIDTwo need to be a param in function(event)?
@@ -388,7 +389,7 @@ function renderIndividualBookCheckout(book) {
         <button class="submitCheckout">Submit</checkout>
     </form>
     <div>
-        <button class="exitRandom">Cancel</button>
+        <a href=""><button class="exitRandom">Cancel</button><a>
     </div>
     `
     $('.bookBody').html(bookCheckoutForm);
@@ -398,11 +399,11 @@ function renderIndividualBookCheckout(book) {
         console.log(bookIdTargetFour);
         handleBookCheckout(bookIdTargetFour);
     });
-    $('.exitRandom').click(function (event) {
-        event.preventDefault();
-        $('.bookBody').toggle();
-        $('.mainPage').toggle();
-    });
+    //$('.exitRandom').click(function (event) {
+        //event.preventDefault();
+        //$('.bookBody').toggle();
+        //$('.mainPage').toggle();
+    //});
 }
 //worry that wont note that book is already checkedout
 function handleBookCheckout (id) {
@@ -441,7 +442,7 @@ function renderBookCheckoutPageHandler () {
 function drawCheckoutHeaders () {
     let searchHeader = 
     `<div>
-        <button class="exitRandom">Return Home</button>
+        <a href=""><button class="exitRandom">Return Home</button><a>
     </div>
     <table class="libraryBooksSearch">
             <th>ID</th>
@@ -451,11 +452,11 @@ function drawCheckoutHeaders () {
         </table>
     `
     $('.bookBody').html(searchHeader);
-    $('.exitRandom').click(function (event) {
-        event.preventDefault();
-        $('.bookBody').toggle();
-        $('.mainPage').toggle();
-    });
+    //$('.exitRandom').click(function (event) {
+        //event.preventDefault();
+        //$('.bookBody').toggle();
+        //$('.mainPage').toggle();
+    //});
 }
 
 
@@ -523,7 +524,7 @@ function retrieveRandomBook() {
 function renderLibraryBookRandom () {
     const libraryBooksRandom = `
     <div>
-        <button class="exitRandom">Exit</button>
+        <a href=""><button class="exitRandom">Exit</button><a>
     </div>
     <div class ="randomBookPage">
         <button class="randomGenre">Random Book by Genre</button>
@@ -539,11 +540,11 @@ function renderLibraryBookRandom () {
     </div>
     `;
     $('.bookBody').html(libraryBooksRandom);
-    $('.exitRandom').click(function (event) {
-        event.preventDefault();
-        $('.bookBody').toggle();
-        $('.mainPage').toggle();
-    });
+    //$('.exitRandom').click(function (event) {
+        //event.preventDefault();
+        //$('.bookBody').toggle();
+        //$('.mainPage').toggle();
+    //});
 }
 /*
 function retrieveSearchBook() {
@@ -637,6 +638,12 @@ function drawSearchHeaders () {
         </table>
     `
     $('.searchRowTable').html(header);
+    $('.exitSearch').click(function (event) {
+        event.preventDefault();
+        $('.libraryBooksSearch').toggle();
+        //$('.mainPage').toggle();
+    });
+
 }
 
 
@@ -670,12 +677,7 @@ function drawSearchRow(rowData) {
             //console.log(item);
             });
     });
-    $('.exitSearch').click(function (event) {
-        event.preventDefault();
-        $('.libraryBooksSearch').toggle();
-        //$('.mainPage').toggle();
-    });
-    renderIndividualBookListener();
+        renderIndividualBookListener();
 }
 
 /*
