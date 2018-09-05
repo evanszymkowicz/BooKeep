@@ -423,7 +423,7 @@ function drawCheckoutRow(rowData) {
         event.preventDefault();
         let bookIdTargetFive = $(this).parent().siblings(":first").text();
         console.log(bookIdTargetFive);
-        //handleBookCheckin(bookIdTargetFive);
+        handleBookCheckin(bookIdTargetFive);
     });
 }
 
@@ -559,7 +559,7 @@ function booksByTitle(searchTerm) {
          console.log(searchedBooksInLibrary);
          console.log(response)
          //});
-         renderIndividualBookListener();
+         
 });
 }
 
@@ -595,7 +595,7 @@ function drawSearchRow(rowData) {
     `;
     //console.log(row);
     $(".libraryBooksSearch").append(row);
-    
+    renderIndividualBookListener();
 }
 
 /*
