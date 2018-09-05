@@ -53,6 +53,27 @@ var libraryIndex = 0;
 //var tableNumber = 1;
 var resultsShown = 5;
 
+function renderMainPage() {
+    clearLibraryBooksDisplayed();
+    const mainHeader = `  
+        <div class="mainPage">
+                <div class="main-page">
+                      <p>Welcome to your Library Page! Click on the book in the table below to find out more information and edit, delete, or checkout book. Click the "Search" button to search books by title or author. Click the "Random" button to find books randomly. Finally, click "Checked out books" to see books that are checked out and check them in!</p>
+                      <button class="addABook" type="submit">Add Book</button>
+                      <button class="searchLibrary" type="submit">Search</button>
+                      <button class="libraryRandom" type="submit">Random</button>
+                      <button class="checkedoutList" type="submit">Checkedout Books</button>
+                </div>
+                <h2>Library Books</h2>
+                <div class="displayedLibrary">      
+                    <table class="libraryBooksDisplayed">
+                    </table>
+                    <button class="backAllData">Back</button>
+                    <button class="nextAllData">Next</button>
+                </div>
+            `;
+        $('.bookBody').html(mainHeader)
+        }
 
 //returns all books
 function allBooks() { 
@@ -60,9 +81,10 @@ function allBooks() {
     $.getJSON(url,  function (response) {
         libraryofMainPageBooks = response;
         libraryIndex = 0;
-        clearLibraryBooksDisplayed();
+        renderMainPage()
         drawBooks();
         nextButton();
+        backButton();
         //booksInLibrary = response.map((item, response) => drawRow(item));
         //watchDeleteBook();
         //const results = LibraryBookTableMaker();
@@ -105,11 +127,10 @@ function drawBooks() {
     };
 }
 
-function nextButton() {
+function backButton() {
     $('.nextAllData').on('click', function (event) {
     libraryIndex = libraryIndex - resultsShown; 
     libraryIndex = libraryIndex < 0 ? 0 : libraryIndex; 
-    clearLibraryBooksDisplayed();
     drawBooks();
     });
 }
@@ -118,7 +139,7 @@ function nextButton() {
 //drawBooks() => {for(var i = libraryIndex; i < libraryIndex + resultsShown; i++) { ... draw the book at index i ... }}
 
 function drawRow(rowData) {
-    let row = 
+    const bookList = libraryofMainPageBooks.books.map(rowData =>
     `<tr class="bookRow" />
         <td class="bookView"> 
             <button type"submit" class="bookViewButton">View</button>
@@ -130,7 +151,7 @@ function drawRow(rowData) {
         <td class="bookGenre">${rowData.genre}</td>
         <td class="bookDesc"> ${rowData.description} </td>
     </tr>
-    `;
+    `);
     //console.log(row);
     $(".libraryBooksDisplayed").append(row);
     //renderIndividualBookListener();
@@ -592,16 +613,14 @@ function deleteBook(item) {
 
 */
 function submitBooksByTitle() {
-    $('.submitBookSearch').on('click', function (event) {
-        event.preventDefault();
-        //var queryTarget = $(event.currentTarget).find('#query');
-        //console.log(queryTarget)
-        var searchTerm = $('#query').val();
-        console.log(searchTerm)
-        drawSearchHeaders();
-        booksByTitle(searchTerm);
-    });
-}
+            $('.submitBookSearch').on('click', function (event) {
+                event.preventDefault();
+                //var queryTarget = $(event.currentTarget).find('#query');
+                //console.log(queryTarget)
+                var searchTerm = $('#query').val();
+                console.log(searchTerm)
+                drawSearchHeaders();
+                booksByTitle(searchTerm);
 
 
 function booksByTitle(searchTerm) { 
@@ -657,6 +676,7 @@ function drawSearchRow(rowData) {
     $('.bookViewButton').on('click', function (event) {
         event.preventDefault();
         var bookIdTarget = $(this).parent().next().text();
+        console.log(bookIdTarget);
         searchId = bookIdTarget;
         individualUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/byID/' + searchId;
         $.getJSON(individualUrl,  function (response) {
