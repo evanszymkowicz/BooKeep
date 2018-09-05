@@ -50,7 +50,7 @@ app.get('/getbooks', (req, res) =>{
 		});
 
 app.get('/getbooks/byTitle/:title', (req, res) => {
-  res.json({title: decodeURI(req.params.title)})
+  res.json({title: decodeURIComponent(req.params.title)})
   /*LibraryBooks
     .find({title: req.params.title})
     .then(booktitles => {
