@@ -64,6 +64,8 @@ function allBooks() {
         drawBooks();
         nextButton();
         backButton();
+        renderLibraryBookSearchForm();
+        submitBooksByTitle();
         //booksInLibrary = response.map((item, response) => drawRow(item));
         //watchDeleteBook();
         //const results = LibraryBookTableMaker();
@@ -543,7 +545,7 @@ function renderLibraryBookRandom () {
         $('.mainPage').toggle();
     });
 }
-
+/*
 function retrieveSearchBook() {
     $('.searchLibrary').on('click', function(event) {
         event.preventDefault();
@@ -553,7 +555,7 @@ function retrieveSearchBook() {
         //$('.mainPage').toggle();      
     });
 }
-
+*/
 function renderLibraryBookSearchForm () {
     const libraryBookSearch = `
     <div class ="searchLibraryPage">
@@ -786,7 +788,7 @@ $(document).ready(function () {
         allBooks();
         retrieveRandomBook();
         listenerNewBook();
-        retrieveSearchBook();
+        //retrieveSearchBook();
         renderIndividualBookListener();
         renderBookCheckinPage();
         //postNewBook();
