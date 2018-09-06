@@ -60,20 +60,37 @@ function allBooks() {
     $.getJSON(url,  function (response) {
         libraryofMainPageBooks = response;
         libraryIndex = 0;
-        clearLibraryBooksDisplayed();
-        drawBooks();
-        backButton();
-        nextButton();
-        renderLibraryBookSearchForm();
-        submitBooksByTitle();
-        //booksInLibrary = response.map((item, response) => drawRow(item));
-        //watchDeleteBook();
-        //const results = LibraryBookTableMaker();
-        //drawRow(results);
-        //deleteThisBook(item);
-        renderIndividualBookListener();
-         });
-    
+        if ($(window).width() > 460) {
+            clearLibraryBooksDisplayed();
+            drawBooks();
+            backButton();
+            nextButton();
+            renderLibraryBookSearchForm();
+            submitBooksByTitle();
+            renderIndividualBookListener();
+          }
+        else { 
+            drawHeadersMobile();
+            drawBooks(response);
+            renderLibraryBookSearchForm();
+            submitBooksByTitle();
+            renderIndividualBookListener();
+        };    
+    });
+}
+
+function drawHeadersMobile (){
+    $('.libraryBooksDisplayed').append(`
+                <tr>
+                    <th>&nbsp;</th>
+                    <th class= "bookID">ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <div class="hide">
+                        <th class="hide">Genre</th>
+                        <th class="hide">Reading Level</th>
+                    </div>
+                </tr>`);
 }
 
 function clearLibraryBooksDisplayed(){
@@ -85,8 +102,8 @@ function clearLibraryBooksDisplayed(){
                     <th>Title</th>
                     <th>Author</th>
                     <div class="hide">
-                        <th>Genre</th>
-                        <th>Reading Level</th>
+                        <th class="hide">Genre</th>
+                        <th class="hide">Reading Level</th>
                     </div>
                 </tr>`);
 }
@@ -136,8 +153,8 @@ function drawRow(rowData) {
         <td class="bookTitle">${rowData.title}</td>
         <td class="bookAuthor">${rowData.author}</td>
         <div class="hide">
-            <td class="bookGenre">${rowData.genre}</td>
-            <td class="bookRL">${rowData.readingLevel}</td>
+            <td class="bookGenre hide">${rowData.genre}</td>
+            <td class="bookRL hide">${rowData.readingLevel}</td>
         </div>
     </tr>
     `;
