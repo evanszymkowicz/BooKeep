@@ -342,16 +342,16 @@ function renderIndividualBookEdit (book) {
         <h2 class="randomPageTitle">Update Book Info</h2>
         <h4 class="bookID">${book.id}</h4>
         <form class="inidividualBookForm">
-            <label> Title:</label> 
+            <label> <strong>Title:</strong></label> 
             <input type="text" class = "individualBookTitle" value= '${book.title}'></br>
-            <label> Author:</label>
+            <label><strong>Author:</strong></label>
             <input type="text" class = "individualBookAuthor" value= '${book.author}'></br>
-            <label> Genre:</label>
+            <label><strong>Genre:</strong></label>
             <input type="text" class = "individualBookGenre"value= '${book.genre}'></br>
-            <label> Reading Level:</label>
+            <label><strong>Reading Level:</strong></label>
             <input type="text" class = "individualBookRL"value= '${book.readingLevel}'></br>
-            <label> Description:</label>
-            <textarea type="text" class = "individualBookDescription"value= '${book.description}'></textarea></br>
+            <label><strong>Description:</strong></label>
+            <textarea type="text" class = "individualBookDescription" value=''>${book.description}</textarea></br>
             <button class="submitBookEdit">Submit</button>
         </form>
     </div>
@@ -361,14 +361,8 @@ function renderIndividualBookEdit (book) {
         event.preventDefault();
         var bookIdTargetThree = $("h4:nth-of-type(1)").text();
         console.log(bookIdTargetThree);
-        submitIndividualBookEditForm(bookIdTargetThree);
-          
+        submitIndividualBookEditForm(bookIdTargetThree);         
     });
-    //$('.exitRandom').click(function (event) {
-        //event.preventDefault();
-        //$('.bookBody').toggle();
-        //$('.mainPage').toggle();
-    //});
 }
 
 function submitIndividualBookEditForm (id) {
@@ -395,7 +389,6 @@ function renderIndividualBookCheckoutCall(id) {
     urlBook = 'https://infinite-river-85875.herokuapp.com/getBooks/byID/' + id;
     $.getJSON(urlBook,  function (response) {
         individualBookCheckout = response.map((response) => renderIndividualBookCheckout(response));
-        //console.log(individualBookInLibraryEdit);
         console.log(response);
         });
 }
@@ -414,9 +407,9 @@ function renderIndividualBookCheckout(book) {
         <form class="inidividualBookCheckoutForm">
             <h2 class="checkoutFormTitle">Checkout Book</h2>
             <h6 class="BookIDFour bookID">${book.id}</h6>
-            <label> Student Name:</label></br> 
+            <label><strong>Student Name:</strong></label>
             <input type="text" class = "studentName"></br>
-            <label> Checkout Date:</label></br>
+            <label><strong>Checkout Date:</strong></label>
             <input type="date" class = "checkoutDate"></br>
             <button class="submitCheckout">Submit</checkout>
         </form>

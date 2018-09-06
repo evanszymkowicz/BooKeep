@@ -176,6 +176,7 @@ tr {
 	border-color: #D3D3D3;
 	border-radius: 5px;
 	margin-top: 25px;
+	padding-bottom: 25px;
 }
 
 .bookCheckoutPage {
@@ -183,7 +184,7 @@ tr {
 	border: 1px;
 	border-color: #D3D3D3;
 	border-radius: 5px;
-	padding-top: 25px;
+	padding-bottom: 25px;
 	margin-top: 25px;
 }
 
@@ -419,7 +420,6 @@ tr {
 }
 
 .bookEditPageImage {
-	padding-bottom: 10px;
 	padding-top: 10px;
 }
 
