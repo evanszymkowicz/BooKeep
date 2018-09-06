@@ -423,6 +423,7 @@ function renderIndividualBookCheckout(book) {
         console.log(bookIdTargetFour);
         handleBookCheckout(bookIdTargetFour);
         renderBookCheckoutPageHandler();
+        drawCheckoutHeaders();
         //$('.bookBody').toggle();
     });
     //$('.exitRandom').click(function (event) {
@@ -452,7 +453,7 @@ function handleBookCheckout (id) {
 function renderBookCheckoutPageHandler () {
     checkoutUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/checkedout';
     console.log(checkoutUrl);
-    drawCheckoutHeaders();
+    
     $.getJSON(checkoutUrl,  function (response) {
         checkedBooks = response.map((item, response) => drawCheckoutRow(item));
         console.log(checkedBooks);
@@ -518,14 +519,29 @@ function drawCheckoutRow(rowData) {
     </tr>
     `;
     //console.log(row);
+
     $(".libraryBooksCheckedOut").append(row);
+    let bookIdTargetFive = $(this).parent().siblings(":first").text();
+    if (bookIdTargetFive === null) {
+        return $('.bookBody').html(`
+            <div class="exitNoBookCheckoutSheet">
+                <a href=""><button class="exitNoCheckOutListButton">&#10006;</button></a>
+            </div>
+            <div class="bookNoCheckoutListImage">
+                <img src='https://i.imgur.com/F0iZ7o5.png'>
+            </div>
+            <h2 class="noBooksCheckedOut">No books checked out!</h2>
+            `)
+    }
+    else {
     $('.bookCheckInButton').click(function (event) {
         event.preventDefault();
-        let bookIdTargetFive = $(this).parent().siblings(":first").text();
+        
         console.log(bookIdTargetFive);
         handleBookCheckin(bookIdTargetFive);
         //drawCheckoutHeaders();
         });
+    }
 }
 
 function handleBookCheckin (id) {
