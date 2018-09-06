@@ -13,7 +13,7 @@ text-align: center;
 }
 
 .displayedLibrary {
-	
+	background-color: #ffffff;
 }
 
 nav {
@@ -43,6 +43,10 @@ nav p {
 
 nav a {
   text-decoration: none;
+}
+
+textarea {
+	font-family: 'Open Sans', sans-serif;
 }
 
 .libraryBooksDisplayed {
@@ -103,6 +107,7 @@ tr {
 	margin-right: auto;
 	margin-left: auto;
 	padding-bottom: 45px;
+	padding-left: 25px;
 }
 
 .mainBodyLogo img {
@@ -341,7 +346,7 @@ tr {
 	text-align: center;
 }
 
-.individualBookForm {
+.inidividualBookForm {
 	padding-bottom: 10px;
 	padding-top: 10px;
 	margin-left: auto;
@@ -363,14 +368,14 @@ tr {
 }
 
 
-.individualBookCheckoutForm {
+.inidividualBookCheckoutForm {
 	padding-bottom: 10px;
 	padding-top: 10px;
 	margin-left: auto;
     margin-right: auto;
 }
 
-.individualBookForm input {
+.inidividualBookForm input {
 	border-radius: 5px;
 	margin-bottom: 15px;
 }
@@ -380,7 +385,7 @@ tr {
 	margin-bottom: 15px;
 }
 
-.individualBookCheckoutForm input {
+.inidividualBookCheckoutForm input {
 	border-radius: 5px;
 	margin-bottom: 15px;
 }
