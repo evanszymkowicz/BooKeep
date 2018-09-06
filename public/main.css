@@ -3,8 +3,8 @@
 }
 
 body {
- background-image: url(https://i.imgur.com/ruAKTAN.jpg);
-	text-align: center;
+background-image: url(https://i.imgur.com/L935gfF.jpg);
+text-align: center;
 }
 
 .bookID {
@@ -84,8 +84,7 @@ tr {
     margin-right: auto;
 }
 .joinTogether {
-	background-color: #ffffff;
-	border-radius: 5px;
+	background-image: url(https://i.imgur.com/k2k5ZNs.jpg);
 }
 
 .mainPageHeader {
@@ -123,7 +122,7 @@ tr {
 }
 
 .mainPageHeader button {
-	background: rgba(255, 255, 255);
+	background: rgba(210, 210, 210);
 	transition: color 0.25s linear;
 	border: none;
 	padding: 17px 10px;
@@ -132,7 +131,7 @@ tr {
 
 
 .mainPageHeader button:hover {
-	background: #20B2AA;
+	background: #ffa500;
 }
 
 .booksRandomPage {
