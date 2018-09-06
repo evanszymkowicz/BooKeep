@@ -193,7 +193,7 @@ function renderLibraryBookNew () {
             <a href=""><button class="exitNewBookFormButton">&#10006;</button></a>
         </div>
         <div class="addANewBookImage">
-            <img src="https://i.imgur.com/M0oshUs.png">
+            <img src="https://i.imgur.com/qS3gLjh.png">
         </div>
         <form class="addANewBook">
             Book Title:
@@ -331,7 +331,7 @@ function renderIndividualBookEdit (book) {
             <a href=""><button class="exitNewBookEditButton">&#10006;</button></a>
         </div>
         <div class="bookEditPageImage">
-            <img src='https://i.imgur.com/M0oshUs.png'>
+            <img src='https://i.imgur.com/qS3gLjh.png'>
         </div>
         <h2 class="randomPageTitle">Update Book Info</h2>
         <h4 class="bookID">${book.id}</h4>
@@ -403,7 +403,7 @@ function renderIndividualBookCheckout(book) {
             <a href=""><button class="exitCheckOutButton">&#10006;</button></a>
         </div>
         <div class="bookCheckoutImage">
-            <img src='https://i.imgur.com/M0oshUs.png'>
+            <img src='https://i.imgur.com/qS3gLjh.png'>
         </div>
         <form class="inidividualBookCheckoutForm">
             <h2 class="checkoutFormTitle">Checkout Book</h2>
@@ -480,7 +480,7 @@ function drawCheckoutHeaders () {
             <a href=""><button class="exitCheckOutListButton">&#10006;</button></a>
         </div>
         <div class="bookCheckoutListImage">
-            <img src='https://i.imgur.com/M0oshUs.png'>
+            <img src='https://i.imgur.com/qS3gLjh.png'>
         </div>
         <table class="libraryBooksCheckedOut">
             <th class="bookID">ID</th>
@@ -576,11 +576,10 @@ function renderLibraryBookRandom () {
             <a href=""><button class="exitRandomButton">&#10006;</button></a>
         </div>
         <div class="bookRandomImage">
-            <img src='https://i.imgur.com/M0oshUs.png'>
+            <img src='https://i.imgur.com/qS3gLjh.png'>
         </div>
         <div class ="randomBookPage">
             <h2 class="randomPageTitle">Randomly Generate a book</h2>
-            <hr>
             <div class="randomInputForm">
                 <label class="randomGenreLabel">By Genre: </label>
                 <select id="selectGenre"></select>

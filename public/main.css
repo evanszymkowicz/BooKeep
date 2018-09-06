@@ -16,10 +16,12 @@ nav {
   display: inline-block;
   display: flex;
   align-items: center;
-  background-color: #000080;
+  background-color: #7B68EE;
   padding-left: 24px;
   box-shadow: 0 5px 8px 0 rgba(0,0,0,.04);
+  padding-top: 5px;
   margin-top: 0;
+  margin-bottom: 5px;
 }
 
 nav img {
@@ -31,7 +33,7 @@ nav p {
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
   font-weight: 600;
-  color: #4A4A4A;
+  
   display: inline-block;
   line-height: 25px;
   margin-bottom: 0;
@@ -40,7 +42,6 @@ nav p {
 
 nav a {
   text-decoration: none;
-  color: #F8F8FF;
 }
 
 .libraryBooksDisplayed {
@@ -81,14 +82,12 @@ tr {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
-    background-color: #000080;
 }
 
 .mainPageHeader {
 	display: block;
     margin-left: auto;
     margin-right: auto;
-    float: right;
     padding-right: 30px;
 }
 
@@ -110,6 +109,7 @@ tr {
 	width: 50%;
 	margin-left: auto;
     margin-right: auto;
+    border-color: #000080 2px;
 }
 
 .mainPage {
@@ -153,7 +153,6 @@ tr {
 	border: 1px;
 	border-color: #D3D3D3;
 	border-radius: 5px;
-	padding-top: 25px;
 	
 }
 
@@ -199,6 +198,7 @@ tr {
 }
 .exitNewBookForm {
 	text-align: right;
+	font-size: 15px;
 	border: none;
 	background: none;
 }
@@ -248,6 +248,9 @@ tr {
 	padding-bottom: 10px;
 	padding-top: 10px;
 	text-align: left;
+	margin-left: auto;
+    margin-right: auto;
+
 }
 
 .searchLibraryPage input {
@@ -373,4 +376,19 @@ tr {
 	border-radius: 5px;
 	padding-top: 25px;
 	margin-top: 25px;
+}
+
+.submitNewBook button {
+	background: rgba(255, 255, 255);
+	transition: color 0.25s linear;
+	border: none;
+	padding: 17px 10px;
+	border-radius: 5px
+	margin-left: auto;
+    margin-right: auto;
+} 
+
+
+.submitNewBook button:hover {
+	background: #20B2AA;
 }
