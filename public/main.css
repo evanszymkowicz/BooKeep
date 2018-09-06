@@ -47,6 +47,7 @@ nav a {
 
 textarea {
 	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
 }
 
 .libraryBooksDisplayed {
@@ -69,7 +70,7 @@ textarea {
 }
 
 td, th {
-    border: 2px solid #000000;
+    border: 1px  #85c1e9;
     text-align: left;
     padding: 8px;
 }
@@ -511,3 +512,19 @@ tr {
     margin-right: auto;
 }
 
+@media only screen and (max-width: 470px) {
+
+.hide {
+	display: none;
+}
+
+.mainBodyLogo {
+	display: flex;
+	margin-right: auto;
+	margin-left: auto;
+	padding-bottom: 45px;
+}
+
+.mainBodyLogo img {
+	display: none;
+}
