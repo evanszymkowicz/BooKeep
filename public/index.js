@@ -6,7 +6,7 @@ var resultsShown = 5;
 
 //calls all library books to main page
 function allBooks() { 
-    url = 'https://infinite-river-85875.herokuapp.com/getbooks';
+    var url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(url,  function (response) {
         libraryofMainPageBooks = response;
         libraryIndex = 0;
