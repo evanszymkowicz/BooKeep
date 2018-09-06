@@ -10,10 +10,27 @@ const mongoose = require('mongoose');
 const should = chai.should();
 
 const { LibraryBooks } = require('../models');
-const { closeServer, runServer, app } = require('../server');
+const { app, runServer, closeServer } = require('../server');
 const { TEST_DATABASE_URL } = require('../config');
 
 chai.use(chaiHttp);
+
+function seedLibraryBooksData() {
+  console.info('seeding library data');
+  const seedData = [];
+  for (let i = 1; i <= 10; i++) {
+    seedData.push({
+      author: faker.name.lastName(),
+      readingLevel: faker.random.number(), //{kindergarten, 1, 2, 3, 4, 5}//make not random
+      title: faker.lorem.sentence(),
+      checkoutDate: faker.date.past(),
+      genre: faker.name.lastName(), //{horror, romance, humor}//input two genres
+      description: faker.lorem.paragraph()
+    });
+  }
+
+  return LibraryBooks.insertMany(seedData);
+}
 
 function tearDownDb() {
   return new Promise((resolve, reject) => {
@@ -24,26 +41,7 @@ function tearDownDb() {
   });
 }
 
-function seedLibraryBooksData() {
-  console.info('seeding library data');
-  const seedData = [];
-  for (let i = 1; i <= 10; i++) {
-    seedData.push({
-      authorName: {
-        firstName: faker.name.firstName(),
-        lastName: faker.name.lastName()
-      },
-      readingLevel: faker.helpers.randomNumber(), //{kindergarten, 1, 2, 3, 4, 5}//make not random
-      title: faker.lorem.sentence(),
-      checkoutDate: faker.date.past(),
-      dueDate: faker.date.future(),
-      genre: faker.random.catch_phrase_noun(), //{horror, romance, humor}//input two genres
-      description: faker.lorem.paragraph()
-    });
-  }
 
-  return LibraryBooks.insertMany(seedData);
-}
 
 describe('library books API resource', function () {
 
@@ -94,7 +92,6 @@ describe('library books API resource', function () {
           res.should.be.json;
           res.body.should.be.a('array');
           res.body.should.have.lengthOf.at.least(1);
-
           res.body.forEach(function (post) {
             post.should.be.a('object');
             post.should.include.keys('id', 'author', 'readingLevel', 'title', 'description', 'genre');
@@ -119,16 +116,10 @@ describe('library books API resource', function () {
     it('should add a new library book', function () {
 
       const newBook = {
-      authorName: {
-        firstName: faker.name.firstName(),
-        lastName: faker.name.lastName()
-      },
-      readingLevel: faker.helpers.randomNumber(), //make not random
+      author:  faker.name.lastName(),
+      readingLevel: faker.random.number(), //make not random
       title: faker.lorem.sentence(),
-      deweyDecimalNumber: faker.helpers.randomNumber(), //make not random
-      checkoutDate: faker.date.past(),
-      dueDate: faker.date.future(),
-      genre: faker.random.catch_phrase_noun(), //make not random
+      genre: faker.name.lastName(), //make not random
       description: faker.lorem.paragraph()
     };
   
@@ -145,8 +136,7 @@ describe('library books API resource', function () {
           res.body.title.should.equal(newBook.title);
           // cause Mongo should have created id on insertion
           res.body.id.should.not.be.null;
-          res.body.author.should.equal(
-            `${newBook.author.firstName} ${newBook.author.lastName}`);
+          res.body.author.should.equal(newBook.author);
           res.body.readingLevel.should.equal(newBook.readingLevel);
           res.body.description.should.equal(newBook.description);
           res.body.genre.should.equal(newBook.genre);
@@ -155,15 +145,14 @@ describe('library books API resource', function () {
         .then(function (post) {
           book.title.should.equal(newBook.title);
           book.readingLevel.should.equal(newBook.readingLevel);
-          book.author.firstName.should.equal(newBook.author.firstName);
-          book.author.lastName.should.equal(newBook.author.lastName); //might run into isses
+          book.author.should.equal(newBook.author); //might run into isses
           book.description.should.equal(newBook.description);
           book.genre.should.equal(newBook.genre);
         });
     });
 });
 
-/*describe('PUT endpoint', function () {
+describe('PUT endpoint', function () {
 
     // strategy:
     //  1. Get an existing post from db
@@ -171,20 +160,15 @@ describe('library books API resource', function () {
     //  4. Prove post in db is correctly updated
     it('should update fields you send over', function () {
       const updateData = {
-        authorName: {
-	        firstName: 'P.D.',
-	        lastName: 'Eastman',
-      		},
-      	readingLevel: {'Pre-k', 'kindergarten', '1', '2'},
+        author:'P.D. Eastman',
+      	readingLevel: 'Pre-k',
       	title: 'Go, Dog, Go',
       	checkoutDate: faker.date.past(), //make sure correct
-      	dueDate: faker.date.future(), //make sure correct
-      	genre: 'Adventure'
-      	description: "Whether by foot, boat, car, or unicycle, P. D. Eastman's lovable dogs demonstrate the many ways one can travel in this condensed, board-book version perfect for babies and toddlers."
-        }
+      	genre: 'Adventure',
+      	description: "test"
       };
 
-      return BlogPost
+      return LibraryBooks
         .findOne()
         .then(post => {
           updateData.id = post.id;
@@ -200,12 +184,11 @@ describe('library books API resource', function () {
         .then(post => {
           book.title.should.equal(updateData.title);
           book.readingLevel.should.equal(updateData.readingLevel);
-          book.author.firstName.should.equal(updateData.author.firstName);
-          book.author.lastName.should.equal(updateData.author.lastName); //might run into isses
+          book.author.should.equal(updateData.author); //might run into isses
           book.description.should.equal(updateData.description);
           book.genre.should.equal(updateData.genre)
         });
-    });*/
+    });
 
 describe('DELETE endpoint', function () {
     // strategy:
@@ -233,3 +216,4 @@ describe('DELETE endpoint', function () {
       });
     });
   });
+});
