@@ -96,33 +96,6 @@ app.get('/getbooks/checkedout', (req, res) =>{
             res.status(500).json({ error: 'something went terribly wrong' });
       });
     });
-/*
-//still need help with this one
-app.get('/getbooks/byreadinglevel/bygenre', (req, res) => {
-  LibraryBooks
-    .find({readingLevel: req.params.readingLevel, genre: req.params.genre}) //this might need $and
-    .then(bookreadinglevels => {
-      res.json(bookreadinglevels.map(bookreadinglevel => bookreadinglevel.serialize()));
-    })
-    .catch(err => {
-      console.error(err);
-      res.status(500).json({ error: 'something went terribly wrong' });
-    });
-});
-
-//bring back bygenre, byreadinglevel, bygenre/byreadinglevel
-//look into mongo find and see how to specify both are criteria
-//confused
-/*app.get('/books/byid', (req, res) => {
-	//bytype = id
-	LibraryBooks
-	    .findById(req.params.id)
-	    .then(book => res.json(book.serialize()))
-	    .catch(err => {
-	      console.error(err);
-	      res.status(500).json({ error: 'something went horribly awry' });
-	    });
-});*/
 
 app.post('/add', jsonParser, (req, res) => {
   const requiredFields = ['author', 'readingLevel', 'title', 'description', 'genre'];
@@ -153,13 +126,6 @@ app.post('/add', jsonParser, (req, res) => {
 
 });
 
-
-//go over this more extensively
-//does this need become "byId"?
-
-//find book by id
-//update any or all information about book
-
 app.put('/update/:id', (req, res) => {
   
   const updated = {};
@@ -176,9 +142,6 @@ app.put('/update/:id', (req, res) => {
     .catch(err => res.status(500).json({ message: 'Something went wrong' }));
 });
 
-//find book by id
-//update date of book checked when clicked
-
 app.put('/checkout/:id', (req, res) => {
   const updated = {};
   const updateableFields = ['checkoutDate', 'studentName'];
@@ -194,7 +157,6 @@ app.put('/checkout/:id', (req, res) => {
     .catch(err => res.status(500).json({ message: 'Something went wrong' }));
 });
 
-//this works in theory
 app.delete('/delete/:id', (req, res) => {
    LibraryBooks
     .findByIdAndRemove(req.params.id)
@@ -204,32 +166,6 @@ app.delete('/delete/:id', (req, res) => {
     });
 });
 
-//jwt auth and passwrod
-/*app.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
-  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
-  if (req.method === 'OPTIONS') {
-    return res.send(204);
-  }
-  next();
-});
-
-passport.use(localStrategy);
-passport.use(jwtStrategy);
-
-app.use('/api/users/', usersRouter);
-app.use('/api/auth/', authRouter);
-
-const jwtAuth = passport.authenticate('jwt', { session: false });
-
-// A protected endpoint which needs a valid JWT to access it
-app.get('/api/protected', jwtAuth, (req, res) => {
-  return res.json({
-    data: 'rosebud'
-  });
-});
-*/
 app.use('*', function (req, res) {
   res.status(404).json({ message: 'Not Found' });
 });
@@ -238,10 +174,12 @@ app.use('*', function (req, res) {
 let server;
 
 function runServer(databaseUrl, port = PORT) {
+
   return new Promise((resolve, reject) => {
     mongoose.connect(databaseUrl, err => {
       if (err) {
         return reject(err);
+
       }
       server = app.listen(port, () => {
         console.log(`Your app is listening on port ${port}`);
@@ -255,8 +193,6 @@ function runServer(databaseUrl, port = PORT) {
   });
 }
 
-// this function closes the server, and returns a promise. we'll
-// use it in our integration tests later.
 function closeServer() {
   return mongoose.disconnect().then(() => {
     return new Promise((resolve, reject) => {
