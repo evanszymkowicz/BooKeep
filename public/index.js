@@ -485,8 +485,8 @@ function drawCheckoutHeaders () {
             <th class="bookID">ID</th>
             <th>Title</th>
             <div class="hide">
-                <th>Student</th>
-                <th>Checkout Date</th>
+                <th class="hide">Student</th>
+                <th class="hide">Checkout Date</th>
             </div>
             <th>&nbsp;</th>
         </table>
@@ -513,8 +513,8 @@ function drawCheckoutRow(rowData) {
         <td class="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
         <div class="hide">
-            <td class="studentNAmer">${rowData.studentName}</td>
-            <td class="bookcheckoutDate">${prettyDate}</td>
+            <td class="studentName hide">${rowData.studentName}</td>
+            <td class="bookcheckoutDate hide">${prettyDate}</td>
         </div>
         <td class="bookView"> 
             <button class="bookCheckInButton">Check In</button>
@@ -688,8 +688,8 @@ function drawSearchHeaders () {
             <th>Title</th>
             <th>Author</th>
             <div class="hide">
-                <th>Genre</th>
-                <th>Reading Level</th>
+                <th class="hide">Genre</th>
+                <th class="hide">Reading Level</th>
             </div>
         </table>
         <div>

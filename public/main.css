@@ -48,7 +48,7 @@ nav a {
 
 textarea {
 	font-family: 'Open Sans', sans-serif;
-	font-size: 16px;
+	font-size: 12px;
 }
 
 .libraryBooksDisplayed {
@@ -500,8 +500,10 @@ tr {
 
 .submitNewBookListener button {
 	background: #c0c0c0;
-	padding: 17px 10px;
+	padding: 8px 10px;
 	border-radius: 5px;
+	width: 35px;
+
 } 
 
 
@@ -567,5 +569,41 @@ nav {
 
 .searchLocation {
 	width: 60%;
+	height: 15px;
 	border-radius: 0;
+}
+
+.bookBody {
+	margin-top: 8px;
+	width: 100%
+}
+
+.bookRandomImage img {
+	width: 40%;
+	height: auto;
+}
+
+.bookCheckoutListImage img {
+	width: 40%;
+	height: auto;
+}
+
+.bookCheckoutImage img {
+	width: 40%;
+	height: auto;
+}
+
+.bookEditPageImage img {
+	width: 40%;
+	height: auto;
+}
+
+.addANewBookImage img {
+	width: 40%;
+	height: auto;
+}
+
+.renderIndividualImage img {
+	width: 40%;
+	height: auto;
 }
