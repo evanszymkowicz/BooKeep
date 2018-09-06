@@ -30,7 +30,7 @@ nav img {
 }
 
 nav p {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Kalam', cursive;;
   font-size: 30px;
   font-weight: 600;
   color: #000000;
@@ -57,6 +57,8 @@ nav a {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 td, th {
@@ -71,7 +73,9 @@ tr {
 }
 
 .pageTitle h1 {
+	font-family: 'Kalam', cursive;
 	font-size: 45px;
+	padding-top: 5px;
 }
 
 .main-page {
@@ -90,7 +94,7 @@ tr {
 	display: block;
     margin-left: auto;
     margin-right: auto;
-    padding: 30px;
+    padding-bottom: 30px;
 }
 
 .mainBodyLogo img {
@@ -138,7 +142,6 @@ tr {
 	border: 1px;
 	border-color: #D3D3D3;
 	border-radius: 5px;
-	padding-top: 25px;
 	margin-top: 25px;
 }
 
@@ -147,7 +150,6 @@ tr {
 	border: 1px;
 	border-color: #D3D3D3;
 	border-radius: 5px;
-	padding-top: 25px;
 	margin-top: 25px;
 }
 
@@ -263,7 +265,6 @@ tr {
 .addANewBook {
 	padding-bottom: 10px;
 	padding-top: 10px;
-	text-align: left;
 	margin-left: auto;
     margin-right: auto;
 
@@ -411,4 +412,6 @@ tr {
 
 .alignElements {
 	width: 60%
+	margin-left: auto;
+    margin-right: auto;
 }
