@@ -3,7 +3,7 @@
 }
 
 body {
- background: url(https://i.imgur.com/ruAKTAN.jpg), opacity: 0.5;
+ background-image: url(https://i.imgur.com/ruAKTAN.jpg);
 	text-align: center;
 }
 
@@ -180,7 +180,7 @@ tr {
 
 .floatLeft {
 	
-	margin-left: 500px;
+	margin-right: 600px;
 }
 
 .exitBookRandomPage {
@@ -350,7 +350,7 @@ tr {
 }
 
 .directionalButtons {
-	padding-right: 500px;
+	padding-left: 600px;
 }
 
 .individualBookCheckoutForm {
