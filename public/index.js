@@ -84,8 +84,10 @@ function clearLibraryBooksDisplayed(){
                     <th class= "bookID">ID</th>
                     <th>Title</th>
                     <th>Author</th>
-                    <th>Genre</th>
-                    <th>Reading Level</th>
+                    <div class="hide">
+                        <th>Genre</th>
+                        <th>Reading Level</th>
+                    </div>
                 </tr>`);
 }
 
@@ -133,8 +135,10 @@ function drawRow(rowData) {
         <td class="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
         <td class="bookAuthor">${rowData.author}</td>
-        <td class="bookGenre">${rowData.genre}</td>
-        <td class="bookRL">${rowData.readingLevel}</td>
+        <div class="hide>"
+            <td class="bookGenre">${rowData.genre}</td>
+            <td class="bookRL">${rowData.readingLevel}</td>
+        </div>
     </tr>
     `;
     //console.log(row);
@@ -193,7 +197,7 @@ function renderLibraryBookNew () {
             <a href=""><button class="exitNewBookFormButton">&#10006;</button></a>
         </div>
         <div class="addANewBookImage">
-            <img src="https://i.imgur.com/qS3gLjh.png">
+            <img src="https://i.imgur.com/oiibN6F.png">
         </div>
         <form class="addANewBook">
             Book Title:
@@ -253,7 +257,7 @@ function renderIndividualBook (book) {
             <a href=""><button class="individualBookExitButton">&#10006;</button><a>
         </div>
         <div class="renderIndividualImage">
-            <img src='https://i.imgur.com/qS3gLjh.png'>
+            <img src='https://i.imgur.com/oiibN6F.png'>
         </div>
         <ul class="individualBookList">
             <li class="bookID">${book.id}</li>
@@ -333,7 +337,7 @@ function renderIndividualBookEdit (book) {
             <a href=""><button class="exitNewBookEditButton">&#10006;</button></a>
         </div>
         <div class="bookEditPageImage">
-            <img src='https://i.imgur.com/qS3gLjh.png'>
+            <img src='https://i.imgur.com/oiibN6F.png'>
         </div>
         <h2 class="randomPageTitle">Update Book Info</h2>
         <h4 class="bookID">${book.id}</h4>
@@ -405,7 +409,7 @@ function renderIndividualBookCheckout(book) {
             <a href=""><button class="exitCheckOutButton">&#10006;</button></a>
         </div>
         <div class="bookCheckoutImage">
-            <img src='https://i.imgur.com/qS3gLjh.png'>
+            <img src='https://i.imgur.com/oiibN6F.png'>
         </div>
         <form class="inidividualBookCheckoutForm">
             <h2 class="checkoutFormTitle">Checkout Book</h2>
@@ -482,7 +486,7 @@ function drawCheckoutHeaders () {
             <a href=""><button class="exitCheckOutListButton">&#10006;</button></a>
         </div>
         <div class="bookCheckoutListImage">
-            <img src='https://i.imgur.com/qS3gLjh.png'>
+            <img src='https://i.imgur.com/oiibN6F.png'>
         </div>
         <table class="libraryBooksCheckedOut">
             <th class="bookID">ID</th>
@@ -578,7 +582,7 @@ function renderLibraryBookRandom () {
             <a href=""><button class="exitRandomButton">&#10006;</button></a>
         </div>
         <div class="bookRandomImage">
-            <img src='https://i.imgur.com/qS3gLjh.png'>
+            <img src='https://i.imgur.com/oiibN6F.png'>
         </div>
         <div class ="randomBookPage">
             <h2 class="randomPageTitle">Randomly Generate a book</h2>
@@ -686,8 +690,10 @@ function drawSearchHeaders () {
             <th class="bookID">ID</th>
             <th>Title</th>
             <th>Author</th>
-            <th>Genre</th>
-            <th>Reading Level</th>
+            <div class="hide">
+                <th>Genre</th>
+                <th>Reading Level</th>
+            </div>
         </table>
         <div>
             <button class="exitSearch"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
@@ -713,8 +719,10 @@ function drawSearchRow(rowData) {
         <td class="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
         <td class="bookAuthor">${rowData.author}</td>
-        <td class="bookRL">${rowData.readingLevel}</td>
-        <td class="bookGenre">${rowData.genre}</td>
+        <div class="hide">
+            <td class="bookRL">${rowData.readingLevel}</td>
+            <td class="bookGenre">${rowData.genre}</td>
+        </div>
     </tr>
     `;
     //console.log(row);
