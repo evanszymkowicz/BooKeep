@@ -519,29 +519,15 @@ function drawCheckoutRow(rowData) {
     </tr>
     `;
     //console.log(row);
-
+    
     $(".libraryBooksCheckedOut").append(row);
-    let bookIdTargetFive = $(this).parent().siblings(":first").text();
-    if (bookIdTargetFive === null) {
-        return $('.bookBody').html(`
-            <div class="exitNoBookCheckoutSheet">
-                <a href=""><button class="exitNoCheckOutListButton">&#10006;</button></a>
-            </div>
-            <div class="bookNoCheckoutListImage">
-                <img src='https://i.imgur.com/F0iZ7o5.png'>
-            </div>
-            <h2 class="noBooksCheckedOut">No books checked out!</h2>
-            `)
-    }
-    else {
     $('.bookCheckInButton').click(function (event) {
         event.preventDefault();
-        
+        let bookIdTargetFive = $(this).parent().siblings(":first").text();
         console.log(bookIdTargetFive);
         handleBookCheckin(bookIdTargetFive);
         //drawCheckoutHeaders();
         });
-    }
 }
 
 function handleBookCheckin (id) {
