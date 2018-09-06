@@ -246,9 +246,9 @@ function renderIndividualBookListener () {
 
 function renderIndividualBook (book) {
     const individualBook = `
-    <div class="individualBookPage"
+    <div class="individualBookPage">
         <div>
-            <a href=""><button class="individualBookExitButton">Cancel</button><a>
+            <a href=""><button class="individualBookExitButton">&#10006;</button><a>
         </div>
         <div class="renderIndividualImage">
             <img src='https://i.imgur.com/F0iZ7o5.png'>
@@ -519,7 +519,7 @@ function drawCheckoutRow(rowData) {
     </tr>
     `;
     //console.log(row);
-    
+
     $(".libraryBooksCheckedOut").append(row);
     $('.bookCheckInButton').click(function (event) {
         event.preventDefault();

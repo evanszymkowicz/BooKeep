@@ -16,7 +16,7 @@ nav {
   display: inline-block;
   display: flex;
   align-items: center;
-  background-color: #D3D3D3;
+  background-color: #ADD8E6;
   padding-left: 24px;
   box-shadow: 0 5px 8px 0 rgba(0,0,0,.04);
   margin-top: 0;
@@ -40,7 +40,7 @@ nav p {
 
 nav a {
   text-decoration: none;
-  color: #4A4A4A;
+  color: #F8F8FF;
 }
 
 .libraryBooksDisplayed {
@@ -72,6 +72,16 @@ tr {
 
 .pageTitle h1 {
 	font-size: 30px;
+	background-color: #ADD8E6;
+}
+
+.main-page {
+	font-family: 'Open Sans', sans-serif;
+    border-collapse: collapse;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ADD8E6;
 }
 
 .mainPageHeader {
@@ -79,7 +89,7 @@ tr {
     margin-left: auto;
     margin-right: auto;
     float: right;
-    padding: right;
+    padding-right: 30px;
 }
 
 .mainBodyLogo img {
@@ -352,6 +362,8 @@ tr {
     margin: 0;
     padding: 0;
     text-align: left;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .individualBookPage {
