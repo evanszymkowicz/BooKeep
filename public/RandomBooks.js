@@ -107,7 +107,7 @@ function returnGenreBooks(libraryOfBooks, genreType) {
 function drawRandomGenreRow(rowData) {
     let random = 
     `
-        <ul class="inidividualBookList">
+        <ul class="individualBookList">
             <li> Title: ${rowData.title}</li>
             <li> Author: ${rowData.author}</li>
             <li> Genre: ${rowData.genre}</li>

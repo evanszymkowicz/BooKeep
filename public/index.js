@@ -251,7 +251,7 @@ function renderIndividualBook (book) {
             <a href=""><button class="individualBookExitButton">&#10006;</button><a>
         </div>
         <div class="renderIndividualImage">
-            <img src='https://i.imgur.com/M0oshUs.png'>
+            <img src='https://i.imgur.com/qS3gLjh.png'>
         </div>
         <ul class="individualBookList">
             <li class="bookID">${book.id}</li>
