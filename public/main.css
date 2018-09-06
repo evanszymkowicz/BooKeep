@@ -13,7 +13,7 @@ text-align: center;
 }
 
 .displayedLibrary {
-	background-color: #FFDEAD
+	
 }
 
 nav {
@@ -77,9 +77,9 @@ tr {
 
 .bookKeepTitle {
 	font-family: 'Kalam', cursive;
-	font-size: 60px;
+	font-size: 80px;
 	padding-top: 20px;
-	padding-right: 35px;
+	padding-left: 35px;
 	color: #ffffff;
 }
 
@@ -120,7 +120,7 @@ tr {
 }
 
 .bookBody {
-	margin-top: 60px;
+	margin-top: 35px;
 	width: 70%;
 	margin-left: auto;
     margin-right: auto;
@@ -159,6 +159,7 @@ tr {
 	border-radius: 5px;
 	margin-top: 25px;
 	margin-bottom: 25px;
+	padding-bottom: 25px;
 }
 
 .addNewBookForm {
@@ -174,7 +175,6 @@ tr {
 	border: 1px;
 	border-color: #D3D3D3;
 	border-radius: 5px;
-	padding-top: 25px;
 	margin-top: 25px;
 }
 
@@ -188,7 +188,7 @@ tr {
 }
 
 .floatLeft {
-
+	padding-top: 10px;
 }
 
 .exitBookRandomPage {
@@ -343,7 +343,8 @@ tr {
 .individualBookForm {
 	padding-bottom: 10px;
 	padding-top: 10px;
-	text-align: left;
+	margin-left: auto;
+    margin-right: auto;
 }
 
 .addANewBook {
@@ -360,13 +361,12 @@ tr {
 	text-align: left;
 }
 
-.directionalButtons {
-}
 
 .individualBookCheckoutForm {
 	padding-bottom: 10px;
 	padding-top: 10px;
-	text-align: left;
+	margin-left: auto;
+    margin-right: auto;
 }
 
 .individualBookForm input {
@@ -429,32 +429,32 @@ tr {
 }
 
 .bookRandomImage img {
-	width: 25%;
+	width: 15%;
 	height: auto;
 }
 
 .bookCheckoutListImage img {
-	width: 25%;
+	width: 15%;
 	height: auto;
 }
 
 .bookCheckoutImage img {
-	width: 25%;
+	width: 15%;
 	height: auto;
 }
 
 .bookEditPageImage img {
-	width: 25%;
+	width: 15%;
 	height: auto;
 }
 
 .addANewBookImage img {
-	width: 25%;
+	width: 15%;
 	height: auto;
 }
 
 .renderIndividualImage img {
-	width: 25%;
+	width: 15%;
 	height: auto;
 }
 

@@ -351,7 +351,7 @@ function renderIndividualBookEdit (book) {
             <label> Reading Level:</label>
             <input type="text" class = "individualBookRL"value= '${book.readingLevel}'></br>
             <label> Description:</label>
-            <input type="text" class = "individualBookDescription"value= '${book.description}'></br>
+            <textarea type="text" class = "individualBookDescription"value= '${book.description}'></textarea></br>
             <button class="submitBookEdit">Submit</button>
         </form>
     </div>
@@ -404,7 +404,7 @@ function renderIndividualBookCheckoutCall(id) {
 
 function renderIndividualBookCheckout(book) {
     const bookCheckoutForm = `
-    <div class= "bookCheckoutPage"
+    <div class= "bookCheckoutPage">
         <div class="exitCheckoutEditForm">
             <a href=""><button class="exitCheckOutButton">&#10006;</button></a>
         </div>
@@ -491,8 +491,10 @@ function drawCheckoutHeaders () {
         <table class="libraryBooksCheckedOut">
             <th class="bookID">ID</th>
             <th>Title</th>
-            <th>Student</th>
-            <th>Checkout Date</th>
+            <div class="hide">
+                <th>Student</th>
+                <th>Checkout Date</th>
+            </div>
             <th>&nbsp;</th>
         </table>
     `
@@ -517,8 +519,10 @@ function drawCheckoutRow(rowData) {
     `<tr class="bookRow">
         <td class="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
-        <td class="studentNAmer">${rowData.studentName}</td>
-        <td class="bookcheckoutDate">${prettyDate}</td>
+        <div class="hide">
+            <td class="studentNAmer">${rowData.studentName}</td>
+            <td class="bookcheckoutDate">${prettyDate}</td>
+        </div>
         <td class="bookView"> 
             <button class="bookCheckInButton">Check In</button>
         </td> 
