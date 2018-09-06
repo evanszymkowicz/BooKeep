@@ -108,11 +108,11 @@ function drawRandomGenreRow(rowData) {
     let random = 
     `
         <ul class="individualBookList">
-            <li> Title: ${rowData.title}</li>
-            <li> Author: ${rowData.author}</li>
-            <li> Genre: ${rowData.genre}</li>
-            <li> Reading Level: ${rowData.readingLevel}</li>
-            <li> Description: ${rowData.description}</li>
+            <li> <strong>Title:</strong> ${rowData.title}</li>
+            <li> <strong>Author:</strong> ${rowData.author}</li>
+            <li> <strong>Genre:</strong> ${rowData.genre}</li>
+            <li> <strong>Reading Level:</strong> ${rowData.readingLevel}</li>
+            <li> <strong>Description:</strong> ${rowData.description}</li>
         </ul>    
     `;
     //console.log(row);
@@ -165,11 +165,11 @@ function returnRLBooks(libraryOfBooks, rLType) {
 function drawRandomRLRow(rowRLData) {
     let row = `
         <ul class="inidividualBookList">
-            <li> Title: ${rowRLData.title}</li>
-            <li> Author: ${rowRLData.author}</li>
-            <li> Genre: ${rowRLData.genre}</li>
-            <li> Reading Level: ${rowRLData.readingLevel}</li>
-            <li> Description: ${rowRLData.description}</li>
+            <li> Title:</strong> ${rowRLData.title}</li>
+            <li> Author:</strong> ${rowRLData.author}</li>
+            <li> Genre:</strong> ${rowRLData.genre}</li>
+            <li> Reading Level:</strong> ${rowRLData.readingLevel}</li>
+            <li> Description:</strong> ${rowRLData.description}</li>
         </ul>    
     `;
     //console.log(row);

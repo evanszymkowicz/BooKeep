@@ -3,7 +3,7 @@
 }
 
 body {
- background-color: #afabcb;
+ background: url(https://i.imgur.com/ruAKTAN.jpg) opacity: 0.5;
 	text-align: center;
 }
 
@@ -149,6 +149,7 @@ tr {
 	border-color: #D3D3D3;
 	border-radius: 5px;
 	margin-top: 25px;
+	margin-bottom: 25px;
 }
 
 .addNewBookForm {
@@ -179,7 +180,7 @@ tr {
 
 .floatLeft {
 	float: left;
-	margin-left: 100px;
+	margin-left: 200px;
 }
 
 .exitBookRandomPage {
@@ -350,7 +351,7 @@ tr {
 
 .directionalButtons {
 	float: right;
-	padding-right: 100px;
+	padding-right: 200px;
 }
 
 .individualBookCheckoutForm {
