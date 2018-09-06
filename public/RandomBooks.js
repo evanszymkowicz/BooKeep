@@ -36,16 +36,6 @@ function compileRandomArray () {
         libraryOfBooks.push(allTheBooks);
         
      });
-    $.getJSON(bothURL,  function (response) {
-        var allTheRLBoth = $.map(response, function (k) {
-            return k.readingLevel;
-
-        });
-        var allTheGenreBoth = $.map(response, function (k) {
-            return k.genre;
-        });
-        populateRandomBoth(allTheGenreBoth, allTheRLBoth);
-    });
     //console.log(libraryOfBooks);
 }
 

@@ -255,13 +255,13 @@ function renderIndividualBook (book) {
         </div>
         <ul class="individualBookList">
             <li class="bookID">${book.id}</li>
-            <li> Title: ${book.title}</li>
-            <li> Author: ${book.author}</li>
-            <li> Genre: ${book.genre}</li>
-            <li> Reading Level: ${book.readingLevel}</li>
-            <li> Description: ${book.description}</li>
+            <li> <strong>Title:</strong> ${book.title}</li>
+            <li> <strong>Author:</strong> ${book.author}</li>
+            <li> <strong>Genre:</strong> ${book.genre}</li>
+            <li> <strong>Reading Level:</strong> ${book.readingLevel}</li>
+            <li> <strong>Description:</strong> ${book.description}</li>
         </ul>
-        <div class="selctorButtons">
+        <div class="selectorButtons">
             <button class="deleteBook">Delete</button>
             <button class="editBook">Edit</button>
             <button class="checkoutBook">Checkout</button>
