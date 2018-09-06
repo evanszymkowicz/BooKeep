@@ -75,10 +75,11 @@ tr {
     background-color: #ffffff;
 }
 
-.pageTitle h1 {
+.bookKeepTitle {
 	font-family: 'Kalam', cursive;
 	font-size: 45px;
 	padding-top: 5px;
+	color: #ffffff;
 }
 
 .main-page {
@@ -87,9 +88,6 @@ tr {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
-}
-.joinTogether {
-	background-color: #FFDEAD;
 }
 
 .mainPageHeader {
