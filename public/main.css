@@ -14,6 +14,7 @@ text-align: center;
 
 .displayedLibrary {
 	background-color: #ffffff;
+	border-radius: 5px;
 }
 
 nav {
@@ -143,6 +144,7 @@ tr {
 	transition: color 0.25s linear;
 	border: none;
 	padding: 17px 10px;
+	border-radius: 5px;
 } 
 
 
@@ -515,8 +517,15 @@ tr {
 @media only screen and (max-width: 470px) {
 
 .hide {
+	visibility: hidden;
 	display: none;
 }
+
+.mainPage {
+	margin-top: 0;
+	margin-left: 0;
+}
+
 
 .mainBodyLogo {
 	display: flex;
@@ -527,8 +536,38 @@ tr {
 
 .mainBodyLogo img {
 	display: none;
+	padding-left: 0;
 }
 
 nav {
 	display: none;
+}
+
+.bookKeepTitle {
+	padding-top: ;
+}
+
+.alignElements {
+	width: 100%;
+}
+
+.mainPageHeader button {
+	padding: 5px;
+}
+
+
+@media screen and (min-width: 470px) {
+	
+
+	.imageLogo {
+	width: 15%;
+	height: auto;
+	margin-top: 80px;
+	}
+	.Logo h1{
+	margin-top: 130px;
+	}
+	.LicenseAttribution {
+		margin-top: 130px;
+	}
 }

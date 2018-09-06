@@ -60,37 +60,20 @@ function allBooks() {
     $.getJSON(url,  function (response) {
         libraryofMainPageBooks = response;
         libraryIndex = 0;
-        if ($(window).width() > 460) {
-            clearLibraryBooksDisplayed();
-            drawBooks();
-            backButton();
-            nextButton();
-            renderLibraryBookSearchForm();
-            submitBooksByTitle();
-            renderIndividualBookListener();
-          }
-        else { 
-            drawHeadersMobile();
-            drawBooks(response);
-            renderLibraryBookSearchForm();
-            submitBooksByTitle();
-            renderIndividualBookListener();
-        };    
-    });
-}
-
-function drawHeadersMobile (){
-    $('.libraryBooksDisplayed').append(`
-                <tr>
-                    <th>&nbsp;</th>
-                    <th class= "bookID">ID</th>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <div class="hide">
-                        <th class="hide">Genre</th>
-                        <th class="hide">Reading Level</th>
-                    </div>
-                </tr>`);
+        clearLibraryBooksDisplayed();
+        drawBooks();
+        backButton();
+        nextButton();
+        renderLibraryBookSearchForm();
+        submitBooksByTitle();
+        //booksInLibrary = response.map((item, response) => drawRow(item));
+        //watchDeleteBook();
+        //const results = LibraryBookTableMaker();
+        //drawRow(results);
+        //deleteThisBook(item);
+        renderIndividualBookListener();
+         });
+    
 }
 
 function clearLibraryBooksDisplayed(){
