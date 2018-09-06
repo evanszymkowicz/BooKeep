@@ -3,8 +3,7 @@
 }
 
 body {
-	background-color: #f1f1f1;
-	margin: 0;
+ background-image: linear-gradient(to right bottom, #afabcb, #bbb7d0, #c6c4d4, #d2d0d9, #dddddd);	margin: 0;
 	text-align: center;
 }
 
@@ -16,7 +15,7 @@ nav {
   display: inline-block;
   display: flex;
   align-items: center;
-  background-color: #7B68EE;
+  background-color: #F5F5F5;
   padding-left: 24px;
   box-shadow: 0 5px 8px 0 rgba(0,0,0,.04);
   padding-top: 5px;
@@ -72,8 +71,7 @@ tr {
 }
 
 .pageTitle h1 {
-	font-size: 30px;
-	background-color: #ADD8E6;
+	font-size: 45px;
 }
 
 .main-page {
@@ -174,18 +172,23 @@ tr {
 	margin-top: 25px;
 }
 
+.floatLeft {
+	float: left;
+}
+
 .exitBookRandomPage {
-	margin-left: 80px;
+	text-align: right;
+	font-size: 15px;
 	border: none;
 	background: none;
 }
 
 .exitBookCheckoutSheet {
-	margin-left: 80px;
+	text-align: right;
+	font-size: 15px;
 	border: none;
 	background: none;
 }
-
 .exitNewBookForm a button {
 	margin-left: 80px;
 	border: none;
@@ -203,9 +206,16 @@ tr {
 	background: none;
 }
 
+.exitIndividualBook {
+	text-align: right;
+	font-size: 15px;
+	border: none;
+	background: none;
+}
 
-.exitNewBookEditPage {
-	margin-left: 80px;;
+.exitNewBookEditForm {
+	text-align: right;
+	font-size: 15px;
 	border: none;
 	background: none;
 }
@@ -222,7 +232,8 @@ tr {
 }
 
 .exitCheckoutEditForm {
-	margin-left: 80px;
+	text-align: right;
+	font-size: 15px;
 	border: none;
 	background: none;
 }
@@ -259,7 +270,7 @@ tr {
 	text-align: left;
 }
 
-.directionButtons {
+.directionalButtons {
 	float: right;
 }
 

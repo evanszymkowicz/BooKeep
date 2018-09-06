@@ -247,7 +247,7 @@ function renderIndividualBookListener () {
 function renderIndividualBook (book) {
     const individualBook = `
     <div class="individualBookPage">
-        <div>
+        <div class="exitIndividualBook">
             <a href=""><button class="individualBookExitButton">&#10006;</button><a>
         </div>
         <div class="renderIndividualImage">
