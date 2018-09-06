@@ -717,8 +717,8 @@ function drawSearchRow(rowData) {
         <td class="bookTitle">${rowData.title}</td>
         <td class="bookAuthor">${rowData.author}</td>
         <div class="hide">
-            <td class="bookRL">${rowData.readingLevel}</td>
-            <td class="bookGenre">${rowData.genre}</td>
+            <td class="bookRL hide">${rowData.readingLevel}</td>
+            <td class="bookGenre hide">${rowData.genre}</td>
         </div>
     </tr>
     `;
