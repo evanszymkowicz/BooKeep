@@ -188,10 +188,10 @@ function renderLibraryBookNew () {
     const libraryBooksNew = `
     <div class="addNewBookForm">
         <div class="exitNewBookForm">
-            <a href=""><button class="exitRandom">&#10006;</button></a>
+            <a href=""><button class="exitNewBookFormButton">&#10006;</button></a>
         </div>
         <div class="addANewBookImage">
-            <img src="https://i.imgur.com/eWmFI3e.png">
+            <img src="https://i.imgur.com/F0iZ7o5.png">
         </div>
         <form class="addANewBook">
             Book Title:
@@ -212,7 +212,7 @@ function renderLibraryBookNew () {
                 <option value="grade6">Grade 6</option>
             </select></br>
             Description:
-            <input type="text" name="bookDescription" class="addDescription"></br>
+            <textarea type="text" name="bookDescription" class="addDescription"></textArea></br>
             <button class="submitNewBook">Submit</button>
         </form>   
     </div>
@@ -329,7 +329,7 @@ function renderIndividualBookEdit (book) {
         <div class="bookEditPageImage">
             <img src='https://i.imgur.com/F0iZ7o5.png'>
         </div>
-        <legend>Update Book Info</legend>
+        <h2 class="randomPageTitle">Update Book Info</h2>
         <h4 class="bookID">${book.id}</h4>
         <form class="inidividualBookForm">
             <label> Title:</label> 
@@ -481,6 +481,7 @@ function drawCheckoutHeaders () {
             <th>Title</th>
             <th>Student</th>
             <th>Checkout Date</th>
+            <th>&nbsp;</th>
         </table>
     `
     $('.bookBody').html(searchHeader);
@@ -572,11 +573,15 @@ function renderLibraryBookRandom () {
         </div>
         <div class ="randomBookPage">
             <h2 class="randomPageTitle">Randomly Generate a book</h2>
-            <label class="checkoutFormTitle">By Genre: </label>
-            <select id="selectGenre"></select></br>
-            <button class="randomGenre">submit</button>
-            <select id="selectRL"></select>
-            <button class="randomReadingLevel">Submit</button>
+            <hr>
+            <div class="randomInputForm">
+                <label class="randomGenreLabel">By Genre: </label>
+                <select id="selectGenre"></select>
+                <button class="randomGenre">submit</button></br>
+                <label class="randomGenreLabel">By Reading Level: </label>
+                <select id="selectRL"></select>
+                <button class="randomReadingLevel">Submit</button>
+            </div>
         <div class="randomArrayCompiler">
         </div>
     </div>

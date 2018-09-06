@@ -70,10 +70,16 @@ tr {
     background-color: #ffffff;
 }
 
+.pageTitle h1 {
+	font-size: 30px;
+}
+
 .mainPageHeader {
 	display: block;
     margin-left: auto;
     margin-right: auto;
+    float: right;
+    padding: right;
 }
 
 .mainBodyLogo img {
@@ -101,16 +107,21 @@ tr {
 	margin-bottom: 66px;
 }
 
-.mainPageHeader button {
-	background: rgba(255, 255, 255);
-	transition: color 0.25s linear;
-	border: none;
-	padding: 17px 10px;
-	border-radius: 5px
+.mainPageHeader button:before {
+	content:'';
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 0px;
+	height: 42px;
+	background: rgba(255,255,255,0.3);
+	border-radius: 5px;
+	transition: all 2s ease;
+} 
 }
 
-.mainPageHeader button:hover {
-	background: #20B2AA;
+.mainPageHeader button:hover:before {
+	width: 100%;
 }
 
 .booksRandomPage {
@@ -137,7 +148,7 @@ tr {
 	border-color: #D3D3D3;
 	border-radius: 5px;
 	padding-top: 25px;
-	margin-top: 25px;
+	
 }
 
 .individualBookEditPage {
@@ -159,51 +170,66 @@ tr {
 }
 
 .exitBookRandomPage {
-	float: right;
-	padding-bottom: 25px;
+	margin-left: 80px;
 	border: none;
 	background: none;
 }
 
 .exitBookCheckoutSheet {
-	float: right;
-	padding-bottom: 25px;
+	margin-left: 80px;
 	border: none;
 	background: none;
 }
 
-.exitNewBookForm {
-	float: right;
-	padding-bottom: 25px;
+.exitNewBookForm a button {
+	margin-left: 80px;
 	border: none;
 	background: none;
 }
+.exitNewBookForm button {
+	margin-left: 80px;
+	border: none;
+	background: none;
+}
+.exitNewBookForm {
+	margin-left: 80px;
+	border: none;
+	background: none;
+}
+
 
 .exitNewBookEditPage {
-	float: right;
-	padding-bottom: 25px;
+	margin-left: 80px;;
 	border: none;
 	background: none;
 }
 
+.bookViewButton {
+	border: none;
+	background: none;
+} 
+
 .exitCheckoutButton {
-	float: right;
-	padding-bottom: 25px;
+	margin-left: 80px;
 	border: none;
 	background: none;
 }
 
 .exitCheckoutEditForm {
-	float: right;
-	padding-bottom: 25px;
+	margin-left: 80px;
 	border: none;
 	background: none;
 }
 
-.randomBookPage {
+.randomBookInputForm {
 	padding-bottom: 10px;
 	padding-top: 10px;
 	text-align: left;
+	padding-left: 20px;
+}
+
+.randomBookPage h2 {
+	text-align: center;
 }
 
 .individualBookForm {
@@ -221,6 +247,11 @@ tr {
 .searchLibraryPage input {
 	border-radius: 5px;
 	margin-bottom: 15px;
+	text-align: left;
+}
+
+.directionButtons {
+	float: right;
 }
 
 .individualBookCheckoutForm {
@@ -285,7 +316,7 @@ tr {
 	padding-top: 10px;
 }
 
-.bookRandomImage {
+.bookRandomImage img {
 	width: 40%;
 	height: auto;
 }
