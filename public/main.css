@@ -4,6 +4,7 @@
 
 body {
 background-image: url(https://i.imgur.com/L935gfF.jpg);
+background: cover;
 text-align: center;
 }
 
@@ -85,6 +86,7 @@ tr {
 }
 .joinTogether {
 	background-image: url(https://i.imgur.com/k2k5ZNs.jpg);
+	background: cover;
 }
 
 .mainPageHeader {
@@ -126,7 +128,6 @@ tr {
 	transition: color 0.25s linear;
 	border: none;
 	padding: 17px 10px;
-	border-radius: 5px
 } 
 
 
