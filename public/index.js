@@ -97,6 +97,7 @@ function nextButton() {
     console.log(libraryIndex);
     clearLibraryBooksDisplayed();
     drawBooks();
+    renderIndividualBookListener();
     });
 }
 
@@ -114,6 +115,7 @@ function backButton() {
     libraryIndex = libraryIndex < 0 ? 0 : libraryIndex; 
     clearLibraryBooksDisplayed();
     drawBooks();
+    renderIndividualBookListener();
     });
 }
 //Next() => { libraryIndex = libraryIndex + resultsShown; libraryIndex = libraryIndex > libraryofMainPAgeBooks.length ? libraryofMainPageBooks.length - resultsShown : libraryIndex; libraryIndex = libraryIndex < 0 ? 0 : libraryIndex; } 
@@ -245,22 +247,24 @@ function renderIndividualBookListener () {
 function renderIndividualBook (book) {
     const individualBook = `
     <div class="individualBookPage"
+        <div>
+            <a href=""><button class="individualBookExitButton">Cancel</button><a>
+        </div>
         <div class="renderIndividualImage">
             <img src='https://i.imgur.com/F0iZ7o5.png'>
-        <div>
-        <ul class="inidividualBookList">
+        </div>
+        <ul class="individualBookList">
             <li class="bookID">${book.id}</li>
             <li> Title: ${book.title}</li>
             <li> Author: ${book.author}</li>
             <li> Genre: ${book.genre}</li>
             <li> Reading Level: ${book.readingLevel}</li>
             <li> Description: ${book.description}</li>
-            <li><button class="deleteBook">Delete</button></li>
-            <li><button class="editBook">Edit</button></li>
-            <li><button class="checkoutBook">Checkout</button></li>
         </ul>
-        <div>
-            <a href=""><button class="exitRandom">Cancel</button><a>
+        <div class="selctorButtons">
+            <button class="deleteBook">Delete</button>
+            <button class="editBook">Edit</button>
+            <button class="checkoutBook">Checkout</button>
         </div>
     </div>
     `;
@@ -419,7 +423,6 @@ function renderIndividualBookCheckout(book) {
         console.log(bookIdTargetFour);
         handleBookCheckout(bookIdTargetFour);
         renderBookCheckoutPageHandler();
-        drawCheckoutHeaders ();
         //$('.bookBody').toggle();
     });
     //$('.exitRandom').click(function (event) {
@@ -448,9 +451,11 @@ function handleBookCheckout (id) {
 
 function renderBookCheckoutPageHandler () {
     checkoutUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/checkedout';
+    console.log(checkoutUrl);
+    drawCheckoutHeaders();
     $.getJSON(checkoutUrl,  function (response) {
         checkedBooks = response.map((item, response) => drawCheckoutRow(item));
-
+        console.log(checkedBooks);
     });
 }
 
@@ -513,7 +518,7 @@ function drawCheckoutRow(rowData) {
     </tr>
     `;
     //console.log(row);
-    $(".libraryBooksSearch").append(row);
+    $(".libraryBooksCheckedOut").append(row);
     $('.bookCheckInButton').click(function (event) {
         event.preventDefault();
         let bookIdTargetFive = $(this).parent().siblings(":first").text();
