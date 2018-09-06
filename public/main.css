@@ -51,6 +51,14 @@ nav a {
     margin-right: auto;
 }
 
+.libraryBooksCheckedOut {
+	font-family: 'Open Sans', sans-serif;
+    border-collapse: collapse;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 td, th {
     border: 1px solid #dddddd;
     text-align: left;
@@ -73,7 +81,7 @@ tr {
 	height: auto;
 }
 
-.searchRowTable {
+.libraryBooksSearch {
 	font-family: 'Open Sans', sans-serif;
     border-collapse: collapse;
     width: 60%;
@@ -89,7 +97,8 @@ tr {
 }
 
 .mainPage {
-	margin-top: 100px;
+	margin-top: 66px;
+	margin-bottom: 66px;
 }
 
 .mainPageHeader button {
@@ -104,12 +113,63 @@ tr {
 	background: #20B2AA;
 }
 
+.booksRandomPage {
+	background-color: #ffffff;
+	border: 1px;
+	border-color: #D3D3D3;
+	border-radius: 5px;
+	padding-top: 25px;
+	margin-top: 25px;
+}
+
+.checkoutListPage {
+	background-color: #ffffff;
+	border: 1px;
+	border-color: #D3D3D3;
+	border-radius: 5px;
+	padding-top: 25px;
+	margin-top: 25px;
+}
+
 .addNewBookForm {
 	background-color: #ffffff;
 	border: 1px;
 	border-color: #D3D3D3;
 	border-radius: 5px;
-	
+	padding-top: 25px;
+	margin-top: 25px;
+}
+
+.individualBookEditPage {
+	background-color: #ffffff;
+	border: 1px;
+	border-color: #D3D3D3;
+	border-radius: 5px;
+	padding-top: 25px;
+	margin-top: 25px;
+}
+
+.bookCheckoutPage {
+	background-color: #ffffff;
+	border: 1px;
+	border-color: #D3D3D3;
+	border-radius: 5px;
+	padding-top: 25px;
+	margin-top: 25px;
+}
+
+.exitBookRandomPage {
+	float: right;
+	padding-bottom: 25px;
+	border: none;
+	background: none;
+}
+
+.exitBookCheckoutSheet {
+	float: right;
+	padding-bottom: 25px;
+	border: none;
+	background: none;
 }
 
 .exitNewBookForm {
@@ -119,12 +179,77 @@ tr {
 	background: none;
 }
 
+.exitNewBookEditPage {
+	float: right;
+	padding-bottom: 25px;
+	border: none;
+	background: none;
+}
+
+.exitCheckoutButton {
+	float: right;
+	padding-bottom: 25px;
+	border: none;
+	background: none;
+}
+
+.exitCheckoutEditForm {
+	float: right;
+	padding-bottom: 25px;
+	border: none;
+	background: none;
+}
+
+.randomBookPage {
+	padding-bottom: 10px;
+	padding-top: 10px;
+	text-align: left;
+}
+
+.individualBookForm {
+	padding-bottom: 10px;
+	padding-top: 10px;
+	text-align: left;
+}
+
 .addANewBook {
 	padding-bottom: 10px;
 	padding-top: 10px;
+	text-align: left;
+}
+
+.searchLibraryPage input {
+	border-radius: 5px;
+	margin-bottom: 15px;
+}
+
+.individualBookCheckoutForm {
+	padding-bottom: 10px;
+	padding-top: 10px;
+	text-align: left;
+}
+
+.individualBookForm input {
+	border-radius: 5px;
+	margin-bottom: 15px;
 }
 
 .addANewBook input {
+	border-radius: 5px;
+	margin-bottom: 15px;
+}
+
+.individualBookCheckoutForm input {
+	border-radius: 5px;
+	margin-bottom: 15px;
+}
+
+.individualBookForm select {
+	border-radius: 5px;
+	margin-bottom: 15px;
+}
+
+.randomBookPage select {
 	border-radius: 5px;
 	margin-bottom: 15px;
 }
@@ -134,7 +259,78 @@ tr {
 	margin-bottom: 15px;
 }
 
+.bookRandomImage {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+}
+
+.bookCheckoutListImage {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.bookCheckoutImage {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.bookEditPageImage {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.addANewBookImage {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+.bookRandomImage {
+	width: 40%;
+	height: auto;
+}
+
+.bookCheckoutListImage img {
+	width: 40%;
+	height: auto;
+}
+
+.bookCheckoutImage img {
+	width: 40%;
+	height: auto;
+}
+
+.bookEditPageImage img {
+	width: 40%;
+	height: auto;
+}
+
 .addANewBookImage img {
 	width: 40%;
 	height: auto;
+}
+
+.renderIndividualImage img {
+	width: 40%;
+	height: auto;
+}
+
+.addDescription {
+	height: 30px;
+}
+
+.individualBookList {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.individualBookPage {
+	background-color: #ffffff;
+	border: 1px;
+	border-color: #D3D3D3;
+	border-radius: 5px;
+	padding-top: 25px;
+	margin-top: 25px;
 }

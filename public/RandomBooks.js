@@ -116,16 +116,14 @@ function returnGenreBooks(libraryOfBooks, genreType) {
 
 function drawRandomGenreRow(rowData) {
     let random = 
-    `<div class="randomBookPage"
-        <img src=''>
+    `
         <ul class="inidividualBookList">
             <li> Title: ${rowData.title}</li>
             <li> Author: ${rowData.author}</li>
             <li> Genre: ${rowData.genre}</li>
             <li> Reading Level: ${rowData.readingLevel}</li>
             <li> Description: ${rowData.description}</li>
-    </div>
-    
+        </ul>    
     `;
     //console.log(row);
     $(".randomArrayCompiler").html(random);
@@ -175,17 +173,14 @@ function returnRLBooks(libraryOfBooks, rLType) {
 
 //Needs Work
 function drawRandomRLRow(rowRLData) {
-    let row = 
-    `<div class="randomBookPage"
-        <img src=''>
+    let row = `
         <ul class="inidividualBookList">
             <li> Title: ${rowRLData.title}</li>
             <li> Author: ${rowRLData.author}</li>
             <li> Genre: ${rowRLData.genre}</li>
             <li> Reading Level: ${rowRLData.readingLevel}</li>
             <li> Description: ${rowRLData.description}</li>
-    </div>
-    
+        </ul>    
     `;
     //console.log(row);
     $(".randomArrayCompiler").html(row);

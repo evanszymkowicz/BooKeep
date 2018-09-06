@@ -79,7 +79,7 @@ function allBooks() {
 function clearLibraryBooksDisplayed(){
     $('.libraryBooksDisplayed').html('');
     $('.libraryBooksDisplayed').append(`
-            <tr>
+                <tr>
                     <th>&nbsp;</th>
                     <th class= "bookID">ID</th>
                     <th>Title</th>
@@ -245,7 +245,9 @@ function renderIndividualBookListener () {
 function renderIndividualBook (book) {
     const individualBook = `
     <div class="individualBookPage"
-        <img src=''>
+        <div class="renderIndividualImage">
+            <img src='https://i.imgur.com/F0iZ7o5.png'>
+        <div>
         <ul class="inidividualBookList">
             <li class="bookID">${book.id}</li>
             <li> Title: ${book.title}</li>
@@ -320,24 +322,28 @@ function renderIndividualBookEditCall(id) {
 function renderIndividualBookEdit (book) {
     const individualBookEdit = 
     `
-    <img src=''>
-    <legend>Update Book Info</legend>
-    <h4 class="bookID">${book.id}</h4>
-    <form class="inidividualBookForm">
-        <label> Title:</label></br> 
-        <input type="text" class = "individualBookTitle" value= '${book.title}'></br>
-        <label> Author:</label></br>
-        <input type="text" class = "individualBookAuthor" value= '${book.author}'></br>
-        <label> Genre:</label></br>
-        <input type="text" class = "individualBookGenre"value= '${book.genre}'></br>
-        <label> Reading Level:</label></br>
-        <input type="text" class = "individualBookRL"value= '${book.readingLevel}'></br>
-        <label> Description:</label></br>
-        <input type="text" class = "individualBookDescription"value= '${book.description}'></br>
-        <button class="submitBookEdit">Submit</button>
-    </form>
-    <div>
-        <a href=""><button class="exitRandom">Exit</button><a>
+    <div class="individualBookEditPage">
+        <div class="exitNewBookEditForm">
+            <a href=""><button class="exitNewBookEditButton">&#10006;</button></a>
+        </div>
+        <div class="bookEditPageImage">
+            <img src='https://i.imgur.com/F0iZ7o5.png'>
+        </div>
+        <legend>Update Book Info</legend>
+        <h4 class="bookID">${book.id}</h4>
+        <form class="inidividualBookForm">
+            <label> Title:</label> 
+            <input type="text" class = "individualBookTitle" value= '${book.title}'></br>
+            <label> Author:</label>
+            <input type="text" class = "individualBookAuthor" value= '${book.author}'></br>
+            <label> Genre:</label>
+            <input type="text" class = "individualBookGenre"value= '${book.genre}'></br>
+            <label> Reading Level:</label>
+            <input type="text" class = "individualBookRL"value= '${book.readingLevel}'></br>
+            <label> Description:</label>
+            <input type="text" class = "individualBookDescription"value= '${book.description}'></br>
+            <button class="submitBookEdit">Submit</button>
+        </form>
     </div>
     `;
     $('.bookBody').html(individualBookEdit);
@@ -384,19 +390,26 @@ function renderIndividualBookCheckoutCall(id) {
         });
 }
 
+//added more specificity to checkout button
+
 function renderIndividualBookCheckout(book) {
     const bookCheckoutForm = `
-    <form class="inidividualBookCheckoutForm">
-        <h2 class="checkoutFormTitle">Checkout Book</h2>
-        <h6 class="BookIDFour bookID">${book.id}</h6>
-        <label> Student Name:</label></br> 
-        <input type="text" class = "studentName"></br>
-        <label> Checkout Date:</label></br>
-        <input type="date" class = "checkoutDate"></br>
-        <button class="submitCheckout">Submit</checkout>
-    </form>
-    <div>
-        <button class="exitRandom">Cancel</button>
+    <div class= "bookCheckoutPage"
+        <div class="exitCheckoutEditForm">
+            <a href=""><button class="exitCheckOutButton">&#10006;</button></a>
+        </div>
+        <div class="bookCheckoutImage">
+            <img src='https://i.imgur.com/F0iZ7o5.png'>
+        </div>
+        <form class="inidividualBookCheckoutForm">
+            <h2 class="checkoutFormTitle">Checkout Book</h2>
+            <h6 class="BookIDFour bookID">${book.id}</h6>
+            <label> Student Name:</label></br> 
+            <input type="text" class = "studentName"></br>
+            <label> Checkout Date:</label></br>
+            <input type="date" class = "checkoutDate"></br>
+            <button class="submitCheckout">Submit</checkout>
+        </form>
     </div>
     `
     $('.bookBody').html(bookCheckoutForm);
@@ -441,13 +454,30 @@ function renderBookCheckoutPageHandler () {
     });
 }
 
+/*
+.searchRowTable td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+
+.searchRowTable tr {
+    background-color: #ffffff;
+}
+*/
+
 function drawCheckoutHeaders () {
     let searchHeader = 
-    `<div>
-        <a href=""><button class="exitRandom">Return Home</button><a>
-    </div>
-    <table class="libraryBooksSearch">
-            <th class= "bookID">ID</th>
+    ` <div class="checkoutListPage">
+        <div class="exitBookCheckoutSheet">
+            <a href=""><button class="exitCheckOutListButton">&#10006;</button></a>
+        </div>
+        <div class="bookCheckoutListImage">
+            <img src='https://i.imgur.com/F0iZ7o5.png'>
+        </div>
+        <table class="libraryBooksCheckedOut">
+            <th class="bookID">ID</th>
             <th>Title</th>
             <th>Student</th>
             <th>Checkout Date</th>
@@ -533,15 +563,22 @@ function retrieveRandomBook() {
 
 function renderLibraryBookRandom () {
     const libraryBooksRandom = `
-    <div>
-        <a href=""><button class="exitRandom">Exit</button><a>
-    </div>
-    <div class ="randomBookPage">
-        <button class="randomGenre">Random Book by Genre</button>
-            <select id="selectGenre"></select>
-        <button class="randomReadingLevel">Random Book by Reading Level</button>
+    <div class="booksRandomPage">
+        <div class="exitBookRandomPage">
+            <a href=""><button class="exitRandomButton">&#10006;</button></a>
+        </div>
+        <div class="bookRandomImage">
+            <img src='https://i.imgur.com/F0iZ7o5.png'>
+        </div>
+        <div class ="randomBookPage">
+            <h2 class="randomPageTitle">Randomly Generate a book</h2>
+            <label class="checkoutFormTitle">By Genre: </label>
+            <select id="selectGenre"></select></br>
+            <button class="randomGenre">submit</button>
             <select id="selectRL"></select>
-    <div class="randomArrayCompiler">
+            <button class="randomReadingLevel">Submit</button>
+        <div class="randomArrayCompiler">
+        </div>
     </div>
     `;
     $('.bookBody').html(libraryBooksRandom);
@@ -562,11 +599,13 @@ function retrieveSearchBook() {
     });
 }
 */
+
+//need to format like librarybookssearch
 function renderLibraryBookSearchForm () {
     const libraryBookSearch = `
     <div class ="searchLibraryPage">
-            <input id="query" type="text" name="search" class="searchLocation"  placeholder="Search book title" role="search" aria-label="Search">
-          <button type="button" class="submitBookSearch" aria-label="Search">&#x1F50D</button>
+        <input id="query" type="text" name="search" class="searchLocation"  placeholder="Search book title" role="search" aria-label="Search">
+        <button type="button" class="submitBookSearch" aria-label="Search">&#x1F50D</button>
      </div>
      <div class="searchRowTable">
      </div>
@@ -629,7 +668,7 @@ function booksByTitle(searchTerm) {
 function drawSearchHeaders () {
     let header = 
     `
-    <table class="libraryBooksSearch">
+        <table class="libraryBooksSearch">
             <th>Click to view</th>
             <th class="bookID">ID</th>
             <th>Title</th>
@@ -638,7 +677,7 @@ function drawSearchHeaders () {
             <th>Reading Level</th>
         </table>
         <div>
-            <button class="exitSearch"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+            <button class="exitSearch"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
         </div>
     `
     $('.searchRowTable').html(header);
@@ -682,108 +721,6 @@ function drawSearchRow(rowData) {
     });
         renderIndividualBookListener();
 }
-
-/*
-var checkoutArray = []
-
-function compileCheckoutArray() {
-    checkoutUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
-    $.getJSON(checkoutUrl,  function (response) {
-        var allTheCO = $.map(response, function (k) {
-            return k.checkoutDate;
-        });
-        //function removeDuplicateUsingSet(arr){
-            //let unique_array = Array.from(new Set(arr))
-            //return unique_array
-            //}
-        checkoutArray.push(allTheCO);       
-        //removeDuplicateUsingSet(libraryOfGenres);
-        //console.log(unique_array);
-        //let unique_array = [...new Set(libraryOfGenres)];
-        //console.log(unique_array);
-        //populateRandomGenre(allTheGenres);
-    });
-}
-
-
-function watchCheckoutBook () {
-    $('.checkoutBook').click(function (event) {
-        event.preventDefault();
-        var bookIdTargetCheckout = $(this).closest('tr').find(".BookID");
-        searchId = bookIdTarget.children();
-        console.log(bookIdTarget);
-        //var closestBookID = $(this).first().text();
-        console.log(searchId);
-        //deleteBook(closestBookID)
-        //$(this).closest("tr").html('');
-        checkoutPopUp()
-        updateBookCheckout(bookIdTargetCheckout, bookCheckedout);
-    });
-    
-    
-}
-
-function watchSubmitCheckoutBook() {
-    $('.submitCheckoutBook').click(function (event) {
-        event.preventDefault();
-        var bookCheckedout = $('.dateCheckedOut').val();
-        compileCheckoutArray();
-    });
-}
-
-function updateBookCheckout(item, date) {
-    urlCheckout = 'https://infinite-river-85875.herokuapp.com/checkout/' + item;
-    console.log(urlBook);
-        //const author = req.user.id;
-    const checkingOutBook = {
-            checkoutDate: bookCheckedout,
-        };
-    $.ajax({
-                method: "PUT",
-                url: urlCheckout,
-                data: JSON.stringify(checkingOutBook),
-                dataType: "json",
-                contentType: 'application/json',
-            })
-            .done(function (result) {
-                var checkoutBookList = result.map((item, results) => drawCheckoutbook(item));
-            });
-            
-}
-
-function checkoutPopUp() {
-    return
-        `
-            <div>
-                <form class="checkoutStudentName">
-                    Student Full Name:
-                    <input type="text" name="studentName" class="studentName">
-                    Date Checked Out:
-                    <input type="date" name="dateCheckedOut" class="dateCheckedOut">
-                </form>
-                <button type="button" class="submitCheckoutBook" name="Submit"> 
-            </div>
-        </div>
-        `
-}
-
-
-function drawCheckoutbook(rowData) {
- let row = 
-    `<tr class="bookRow" />
-        <td class="bookID">${rowData.id}</td>
-        <td class="bookTitle">${rowData.title}</td>
-        <td class="bookCheckoutDate">${rowData.checkoutDate}</td>
-        <td class="bookCheckout">$</td>
-        <td class="bookCheckin"> 
-            <button class="studentNameCheckin"></button>
-        </td>
-    </tr>
-    `;
-    //console.log(row);
-    $(".CheckedoutBooksDisplayed").append(row);
-}
-*/
 
 $(document).ready(function () {
         //populateRandomGenre();
