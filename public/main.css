@@ -529,9 +529,8 @@ tr {
 
 .mainBodyLogo {
 	display: flex;
-	margin-right: auto;
-	margin-left: auto;
-	padding-bottom: 45px;
+	margin-right: 0;
+	margin-left: 0;
 }
 
 .mainBodyLogo img {
@@ -544,7 +543,9 @@ nav {
 }
 
 .bookKeepTitle {
-	padding-top: ;
+	padding-top: 0;
+	padding-left: 25px;
+	margin-left: 0
 }
 
 .alignElements {
@@ -553,6 +554,8 @@ nav {
 
 .mainPageHeader button {
 	padding: 5px;
+	width: 100%;
+	font-size: 25px;
 }
 
 
