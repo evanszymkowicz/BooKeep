@@ -69,7 +69,7 @@ textarea {
 }
 
 td, th {
-    border: 1px solid #dddddd;
+    border: 2px solid #000000;
     text-align: left;
     padding: 8px;
 }
@@ -107,7 +107,7 @@ tr {
 	margin-right: auto;
 	margin-left: auto;
 	padding-bottom: 45px;
-	padding-left: 25px;
+	padding-left: 40px;
 }
 
 .mainBodyLogo img {
@@ -290,10 +290,6 @@ tr {
 	background: none;
 }
 
-.bookViewButton {
-	border: none;
-	background: none;
-} 
 
 .exitCheckoutButton {
 	margin-left: 80px;
@@ -476,16 +472,14 @@ tr {
 }
 
 .bookView button {
-	background: rgba(255, 255, 255);
-	transition: color 0.25s linear;
-	border: none;
+	background: #c0c0c0;
 	padding: 17px 10px;
 	border-radius: 5px;
 } 
 
 
 .bookView button:hover {
-	background: #20B2AA;
+	background: #00ff00;
 }
 
 .randomArrayCompiler {
@@ -501,18 +495,14 @@ tr {
 }
 
 .submitNewBookListener button {
-	background: rgba(255, 255, 255);
-	transition: color 0.25s linear;
-	border: none;
+	background: #c0c0c0;
 	padding: 17px 10px;
-	border-radius: 5px
-	margin-left: auto;
-    margin-right: auto;
+	border-radius: 5px;
 } 
 
 
 .submitNewBookListener button:hover {
-	background: #20B2AA;
+	background: #00ff00;
 }
 
 .alignElements {
@@ -520,3 +510,4 @@ tr {
 	margin-left: auto;
     margin-right: auto;
 }
+
