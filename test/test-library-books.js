@@ -21,10 +21,10 @@ function seedLibraryBooksData() {
   for (let i = 1; i <= 10; i++) {
     seedData.push({
       author: faker.name.lastName(),
-      readingLevel: faker.random.number(), //{kindergarten, 1, 2, 3, 4, 5}//make not random
+      readingLevel: faker.random.number(), 
       title: faker.lorem.sentence(),
       checkoutDate: faker.date.past(),
-      genre: faker.name.lastName(), //{horror, romance, humor}//input two genres
+      genre: faker.name.lastName().toUpperCase(), 
       description: faker.lorem.paragraph()
     });
   }
@@ -46,7 +46,6 @@ function tearDownDb() {
 describe('library books API resource', function () {
 
   before(function () {
-    console.info('hello');
     return runServer(TEST_DATABASE_URL);
   });
 
@@ -68,7 +67,7 @@ describe('library books API resource', function () {
     it('should return all existing posts', function () {
       let res;
       return chai.request(app)
-        .get('/books')
+        .get('/getbooks')
         .then(_res => {
           res = _res;
           res.should.have.status(200);
@@ -85,7 +84,7 @@ describe('library books API resource', function () {
 	it('should return books with right fields', function () {
       let resBook;
       return chai.request(app)
-        .get('/books')
+        .get('/getbooks')
         .then(function (res) {
 
           res.should.have.status(200);
@@ -104,7 +103,7 @@ describe('library books API resource', function () {
         .then(book => {
           resBook.title.should.equal(book.title);
           resBook.readingLevel.should.equal(book.readingLevel);
-          resBook.author.should.equal(book.authorName);
+          resBook.author.should.equal(book.author);
           resBook.description.should.equal(book.description);
           resBook.genre.should.equal(book.genre);
         });
@@ -119,7 +118,7 @@ describe('library books API resource', function () {
       author:  faker.name.lastName(),
       readingLevel: faker.random.number(), //make not random
       title: faker.lorem.sentence(),
-      genre: faker.name.lastName(), //make not random
+      genre: faker.name.lastName().toUpperCase(), //make not random
       description: faker.lorem.paragraph()
     };
   
@@ -128,26 +127,25 @@ describe('library books API resource', function () {
         .post('/add')
         .send(newBook)
         .then(function (res) {
-          res.should.have.status(201);
+          res.should.have.status(200);
           res.should.be.json;
           res.body.should.be.a('object');
           res.body.should.include.keys(
             'id', 'author', 'readingLevel', 'title', 'description', 'genre');
           res.body.title.should.equal(newBook.title);
-          // cause Mongo should have created id on insertion
           res.body.id.should.not.be.null;
           res.body.author.should.equal(newBook.author);
-          res.body.readingLevel.should.equal(newBook.readingLevel);
+          res.body.readingLevel.should.equal(newBook.readingLevel.toString());
           res.body.description.should.equal(newBook.description);
-          res.body.genre.should.equal(newBook.genre);
-          return BlogPost.findById(res.body.id);
+          res.body.genre.should.equal(newBook.genre.toUpperCase());
+          return LibraryBooks.findById(res.body.id);
         })
-        .then(function (post) {
+        .then(function (book) {
           book.title.should.equal(newBook.title);
-          book.readingLevel.should.equal(newBook.readingLevel);
-          book.author.should.equal(newBook.author); //might run into isses
+          book.readingLevel.should.equal(newBook.readingLevel.toString());
+          book.author.should.equal(newBook.author); 
           book.description.should.equal(newBook.description);
-          book.genre.should.equal(newBook.genre);
+          book.genre.should.equal(newBook.genre.toUpperCase());
         });
     });
 });
@@ -163,7 +161,6 @@ describe('PUT endpoint', function () {
         author:'P.D. Eastman',
       	readingLevel: 'Pre-k',
       	title: 'Go, Dog, Go',
-      	checkoutDate: faker.date.past(), //make sure correct
       	genre: 'Adventure',
       	description: "test"
       };
@@ -174,14 +171,14 @@ describe('PUT endpoint', function () {
           updateData.id = post.id;
 
           return chai.request(app)
-            .put(`/books/${post.id}`)
+            .put(`/update/${post.id}`)
             .send(updateData);
         })
         .then(res => {
           res.should.have.status(204);
           return LibraryBooks.findById(updateData.id);
         })
-        .then(post => {
+        .then(book => {
           book.title.should.equal(updateData.title);
           book.readingLevel.should.equal(updateData.readingLevel);
           book.author.should.equal(updateData.author); //might run into isses
@@ -190,12 +187,32 @@ describe('PUT endpoint', function () {
         });
     });
 
+    it('should update fields you send over', function () {
+      const updateData = {
+        checkoutDate: faker.date.past(),
+        studentName: 'sally joe',
+      };
+
+      return LibraryBooks
+        .findOne()
+        .then(post => {
+          updateData.id = post.id;
+
+          return chai.request(app)
+            .put(`/checkout/${post.id}`)
+            .send(updateData);
+        })
+        .then(res => {
+          res.should.have.status(204);
+          return LibraryBooks.findById(updateData.id);
+        })
+        .then(book => {
+          book.checkoutDate.should.eql(updateData.checkoutDate);
+          book.studentName.should.equal(updateData.studentName);
+        });
+    });
+
 describe('DELETE endpoint', function () {
-    // strategy:
-    //  1. get a post
-    //  2. make a DELETE request for that post's id
-    //  3. assert that response has right status code
-    //  4. prove that post with the id doesn't exist in db anymore
     it('should delete a post by id', function () {
 
       let book;
@@ -204,7 +221,7 @@ describe('DELETE endpoint', function () {
         .findOne()
         .then(_book => {
           book = _book;
-          return chai.request(app).delete(`/books/${book.id}`);
+          return chai.request(app).delete(`/delete/${book.id}`);
         })
         .then(res => {
           res.should.have.status(204);
