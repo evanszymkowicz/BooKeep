@@ -12,7 +12,6 @@ text-align: center;
 }
 
 nav {
-  display: inline-block;
   display: flex;
   align-items: center;
   background-color: #F5F5F5;
@@ -385,7 +384,7 @@ tr {
     margin-right: auto;
 }
 
-.bookCheckInButton button {
+.bookView button {
 	background: rgba(255, 255, 255);
 	transition: color 0.25s linear;
 	border: none;
@@ -394,7 +393,7 @@ tr {
 } 
 
 
-.mainPageHeader button:hover {
+.bookView button:hover {
 	background: #20B2AA;
 }
 
@@ -410,7 +409,7 @@ tr {
 	margin-top: 25px;
 }
 
-.submitNewBook button {
+.submitNewBookListener button {
 	background: rgba(255, 255, 255);
 	transition: color 0.25s linear;
 	border: none;
@@ -421,7 +420,7 @@ tr {
 } 
 
 
-.submitNewBook button:hover {
+.submitNewBookListener button:hover {
 	background: #20B2AA;
 }
 

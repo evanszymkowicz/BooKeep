@@ -215,7 +215,9 @@ function renderLibraryBookNew () {
             </select></br>
             Description:
             <textarea type="text" name="bookDescription" class="addDescription"></textArea></br>
-            <button class="submitNewBook">Submit</button>
+            <div class="submitNewBookListener">
+                <button class="submitNewBook">Submit</button>
+            </div>
         </form>   
     </div>
     `;
