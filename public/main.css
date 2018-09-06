@@ -16,7 +16,7 @@ nav {
   display: inline-block;
   display: flex;
   align-items: center;
-  background-color: #ADD8E6;
+  background-color: #000080;
   padding-left: 24px;
   box-shadow: 0 5px 8px 0 rgba(0,0,0,.04);
   margin-top: 0;
@@ -81,7 +81,7 @@ tr {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
-    background-color: #ADD8E6;
+    background-color: #000080;
 }
 
 .mainPageHeader {
@@ -198,7 +198,7 @@ tr {
 	background: none;
 }
 .exitNewBookForm {
-	margin-left: 80px;
+	text-align: right;
 	border: none;
 	background: none;
 }

@@ -193,7 +193,7 @@ function renderLibraryBookNew () {
             <a href=""><button class="exitNewBookFormButton">&#10006;</button></a>
         </div>
         <div class="addANewBookImage">
-            <img src="https://i.imgur.com/F0iZ7o5.png">
+            <img src="https://i.imgur.com/M0oshUs.png">
         </div>
         <form class="addANewBook">
             Book Title:
@@ -251,7 +251,7 @@ function renderIndividualBook (book) {
             <a href=""><button class="individualBookExitButton">&#10006;</button><a>
         </div>
         <div class="renderIndividualImage">
-            <img src='https://i.imgur.com/F0iZ7o5.png'>
+            <img src='https://i.imgur.com/M0oshUs.png'>
         </div>
         <ul class="individualBookList">
             <li class="bookID">${book.id}</li>
@@ -331,7 +331,7 @@ function renderIndividualBookEdit (book) {
             <a href=""><button class="exitNewBookEditButton">&#10006;</button></a>
         </div>
         <div class="bookEditPageImage">
-            <img src='https://i.imgur.com/F0iZ7o5.png'>
+            <img src='https://i.imgur.com/M0oshUs.png'>
         </div>
         <h2 class="randomPageTitle">Update Book Info</h2>
         <h4 class="bookID">${book.id}</h4>
@@ -403,7 +403,7 @@ function renderIndividualBookCheckout(book) {
             <a href=""><button class="exitCheckOutButton">&#10006;</button></a>
         </div>
         <div class="bookCheckoutImage">
-            <img src='https://i.imgur.com/F0iZ7o5.png'>
+            <img src='https://i.imgur.com/M0oshUs.png'>
         </div>
         <form class="inidividualBookCheckoutForm">
             <h2 class="checkoutFormTitle">Checkout Book</h2>
@@ -480,7 +480,7 @@ function drawCheckoutHeaders () {
             <a href=""><button class="exitCheckOutListButton">&#10006;</button></a>
         </div>
         <div class="bookCheckoutListImage">
-            <img src='https://i.imgur.com/F0iZ7o5.png'>
+            <img src='https://i.imgur.com/M0oshUs.png'>
         </div>
         <table class="libraryBooksCheckedOut">
             <th class="bookID">ID</th>
@@ -576,7 +576,7 @@ function renderLibraryBookRandom () {
             <a href=""><button class="exitRandomButton">&#10006;</button></a>
         </div>
         <div class="bookRandomImage">
-            <img src='https://i.imgur.com/F0iZ7o5.png'>
+            <img src='https://i.imgur.com/M0oshUs.png'>
         </div>
         <div class ="randomBookPage">
             <h2 class="randomPageTitle">Randomly Generate a book</h2>
