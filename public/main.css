@@ -12,6 +12,10 @@ text-align: center;
 	display: none;
 }
 
+.displayedLibrary {
+	background-color: #FFDEAD
+}
+
 nav {
 	box-sizing: border-box;
   display: flex;
@@ -85,8 +89,7 @@ tr {
     margin-right: auto;
 }
 .joinTogether {
-	background-image: url(https://i.imgur.com/k2k5ZNs.jpg);
-	background: cover;
+	background-color: #FFDEAD;
 }
 
 .mainPageHeader {
@@ -179,8 +182,7 @@ tr {
 }
 
 .floatLeft {
-	
-	margin-right: 600px;
+
 }
 
 .exitBookRandomPage {
@@ -350,7 +352,6 @@ tr {
 }
 
 .directionalButtons {
-	padding-left: 600px;
 }
 
 .individualBookCheckoutForm {
