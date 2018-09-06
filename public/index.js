@@ -76,7 +76,7 @@ function drawRow(rowData) {
     `
     <tr class="bookRow" />
         <td class="bookView"> 
-            <button type"submit" class="bookViewButton">View</button>
+            <button type"submit" class="bookViewButton" tabindex="">View</button>
         </td>
         <td class="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
@@ -102,10 +102,10 @@ function renderLibraryBookNew () {
     const libraryBooksNew = `
     <div class="addNewBookForm">
         <div class="exitNewBookForm">
-            <a href=""><button class="exitNewBookFormButton">&#10006;</button></a>
+            <a href=""><button class="exitNewBookFormButton" tabindex="">&#10006;</button></a>
         </div>
         <div class="addANewBookImage">
-            <img src="https://i.imgur.com/oiibN6F.png">
+            <img src="https://i.imgur.com/oiibN6F.png" src="book open logo flat">
         </div>
         <form class="addANewBook">
             Book Title:
@@ -128,7 +128,7 @@ function renderLibraryBookNew () {
             Description:
             <textarea type="text" name="bookDescription" class="addDescription"></textArea></br>
             <div class="submitNewBookListener">
-                <button class="submitNewBook">Submit</button>
+                <button class="submitNewBook" tabindex="">Submit</button>
             </div>
         </form>   
     </div>
@@ -187,10 +187,10 @@ function renderIndividualBook (book) {
     const individualBook = `
     <div class="individualBookPage">
         <div class="exitIndividualBook">
-            <a href=""><button class="individualBookExitButton">&#10006;</button><a>
+            <a href=""><button class="individualBookExitButton" tabindex="">&#10006;</button><a>
         </div>
         <div class="renderIndividualImage">
-            <img src='https://i.imgur.com/oiibN6F.png'>
+            <img src='https://i.imgur.com/oiibN6F.png' src="book open logo flat">
         </div>
         <ul class="individualBookList">
             <li class="bookID">${book.id}</li>
@@ -201,9 +201,9 @@ function renderIndividualBook (book) {
             <li> <strong>Description:</strong> ${book.description}</li>
         </ul>
         <div class="selectorButtons">
-            <button class="deleteBook">Delete</button>
-            <button class="editBook">Edit</button>
-            <button class="checkoutBook">Checkout</button>
+            <button class="deleteBook" tabindex="">Delete</button>
+            <button class="editBook" tabindex="">Edit</button>
+            <button class="checkoutBook" tabindex="">Checkout</button>
         </div>
     </div>
     `;
@@ -254,25 +254,25 @@ function renderIndividualBookEdit (book) {
     `
     <div class="individualBookEditPage">
         <div class="exitNewBookEditForm">
-            <a href=""><button class="exitNewBookEditButton">&#10006;</button></a>
+            <a href=""><button class="exitNewBookEditButton" tabindex="">&#10006;</button></a>
         </div>
         <div class="bookEditPageImage">
-            <img src='https://i.imgur.com/oiibN6F.png'>
+            <img src='https://i.imgur.com/oiibN6F.png' src="book open logo flat">
         </div>
         <h2 class="randomPageTitle">Update Book Info</h2>
         <h4 class="bookID">${book.id}</h4>
         <form class="inidividualBookForm">
             <label> <strong>Title:</strong></label> 
-            <input type="text" class = "individualBookTitle" value= '${book.title}'></br>
+            <input type="text" class = "individualBookTitle" value= '${book.title}' tabindex=""></br>
             <label><strong>Author:</strong></label>
-            <input type="text" class = "individualBookAuthor" value= '${book.author}'></br>
+            <input type="text" class = "individualBookAuthor" value= '${book.author}' tabindex=""></br>
             <label><strong>Genre:</strong></label>
-            <input type="text" class = "individualBookGenre"value= '${book.genre}'></br>
+            <input type="text" class = "individualBookGenre"value= '${book.genre}' tabindex=""></br>
             <label><strong>Reading Level:</strong></label>
-            <input type="text" class = "individualBookRL"value= '${book.readingLevel}'></br>
+            <input type="text" class = "individualBookRL"value= '${book.readingLevel}' tabindex=""></br>
             <label><strong>Description:</strong></label>
-            <textarea type="text" class = "individualBookDescription" value=''>${book.description}</textarea></br>
-            <button class="submitBookEdit">Submit</button>
+            <textarea type="text" class = "individualBookDescription" value='' tabindex="">${book.description}</textarea></br>
+            <button class="submitBookEdit" tabindex="">Submit</button>
         </form>
     </div>
     `;
@@ -317,19 +317,19 @@ function renderIndividualBookCheckout(book) {
     const bookCheckoutForm = `
     <div class= "bookCheckoutPage">
         <div class="exitCheckoutEditForm">
-            <a href=""><button class="exitCheckOutButton">&#10006;</button></a>
+            <a href=""><button class="exitCheckOutButton" tabindex="">&#10006;</button></a>
         </div>
         <div class="bookCheckoutImage">
-            <img src='https://i.imgur.com/oiibN6F.png'>
+            <img src='https://i.imgur.com/oiibN6F.png' src="book open logo flat">
         </div>
         <form class="inidividualBookCheckoutForm">
             <h2 class="checkoutFormTitle">Checkout Book</h2>
             <h6 class="BookIDFour bookID">${book.id}</h6>
             <label><strong>Student Name:</strong></label>
-            <input type="text" class = "studentName"></br>
+            <input type="text" class = "studentName" tabindex=""></br>
             <label><strong>Checkout Date:</strong></label>
-            <input type="date" class = "checkoutDate"></br>
-            <button class="submitCheckout">Submit</checkout>
+            <input type="date" class = "checkoutDate" tabindex=""></br>
+            <button class="submitCheckout" tabindex="">Submit</checkout>
         </form>
     </div>
     `
@@ -374,10 +374,10 @@ function drawCheckoutHeaders () {
     let searchHeader = ` 
         <div class="checkoutListPage">
             <div class="exitBookCheckoutSheet">
-                <a href=""><button class="exitCheckOutListButton">&#10006;</button></a>
+                <a href=""><button class="exitCheckOutListButton" tabindex="">&#10006;</button></a>
             </div>
             <div class="bookCheckoutListImage">
-                <img src='https://i.imgur.com/oiibN6F.png'>
+                <img src='https://i.imgur.com/oiibN6F.png' src="book open logo flat">
             </div>
             <table class="libraryBooksCheckedOut">
                 <th class="bookID">ID</th>
@@ -404,7 +404,7 @@ function drawCheckoutRow(rowData) {
         <td class="studentName hide">${rowData.studentName}</td>
         <td class="bookcheckoutDate hide">${prettyDate}</td>
         <td class="bookView"> 
-            <button class="bookCheckInButton">Check In</button>
+            <button class="bookCheckInButton" tabindex="">Check In</button>
         </td> 
     </tr>
     `;
@@ -460,20 +460,20 @@ function renderLibraryBookRandom () {
     const libraryBooksRandom = `
     <div class="booksRandomPage">
         <div class="exitBookRandomPage">
-            <a href=""><button class="exitRandomButton">&#10006;</button></a>
+            <a href=""><button class="exitRandomButton" tabindex="">&#10006;</button></a>
         </div>
         <div class="bookRandomImage">
-            <img src='https://i.imgur.com/oiibN6F.png'>
+            <img src='https://i.imgur.com/oiibN6F.png' src="book open logo flat">
         </div>
         <div class ="randomBookPage">
             <h2 class="randomPageTitle">Randomly Generate a book</h2>
             <div class="randomInputForm">
                 <label class="randomGenreLabel">By Genre: </label>
-                <select id="selectGenre"></select>
-                <button class="randomGenre">submit</button></br>
+                <select id="selectGenre" tabindex=""></select>
+                <button class="randomGenre" tabindex="">submit</button></br>
                 <label class="randomGenreLabel">By Reading Level: </label>
-                <select id="selectRL"></select>
-                <button class="randomReadingLevel">Submit</button>
+                <select id="selectRL" tabindex=""></select>
+                <button class="randomReadingLevel" tabindex="">Submit</button>
             </div>
         <div class="randomArrayCompiler">
         </div>
@@ -486,8 +486,8 @@ function renderLibraryBookRandom () {
 function renderLibraryBookSearchForm () {
     const libraryBookSearch = `
     <div class ="searchLibraryPage">
-        <input id="query" type="text" name="search" class="searchLocation"  placeholder="Search book title" role="search" aria-label="Search">
-        <button type="button" class="submitBookSearch" aria-label="Search">&#x1F50D</button>
+        <input id="query" type="text" name="search" class="searchLocation"  placeholder="Search book title" role="search" aria-label="Search" tabindex="">
+        <button type="button" class="submitBookSearch" aria-label="Search" tabindex="">&#x1F50D</button>
      </div>
      <div class="searchRowTable">
      </div>
@@ -526,7 +526,7 @@ function drawSearchHeaders () {
             <th class="hide">Reading Level</th>
         </table>
         <div>
-            <button class="exitSearch">&#9650;</button>
+            <button class="exitSearch" tabindex="">&#9650;</button>
         </div>
     `
     $('.searchRowTable').html(header);
@@ -542,15 +542,13 @@ function drawSearchRow(rowData) {
     `
     <tr class="bookRow">
         <td class="bookView"> 
-            <button class="bookViewButton">View</button>
+            <button class="bookViewButton" tabindex="">View</button>
         </td>
         <td class="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
         <td class="bookAuthor">${rowData.author}</td>
-        <div class="hide">
-            <td class="bookRL hide">${rowData.readingLevel}</td>
-            <td class="bookGenre hide">${rowData.genre}</td>
-        </div>
+        <td class="bookRL hide">${rowData.readingLevel}</td>
+        <td class="bookGenre hide">${rowData.genre}</td>
     </tr>
     `;
     //console.log(row);
