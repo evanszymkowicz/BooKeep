@@ -36,7 +36,7 @@ nav p {
   color: #000000;
   display: inline-block;
   line-height: 25px;
-  margin-top: 15px;
+  margin-top: 12px;
   
 }
 
@@ -83,6 +83,7 @@ tr {
 }
 .joinTogether {
 	background-color: #ffffff;
+	border-radius: 5px;
 }
 
 .mainPageHeader {
@@ -93,7 +94,7 @@ tr {
 }
 
 .mainBodyLogo img {
-	margin-top: 
+	margin-top: 10px;
 	width: 40%;
 	height: auto;
 }
