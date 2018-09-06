@@ -78,7 +78,8 @@ tr {
 .bookKeepTitle {
 	font-family: 'Kalam', cursive;
 	font-size: 60px;
-	padding-top: 5px;
+	padding-top: 20px;
+	padding-right: 35px;
 	color: #ffffff;
 }
 
@@ -99,6 +100,8 @@ tr {
 
 .mainBodyLogo {
 	display: flex;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .mainBodyLogo img {
@@ -425,32 +428,32 @@ tr {
 }
 
 .bookRandomImage img {
-	width: 40%;
+	width: 25%;
 	height: auto;
 }
 
 .bookCheckoutListImage img {
-	width: 40%;
+	width: 25%;
 	height: auto;
 }
 
 .bookCheckoutImage img {
-	width: 40%;
+	width: 25%;
 	height: auto;
 }
 
 .bookEditPageImage img {
-	width: 40%;
+	width: 25%;
 	height: auto;
 }
 
 .addANewBookImage img {
-	width: 40%;
+	width: 25%;
 	height: auto;
 }
 
 .renderIndividualImage img {
-	width: 40%;
+	width: 25%;
 	height: auto;
 }
 

@@ -135,7 +135,7 @@ function drawRow(rowData) {
         <td class="bookID">${rowData.id}</td>
         <td class="bookTitle">${rowData.title}</td>
         <td class="bookAuthor">${rowData.author}</td>
-        <div class="hide>"
+        <div class="hide">
             <td class="bookGenre">${rowData.genre}</td>
             <td class="bookRL">${rowData.readingLevel}</td>
         </div>
@@ -696,7 +696,7 @@ function drawSearchHeaders () {
             </div>
         </table>
         <div>
-            <button class="exitSearch"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+            <button class="exitSearch">&#9650;</button>
         </div>
     `
     $('.searchRowTable').html(header);
