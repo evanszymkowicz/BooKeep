@@ -1,32 +1,24 @@
+"use strict"
+
 var libraryOfBooks = [];
 var libraryOfGenres = [];
 
+//compiles arrays by certain criteria for parsing
 function compileRandomArray () {
-    genreUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
-    booksUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
-    rLUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
-    bothURL = 'https://infinite-river-85875.herokuapp.com/getbooks';
+    var genreUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
+    var booksUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
+    var rLUrl = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(genreUrl,  function (response) {
         var allTheGenres = $.map(response, function (k) {
             return k.genre.toUpperCase();
         });
-        //function removeDuplicateUsingSet(arr){
-            //let unique_array = Array.from(new Set(arr))
-            //return unique_array
-            //}
-        console.log(allTheGenres);
         libraryOfGenres.push(allTheGenres);       
-        //removeDuplicateUsingSet(libraryOfGenres);
-        //console.log(unique_array);
-        //let unique_array = [...new Set(libraryOfGenres)];
-        //console.log(unique_array);
         populateRandomGenre(allTheGenres);
     });
     $.getJSON(rLUrl,  function (response) {
         var allTheRL = $.map(response, function (k) {
             return k.readingLevel;
         });
-        
         populateRandomRL(allTheRL);
     });
     $.getJSON(booksUrl,  function (response) {
@@ -34,12 +26,10 @@ function compileRandomArray () {
             return k;
         });
         libraryOfBooks.push(allTheBooks);
-        
      });
-    //console.log(libraryOfBooks);
 }
 
-//need to remove duplicates
+//populates random genre select box
 function populateRandomGenre(entry) {
     var uniqueGenres = [];
     var uniqueGenresParser = $.each(entry, function(i, el){
@@ -47,66 +37,51 @@ function populateRandomGenre(entry) {
             uniqueGenres.push(el);
         }
     });
-
     $('#selectGenre').empty();
     var referenceForGenres = $.each(uniqueGenres, function(i, p) {
         $('#selectGenre').append($('<option></option>').val(p).html(p));
                 return p;
         });
-    console.log(referenceForGenres);
     submitRandomGenre(referenceForGenres);
 }
 
+//listens for click of genre submit
 function submitRandomGenre() {
     $('.randomGenre').click(function (event) {
         event.preventDefault();
         var genreType = $('#selectGenre').find(':selected').text();
-        console.log(genreType);
         returnGenreBooks(libraryOfBooks, genreType);
     });
     
 }
 
+//shuffles arrays randomly
 function shuffle(array) {
-        var currentIndex = array.length, temporaryValue, randomIndex;
-
-          // While there remain elements to shuffle...
-          while (0 !== currentIndex) {
-
-            // Pick a remaining element...
+    var currentIndex = array.length, temporaryValue, randomIndex;
+        while (0 !== currentIndex) {
             randomIndex = Math.floor(Math.random() * currentIndex);
             currentIndex -= 1;
-
-            // And swap it with the current element.
             temporaryValue = array[currentIndex];
             array[currentIndex] = array[randomIndex];
             array[randomIndex] = temporaryValue;
             }
-              return array;
-            };
+        return array;
+}
 
+//filters array and returns all books with genre
 function returnGenreBooks(libraryOfBooks, genreType) {
-    console.log(libraryOfBooks[0]);
-    randomBooksArray = libraryOfBooks[0]
+    let randomBooksArray = libraryOfBooks[0]
     let genreSearchFilter = genreType;
-    //var filtered2 = libraryOfBooks.filter(z => z.genre.toLowerCase().includes(genreType.toLowerCase())); 
-    //var filtered2 = libraryOfBooks.filter(function(genre) {
-        //return genre.val === genreSearchFilter
-        //});
     var filtered2 = randomBooksArray.filter(function (el) {
         return genreSearchFilter.indexOf(el.genre) > -1; 
         });
-    console.log(filtered2);
     shuffle(filtered2);
-    //var randomizedLibraryBooksByGenre = filtered2.slice(0,3);
-
     filtered2.map((item, response) => drawRandomGenreRow(item));
-    
 }
 
+//draws random genre book
 function drawRandomGenreRow(rowData) {
-    let random = 
-    `
+    let random = `
         <ul class="individualBookList">
             <li> <strong>Title:</strong> ${rowData.title}</li>
             <li> <strong>Author:</strong> ${rowData.author}</li>
@@ -115,12 +90,11 @@ function drawRandomGenreRow(rowData) {
             <li> <strong>Description:</strong> ${rowData.description}</li>
         </ul>    
     `;
-    //console.log(row);
     $(".randomArrayCompiler").html(random);
     
 }
 
-//byReadingLevel
+//populates random reading level selector
 function populateRandomRL(entry) {
     var uniqueRL = [];
     var uniqueRLParser = $.each(entry, function(i, el){
@@ -133,35 +107,31 @@ function populateRandomRL(entry) {
         $('#selectRL').append($('<option></option>').val(p).html(p));
                 return p;
         });
-    console.log(referenceForRL);
     submitRandomRL(referenceForRL);
 }
 
+//listens for reading level submit button
 function submitRandomRL() {
     $('.randomReadingLevel').click(function (event) {
         event.preventDefault();
         var rLType = $('#selectRL').find(':selected').text();
-        console.log(rLType);
         returnRLBooks(libraryOfBooks, rLType);
     });
-    
 }
 
+//searches array for reading level selected
 function returnRLBooks(libraryOfBooks, rLType) {
-    console.log(libraryOfBooks[0]);
-    randomBooksArray = libraryOfBooks[0]
+    let randomBooksArray = libraryOfBooks[0]
     let rLSearchFilter = rLType;
     var filtered3 = randomBooksArray.filter(function (el) {
         return rLSearchFilter.indexOf(el.readingLevel) >= 0; 
         });
-    console.log(filtered3);
     shuffle(filtered3);
     var randomizedLibraryBooksByRL = filtered3.slice(0,3);
     randomizedLibraryBooksByRL.map((item, response) => drawRandomRLRow(item));
-    //console.log(response);
 }
 
-//Needs Work
+//draws random reading level book
 function drawRandomRLRow(rowRLData) {
     let row = `
         <ul class="inidividualBookList">
@@ -172,7 +142,6 @@ function drawRandomRLRow(rowRLData) {
             <li> Description:</strong> ${rowRLData.description}</li>
         </ul>    
     `;
-    //console.log(row);
     $(".randomArrayCompiler").html(row);
     
 }
