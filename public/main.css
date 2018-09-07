@@ -585,11 +585,15 @@ nav {
 	height: 40px;
 	border-radius: 0;
 	font-size: 15px;
+
 }
 
 .submitBookSearch {
 	width: 20%;
 	height: 40px;
+	border: none;
+	font-size: 25px;
+	background: none;
 }
 
 .bookBody {
