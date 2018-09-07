@@ -499,7 +499,7 @@ function renderLibraryBookSearchForm () {
 function submitBooksByTitle() {
     $('.submitBookSearch').on('click', function (event) {
         event.preventDefault();
-        var searchTerm = $('#query').val().toUpperCase;
+        var searchTerm = $('#query').val().toUpperCase();
         drawSearchHeaders();
         booksByTitle(searchTerm);
     });
