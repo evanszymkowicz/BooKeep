@@ -1,62 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Book Keep</title>
+	<title>BooKeep</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Roboto:700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Kalam:700" rel="stylesheet"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="main.css" rel="stylesheet" type="text/css" />
 	<script src="index.js"></script>
 	<script src="RandomBooks.js"></script>
 </head>
 <body>
-	<nav>
+	<nav role="navigation">
 		<div class="headerLogos">
-		<img src="https://i.imgur.com/atkByN0.png">
-		<a href=""><p>BooKeep</p></a>
-	</div>
+			<img src="https://i.imgur.com/atkByN0.png" src="book open logo flat">
+			<a href=""><p>BooKeep</p></a>
+		</div>
 	</nav>
-<div>
-  <div class="mainPage">
-  		<div class="main-page">
-  			<div class="joinTogether">
-	  			<div class="mainBodyLogo">
-	  				<img src="https://i.imgur.com/ioGGZrj.png">
-	  				<h1 class="bookKeepTitle">BooKeep</h1>
-	  			</div>
-	  		</div>
-  			<div class="mainPageHeader">
-		      <button class="addABook" type="submit">Add Book</button>
-		      <button class="libraryRandom" type="submit">Generate Random Book</button>
-		      <button class="checkedoutList" type="submit">Books on Loan</button>
-    		</div>
-    	</div>
-    	<div class="alignElements">
-			<div>
-				<div class="searchBody">
-				</div>
-			</div>
-			<div class="displayedLibrary">
-				<div class="floaters">		
-					<h2 class="floatLeft">My Library</h2>
-					
-				</div>
-				<table class="libraryBooksDisplayed">
-				</table>
-				<div class="directionalButtons">
-						<button class="backAllData">Back</button>
-						<button class="nextAllData">Next</button>
+	<main role="main">
+	  <div class="mainPage">
+	  		<div class="main-page">
+	  			<div class="joinTogether">
+		  			<div class="mainBodyLogo">
+		  				<img src="https://i.imgur.com/ioGGZrj.png" alt="book open logo">
+		  				<h1 class="bookKeepTitle">BooKeep</h1>
+		  			</div>
+		  		</div>
+	  			<div class="mainPageHeader">
+			      <button class="addABook" type="submit" tabindex="">Add Book</button>
+			      <button class="libraryRandom" type="submit" tabindex="">Generate Random Book</button>
+			      <button class="checkedoutList" type="submit" tabindex="">Books on Loan</button>
+	    		</div>
+	    	</div>
+	    	<div class="alignElements">
+				<div>
+					<div class="searchBody">
 					</div>
+				</div>
+				<div class="displayedLibrary">
+					<div class="floaters">		
+						<h2 class="floatLeft">My Library</h2>
+						
+					</div>
+					<table class="libraryBooksDisplayed">
+					</table>
+					<div class="directionalButtons">
+							<button class="backAllData" tabindex="">Back</button>
+							<button class="nextAllData" tabindex="">Next</button>
+						</div>
+				</div>
 			</div>
 		</div>
-	</div>
-		<div>
-			<div class="bookBody">
+			<div>
+				<div class="bookBody">
+				</div>
 			</div>
-		</div>
-	</div>
-</div>
+	</main>
 </body>
 </html>
 

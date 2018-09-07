@@ -365,7 +365,7 @@ function handleBookCheckout (id) {
 function renderBookCheckoutPageHandler () {
     var checkoutUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/checkedout';
     $.getJSON(checkoutUrl,  function (response) {
-        checkedBooks = response.map((item, response) => drawCheckoutRow(item));
+        var checkedBooks = response.map((item, response) => drawCheckoutRow(item));
     });
 }
 
