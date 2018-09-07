@@ -499,7 +499,8 @@ function renderLibraryBookSearchForm () {
 function submitBooksByTitle() {
     $('.submitBookSearch').on('click', function (event) {
         event.preventDefault();
-        var searchTerm = $('#query').val();
+        var searchTerm = $('#query').val().toTitleCase();
+        console.log(searchTerm);
         drawSearchHeaders();
         booksByTitle(searchTerm);
     });
@@ -510,7 +511,7 @@ function booksByTitle(searchTerm) {
     let encodedSearchTerm = encodeURIComponent(searchTerm);
     let searchUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/byTitle/' + encodedSearchTerm;  
     $.getJSON(searchUrl, function (response) {
-         let earchedBooksInLibrary = response.map((item, response) => drawSearchRow(item));
+         let searchedBooksInLibrary = response.map((item, response) => drawSearchRow(item));
         });
 }
 
