@@ -485,7 +485,7 @@ function renderLibraryBookRandom () {
 //render library book search form
 function renderLibraryBookSearchForm () {
     const libraryBookSearch = `
-    <div class ="searchLibraryPage>
+    <div class ="searchLibraryPage">
         <form>
             <input id="query" type="text" name="search" class="searchLocation"  placeholder="Search book title" role="search" aria-label="Search" tabindex="">
             <button type="sumbit" class="submitBookSearch" aria-label="Search" tabindex="">&#x1F50D</button>
