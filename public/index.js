@@ -109,13 +109,13 @@ function renderLibraryBookNew () {
         </div>
         <form class="addANewBook">
             Book Title:
-            <input type="text" name="bookTitle" class="addTitle"></br>
+            <input type="text" name="bookTitle" class="addTitle" tabindex=""></br>
             Author:
-            <input type="text" name="bookAuthor" class="addAuthor"></br>
+            <input type="text" name="bookAuthor" class="addAuthor" tabindex=""></br>
             Genre:
-            <input type="text" name="bookGenre" class="addGenre"></br>
+            <input type="text" name="bookGenre" class="addGenre" tabindex=""></br>
             Reading Level:
-            <select name="readingLevel" class="readingLevelNumber"></br>
+            <select name="readingLevel" class="readingLevelNumber" tabindex=""></br>
                 <option value="gradePK">Pre-K</option>
                 <option value="gradeK">Kindergarten</option>
                 <option value="grade1">Grade 1</option>
@@ -126,7 +126,7 @@ function renderLibraryBookNew () {
                 <option value="grade6">Grade 6</option>
             </select></br>
             Description:
-            <textarea type="text" name="bookDescription" class="addDescription"></textArea></br>
+            <textarea type="text" name="bookDescription" class="addDescription" tabindex=""></textArea></br>
             <div class="submitNewBookListener">
                 <button class="submitNewBook" tabindex="">Submit</button>
             </div>
@@ -485,9 +485,11 @@ function renderLibraryBookRandom () {
 //render library book search form
 function renderLibraryBookSearchForm () {
     const libraryBookSearch = `
-    <div class ="searchLibraryPage">
-        <input id="query" type="text" name="search" class="searchLocation"  placeholder="Search book title" role="search" aria-label="Search" tabindex="">
-        <button type="button" class="submitBookSearch" aria-label="Search" tabindex="">&#x1F50D</button>
+    <div class ="searchLibraryPage
+        <form>
+            <input id="query" type="text" name="search" class="searchLocation"  placeholder="Search book title" role="search" aria-label="Search" tabindex="">
+            <button type="sumbit" class="submitBookSearch" aria-label="Search" tabindex="">&#x1F50D</button>
+        </form>
      </div>
      <div class="searchRowTable">
      </div>
