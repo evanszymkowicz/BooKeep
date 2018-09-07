@@ -188,14 +188,6 @@ tr {
 	border-radius: 5px;
 }
 
-.addABook button:hover {
-	background: #ffa500;
-}
-
-.mainPageHeader button:hover {
-	background: #ffa500;
-}
-
 .booksRandomPage {
 	background-color: #ffffff;
 	border: 1px;
