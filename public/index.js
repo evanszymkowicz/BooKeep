@@ -141,7 +141,7 @@ function renderLibraryBookNew () {
 function submitNewBook() {
     $('.submitNewBook').on('click', function(event) {
         event.preventDefault();
-        const newTitle = $('.addTitle').val().toUppercase();
+        const newTitle = $('.addTitle').val().toUpperCase();
         const newAuthor = $('.addAuthor').val();
         const genreSelected = $('.addGenre').val().toUpperCase();
         const readingLevelSelected = $('.readingLevelNumber').val();
