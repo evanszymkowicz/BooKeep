@@ -78,6 +78,7 @@ textarea {
     margin-right: auto;
     padding-right: 25px;
     padding-left: 25px;
+   	border-bottom: 2px #85c1e9;
 }
 
 .libraryBooksCheckedOut {
