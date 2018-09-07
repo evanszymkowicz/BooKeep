@@ -657,3 +657,17 @@ nav {
 	width: 40%;
 	height: auto;
 }
+
+@media (hover: none) {
+	.mainPageHeader button {
+	background: rgba(210, 210, 210);
+	transition: none;
+	border: none;
+	padding: 17px 10px;
+	border-radius: 5px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+}
