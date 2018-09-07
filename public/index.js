@@ -81,7 +81,7 @@ function drawRow(rowData) {
         <td class="bookID">${rowData.id}</td>
         <td class="bookTitle capitalize">${rowData.title}</td>
         <td class="bookAuthor">${rowData.author}</td>
-        <td class="bookGenre hide">${rowData.genre}</td>
+        <td class="bookGenre hide capitalize">${rowData.genre}</td>
         <td class="bookRL hide">${rowData.readingLevel}</td>
     </tr>
     `;
@@ -196,7 +196,7 @@ function renderIndividualBook (book) {
             <li class="bookID">${book.id}</li>
             <li> <strong>Title:</strong> ${book.title}</li>
             <li class="capitalize"> <strong>Author:</strong> ${book.author}</li>
-            <li> <strong>Genre:</strong> ${book.genre}</li>
+            <li class="capitalize"> <strong>Genre:</strong> ${book.genre}</li>
             <li> <strong>Reading Level:</strong> ${book.readingLevel}</li>
             <li> <strong>Description:</strong> ${book.description}</li>
         </ul>
