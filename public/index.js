@@ -8,8 +8,8 @@ var resultsShown = 5;
 function allBooks() { 
     var url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(url,  function (response) {
-        libraryofMainPageBooks = response;
-        libraryIndex = 0;
+        var libraryofMainPageBooks = response;
+        var libraryIndex = 0;
         clearLibraryBooksDisplayed();
         drawBooks();
         backButton();
@@ -242,9 +242,9 @@ function handleDeleteBook (id) {
 
 //makes call to api to return book information for edit
 function renderIndividualBookEditCall(id) {
-    urlBook = 'https://infinite-river-85875.herokuapp.com/getbooks/byID/' + id;
+    var urlBook = 'https://infinite-river-85875.herokuapp.com/getbooks/byID/' + id;
     $.getJSON(urlBook,  function (response) {
-        individualBookInLibraryEdit = response.map((response) => renderIndividualBookEdit(response));
+        var individualBookInLibraryEdit = response.map((response) => renderIndividualBookEdit(response));
         });
 }
 
@@ -267,7 +267,7 @@ function renderIndividualBookEdit (book) {
             <label><strong>Author:</strong></label>
             <input type="text" class = "individualBookAuthor" value= '${book.author}' tabindex=""></br>
             <label><strong>Genre:</strong></label>
-            <input type="text" class = "individualBookGenre"value= '${book.genre}' tabindex=""></br>
+            <input type="text" class = "individualBookGenre capitalize"value= '${book.genre}' tabindex=""></br>
             <label><strong>Reading Level:</strong></label>
             <input type="text" class = "individualBookRL"value= '${book.readingLevel}' tabindex=""></br>
             <label><strong>Description:</strong></label>
@@ -549,7 +549,7 @@ function drawSearchRow(rowData) {
         <td class="bookTitle notCaps">${rowData.title}</td>
         <td class="bookAuthor">${rowData.author}</td>
         <td class="bookRL hide">${rowData.readingLevel}</td>
-        <td class="bookGenre hide">${rowData.genre}</td>
+        <td class="bookGenre hide notCaps">${rowData.genre}</td>
     </tr>
     `;
     //console.log(row);
