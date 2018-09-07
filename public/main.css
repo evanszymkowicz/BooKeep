@@ -173,6 +173,7 @@ tr {
 	border-radius: 5px;
 	-webkit-appearance: none;
 	-moz-appearance: none;
+	appearance: none;
 } 
 
 
