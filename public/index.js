@@ -499,10 +499,11 @@ function renderLibraryBookSearchForm () {
 function submitBooksByTitle() {
     $('.submitBookSearch').on('click', function (event) {
         event.preventDefault();
-        var searchTerm = $('#query').val().toTitleCase();
-        console.log(searchTerm);
+        var searchTerm = $('#query').val();
+        var correctedSearchTerm = searchTerm.toTitleCase();
+        console.log(correctedSearchTerm)
         drawSearchHeaders();
-        booksByTitle(searchTerm);
+        booksByTitle(correctedSearchTerm);
     });
 }
 
