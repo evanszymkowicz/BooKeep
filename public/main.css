@@ -17,6 +17,10 @@ text-align: center;
 	border-radius: 5px;
 }
 
+.capitalize {
+	text-transform:capitalize;
+}
+
 .searchLocation {
 	width: 30%;
 	height: 40px;

@@ -79,7 +79,7 @@ function drawRow(rowData) {
             <button type"submit" class="bookViewButton" tabindex="">View</button>
         </td>
         <td class="bookID">${rowData.id}</td>
-        <td class="bookTitle">${rowData.title}</td>
+        <td class="bookTitle capitalize">${rowData.title}</td>
         <td class="bookAuthor">${rowData.author}</td>
         <td class="bookGenre hide">${rowData.genre}</td>
         <td class="bookRL hide">${rowData.readingLevel}</td>
@@ -195,7 +195,7 @@ function renderIndividualBook (book) {
         <ul class="individualBookList">
             <li class="bookID">${book.id}</li>
             <li> <strong>Title:</strong> ${book.title}</li>
-            <li> <strong>Author:</strong> ${book.author}</li>
+            <li class="capitalize"> <strong>Author:</strong> ${book.author}</li>
             <li> <strong>Genre:</strong> ${book.genre}</li>
             <li> <strong>Reading Level:</strong> ${book.readingLevel}</li>
             <li> <strong>Description:</strong> ${book.description}</li>
@@ -263,7 +263,7 @@ function renderIndividualBookEdit (book) {
         <h4 class="bookID">${book.id}</h4>
         <form class="inidividualBookForm">
             <label> <strong>Title:</strong></label> 
-            <input type="text" class = "individualBookTitle" value= '${book.title}' tabindex=""></br>
+            <input type="text" class = "individualBookTitle capitalize" value= '${book.title}' tabindex=""></br>
             <label><strong>Author:</strong></label>
             <input type="text" class = "individualBookAuthor" value= '${book.author}' tabindex=""></br>
             <label><strong>Genre:</strong></label>
@@ -290,7 +290,7 @@ function submitIndividualBookEditForm (id) {
     var urlBook = 'https://infinite-river-85875.herokuapp.com/update/' + id;
     let form = {
         author: $('.individualBookAuthor').val(),
-        title: $('.individualBookTitle').val(),
+        title: $('.individualBookTitle').val().toUpperCase(),
         readingLevel: $('.individualBookRL').val(),
         description: $('.individualBookDescription').val(),
         genre: $('.individualBookGenre').val()
@@ -400,7 +400,7 @@ function drawCheckoutRow(rowData) {
  let row = 
     `<tr class="bookRow">
         <td class="bookID">${rowData.id}</td>
-        <td class="bookTitle">${rowData.title}</td>
+        <td class="bookTitle capitalize">${rowData.title}</td>
         <td class="studentName hide">${rowData.studentName}</td>
         <td class="bookcheckoutDate hide">${prettyDate}</td>
         <td class="bookView"> 
@@ -499,17 +499,9 @@ function renderLibraryBookSearchForm () {
 function submitBooksByTitle() {
     $('.submitBookSearch').on('click', function (event) {
         event.preventDefault();
-        var searchTerm = $('#query').val();
-        function toTitleCase(searchTerm) {
-        return searchTerm.replace(
-            /\w\S*/g,
-            function(txt) {
-            return correctedSearchTerm = txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-        }
-    )};
-        console.log(correctedSearchTerm)
+        var searchTerm = $('#query').val().toUpperCase;
         drawSearchHeaders();
-        booksByTitle(correctedSearchTerm);
+        booksByTitle(searchTerm);
     });
 }
 
@@ -553,7 +545,7 @@ function drawSearchRow(rowData) {
             <button class="bookViewButton" tabindex="">View</button>
         </td>
         <td class="bookID">${rowData.id}</td>
-        <td class="bookTitle">${rowData.title}</td>
+        <td class="bookTitle capitalize">${rowData.title}</td>
         <td class="bookAuthor">${rowData.author}</td>
         <td class="bookRL hide">${rowData.readingLevel}</td>
         <td class="bookGenre hide">${rowData.genre}</td>
