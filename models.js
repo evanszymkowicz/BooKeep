@@ -21,7 +21,7 @@ bookLibrarySchema.methods.serialize = function() {
     id: this._id,
     author: this.author,
     readingLevel: this.readingLevel,
-    title: this.title,
+    title: this.title.toUpperCase(),
     created: this.created,
     description: this.description,
     genre: this.genre.toUpperCase(),
