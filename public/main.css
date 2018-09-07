@@ -553,7 +553,6 @@ nav {
 
 .bookKeepTitle {
 	padding-top: 0;
-	padding-left: 0px;
 	margin-left: 0;
 	font-size: 60px;
 }
@@ -570,9 +569,15 @@ nav {
 }
 
 .searchLocation {
-	width: 60%;
+	width: 80%;
 	height: 40px;
 	border-radius: 0;
+	font-size: 15px;
+}
+
+.submitBookSearch {
+	width: 20%;
+	height: 40px;
 }
 
 .bookBody {
