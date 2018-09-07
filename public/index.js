@@ -500,11 +500,11 @@ function submitBooksByTitle() {
     $('.submitBookSearch').on('click', function (event) {
         event.preventDefault();
         var searchTerm = $('#query').val();
-        function toTitleCase(searchTerm) {
+        correctedSearchTerm = function toTitleCase(searchTerm) {
         return searchTerm.replace(
             /\w\S*/g,
             function(txt) {
-            return correctedSearchTerm = txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
         }
     )};
         console.log(correctedSearchTerm)
