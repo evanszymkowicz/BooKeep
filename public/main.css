@@ -169,7 +169,6 @@ tr {
 .mainPageHeader button {
 	background: rgba(210, 210, 210);
 	transition: color 0.25s linear;
-	border: none;
 	padding: 17px 10px;
 	border-radius: 5px;
 	-webkit-appearance: none;
