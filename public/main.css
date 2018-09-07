@@ -17,6 +17,10 @@ text-align: center;
 	border-radius: 5px;
 }
 
+.notCaps {
+	text-transform:capitalize;
+}
+
 .capitalize {
 	text-transform:capitalize;
 }

@@ -546,7 +546,7 @@ function drawSearchRow(rowData) {
             <button class="bookViewButton" tabindex="">View</button>
         </td>
         <td class="bookID">${rowData.id}</td>
-        <td class="bookTitle capitalize">${rowData.title}</td>
+        <td class="bookTitle notCaps">${rowData.title}</td>
         <td class="bookAuthor">${rowData.author}</td>
         <td class="bookRL hide">${rowData.readingLevel}</td>
         <td class="bookGenre hide">${rowData.genre}</td>
