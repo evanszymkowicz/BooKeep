@@ -22,7 +22,7 @@ function seedLibraryBooksData() {
     seedData.push({
       author: faker.name.lastName(),
       readingLevel: faker.random.number(), 
-      title: faker.lorem.sentence(),
+      title: faker.lorem.sentence().toUpperCase(),
       checkoutDate: faker.date.past(),
       genre: faker.name.lastName().toUpperCase(), 
       description: faker.lorem.paragraph()
@@ -117,7 +117,7 @@ describe('library books API resource', function () {
       const newBook = {
       author:  faker.name.lastName(),
       readingLevel: faker.random.number(), //make not random
-      title: faker.lorem.sentence(),
+      title: faker.lorem.sentence().toUpperCase(),
       genre: faker.name.lastName().toUpperCase(), //make not random
       description: faker.lorem.paragraph()
     };
@@ -132,7 +132,7 @@ describe('library books API resource', function () {
           res.body.should.be.a('object');
           res.body.should.include.keys(
             'id', 'author', 'readingLevel', 'title', 'description', 'genre');
-          res.body.title.should.equal(newBook.title);
+          res.body.title.should.equal(newBook.title.toUpperCase());
           res.body.id.should.not.be.null;
           res.body.author.should.equal(newBook.author);
           res.body.readingLevel.should.equal(newBook.readingLevel.toString());
@@ -141,7 +141,7 @@ describe('library books API resource', function () {
           return LibraryBooks.findById(res.body.id);
         })
         .then(function (book) {
-          book.title.should.equal(newBook.title);
+          book.title.should.equal(newBook.title.toUpperCase());
           book.readingLevel.should.equal(newBook.readingLevel.toString());
           book.author.should.equal(newBook.author); 
           book.description.should.equal(newBook.description);

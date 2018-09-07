@@ -500,6 +500,7 @@ function submitBooksByTitle() {
     $('.submitBookSearch').on('click', function (event) {
         event.preventDefault();
         var searchTerm = $('#query').val().toUpperCase();
+        console.log(searchTerm);
         drawSearchHeaders();
         booksByTitle(searchTerm);
     });
