@@ -487,7 +487,7 @@ function renderLibraryBookSearchForm () {
     const libraryBookSearch = `
     <div class ="searchLibraryPage">
         <input id="query" type="text" name="search" class="searchLocation"  placeholder="Search book title" role="search" aria-label="Search" tabindex="">
-        <button type="button" class="submitBookSearch" aria-label="Search" tabindex="">&#xe8b6;</button>
+        <button type="button" class="submitBookSearch" aria-label="Search" tabindex="">&#x1F50D</button>
      </div>
      <div class="searchRowTable">
      </div>

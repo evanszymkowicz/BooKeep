@@ -18,7 +18,7 @@ text-align: center;
 }
 
 .searchLocation {
-	width: 40%;
+	width: 30%;
 	height: 40px;
 	border-radius: 0;
 	font-size: 15px;
@@ -585,16 +585,11 @@ nav {
 	height: 40px;
 	border-radius: 0;
 	font-size: 15px;
-	color: #ffffff;
-
 }
 
 .submitBookSearch {
 	width: 20%;
 	height: 40px;
-	border: none;
-	font-size: 25px;
-	background: none;
 }
 
 .bookBody {
