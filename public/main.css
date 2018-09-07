@@ -172,6 +172,7 @@ tr {
 	padding: 17px 10px;
 	border-radius: 5px;
 	-webkit-appearance: none;
+	-moz-appearance: none;
 } 
 
 
