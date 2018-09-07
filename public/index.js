@@ -174,7 +174,7 @@ function renderIndividualBookListener () {
         var searchId = bookIdTarget;
         var individualUrl = 'https://infinite-river-85875.herokuapp.com/getbooks/byID/' + searchId;
         $.getJSON(individualUrl,  function (response) {
-            individualBookInLibrary = response.map((response) => renderIndividualBook(response));
+            var individualBookInLibrary = response.map((response) => renderIndividualBook(response));
             console.log(individualBookInLibrary);
             console.log(response);
             });
