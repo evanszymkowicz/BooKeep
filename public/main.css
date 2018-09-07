@@ -191,7 +191,9 @@ tr {
 	background: #ffa500;
 }
 
-
+.mainPageHeader button:hover {
+	background: #ffa500;
+}
 
 .booksRandomPage {
 	background-color: #ffffff;
