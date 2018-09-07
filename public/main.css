@@ -166,6 +166,17 @@ tr {
 	margin-bottom: 66px;
 }
 
+.mainPageHeader button {
+	background: rgba(210, 210, 210);
+	transition: color 0.25s linear;
+	border: none;
+	padding: 17px 10px;
+	border-radius: 5px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
 .addABook button {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -178,6 +189,10 @@ tr {
 }
 
 .addABook button:hover {
+	background: #ffa500;
+}
+
+.mainPageHeader button:hover {
 	background: #ffa500;
 }
 
@@ -643,33 +658,3 @@ nav {
 	height: auto;
 }
 
-@media (hover: hover) {
-	.mainPageHeader button {
-	background: rgba(210, 210, 210);
-	transition: color 0.25s linear;
-	border: none;
-	padding: 17px 10px;
-	border-radius: 5px;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-}
-
-.mainPageHeader button:hover {
-	background: #ffa500;
-}
-}
-
-@media (hover: none) {
-	.mainPageHeader button {
-	background: rgba(210, 210, 210);
-	transition: none;
-	border: none;
-	padding: 17px 10px;
-	border-radius: 5px;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
-}
-
-}
