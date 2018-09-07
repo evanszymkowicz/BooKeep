@@ -96,6 +96,9 @@ td, th {
     padding: 8px;
 }
 
+.bookRow {
+	border-bottom: 2px #85c1e9;
+}
 
 tr {
     background-color: #ffffff;
