@@ -8,8 +8,8 @@ var resultsShown = 5;
 function allBooks() { 
     var url = 'https://infinite-river-85875.herokuapp.com/getbooks';
     $.getJSON(url,  function (response) {
-        var libraryofMainPageBooks = response;
-        var libraryIndex = 0;
+        let libraryofMainPageBooks = response;
+        let libraryIndex = 0;
         clearLibraryBooksDisplayed();
         drawBooks();
         backButton();
