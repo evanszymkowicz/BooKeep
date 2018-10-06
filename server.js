@@ -1,18 +1,3 @@
-//for checkout do i need to create a new schema for them to be added to it?
-//essentially im pulling from a database and entering it into my api
-//with jwt do i need to update my "/" paths
-//i guess i dont understand what to do now. like do i write the js ans call this as if it were an api?
-//do i want to call based on all checked in books
-//how do i allow for a range within api returns? For instance a book has a range of reading levels
-//what is system for adding and deleting and updating? like how do i have it ensure that?
-
-
-//things id like to get done during mentor session:
-//learn how to make an api call to this
-//get my code up and running/make an api call
-//make a list of all the things i need to test
-//discuss how best to set up the html
-
 'use strict';
 
 const express = require('express');
