@@ -102,7 +102,7 @@ function renderLibraryBookNew () {
     const libraryBooksNew = `
     <div class="addNewBookForm">
         <div class="exitNewBookForm">
-            <a href=""><button class="exitNewBookFormButton" tabindex="">&#10006;</button></a>
+            <a href=""><button class="exitNewBookFormButton" tabindex="">Search</button></a>
         </div>
         <div class="addANewBookImage">
             <img src="https://i.imgur.com/oiibN6F.png" src="book open logo flat">
