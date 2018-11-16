@@ -140,9 +140,9 @@ tr {
 .mainBodyLogo img {
 	margin-top: 10px;
 	width: 33%;
-	height: auto;
+	height: 200px;
 	max-width: 33%;
-	max-height: 33%;
+	max-height: 200px;
 }
 
 .libraryBooksSearch {
