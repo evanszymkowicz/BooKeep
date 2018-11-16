@@ -102,7 +102,7 @@ function renderLibraryBookNew () {
     const libraryBooksNew = `
     <div class="addNewBookForm">
         <div class="exitNewBookForm">
-            <a href=""><button class="exitNewBookFormButton" tabindex="">Search</button></a>
+            <a href=""><button class="exitNewBookFormButton" tabindex="">&#10006;</button></a>
         </div>
         <div class="addANewBookImage">
             <img src="https://i.imgur.com/oiibN6F.png" src="book open logo flat">
@@ -488,7 +488,7 @@ function renderLibraryBookSearchForm () {
     <div class ="searchLibraryPage">
         <form>
             <input id="query" type="text" name="search" class="searchLocation"  placeholder="Search full book title" role="search" aria-label="Search" tabindex="">
-            <button type="sumbit" class="submitBookSearch" aria-label="Search" tabindex="">&#x1F50D</button>
+            <button type="sumbit" class="submitBookSearch" aria-label="Search" tabindex="">Search/button>
         </form>
      </div>
      <div class="searchRowTable">
